@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comment version="3.0">
+  <caption>Aerial view over the road</caption>
+  <note>Aerial view over the road and highway</note>
+  <place/>
+  <categories>
+    <category value="road"/>
+    <category value="outdoor"/>
+    <category value="way"/>
+    <category value="tower"/>
+    <category value="street"/>
+    <category value="aerial"/>
+    <category value="daylight"/>
+    <category value="earth"/>
+    <category value="view"/>
+    <category value="intersection"/>
+    <category value="traffic"/>
+    <category value="sunny"/>
+    <category value="curve"/>
+    <category value="grass"/>
+    <category value="highway"/>
+    <category value="top"/>
+    <category value="sun"/>
+    <category value="countryside"/>
+    <category value="transport"/>
+    <category value="over"/>
+    <category value="high"/>
+    <category value="city"/>
+    <category value="above"/>
+    <category value="rural"/>
+    <category value="transportation"/>
+    <category value="picture"/>
+    <category value="car"/>
+    <category value="background"/>
+    <category value="ground"/>
+    <category value="crossroad"/>
+  </categories>
+</comment>
