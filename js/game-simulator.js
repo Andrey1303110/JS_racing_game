@@ -14,11 +14,11 @@ class Road {
 	}
 
 	Update(road) {
-		this.y += speed; //The image will move down with every frame
+		this.y += speed; //изображание идёт вниз при каждом новом кадре
 
-		if (this.y > window.innerHeight) //if the image left the screen, it will change it's position
+		if (this.y > window.innerHeight) //Y не может уйти влево за экран
 		{
-			this.y = road.y - canvas.height + speed; //New position depends on the second Road object
+			this.y = road.y - canvas.height + speed; //новая позиция прописывается на дороге которая ещё вверху экрана
 		}
 	}
 }
@@ -65,13 +65,13 @@ class Car {
 	}
 
 	Move(v, d) {
-		if (v == "x") //Moving on x
+		if (v == "x") //движение по Х - горизонталь
 		{
 			d *= 2.75;
 
-			this.x += d; //Changing position
+			this.x += d; //смена позиции
 
-			//Rolling back the changes if the car left the screen
+			//не позволяет машине уехать за кран канваса
 			if (this.x + this.image.width * scale > canvas.width * .99) {
 				this.x -= d;
 			}
@@ -84,7 +84,7 @@ class Car {
 				this.x = 0;
 			}
 		}
-		else //Moving on y
+		else //движение по у - вертикаль
 		{
 			this.y += d;
 
@@ -105,29 +105,29 @@ const UPDATE_TIME = 1000 / 55;
 
 var timer = null;
 
-var canvas = document.getElementById("canvas"); //Getting the canvas from DOM
-var ctx = canvas.getContext("2d"); //Getting the context to work with the canvas
+var canvas = document.getElementById("canvas"); //получем Canvas из DOM
+var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 
-var scale = 0.24; //Cars scale
+var scale = 0.24; //масштаб машин
 
-Resize(); //Changing the canvas size on startup
+Resize(); //Изменяет размер Canvas при загрузке страницы
 
-window.addEventListener("resize", Resize); //Change the canvas size with the window size
+window.addEventListener("resize", Resize); //Подтягивает размер содержимого Canvas до размеров окна
 
-//Forbidding openning the context menu to make the game play better on mobile devices
+//Заготовка для моб. устройств
 canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); return false; });
 
-window.addEventListener("keydown", function (e) { KeyDown(e); }); //Listenning for keyboard events
+window.addEventListener("keydown", function (e) { KeyDown(e); }); //Слушатель нажатий на клавиатуру
 
-var objects = []; //Game objects
+var objects = []; //Массив игровых объектов
 
 var roads =
 	[
 		new Road("images/road4.jpg", 0),
 		new Road("images/road4.jpg", canvas.height)
-	]; //Backgrounds
+	]; //Background в виде дороги
 
-var player = new Car("images/car1.png", canvas.width / 2 - 37, canvas.height * .76, true); //Player's object
+var player = new Car("images/car1.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
 
 
 var speed = 8;
@@ -137,13 +137,13 @@ Start();
 
 function Start() {
 	if (!player.dead) {
-		timer = setInterval(Update, UPDATE_TIME); //Updating the game 60 times a second
+		timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
 	}
 
 }
 
 function Stop() {
-	clearInterval(timer); //Game stop
+	clearInterval(timer); //Остановка игры
 	timer = null;
 }
 
@@ -151,27 +151,27 @@ function Update() {
 	roads[0].Update(roads[1]);
 	roads[1].Update(roads[0]);
 
-	if (RandomInteger(0, 1000) > 995) //Generating new car
+	if (RandomInteger(0, 1000) > 995) //создание машины
 	{
 		objects.push(new Car("images/car2.png", 12, RandomInteger(40, 730) * -1, false));
 	}
 
-	if (RandomInteger(1000, 2000) > 1995) //Generating new car
+	if (RandomInteger(1000, 2000) > 1995) //создание машины
 	{
 		objects.push(new Car("images/car2.png", 98, RandomInteger(40, 730) * -1, false));
 	}
 
-	if (RandomInteger(2000, 3000) > 2995) //Generating new car
+	if (RandomInteger(2000, 3000) > 2995) //создание машины
 	{
 		objects.push(new Car("images/car2.png", 182, RandomInteger(40, 730) * -1, false));
 	}
 
-	if (RandomInteger(3000, 4000) > 3995) //Generating new car
+	if (RandomInteger(3000, 4000) > 3995) //создание машины
 	{
 		objects.push(new Car("images/car2.png", 266, RandomInteger(40, 730) * -1, false));
 	}
 
-	if (RandomInteger(4000, 5000) > 4995) //Generating new car
+	if (RandomInteger(4000, 5000) > 4995) //создание машины
 	{
 		objects.push(new Car("images/car2.png", 353, RandomInteger(40, 730) * -1, false));
 	}
@@ -218,22 +218,22 @@ function Update() {
 	Draw();
 }
 
-function Draw() //Working with graphics
+function Draw() //Функция для прорисовки
 {
-	ctx.clearRect(0, 0, canvas.width, canvas.height); //Clearing the canvas
+	ctx.clearRect(0, 0, canvas.width, canvas.height); //Очистка окна canvas
 
 	for (var i = 0; i < roads.length; i++) {
 		ctx.drawImage
 			(
-				roads[i].image, //Image
-				0, //First X on image
-				0, //First Y on image
-				roads[i].image.width, //End X on image
-				roads[i].image.height, //End Y on image
-				roads[i].x, //X on canvas
-				roads[i].y, //Y on canvas
-				canvas.width, //Width on canvas
-				canvas.height //Height on canvas
+				roads[i].image, //картинка дороги
+				0, //Первая координата X на дороге
+				0, //Первая координата Y на дороге
+				roads[i].image.width, //Последняя координата Х на дороге
+				roads[i].image.height, //Последняя координата Y на дороге
+				roads[i].x, //координата X на canvas (картинка дороги)
+				roads[i].y, //координата Y на canvas (картинка дороги)
+				canvas.width, //Ширина окна canvas
+				canvas.height //Высота окна canvas
 			);
 	}
 
