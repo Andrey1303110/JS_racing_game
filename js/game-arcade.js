@@ -223,8 +223,8 @@ function Draw() //Функция для прорисовки
     for (var i = 0; i < roads.length; i++) {
         ctx.drawImage
             (
-                roads[i].image, //Image
-                0, //First X on image
+                roads[i].image, //картинка дороги
+                0, //Первая координата X на дороге
                 0, //Первая координата Y на дороге
                 roads[i].image.width, //Последняя координата Х на дороге
                 roads[i].image.height, //Последняя координата Y на дороге
