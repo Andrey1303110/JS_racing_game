@@ -1,5 +1,4 @@
 * {
-    overflow: hidden;
     text-decoration: none;
 }
 
@@ -17,7 +16,7 @@
 }
 
 img {
-    filter: brightness(.85);
+    filter: brightness(.8);
     transition: all .3s ease-in-out;
     cursor: pointer;
     width: 250px;
@@ -26,13 +25,13 @@ img {
 
 
 img:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.25);
     transform: scale(1.1);
 }
 
 img:hover~p {
     display: block;
-    color: red;
+    color: rgb(204, 0, 0);
 }
 
 #arc, #sim {
