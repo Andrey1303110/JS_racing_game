@@ -156,22 +156,22 @@ function Update() {
         objects.push(new Car("images/car2.png", 12, RandomInteger(100, 630) * -1, false));
     }
 
-    if (RandomInteger(1000, 2000) > 1995) //создание машины
+    if (RandomInteger(1000, 2000) >= 1995) //создание машины
     {
         objects.push(new Car("images/car2.png", 98, RandomInteger(100, 630) * -1, false));
     }
 
-    if (RandomInteger(2000, 3000) > 2995) //создание машины
+    if (RandomInteger(2000, 3000) >= 2995) //создание машины
     {
         objects.push(new Car("images/car2.png", 182, RandomInteger(100, 630) * -1, false));
     }
 
-    if (RandomInteger(3000, 4000) > 3995) //создание машины
+    if (RandomInteger(3000, 4000) >= 3995) //создание машины
     {
         objects.push(new Car("images/car2.png", 266, RandomInteger(100, 630) * -1, false));
     }
 
-    if (RandomInteger(4000, 5000) > 4995) //создание машины
+    if (RandomInteger(4000, 5000) >= 4995) //создание машины
     {
         objects.push(new Car("images/car2.png", 353, RandomInteger(100, 630) * -1, false));
     }

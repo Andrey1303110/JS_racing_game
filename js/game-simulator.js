@@ -151,29 +151,29 @@ function Update() {
 	roads[0].Update(roads[1]);
 	roads[1].Update(roads[0]);
 
-	if (RandomInteger(0, 1000) > 995) //создание машины
+	if (RandomInteger(0, 10000) > 96065)//создание машины
 	{
-		objects.push(new Car("images/car2.png", 12, RandomInteger(40, 730) * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 650 * -1, false));
 	}
 
-	if (RandomInteger(1000, 2000) > 1995) //создание машины
+	if (RandomInteger(0, 10000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", 98, RandomInteger(40, 730) * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 475 * -1, false));
 	}
 
-	if (RandomInteger(2000, 3000) > 2995) //создание машины
+	if (RandomInteger(0, 100000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", 182, RandomInteger(40, 730) * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 350 * -1, false));
 	}
 
-	if (RandomInteger(3000, 4000) > 3995) //создание машины
+	if (RandomInteger(0, 10000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", 266, RandomInteger(40, 730) * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 200 * -1, false));
 	}
 
-	if (RandomInteger(4000, 5000) > 4995) //создание машины
+	if (RandomInteger(0, 10000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", 353, RandomInteger(40, 730) * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 150 * -1, false));
 	}
 
 	player.Update();
