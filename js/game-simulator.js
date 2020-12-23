@@ -101,7 +101,7 @@ class Car {
 }
 
 
-const UPDATE_TIME = 1000 / 55;
+const UPDATE_TIME = 1000 / 50;
 
 var timer = null;
 
@@ -153,27 +153,27 @@ function Update() {
 
 	if (RandomInteger(0, 10000) > 96065)//создание машины
 	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 650 * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 650) * -1, false));
 	}
 
 	if (RandomInteger(0, 10000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 475 * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
 	}
 
 	if (RandomInteger(0, 100000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 350 * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
 	}
 
 	if (RandomInteger(0, 10000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 200 * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
 	}
 
 	if (RandomInteger(0, 10000) > 96065) //создание машины
 	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), 150 * -1, false));
+		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
 	}
 
 	player.Update();
