@@ -151,29 +151,9 @@ function Update() {
 	roads[0].Update(roads[1]);
 	roads[1].Update(roads[0]);
 
-	if (RandomInteger(0, 10000) > 96065)//создание машины
+	if (RandomInteger(0, 10000) > 9890)//создание машины
 	{
 		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 650) * -1, false));
-	}
-
-	if (RandomInteger(0, 10000) > 96065) //создание машины
-	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
-	}
-
-	if (RandomInteger(0, 100000) > 96065) //создание машины
-	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
-	}
-
-	if (RandomInteger(0, 10000) > 96065) //создание машины
-	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
-	}
-
-	if (RandomInteger(0, 10000) > 96065) //создание машины
-	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 600) * -1, false));
 	}
 
 	player.Update();
