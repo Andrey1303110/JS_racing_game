@@ -67,7 +67,7 @@ class Car {
 	Move(v, d) {
 		if (v == "x") //движение по Х - горизонталь
 		{
-			d *= 2.75;
+			d *= 2.45;
 
 			this.x += d; //смена позиции
 
@@ -101,14 +101,14 @@ class Car {
 }
 
 
-const UPDATE_TIME = 1000 / 50;
+const UPDATE_TIME = 1000 / 60;
 
 var timer = null;
 
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 
-var scale = 0.24; //масштаб машин
+var scale = .24; //масштаб машин
 
 Resize(); //Изменяет размер Canvas при загрузке страницы
 
@@ -123,11 +123,11 @@ var objects = []; //Массив игровых объектов
 
 var roads =
 	[
-		new Road("images/road4.jpg", 0),
-		new Road("images/road4.jpg", canvas.height)
+		new Road("images/road4.jpg", -50),
+		new Road("images/road4.jpg", canvas.height + 50)
 	]; //Background в виде дороги
 
-var player = new Car("images/car1.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
+var player = new Car("images/car_player.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
 
 
 var speed = 8;
@@ -151,9 +151,21 @@ function Update() {
 	roads[0].Update(roads[1]);
 	roads[1].Update(roads[0]);
 
-	if (RandomInteger(0, 10000) > 9890)//создание машины
+	let cars = [
+		"images/car1.png",
+		"images/car2.png",
+		"images/car3.png",
+		"images/car4.png",
+		"images/car5.png",
+		"images/car6.png",
+		"images/car7.png",
+	];
+
+	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
+
+	if (RandomInteger(0, 10000) > 9800)//создание машины
 	{
-		objects.push(new Car("images/car2.png", RandomInteger(10, 356), RandomInteger(100, 650) * -1, false));
+		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), RandomInteger(100, canvas.height) * -1, false));
 	}
 
 	player.Update();
@@ -189,7 +201,7 @@ function Update() {
 			player.dead = true;
 			/*let question = prompt('Желаете начать заново?');
 			if question != 'No' || 'no' || 'Нет' || 'нет' {
-
+	
 			}*/
 
 		}

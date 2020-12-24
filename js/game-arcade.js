@@ -151,6 +151,18 @@ function Update() {
     roads[0].Update(roads[1]);
     roads[1].Update(roads[0]);
 
+    let cars = [
+        "images/car1.png",
+        "images/car2.png",
+        "images/car3.png",
+        "images/car4.png",
+        "images/car5.png",
+        "images/car6.png",
+        "images/car7.png",
+    ];
+
+    let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
+
     if (RandomInteger(0, 1000) >= 995) //создание машины
     {
         objects.push(new Car("images/car2.png", 12, RandomInteger(100, 630) * -1, false));
