@@ -123,8 +123,8 @@ var objects = []; //Массив игровых объектов
 
 var roads =
 	[
-		new Road("images/road4.jpg", -50),
-		new Road("images/road4.jpg", canvas.height + 50)
+		new Road("images/road7.jpg", 0),
+		new Road("images/road7.jpg", canvas.height)
 	]; //Background в виде дороги
 
 var player = new Car("images/car_player.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
