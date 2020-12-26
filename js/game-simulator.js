@@ -314,3 +314,13 @@ function RandomInteger(min, max) {
 	return Math.round(rand);
 }
 
+function init() {
+	sec = 0;
+	setInterval(tick, 33);
+}
+
+function tick() {
+	sec++;
+	document.getElementById("timer").
+		childNodes[0].nodeValue = sec;
+}

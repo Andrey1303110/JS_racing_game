@@ -342,5 +342,3 @@ function tick() {
     document.getElementById("timer").
         childNodes[0].nodeValue = sec;
 }
-
-
