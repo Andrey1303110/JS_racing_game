@@ -161,11 +161,17 @@ function Update() {
 		"images/car7.png",
 	];
 
+	let carsHeight = [
+		80, 200, 340, 480, 620
+	]
+
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
+
+	let randomCarsHeight = carsHeight[Math.floor(Math.random() * carsHeight.length)];
 
 	if (RandomInteger(0, 10000) > 9800)//создание машины
 	{
-		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), RandomInteger(100, canvas.height) * -1, false));
+		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), randomCarsHeight * -1, false));
 	}
 
 	player.Update();
