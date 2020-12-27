@@ -55,7 +55,7 @@ class Car {
 
 		if (this.y < car.y + (car.image.height * .8) * scale && this.y + (this.image.height * .8) * scale > car.y) //If there is collision by y
 		{
-			if (this.x + (this.image.width * .85) * scale > car.x && this.x < car.x + (car.image.width * .85) * scale) //If there is collision by x
+			if (this.x + (this.image.width * .81) * scale > car.x && this.x < car.x + (car.image.width * .81) * scale) //If there is collision by x
 			{
 				hit = true;
 			}
@@ -127,7 +127,7 @@ var roads =
 		new Road("images/road7.jpg", canvas.height)
 	]; //Background в виде дороги
 
-var player = new Car("images/car_player.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
+var player = new Car("images/car_player_leon.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
 
 
 var speed = 8;
@@ -161,17 +161,10 @@ function Update() {
 		"images/car7.png",
 	];
 
-	let carsHeight = [
-		80, 200, 340, 480, 620
-	]
-
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
-	let randomCarsHeight = carsHeight[Math.floor(Math.random() * carsHeight.length)];
-
-	if (RandomInteger(0, 10000) > 9800)//создание машины
-	{
-		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), randomCarsHeight * -1, false));
+	if ((RandomInteger(0, 100) == 25) || (RandomInteger(0, 100) == 27)) {
+		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), (140, canvas.height - 70) * -1, false));
 	}
 
 	player.Update();

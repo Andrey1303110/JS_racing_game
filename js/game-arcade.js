@@ -55,7 +55,7 @@ class Car {
 
         if (this.y < car.y + (car.image.height * .75) * scale && this.y + (this.image.height * .8) * scale > car.y) //If there is collision by y
         {
-            if (this.x + (this.image.width * .85) * scale > car.x && this.x < car.x + (car.image.width * .85) * scale) //If there is collision by x
+            if (this.x + (this.image.width) * scale > car.x && this.x < car.x + (car.image.width) * scale) //If there is collision by x
             {
                 hit = true;
             }
@@ -127,7 +127,7 @@ var roads =
         new Road("images/road7.jpg", canvas.height)
     ]; //Background в виде дороги
 
-var player = new Car("images/car_player.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
+let player = new Car("images/car_player_leon.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
 
 
 var speed = 10;
@@ -163,29 +163,29 @@ function Update() {
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
-    if (RandomInteger(0, 1000) >= 995) //создание машины
+    if (RandomInteger(0, 160) == 0) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 12, RandomInteger(100, canvas.height) * -1, false));
+        objects.push(new Car(randomCarsSrc, 12, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(1000, 2000) >= 1995) //создание машины
+    if (RandomInteger(0, 160) == 40) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 98, RandomInteger(100, canvas.height) * -1, false));
+        objects.push(new Car(randomCarsSrc, 98, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(2000, 3000) >= 2995) //создание машины
+    if (RandomInteger(0, 160) == 80) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 182, RandomInteger(100, canvas.height) * -1, false));
+        objects.push(new Car(randomCarsSrc, 182, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(3000, 4000) >= 3995) //создание машины
+    if (RandomInteger(0, 160) == 120) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 266, RandomInteger(100, canvas.height) * -1, false));
+        objects.push(new Car(randomCarsSrc, 266, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(4000, 5000) >= 4995) //создание машины
+    if (RandomInteger(0, 160) == 160) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 353, RandomInteger(100, canvas.height) * -1, false));
+        objects.push(new Car(randomCarsSrc, 353, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
     player.Update();
