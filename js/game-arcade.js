@@ -163,27 +163,27 @@ function Update() {
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
-    if (RandomInteger(0, 160) == 0) //создание машины
+    if (RandomInteger(150, 300) == 199) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 12, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(0, 160) == 40) //создание машины
+    if (RandomInteger(350, 500) == 399) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 98, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(0, 160) == 80) //создание машины
+    if (RandomInteger(550, 700) == 599) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 182, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(0, 160) == 120) //создание машины
+    if (RandomInteger(750, 900) == 799) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 266, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
-    if (RandomInteger(0, 160) == 160) //создание машины
+    if (RandomInteger(950, 1100) == 999) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 353, RandomInteger(100, canvas.height - 70) * -1, false));
     }

@@ -163,7 +163,7 @@ function Update() {
 
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
-	if ((RandomInteger(0, 100) == 25) || (RandomInteger(0, 100) == 27)) {
+	if ((RandomInteger(0, 100) == 1) || (RandomInteger(0, 90) == 89)) {
 		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), (140, canvas.height - 70) * -1, false));
 	}
 
