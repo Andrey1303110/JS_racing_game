@@ -253,18 +253,23 @@ function DrawCar(car) {
 function KeyDown(e) {
 	switch (e.keyCode) {
 		case 37: //Left
+		case 37: //Left
+			document.getElementById('sound_wheel').play();
 			player.Move("x", -speed);
 			break;
 
 		case 65: //Left
+			document.getElementById('sound_wheel').play();
 			player.Move("x", -speed);
 			break;
 
 		case 39: //Right
+			document.getElementById('sound_wheel').play();
 			player.Move("x", speed);
 			break;
 
 		case 68: //Right
+			document.getElementById('sound_wheel').play();
 			player.Move("x", speed);
 			break;
 
@@ -277,18 +282,20 @@ function KeyDown(e) {
 			break;
 
 		case 40: //Down
-			player.Move("y", speed * 2);
+			player.Move("y", speed);
 			break;
 
 		case 83: //Down
-			player.Move("y", speed * 2);
+			player.Move("y", speed);
 			break;
 
 		case 81: //Left-Up
+			document.getElementById('sound_wheel').play();
 			player.Move("x", -speed), player.Move("y", -speed);
 			break;
 
 		case 69: //Right-Up
+			document.getElementById('sound_wheel').play();
 			player.Move("x", speed), player.Move("y", -speed);
 			break;
 
