@@ -80,8 +80,8 @@ class Car {
                 this.x -= d;
             }
 
-            if (this.x < 0) {
-                this.x = 0;
+            if (this.x <= 13) {
+                this.x = 13;
             }
         }
         else //движение по у - вертикаль
@@ -273,22 +273,34 @@ function KeyDown(e) {
     switch (e.keyCode) {
         case 37: //Left
             document.getElementById('sound_wheel_left').play();
-            player.Move("x", -speed);
+            let timerId37 = setInterval(() => {
+                player.Move("x", -speed * .1)
+            }, 25);
+            setTimeout(() => { clearInterval(timerId37); }, 250);
             break;
 
         case 65: //Left
             document.getElementById('sound_wheel_left').play();
-            player.Move("x", -speed);
+            let timerId65 = setInterval(() => {
+                player.Move("x", -speed * .1)
+            }, 25);
+            setTimeout(() => { clearInterval(timerId65); }, 250);
             break;
 
         case 39: //Right
             document.getElementById('sound_wheel_right').play();
-            player.Move("x", speed);
+            let timerId39 = setInterval(() => {
+                player.Move("x", speed * .1)
+            }, 25);
+            setTimeout(() => { clearInterval(timerId39); }, 250);
             break;
 
         case 68: //Right
             document.getElementById('sound_wheel_right').play();
-            player.Move("x", speed);
+            let timerId68 = setInterval(() => {
+                player.Move("x", speed * .1)
+            }, 25);
+            setTimeout(() => { clearInterval(timerId68); }, 250);
             break;
 
         case 38: //Up
@@ -308,13 +320,19 @@ function KeyDown(e) {
             break;
 
         case 81: //Left-Up
-            document.getElementById('sound_wheel_left').play();
-            player.Move("x", -speed), player.Move("y", -speed);
+            document.getElementById('sound_wheel_left_up').play();
+            let timerId81 = setInterval(() => {
+                player.Move("x", -speed * .05), player.Move("y", -speed * .5)
+            }, 25);
+            setTimeout(() => { clearInterval(timerId81); }, 500);
             break;
 
         case 69: //Right-Up
-            document.getElementById('sound_wheel_right').play();
-            player.Move("x", speed), player.Move("y", -speed);
+            document.getElementById('sound_wheel_right_up').play();
+            let timerId69 = setInterval(() => {
+                player.Move("x", speed * .05), player.Move("y", -speed * .5)
+            }, 25);
+            setTimeout(() => { clearInterval(timerId69); }, 500);
             break;
 
         case 32: //Space
