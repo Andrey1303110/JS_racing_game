@@ -80,8 +80,8 @@ class Car {
 				this.x -= d;
 			}
 
-			if (this.x < 0) {
-				this.x = 0;
+			if (this.x <= 7) {
+				this.x = 7;
 			}
 		}
 		else //движение по у - вертикаль
@@ -163,7 +163,7 @@ function Update() {
 
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
-	if ((RandomInteger(0, 100) == 1) || (RandomInteger(0, 90) == 89)) {
+	if ((RandomInteger(0, 100) == 1) || (RandomInteger(0, 100) == 99)) {
 		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), (140, canvas.height - 70) * -1, false));
 	}
 
@@ -253,7 +253,7 @@ function DrawCar(car) {
 function KeyDown(e) {
 	switch (e.keyCode) {
 		case 37: //Left
-			document.getElementById('sound_wheel_left').play();
+			document.getElementById('sound_wheel_main').play();
 			let timerId37 = setInterval(() => {
 				player.Move("x", -speed * .15)
 			}, 25);
@@ -261,7 +261,7 @@ function KeyDown(e) {
 			break;
 
 		case 65: //Left
-			document.getElementById('sound_wheel_left').play();
+			document.getElementById('sound_wheel_main').play();
 			let timerId65 = setInterval(() => {
 				player.Move("x", -speed * .15)
 			}, 25);
@@ -269,7 +269,7 @@ function KeyDown(e) {
 			break;
 
 		case 39: //Right
-			document.getElementById('sound_wheel_right').play();
+			document.getElementById('sound_wheel_main').play();
 			let timerId39 = setInterval(() => {
 				player.Move("x", speed * .15)
 			}, 25);
@@ -277,7 +277,7 @@ function KeyDown(e) {
 			break;
 
 		case 68: //Right
-			document.getElementById('sound_wheel_right').play();
+			document.getElementById('sound_wheel_main').play();
 			let timerId68 = setInterval(() => {
 				player.Move("x", speed * .15)
 			}, 25);
