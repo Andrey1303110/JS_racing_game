@@ -251,63 +251,62 @@ function DrawCar(car) {
 }
 
 function KeyDown(e) {
-	switch (e.keyCode) {
-		case 37: //Left
-		case 37: //Left
-			document.getElementById('sound_wheel').play();
-			player.Move("x", -speed);
-			break;
+    switch (e.keyCode) {
+        case 37: //Left
+            document.getElementById('sound_wheel_left').play();
+            player.Move("x", -speed);
+            break;
 
-		case 65: //Left
-			document.getElementById('sound_wheel').play();
-			player.Move("x", -speed);
-			break;
+        case 65: //Left
+            document.getElementById('sound_wheel_left').play();
+            player.Move("x", -speed);
+            break;
 
-		case 39: //Right
-			document.getElementById('sound_wheel').play();
-			player.Move("x", speed);
-			break;
+        case 39: //Right
+            document.getElementById('sound_wheel_right').play();
+            player.Move("x", speed);
+            break;
 
-		case 68: //Right
-			document.getElementById('sound_wheel').play();
-			player.Move("x", speed);
-			break;
+        case 68: //Right
+            document.getElementById('sound_wheel_right').play();
+            player.Move("x", speed);
+            break;
 
-		case 38: //Up
-			player.Move("y", -speed);
-			break;
+        case 38: //Up
+            player.Move("y", -speed);
+            break;
 
-		case 87: //Up
-			player.Move("y", -speed);
-			break;
+        case 87: //Up
+            player.Move("y", -speed);
+            break;
 
-		case 40: //Down
-			player.Move("y", speed);
-			break;
+        case 40: //Down
+            player.Move("y", speed);
+            break;
 
-		case 83: //Down
-			player.Move("y", speed);
-			break;
+        case 83: //Down
+            player.Move("y", speed);
+            break;
 
-		case 81: //Left-Up
-			document.getElementById('sound_wheel').play();
-			player.Move("x", -speed), player.Move("y", -speed);
-			break;
+        case 81: //Left-Up
+            document.getElementById('sound_wheel_left').play();
+            player.Move("x", -speed), player.Move("y", -speed);
+            break;
 
-		case 69: //Right-Up
-			document.getElementById('sound_wheel').play();
-			player.Move("x", speed), player.Move("y", -speed);
-			break;
+        case 69: //Right-Up
+            document.getElementById('sound_wheel_right').play();
+            player.Move("x", speed), player.Move("y", -speed);
+            break;
 
-		case 32: //Space
-			if (timer == null) {
-				Start();
-			}
-			else {
-				Stop();
-			}
-			break;
-	}
+        case 32: //Space
+            if (timer == null) {
+                Start();
+            }
+            else {
+                Stop();
+            }
+            break;
+    }
 }
 
 function Resize() {
