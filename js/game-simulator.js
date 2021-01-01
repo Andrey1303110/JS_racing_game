@@ -122,7 +122,7 @@ var roads =
 		new Road("images/road7.jpg", canvas.height)
 	]; //Background в виде дороги
 
-var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 36, canvas.height * .76, true); //Машина игрока
+var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 36, canvas.height * .71, true); //Машина игрока
 
 
 var speed = 8;
