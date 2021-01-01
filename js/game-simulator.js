@@ -72,16 +72,11 @@ class Car {
 			this.x += d; //смена позиции
 
 			//не позволяет машине уехать за кран канваса
-			if (this.x + this.image.width * scale > canvas.width * .99) {
-				this.x -= d;
+			if (this.x <= 8) {
+				this.x = 8;
 			}
-
-			if (this.x + this.image.width * scale < canvas.width * .15) {
-				this.x -= d;
-			}
-
-			if (this.x <= 7) {
-				this.x = 7;
+			if (this.x >= 359) {
+				this.x = 359;
 			}
 		}
 		else //движение по у - вертикаль
@@ -127,7 +122,7 @@ var roads =
 		new Road("images/road7.jpg", canvas.height)
 	]; //Background в виде дороги
 
-var player = new Car("images/car_player_leon.png", canvas.width / 2 - 37, canvas.height * .76, true); //Машина игрока
+var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 36, canvas.height * .76, true); //Машина игрока
 
 
 var speed = 8;
@@ -152,13 +147,13 @@ function Update() {
 	roads[1].Update(roads[0]);
 
 	let cars = [
-		"images/car1.png",
-		"images/car2.png",
-		"images/car3.png",
-		"images/car4.png",
-		"images/car5.png",
-		"images/car6.png",
-		"images/car7.png",
+		"images/car_1.png",
+		"images/car_2.png",
+		"images/car_3.png",
+		"images/car_4.png",
+		"images/car_5.png",
+		"images/car_6.png",
+		"images/car_7.png",
 	];
 
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
