@@ -67,16 +67,16 @@ class Car {
 	Move(v, d) {
 		if (v == "x") //движение по Х - горизонталь
 		{
-			d *= 2.6;
+			d *= 2.7;
 
 			this.x += d; //смена позиции
 
 			//не позволяет машине уехать за кран канваса
-			if (this.x <= 8) {
-				this.x = 8;
+			if (this.x <= 7) {
+				this.x = 7;
 			}
-			if (this.x >= 370) {
-				this.x = 370;
+			if (this.x >= 371) {
+				this.x = 371;
 			}
 		}
 		else //движение по у - вертикаль
@@ -103,7 +103,7 @@ var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 
-var scale = .19; //масштаб машин
+var scale = .2; //масштаб машин
 
 Resize(); //Изменяет размер Canvas при загрузке страницы
 
@@ -125,7 +125,7 @@ var roads =
 var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 30, canvas.height * .77, true); //Машина игрока
 
 
-var speed = 8;
+var speed = 7;
 
 Start();
 
