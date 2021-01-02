@@ -173,6 +173,15 @@ function Update() {
 		"images/Smooth models/Touareg/car_3.png",
 		"images/Smooth models/Touareg/car_4.png",
 		"images/Smooth models/Touareg/car_5.png",
+		"images/Smooth models/2008/car_1.png",
+		"images/Smooth models/2008/car_2.png",
+		"images/Smooth models/2008/car_3.png",
+		"images/Smooth models/2008/car_4.png",
+		"images/Smooth models/2008/car_5.png",
+		"images/Smooth models/2008/car_6.png",
+		"images/Smooth models/2008/car_7.png",
+		"images/Smooth models/Other/car_1.png",
+		"images/Smooth models/Other/car_2.png",
 	];
 
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
