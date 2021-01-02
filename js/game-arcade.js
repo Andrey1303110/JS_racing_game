@@ -53,9 +53,9 @@ class Car {
     Collide(car) {
         var hit = false;
 
-        if (this.y < car.y + (car.image.height * .8) * scale && this.y + (this.image.height * .8) * scale > car.y) //If there is collision by y
+        if (this.y < car.y + (car.image.height * .75) * scale && this.y + (this.image.height * .75) * scale > car.y) //If there is collision by y
         {
-            if (this.x + (this.image.width) * scale > car.x && this.x < car.x + (car.image.width) * scale) //If there is collision by x
+            if (this.x + (this.image.width * .8) * scale > car.x && this.x < car.x + (car.image.width * .8) * scale) //If there is collision by x
             {
                 hit = true;
             }
@@ -103,7 +103,7 @@ var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 
-var scale = 0.19; //масштаб машин
+var scale = 0.2; //масштаб машин
 
 Resize(); //Изменяет размер Canvas при загрузке страницы
 
@@ -167,7 +167,12 @@ function Update() {
         "images/Smooth models/i8/car_4.png",
         "images/Smooth models/i8/car_5.png",
         "images/Smooth models/i8/car_6.png",
-        "images/Smooth models/i8/car_7.png"
+        "images/Smooth models/i8/car_7.png",
+        "images/Smooth models/Touareg/car_1.png",
+        "images/Smooth models/Touareg/car_2.png",
+        "images/Smooth models/Touareg/car_3.png",
+        "images/Smooth models/Touareg/car_4.png",
+        "images/Smooth models/Touareg/car_5.png",
     ];
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
