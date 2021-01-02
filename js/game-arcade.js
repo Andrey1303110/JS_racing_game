@@ -103,7 +103,7 @@ var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 
-var scale = 0.24; //масштаб машин
+var scale = 0.21; //масштаб машин
 
 Resize(); //Изменяет размер Canvas при загрузке страницы
 
@@ -147,13 +147,13 @@ function Update() {
     roads[1].Update(roads[0]);
 
     let cars = [
-        "images/car_1.png",
-        "images/car_2.png",
-        "images/car_3.png",
-        "images/car_4.png",
-        "images/car_5.png",
-        "images/car_6.png",
-        "images/car_7.png",
+        "images/Smooth models/Leon/car_1.png",
+        "images/Smooth models/Leon/car_2.png",
+        "images/Smooth models/Leon/car_3.png",
+        "images/Smooth models/Leon/car_4.png",
+        "images/Smooth models/Leon/car_5.png",
+        "images/Smooth models/Leon/car_6.png",
+        "images/Smooth models/Leon/car_7.png",
     ];
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
