@@ -137,22 +137,28 @@ var roads =
 
 let player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 30, canvas.height * .77, true); //Машина игрока
 
-
 var speed = 10;
 
 Start();
 
-
-function Start() {
+function Start(sec) {
     if (!player.dead) {
         timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
+        sec = 0;
+        timerScore = setInterval(tick, 33);
+        function tick() {
+            sec++;
+            document.getElementById("timer").
+                childNodes[0].nodeValue = sec;
+        }
     }
-
 }
 
 function Stop() {
     clearInterval(timer); //Остановка игры
     timer = null;
+    clearInterval(timerScore);
+    timerScore = null;
 }
 
 function Update() {

@@ -124,22 +124,28 @@ var roads =
 
 var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 30, canvas.height * .77, true); //Машина игрока
 
-
 var speed = 7;
 
 Start();
 
-
-function Start() {
+function Start(sec) {
 	if (!player.dead) {
 		timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
+		sec = 0;
+		timerScore = setInterval(tick, 33);
+		function tick() {
+			sec++;
+			document.getElementById("timer").
+				childNodes[0].nodeValue = sec;
+		}
 	}
-
 }
 
 function Stop() {
 	clearInterval(timer); //Остановка игры
 	timer = null;
+	clearInterval(timerScore);
+	timerScore = null;
 }
 
 function Update() {
@@ -194,7 +200,6 @@ function Update() {
 	player.Update();
 
 	if (player.dead) {
-		alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
 		Stop();
 	}
 
@@ -221,7 +226,7 @@ function Update() {
 			Stop();
 			document.getElementById('sound').play();
 			alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
-			player.dead = true;
+			player.dead = true
 			/*let question = prompt('Желаете начать заново?');
 			if question != 'No' || 'no' || 'Нет' || 'нет' {
 	
@@ -361,13 +366,4 @@ function RandomInteger(min, max) {
 	return Math.round(rand);
 }
 
-function init() {
-	sec = 0;
-	setInterval(tick, 33);
-}
 
-function tick() {
-	sec++;
-	document.getElementById("timer").
-		childNodes[0].nodeValue = sec;
-}
