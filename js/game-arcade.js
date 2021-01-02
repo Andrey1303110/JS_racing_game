@@ -398,6 +398,3 @@ function RandomInteger(min, max) {
     let rand = min - 1 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
-
-
-

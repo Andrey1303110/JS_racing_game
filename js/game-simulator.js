@@ -53,9 +53,9 @@ class Car {
 	Collide(car) {
 		var hit = false;
 
-		if (this.y < car.y + (car.image.height * .75) * scale && this.y + (this.image.height * .75) * scale > car.y) //If there is collision by y
+		if (this.y < car.y + (car.image.height * .75) * scale && this.y + (this.image.height * .75) * scale > car.y) //Стокновнение по высоте
 		{
-			if (this.x + (this.image.width * .77) * scale > car.x && this.x < car.x + (car.image.width * .77) * scale) //If there is collision by x
+			if (this.x + (this.image.width * .77) * scale > car.x && this.x < car.x + (car.image.width * .77) * scale) //Столкновение по ширине
 			{
 				hit = true;
 			}
@@ -153,40 +153,7 @@ function Update() {
 	roads[1].Update(roads[0]);
 
 	let cars = [
-		"images/Smooth models/Leon/car_1.png",
-		"images/Smooth models/Leon/car_2.png",
-		"images/Smooth models/Leon/car_3.png",
-		"images/Smooth models/Leon/car_4.png",
-		"images/Smooth models/Leon/car_5.png",
-		"images/Smooth models/Leon/car_6.png",
-		"images/Smooth models/Leon/car_7.png",
-		"images/Smooth models/Tesla/car_1.png",
-		"images/Smooth models/Tesla/car_2.png",
-		"images/Smooth models/Tesla/car_3.png",
-		"images/Smooth models/Tesla/car_4.png",
-		"images/Smooth models/Tesla/car_5.png",
-		"images/Smooth models/Tesla/car_6.png",
-		"images/Smooth models/Tesla/car_7.png",
-		"images/Smooth models/i8/car_1.png",
-		"images/Smooth models/i8/car_2.png",
-		"images/Smooth models/i8/car_3.png",
-		"images/Smooth models/i8/car_4.png",
-		"images/Smooth models/i8/car_5.png",
-		"images/Smooth models/i8/car_6.png",
-		"images/Smooth models/i8/car_7.png",
-		"images/Smooth models/Touareg/car_1.png",
-		"images/Smooth models/Touareg/car_2.png",
-		"images/Smooth models/Touareg/car_3.png",
-		"images/Smooth models/Touareg/car_4.png",
-		"images/Smooth models/Touareg/car_5.png",
-		"images/Smooth models/2008/car_1.png",
-		"images/Smooth models/2008/car_2.png",
-		"images/Smooth models/2008/car_3.png",
-		"images/Smooth models/2008/car_4.png",
-		"images/Smooth models/2008/car_5.png",
-		"images/Smooth models/2008/car_6.png",
-		"images/Smooth models/2008/car_7.png",
-		"images/Smooth models/Other/car_1.png",
+
 		"images/Smooth models/Other/car_2.png",
 		"images/Smooth models/Other/car_3.png",
 	];
@@ -365,5 +332,3 @@ function RandomInteger(min, max) {
 	let rand = min - 1 + Math.random() * (max - min + 1);
 	return Math.round(rand);
 }
-
-
