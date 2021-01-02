@@ -182,33 +182,34 @@ function Update() {
         "images/Smooth models/2008/car_7.png",
         "images/Smooth models/Other/car_1.png",
         "images/Smooth models/Other/car_2.png",
+        "images/Smooth models/Other/car_3.png",
     ];
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
-    if (RandomInteger(150, 350) == 199) //создание машины
+    if (RandomInteger(151, 350) == 199) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 14, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 14, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(350, 550) == 399) //создание машины
+    if (RandomInteger(351, 550) == 399) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 100, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 100, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(550, 750) == 599) //создание машины
+    if (RandomInteger(551, 750) == 599) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 189, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 189, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(750, 950) == 799) //создание машины
+    if (RandomInteger(751, 950) == 799) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 278, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 278, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(950, 1150) == 999) //создание машины
+    if (RandomInteger(951, 1150) == 999) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 366, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 366, (canvas.height - 100) * -1, false));
     }
 
     player.Update();

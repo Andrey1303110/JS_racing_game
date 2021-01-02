@@ -182,6 +182,7 @@ function Update() {
 		"images/Smooth models/2008/car_7.png",
 		"images/Smooth models/Other/car_1.png",
 		"images/Smooth models/Other/car_2.png",
+		"images/Smooth models/Other/car_3.png",
 	];
 
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
