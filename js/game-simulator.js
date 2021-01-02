@@ -72,11 +72,11 @@ class Car {
 			this.x += d; //смена позиции
 
 			//не позволяет машине уехать за кран канваса
-			if (this.x <= 7) {
-				this.x = 7;
+			if (this.x <= 2) {
+				this.x = 2;
 			}
-			if (this.x >= 371) {
-				this.x = 371;
+			if (this.x >= 377) {
+				this.x = 377;
 			}
 		}
 		else //движение по у - вертикаль
@@ -188,13 +188,13 @@ function Update() {
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
 	if ((RandomInteger(0, 100) == 1) || (RandomInteger(0, 100) == 99)) {
-		objects.push(new Car(randomCarsSrc, RandomInteger(8, 370), (140, canvas.height - 70) * -1, false));
+		objects.push(new Car(randomCarsSrc, RandomInteger(10, 368), (70, canvas.height - 70) * -1, false));
 	}
 
 	player.Update();
 
 	if (player.dead) {
-		alert("Crash!");
+		alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
 		Stop();
 	}
 
@@ -220,7 +220,7 @@ function Update() {
 		if (hit) {
 			Stop();
 			document.getElementById('sound').play();
-			alert("Crash!");
+			alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
 			player.dead = true;
 			/*let question = prompt('Желаете начать заново?');
 			if question != 'No' || 'no' || 'Нет' || 'нет' {

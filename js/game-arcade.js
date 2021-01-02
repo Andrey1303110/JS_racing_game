@@ -1,3 +1,16 @@
+var playerScore = document.getElementById('timer').innerText;
+
+function init() {
+    sec = 0;
+    setInterval(tick, 33);
+}
+
+function tick() {
+    sec++;
+    document.getElementById("timer").
+        childNodes[0].nodeValue = sec;
+}
+
 class Road {
     constructor(image, y) {
         this.x = 0;
@@ -215,7 +228,7 @@ function Update() {
     player.Update();
 
     if (player.dead) {
-        alert("Crash!");
+        alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
         Stop();
     }
 
@@ -242,7 +255,7 @@ function Update() {
             document.getElementById('sound').play();
             Stop();
             player.dead = true;
-            alert("Crash!");
+            alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
             /*let question = prompt('Желаете начать заново?');
             if question != 'No' || 'no' || 'Нет' || 'нет' {
             }*/
@@ -380,13 +393,5 @@ function RandomInteger(min, max) {
     return Math.round(rand);
 }
 
-function init() {
-    sec = 0;
-    setInterval(tick, 33);
-}
 
-function tick() {
-    sec++;
-    document.getElementById("timer").
-        childNodes[0].nodeValue = sec;
-}
+
