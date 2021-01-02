@@ -167,7 +167,7 @@ function Update() {
         "images/Smooth models/i8/car_4.png",
         "images/Smooth models/i8/car_5.png",
         "images/Smooth models/i8/car_6.png",
-        "images/Smooth models/i8/car_7.png",
+        "images/Smooth models/i8/car_7.png"
     ];
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
