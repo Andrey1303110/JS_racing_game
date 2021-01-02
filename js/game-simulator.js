@@ -67,7 +67,7 @@ class Car {
 	Move(v, d) {
 		if (v == "x") //движение по Х - горизонталь
 		{
-			d *= 2.45;
+			d *= 2.6;
 
 			this.x += d; //смена позиции
 
@@ -75,8 +75,8 @@ class Car {
 			if (this.x <= 8) {
 				this.x = 8;
 			}
-			if (this.x >= 359) {
-				this.x = 359;
+			if (this.x >= 370) {
+				this.x = 370;
 			}
 		}
 		else //движение по у - вертикаль
@@ -103,7 +103,7 @@ var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 
-var scale = .24; //масштаб машин
+var scale = .19; //масштаб машин
 
 Resize(); //Изменяет размер Canvas при загрузке страницы
 
@@ -122,7 +122,7 @@ var roads =
 		new Road("images/road7.jpg", canvas.height)
 	]; //Background в виде дороги
 
-var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 36, canvas.height * .71, true); //Машина игрока
+var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 30, canvas.height * .77, true); //Машина игрока
 
 
 var speed = 8;
@@ -147,19 +147,19 @@ function Update() {
 	roads[1].Update(roads[0]);
 
 	let cars = [
-		"images/car_1.png",
-		"images/car_2.png",
-		"images/car_3.png",
-		"images/car_4.png",
-		"images/car_5.png",
-		"images/car_6.png",
-		"images/car_7.png",
+		"images/Smooth models/Leon/car_1.png",
+		"images/Smooth models/Leon/car_2.png",
+		"images/Smooth models/Leon/car_3.png",
+		"images/Smooth models/Leon/car_4.png",
+		"images/Smooth models/Leon/car_5.png",
+		"images/Smooth models/Leon/car_6.png",
+		"images/Smooth models/Leon/car_7.png",
 	];
 
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
 	if ((RandomInteger(0, 100) == 1) || (RandomInteger(0, 100) == 99)) {
-		objects.push(new Car(randomCarsSrc, RandomInteger(10, 356), (140, canvas.height - 70) * -1, false));
+		objects.push(new Car(randomCarsSrc, RandomInteger(8, 370), (140, canvas.height - 70) * -1, false));
 	}
 
 	player.Update();

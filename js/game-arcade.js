@@ -53,7 +53,7 @@ class Car {
     Collide(car) {
         var hit = false;
 
-        if (this.y < car.y + (car.image.height * .75) * scale && this.y + (this.image.height * .8) * scale > car.y) //If there is collision by y
+        if (this.y < car.y + (car.image.height * .8) * scale && this.y + (this.image.height * .8) * scale > car.y) //If there is collision by y
         {
             if (this.x + (this.image.width) * scale > car.x && this.x < car.x + (car.image.width) * scale) //If there is collision by x
             {
@@ -67,16 +67,16 @@ class Car {
     Move(v, d) {
         if (v == "x") //движение по Х - горизонталь
         {
-            d *= 8.7;
+            d *= 8.8;
 
             this.x += d; //смена позиции
 
             //не позволяет машине уехать за кран канваса
-            if (this.x <= 10) {
-                this.x = 10;
+            if (this.x <= 14) {
+                this.x = 14;
             }
-            if (this.x >= 357) {
-                this.x = 357;
+            if (this.x >= 366) {
+                this.x = 366;
             }
         }
         else //движение по у - вертикаль
@@ -103,7 +103,7 @@ var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 
-var scale = 0.21; //масштаб машин
+var scale = 0.19; //масштаб машин
 
 Resize(); //Изменяет размер Canvas при загрузке страницы
 
@@ -122,7 +122,7 @@ var roads =
         new Road("images/road7.jpg", canvas.height)
     ]; //Background в виде дороги
 
-let player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 36, canvas.height * .7, true); //Машина игрока
+let player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 30, canvas.height * .77, true); //Машина игрока
 
 
 var speed = 10;
@@ -154,33 +154,47 @@ function Update() {
         "images/Smooth models/Leon/car_5.png",
         "images/Smooth models/Leon/car_6.png",
         "images/Smooth models/Leon/car_7.png",
+        "images/Smooth models/Tesla/car_1.png",
+        "images/Smooth models/Tesla/car_2.png",
+        "images/Smooth models/Tesla/car_3.png",
+        "images/Smooth models/Tesla/car_4.png",
+        "images/Smooth models/Tesla/car_5.png",
+        "images/Smooth models/Tesla/car_6.png",
+        "images/Smooth models/Tesla/car_7.png",
+        "images/Smooth models/i8/car_1.png",
+        "images/Smooth models/i8/car_2.png",
+        "images/Smooth models/i8/car_3.png",
+        "images/Smooth models/i8/car_4.png",
+        "images/Smooth models/i8/car_5.png",
+        "images/Smooth models/i8/car_6.png",
+        "images/Smooth models/i8/car_7.png",
     ];
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
     if (RandomInteger(150, 300) == 199) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 10, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 14, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
     if (RandomInteger(350, 500) == 399) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 96, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 100, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
     if (RandomInteger(550, 700) == 599) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 180, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 189, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
     if (RandomInteger(750, 900) == 799) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 265, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 278, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
     if (RandomInteger(950, 1100) == 999) //создание машины
     {
-        objects.push(new Car(randomCarsSrc, 351, RandomInteger(100, canvas.height - 70) * -1, false));
+        objects.push(new Car(randomCarsSrc, 366, RandomInteger(100, canvas.height - 70) * -1, false));
     }
 
     player.Update();
