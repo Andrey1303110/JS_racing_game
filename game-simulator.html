@@ -3,7 +3,7 @@
 
 <head>
 	<title>JS Game</title>
-	<link rel="stylesheet" href="./css/game.css">
+	<link rel="stylesheet" href="./css/test.css">
 	<link rel="icon" href="./images/icons8-racing-car-48.png">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -13,10 +13,29 @@
 </head>
 
 <body>
+	<div class="main">
+		<audio id="main_theme" src="./audio/Snoop Dogg ft The Doors - Riders on the Storm.mp3"></audio>
+		<img class="car" id="touareg_blue" src="./images/Cars main screen/Touareg/touareg_blue.png" alt="touareg">
+		<img class="car" id="touareg_green" src="./images/Cars main screen/Touareg/touareg_green.png" alt="touareg">
+		<img class="car" id="touareg_orange" src="./images/Cars main screen/Touareg/touareg_orange.png" alt="touareg">
+		<img class="car" id="touareg_white" src="./images/Cars main screen/Touareg/touareg_white.png" alt="touareg">
+		<img class="car" id="touareg_black" src="./images/Cars main screen/Touareg/touareg_black.png" alt="touareg">
+		<div class="color_sect">
+			<div class="color_car blue"></div>
+			<div class="color_car green"></div>
+			<div class="color_car orange"></div>
+			<div class="color_car white"></div>
+			<div class="color_car black"></div>
+		</div>
+		<img class="car" id="i8_green" src="./images/Cars main screen/i8/i8_green.png" alt="i8">
+		<div class="color_sect">
+			<div class="color_car green"></div>
+		</div>
+	</div>
 	<div class="wrapper">
 		<div id="timer">0</div>
-		<canvas width="auto" height="auto" class="canvas" id="canvas">Your browser does not support JavaScript and
-			HTML5!</canvas>
+		<canvas width="440px" height="630px" class="canvas" id="canvas">
+			Your browser does not support JavaScript and HTML5!</canvas>
 	</div>
 	<audio id="sound" src="./audio/crash.mp3"></audio>
 	<audio id="sound_wheel_right" src="./audio/wheel_right.mp3"></audio>
@@ -24,7 +43,9 @@
 	<audio id="sound_wheel_right_up" src="./audio/wheel_right_up.mp3"></audio>
 	<audio id="sound_wheel_left_up" src="./audio/wheel_left_up.mp3"></audio>
 	<audio id="sound_wheel_main" src="./audio/sound_for_simulator.mp3"></audio>
-	<script src="./js/game-simulator.js"></script>
+	<script src="./js/test.js"></script>
+
+
 </body>
 
 </html>

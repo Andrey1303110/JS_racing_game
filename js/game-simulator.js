@@ -16,7 +16,7 @@ class Road {
 	Update(road) {
 		this.y += speed; //изображание идёт вниз при каждом новом кадре
 
-		if (this.y > window.innerHeight) //Y не может уйти влево за экран
+		if (this.y > window.innerHeight) //Y не может уйти вверх за экран
 		{
 			this.y = road.y - canvas.height + speed; //новая позиция прописывается на дороге которая ещё вверху экрана
 		}
@@ -122,7 +122,52 @@ var roads =
 		new Road("images/road7.jpg", canvas.height)
 	]; //Background в виде дороги
 
-var player = new Car("images/car_player_leon_new.png", canvas.width / 2 - 30, canvas.height * .77, true); //Машина игрока
+let cars = [
+	"images/Smooth models/Leon/car_1.png",
+	"images/Smooth models/Leon/car_2.png",
+	"images/Smooth models/Leon/car_3.png",
+	"images/Smooth models/Leon/car_4.png",
+	"images/Smooth models/Leon/car_5.png",
+	"images/Smooth models/Leon/car_6.png",
+	"images/Smooth models/Leon/car_7.png",
+	"images/Smooth models/Leon/car_8.png",
+	"images/Smooth models/Tesla/car_1.png",
+	"images/Smooth models/Tesla/car_2.png",
+	"images/Smooth models/Tesla/car_3.png",
+	"images/Smooth models/Tesla/car_4.png",
+	"images/Smooth models/Tesla/car_5.png",
+	"images/Smooth models/Tesla/car_6.png",
+	"images/Smooth models/Tesla/car_7.png",
+	"images/Smooth models/Tesla/car_8.png",
+	"images/Smooth models/i8/car_1.png",
+	"images/Smooth models/i8/car_2.png",
+	"images/Smooth models/i8/car_3.png",
+	"images/Smooth models/i8/car_4.png",
+	"images/Smooth models/i8/car_5.png",
+	"images/Smooth models/i8/car_6.png",
+	"images/Smooth models/i8/car_7.png",
+	"images/Smooth models/Touareg/car_1.png",
+	"images/Smooth models/Touareg/car_2.png",
+	"images/Smooth models/Touareg/car_3.png",
+	"images/Smooth models/Touareg/car_4.png",
+	"images/Smooth models/Touareg/car_5.png",
+	"images/Smooth models/2008/car_1.png",
+	"images/Smooth models/2008/car_2.png",
+	"images/Smooth models/2008/car_3.png",
+	"images/Smooth models/2008/car_4.png",
+	"images/Smooth models/2008/car_5.png",
+	"images/Smooth models/2008/car_6.png",
+	"images/Smooth models/2008/car_7.png",
+	"images/Smooth models/Other/car_1.png",
+	"images/Smooth models/Other/car_2.png",
+	"images/Smooth models/Other/car_3.png",
+	"images/Smooth models/Xl1/car_1.png",
+	"images/Smooth models/Xl1/car_2.png",
+	"images/Smooth models/Xl1/car_3.png",
+	"images/Smooth models/Xl1/car_4.png",
+];
+
+var player = new Car("images/Smooth models/Leon/car_8.png", canvas.width / 2 - 30, canvas.height * .775, true); //Машина игрока
 
 var speed = 7;
 
@@ -151,45 +196,6 @@ function Stop() {
 function Update() {
 	roads[0].Update(roads[1]);
 	roads[1].Update(roads[0]);
-
-	let cars = [
-		"images/Smooth models/Leon/car_1.png",
-		"images/Smooth models/Leon/car_2.png",
-		"images/Smooth models/Leon/car_3.png",
-		"images/Smooth models/Leon/car_4.png",
-		"images/Smooth models/Leon/car_5.png",
-		"images/Smooth models/Leon/car_6.png",
-		"images/Smooth models/Leon/car_7.png",
-		"images/Smooth models/Tesla/car_1.png",
-		"images/Smooth models/Tesla/car_2.png",
-		"images/Smooth models/Tesla/car_3.png",
-		"images/Smooth models/Tesla/car_4.png",
-		"images/Smooth models/Tesla/car_5.png",
-		"images/Smooth models/Tesla/car_6.png",
-		"images/Smooth models/Tesla/car_7.png",
-		"images/Smooth models/i8/car_1.png",
-		"images/Smooth models/i8/car_2.png",
-		"images/Smooth models/i8/car_3.png",
-		"images/Smooth models/i8/car_4.png",
-		"images/Smooth models/i8/car_5.png",
-		"images/Smooth models/i8/car_6.png",
-		"images/Smooth models/i8/car_7.png",
-		"images/Smooth models/Touareg/car_1.png",
-		"images/Smooth models/Touareg/car_2.png",
-		"images/Smooth models/Touareg/car_3.png",
-		"images/Smooth models/Touareg/car_4.png",
-		"images/Smooth models/Touareg/car_5.png",
-		"images/Smooth models/2008/car_1.png",
-		"images/Smooth models/2008/car_2.png",
-		"images/Smooth models/2008/car_3.png",
-		"images/Smooth models/2008/car_4.png",
-		"images/Smooth models/2008/car_5.png",
-		"images/Smooth models/2008/car_6.png",
-		"images/Smooth models/2008/car_7.png",
-		"images/Smooth models/Other/car_1.png",
-		"images/Smooth models/Other/car_2.png",
-		"images/Smooth models/Other/car_3.png",
-	];
 
 	let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 

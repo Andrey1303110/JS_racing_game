@@ -173,6 +173,7 @@ function Update() {
         "images/Smooth models/Leon/car_5.png",
         "images/Smooth models/Leon/car_6.png",
         "images/Smooth models/Leon/car_7.png",
+        "images/Smooth models/Leon/car_8.png",
         "images/Smooth models/Tesla/car_1.png",
         "images/Smooth models/Tesla/car_2.png",
         "images/Smooth models/Tesla/car_3.png",
@@ -180,6 +181,7 @@ function Update() {
         "images/Smooth models/Tesla/car_5.png",
         "images/Smooth models/Tesla/car_6.png",
         "images/Smooth models/Tesla/car_7.png",
+        "images/Smooth models/Tesla/car_8.png",
         "images/Smooth models/i8/car_1.png",
         "images/Smooth models/i8/car_2.png",
         "images/Smooth models/i8/car_3.png",
@@ -202,6 +204,10 @@ function Update() {
         "images/Smooth models/Other/car_1.png",
         "images/Smooth models/Other/car_2.png",
         "images/Smooth models/Other/car_3.png",
+        "images/Smooth models/Xl1/car_1.png",
+        "images/Smooth models/Xl1/car_2.png",
+        "images/Smooth models/Xl1/car_3.png",
+        "images/Smooth models/Xl1/car_4.png",
     ];
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
