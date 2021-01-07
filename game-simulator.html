@@ -55,12 +55,16 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('.your-class').slick({
+				centralMode: true,
 				dots: true,
 				infinite: true,
 				slidesToShow: 1,
 				slidesToScroll: 1,
 				draggable: true,
-				initialSlide: 2,
+				initialSlide: 1,
+				speed: 600,
+				fade: true,
+				cssEase: 'linear'
 			});
 		});
 	</script>
