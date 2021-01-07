@@ -12,13 +12,14 @@ touareg_blue.onclick = () => {
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_1.png`;
 }
-touareg_green.onclick = () => {
-    setTimeout(Start, 500);
-    return player.image.src = `./images/Smooth models/Touareg/car_2.png`;
-}
 i8_green.onclick = () => {
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/i8/car_7.png`;
+}
+
+leon_8.onclick = () => {
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_8.png`;
 }
 /*
  

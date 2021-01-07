@@ -4,6 +4,9 @@
 <head>
 	<title>JS Game</title>
 	<link rel="stylesheet" href="./css/test.css">
+	<link rel="stylesheet" type="text/css" href="./js/slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="./js/slick/slick-theme.css" />
+	<link rel="stylesheet" href="./css/custom.css">
 	<link rel="icon" href="./images/icons8-racing-car-48.png">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -13,13 +16,12 @@
 </head>
 
 <body>
+	<div class="your-class" style="width: 395px; position: absolute; left: 50%; transform: translateX(-50%); top: 20%;">
+		<img src="./images/Cars main screen/i8/i8_green.png" id="i8_green" alt="">
+		<img src="./images/Cars main screen/Touareg/touareg_blue.png" id="touareg_blue" alt="">
+		<img src="./images/Cars main screen/Leon/car_8.png" id="leon_8" alt="">
+	</div>
 	<div class="main">
-		<audio id="main_theme" src="./audio/Snoop Dogg ft The Doors - Riders on the Storm.mp3"></audio>
-		<img class="car" id="touareg_blue" src="./images/Cars main screen/Touareg/touareg_blue.png" alt="touareg">
-		<img class="car" id="touareg_green" src="./images/Cars main screen/Touareg/touareg_green.png" alt="touareg">
-		<img class="car" id="touareg_orange" src="./images/Cars main screen/Touareg/touareg_orange.png" alt="touareg">
-		<img class="car" id="touareg_white" src="./images/Cars main screen/Touareg/touareg_white.png" alt="touareg">
-		<img class="car" id="touareg_black" src="./images/Cars main screen/Touareg/touareg_black.png" alt="touareg">
 		<div class="color_sect">
 			<div class="color_car blue"></div>
 			<div class="color_car green"></div>
@@ -27,7 +29,6 @@
 			<div class="color_car white"></div>
 			<div class="color_car black"></div>
 		</div>
-		<img class="car" id="i8_green" src="./images/Cars main screen/i8/i8_green.png" alt="i8">
 		<div class="color_sect">
 			<div class="color_car green"></div>
 		</div>
@@ -43,9 +44,22 @@
 	<audio id="sound_wheel_right_up" src="./audio/wheel_right_up.mp3"></audio>
 	<audio id="sound_wheel_left_up" src="./audio/wheel_left_up.mp3"></audio>
 	<audio id="sound_wheel_main" src="./audio/sound_for_simulator.mp3"></audio>
+	<audio id="main_theme" src="./audio/Snoop Dogg ft The Doors - Riders on the Storm_low.mp3"></audio>
+	<script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="./js/slick/slick.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.your-class').slick({
+				dots: true,
+				infinite: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				draggable: true,
+				initialSlide: 1,
+			});
+		});
+	</script>
 	<script src="./js/test.js"></script>
-
-
 </body>
 
 </html>
