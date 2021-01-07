@@ -8,11 +8,11 @@
 
 let playerCarSelect = 0;
 
-touareg_blue.onclick = () => {
+touareg_1.onclick = () => {
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_1.png`;
 }
-i8_green.onclick = () => {
+i8_7.onclick = () => {
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/i8/car_7.png`;
 }
@@ -21,6 +21,27 @@ leon_8.onclick = () => {
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_8.png`;
 }
+
+P2008_3.onclick = () => {
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/2008/car_3.png`;
+}
+
+tesla_1.onclick = () => {
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Tesla/car_1.png`;
+}
+
+xl_1.onclick = () => {
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Xl1/car_1.png`;
+}
+
+truck_1.onclick = () => {
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Other/car_2.png`;
+}
+
 /*
  
 /*document.getElementById("touareg_blue").onclick = () => {
