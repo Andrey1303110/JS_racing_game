@@ -2,6 +2,8 @@ let playerCarSelect = 0;
 
 let playerStartHeightPos = .76;
 
+var moveD = 2.7;
+
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
     var i; for (i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
@@ -307,12 +309,17 @@ truck_1.onclick = () => {
     document.getElementById('slider').style.top = '-50%';
     upSlider();
     returnStartPos();
+    changeD()
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
 }
 
 function returnStartPos() {
-    return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);;
+    return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
+}
+
+function changeD() {
+    return moveD = 1.8;
 }
 
 class Road {
@@ -384,7 +391,7 @@ class Car {
     Move(v, d) {
         if (v == "x") //движение по Х - горизонталь
         {
-            d *= 2.7;
+            d *= moveD;
 
             this.x += d; //смена позиции
 
