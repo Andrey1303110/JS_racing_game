@@ -540,7 +540,9 @@ function Start(sec) {
     if (!player.dead) {
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
-        document.getElementById('main_theme').play();
+        document.getElementById('main_theme').pause()
+        let S = RandomInteger(1, document.getElementsByClassName('music').length)
+        document.getElementById('main_theme' + S).play()
         timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;
         timerScore = setInterval(tick, 33);
@@ -553,7 +555,6 @@ function Start(sec) {
 }
 
 function Stop() {
-    document.getElementById('main_theme').pause();
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);

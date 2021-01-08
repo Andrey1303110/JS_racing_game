@@ -95,14 +95,20 @@
 	<audio id="sound_wheel_left_up" src="./audio/wheel_left_up.mp3"></audio>
 	<audio id="sound_wheel_main" src="./audio/sound_for_simulator.mp3"></audio>
 	<audio id="engine_start" src="./audio/engine_start.mp3"></audio>
-	<div style="top: -100%; position: relative; z-index: -1;">
-		<script src="/audiojs/audio.min.js"></script>
-		<audio preload="auto" id="main_theme" autoplay
-			src="./Snoop Dogg ft The Doors - Riders on the Storm(fredwreck remix).mp3"></audio>
-		<audio preload="auto" src="./audio/Hush-Fired up.mp3"></audio>
-		<audio preload="auto" src="./rock_i-am-rock.mp3"></audio>
-		<audio preload="auto" src="./Styles of Beyond - Nine Thou.mp3"></audio>
-		<audio preload="auto" src="./Celldweller - Shapeshifter (feat. Styles of Beyond).mp3"></audio>
+	<div id="music">
+		<audio preload="auto" id="main_theme" autoplay loop
+			src="./audio/Snoop Dogg ft The Doors - Riders on the Storm(fredwreck remix).mp3"></audio>
+		<audio id="main_theme1" class="music" src="./audio/Hush-Fired up.mp3"></audio>
+		<audio id="main_theme2" class="music" src="./audio/rock_i-am-rock.mp3"></audio>
+		<audio id="main_theme3" class="music" src="./audio/Styles of Beyond - Nine Thou.mp3"></audio>
+		<audio id="main_theme4" class="music"
+			src="./audio/Celldweller - Shapeshifter (feat. Styles of Beyond).mp3"></audio>
+		<audio id="main_theme5" class="music" src="./audio/BT The Roots - Tao Of The Machine.mp3"></audio>
+		<audio id="main_theme6" class="music" src="./audio/T I  Presents The PSC - Do Ya Thang.mp3"></audio>
+		<audio id="main_theme7" class="music" src="./audio/Suni Clay - In A Hood Near You.mp3"></audio>
+		<audio id="main_theme8" class="music" src="./audio/Juvenile - Sets Go Up.mp3"></audio>
+		<audio id="main_theme9" class="music"
+			src="./audio/Snoop Dogg ft The Doors - Riders on the Storm(fredwreck remix).mp3"></audio>
 	</div>
 	<script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="./js/slick/slick.min.js"></script>
@@ -123,11 +129,6 @@
 		});
 	</script>
 	<script src="./js/test.js"></script>
-	<script>
-		audiojs.events.ready(function () {
-			var as = audiojs.createAll();
-		});
-	</script>
 </body>
 
 </html>
