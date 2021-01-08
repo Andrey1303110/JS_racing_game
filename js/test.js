@@ -1,3 +1,5 @@
+let eS = document.getElementById('engine_start');
+
 let playerCarSelect = 0;
 
 let playerStartHeightPos = .76;
@@ -40,6 +42,7 @@ xl1_main.onclick = () => {
 }
 
 touareg_1.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -47,6 +50,7 @@ touareg_1.onclick = () => {
 }
 
 touareg_2.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -54,6 +58,7 @@ touareg_2.onclick = () => {
 }
 
 touareg_3.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -61,6 +66,7 @@ touareg_3.onclick = () => {
 }
 
 touareg_4.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -68,6 +74,7 @@ touareg_4.onclick = () => {
 }
 
 touareg_5.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -75,6 +82,7 @@ touareg_5.onclick = () => {
 }
 
 i8_1.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -82,6 +90,7 @@ i8_1.onclick = () => {
 }
 
 i8_2.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -89,6 +98,7 @@ i8_2.onclick = () => {
 }
 
 i8_3.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -96,6 +106,7 @@ i8_3.onclick = () => {
 }
 
 i8_4.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -103,6 +114,7 @@ i8_4.onclick = () => {
 }
 
 i8_5.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -110,6 +122,7 @@ i8_5.onclick = () => {
 }
 
 i8_6.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -117,6 +130,7 @@ i8_6.onclick = () => {
 }
 
 i8_7.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -124,6 +138,7 @@ i8_7.onclick = () => {
 }
 
 leon_1.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -131,6 +146,7 @@ leon_1.onclick = () => {
 }
 
 leon_2.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -138,6 +154,7 @@ leon_2.onclick = () => {
 }
 
 leon_3.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -145,6 +162,7 @@ leon_3.onclick = () => {
 }
 
 leon_4.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -152,6 +170,7 @@ leon_4.onclick = () => {
 }
 
 leon_5.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -159,6 +178,7 @@ leon_5.onclick = () => {
 }
 
 leon_6.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -166,6 +186,7 @@ leon_6.onclick = () => {
 }
 
 leon_7.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -173,6 +194,7 @@ leon_7.onclick = () => {
 }
 
 leon_8.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -180,6 +202,7 @@ leon_8.onclick = () => {
 }
 
 P2008_1.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -187,6 +210,7 @@ P2008_1.onclick = () => {
 }
 
 P2008_2.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -194,6 +218,7 @@ P2008_2.onclick = () => {
 }
 
 P2008_3.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -201,6 +226,7 @@ P2008_3.onclick = () => {
 }
 
 P2008_4.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -208,6 +234,7 @@ P2008_4.onclick = () => {
 }
 
 P2008_5.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -215,6 +242,7 @@ P2008_5.onclick = () => {
 }
 
 P2008_6.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -222,6 +250,7 @@ P2008_6.onclick = () => {
 }
 
 P2008_7.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -229,6 +258,7 @@ P2008_7.onclick = () => {
 }
 
 tesla_1.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -236,6 +266,7 @@ tesla_1.onclick = () => {
 }
 
 tesla_2.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -243,6 +274,7 @@ tesla_2.onclick = () => {
 }
 
 tesla_3.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -250,6 +282,7 @@ tesla_3.onclick = () => {
 }
 
 tesla_4.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -257,6 +290,7 @@ tesla_4.onclick = () => {
 }
 
 tesla_5.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -264,6 +298,7 @@ tesla_5.onclick = () => {
 }
 
 tesla_6.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -271,6 +306,7 @@ tesla_6.onclick = () => {
 }
 
 tesla_7.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -278,6 +314,7 @@ tesla_7.onclick = () => {
 }
 
 xl_1.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -285,6 +322,7 @@ xl_1.onclick = () => {
 }
 
 xl_2.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -292,6 +330,7 @@ xl_2.onclick = () => {
 }
 
 xl_3.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -299,6 +338,7 @@ xl_3.onclick = () => {
 }
 
 xl_4.onclick = () => {
+    eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -306,6 +346,7 @@ xl_4.onclick = () => {
 }
 
 truck_1.onclick = () => {
+    eS.play();
     document.getElementById('slider').style.top = '-50%';
     upSlider();
     returnStartPos();
@@ -497,6 +538,7 @@ var speed = 7;
 
 function Start(sec) {
     if (!player.dead) {
+        document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme').play();
         timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры

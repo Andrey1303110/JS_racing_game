@@ -91,3 +91,8 @@ div.color_car.orange {
     background-color: orange;
 }
 
+#audiojs_wrapper0, #audiojs_wrapper1, #audiojs_wrapper2, #audiojs_wrapper3, #audiojs_wrapper4, #audiojs_wrapper5, #audiojs_wrapper6 {
+    display: none;
+} 
+
+
