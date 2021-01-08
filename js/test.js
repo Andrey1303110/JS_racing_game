@@ -1,68 +1,319 @@
-/*$(document).ready(function () {
-    $("#car").click(function () { // задаем функцию при нажатиии на элемент с классом fadetoggle
-        $("#touareg_color").fadeToggle(1000, "linear", function () { // плавно отображаем, или скрываем элементы <div> в документе
- 
-        });
-    });
-});*/
-
 let playerCarSelect = 0;
 
+let playerStartHeightPos = .76;
+
+function upSlider() {
+    var sliderX = document.getElementsByClassName('your-class slider-down');
+    var i; for (i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
+}
+
+leon_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-leon').style.top = '50%';
+}
+
+P2008_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-2008').style.top = '50%';
+}
+
+touareg_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-touareg').style.top = '50%';
+}
+
+tesla_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-tesla').style.top = '50%';
+}
+
+i8_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-i8').style.top = '50%';
+}
+
+xl1_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-xl1').style.top = '50%';
+}
+
 touareg_1.onclick = () => {
+    document.getElementById('slider-down-touareg').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_1.png`;
 }
+
+touareg_2.onclick = () => {
+    document.getElementById('slider-down-touareg').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Touareg/car_2.png`;
+}
+
+touareg_3.onclick = () => {
+    document.getElementById('slider-down-touareg').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Touareg/car_3.png`;
+}
+
+touareg_4.onclick = () => {
+    document.getElementById('slider-down-touareg').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Touareg/car_4.png`;
+}
+
+touareg_5.onclick = () => {
+    document.getElementById('slider-down-touareg').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Touareg/car_5.png`;
+}
+
+i8_1.onclick = () => {
+    document.getElementById('slider-down-i8').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/i8/car_1.png`;
+}
+
+i8_2.onclick = () => {
+    document.getElementById('slider-down-i8').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/i8/car_2.png`;
+}
+
+i8_3.onclick = () => {
+    document.getElementById('slider-down-i8').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/i8/car_3.png`;
+}
+
+i8_4.onclick = () => {
+    document.getElementById('slider-down-i8').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/i8/car_4.png`;
+}
+
+i8_5.onclick = () => {
+    document.getElementById('slider-down-i8').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/i8/car_5.png`;
+}
+
+i8_6.onclick = () => {
+    document.getElementById('slider-down-i8').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/i8/car_6.png`;
+}
+
 i8_7.onclick = () => {
+    document.getElementById('slider-down-i8').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/i8/car_7.png`;
 }
 
+leon_1.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_1.png`;
+}
+
+leon_2.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_2.png`;
+}
+
+leon_3.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_3.png`;
+}
+
+leon_4.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_4.png`;
+}
+
+leon_5.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_5.png`;
+}
+
+leon_6.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_6.png`;
+}
+
+leon_7.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Leon/car_7.png`;
+}
+
 leon_8.onclick = () => {
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_8.png`;
 }
 
+P2008_1.onclick = () => {
+    document.getElementById('slider-down-2008').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/2008/car_1.png`;
+}
+
+P2008_2.onclick = () => {
+    document.getElementById('slider-down-2008').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/2008/car_2.png`;
+}
+
 P2008_3.onclick = () => {
+    document.getElementById('slider-down-2008').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/2008/car_3.png`;
 }
 
+P2008_4.onclick = () => {
+    document.getElementById('slider-down-2008').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/2008/car_4.png`;
+}
+
+P2008_5.onclick = () => {
+    document.getElementById('slider-down-2008').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/2008/car_5.png`;
+}
+
+P2008_6.onclick = () => {
+    document.getElementById('slider-down-2008').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/2008/car_6.png`;
+}
+
+P2008_7.onclick = () => {
+    document.getElementById('slider-down-2008').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/2008/car_7.png`;
+}
+
 tesla_1.onclick = () => {
+    document.getElementById('slider-down-tesla').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_1.png`;
 }
 
+tesla_2.onclick = () => {
+    document.getElementById('slider-down-tesla').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Tesla/car_2.png`;
+}
+
+tesla_3.onclick = () => {
+    document.getElementById('slider-down-tesla').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Tesla/car_3.png`;
+}
+
+tesla_4.onclick = () => {
+    document.getElementById('slider-down-tesla').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Tesla/car_4.png`;
+}
+
+tesla_5.onclick = () => {
+    document.getElementById('slider-down-tesla').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Tesla/car_5.png`;
+}
+
+tesla_6.onclick = () => {
+    document.getElementById('slider-down-tesla').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Tesla/car_6.png`;
+}
+
+tesla_7.onclick = () => {
+    document.getElementById('slider-down-tesla').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Tesla/car_7.png`;
+}
+
 xl_1.onclick = () => {
+    document.getElementById('slider-down-xl1').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Xl1/car_1.png`;
 }
 
+xl_2.onclick = () => {
+    document.getElementById('slider-down-xl1').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Xl1/car_2.png`;
+}
+
+xl_3.onclick = () => {
+    document.getElementById('slider-down-xl1').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Xl1/car_3.png`;
+}
+
+xl_4.onclick = () => {
+    document.getElementById('slider-down-xl1').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Xl1/car_4.png`;
+}
+
 truck_1.onclick = () => {
+    document.getElementById('slider').style.top = '-50%';
+    upSlider();
+    returnStartPos();
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
 }
 
-/*
- 
-/*document.getElementById("touareg_blue").onclick = () => {
-    playerCarSelect = 23;
-    setTimeout(Start, 1500);
+function returnStartPos() {
+    return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);;
 }
-document.getElementById("touareg_green").onclick = () => {
-    setTimeout(Start, 1500);
-    playerCarSelect = 24;
-}
-document.getElementById("touareg_orange").onclick = () => {
-    playerCarSelect = playerCarSelect + 25;
-    setTimeout(Start, 1500);
-}
-document.getElementById("touareg_white").onclick = () => {
-    playerCarSelect = playerCarSelect + 26;
-}
-document.getElementById("touareg_black").onclick = () => {
-    playerCarSelect = playerCarSelect + 27;
-}
-*/
 
 class Road {
     constructor(image, y) {
@@ -233,12 +484,13 @@ let cars = [
     "images/Smooth models/Xl1/car_4.png",    //42
 ];
 
-var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .775, true); //Машина игрока
+var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
 
 var speed = 7;
 
 function Start(sec) {
     if (!player.dead) {
+        document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme').play();
         timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;

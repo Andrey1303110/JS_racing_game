@@ -4,7 +4,8 @@ body, html
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
-	overflow: hidden;
+    overflow: hidden;
+    background-color: #8C8C89;
 }
 
 .wrapper
@@ -17,7 +18,6 @@ canvas
 {
 	width: 440px;
 	height: 630px;
-	
 }
 
 div.main {
@@ -25,11 +25,13 @@ div.main {
 }
 
 #timer {
-	left: 25px;
+    opacity: 0;
+	left: 35%;
 	position: absolute;
 	color: orange;
 	font-size: 30px;
-	font-weight: bold;
+    font-weight: bold;
+    transition: all 1s ease-in-out;
 }
 
 .car {
