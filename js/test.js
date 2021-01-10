@@ -375,7 +375,7 @@ prius.onclick = () => {
     }
     setInterval (srcPolice, 25);
     document.addEventListener('keydown', function(event) {
-        if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+        if (event.ctrlKey) {
             document.getElementById('siren').play();
         }
       });
