@@ -366,6 +366,7 @@ setInterval(changeImage, 50);
 
 prius.onclick = () => {
     eS.play();
+    document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
@@ -373,6 +374,11 @@ prius.onclick = () => {
         player.image.src = policeSrc;
     }
     setInterval (srcPolice, 25);
+    document.addEventListener('keydown', function(event) {
+        if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+            document.getElementById('siren').play();
+        }
+      });
 }
 
 function returnStartPos() {
@@ -621,7 +627,8 @@ function Update() {
         if (hit) {
             Stop();
             document.getElementById('sound').play();
-            document.getElementById('main_theme' + S).pause() && document.getElementById('police_radio').pause();
+            document.getElementById('main_theme' + S).pause();
+            document.getElementById('siren').pause();
             alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
             player.dead = true
             /*let question = prompt('Желаете начать заново?');
