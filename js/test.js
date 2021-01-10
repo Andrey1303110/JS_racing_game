@@ -355,6 +355,26 @@ truck_1.onclick = () => {
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
 }
 
+let indexP = 0;
+let policeSrc = `./images/gif/1.png`;
+function changeImage() {
+    var images = ['1', '2', '3', '4', '5', '6', '1', '6', '1', '6', '5', '4', '3', '2', '1', '1'];
+    indexP = (indexP + 1) % (images.length - 1);
+    return policeSrc = `./images/gif/${images[indexP]}.png`;
+}
+setInterval(changeImage, 50);
+
+prius.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    function srcPolice () {
+        player.image.src = policeSrc;
+    }
+    setInterval (srcPolice, 25);
+}
+
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
 }
@@ -536,12 +556,13 @@ var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height
 
 var speed = 7;
 
+let S = RandomInteger(1, document.getElementsByClassName('music').length)
+
 function Start(sec) {
     if (!player.dead) {
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme').pause()
-        let S = RandomInteger(1, document.getElementsByClassName('music').length)
         document.getElementById('main_theme' + S).play()
         timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;
@@ -559,6 +580,7 @@ function Stop() {
     timer = null;
     clearInterval(timerScore);
     timerScore = null;
+
 }
 
 function Update() {
@@ -599,6 +621,7 @@ function Update() {
         if (hit) {
             Stop();
             document.getElementById('sound').play();
+            document.getElementById('main_theme' + S).pause() && document.getElementById('police_radio').pause();
             alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
             player.dead = true
             /*let question = prompt('Желаете начать заново?');
