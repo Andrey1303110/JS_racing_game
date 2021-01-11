@@ -372,7 +372,7 @@ prius.onclick = () => {
     function srcPolice () {
         player.image.src = policeSrc;
     }
-    setInterval (srcPolice, 25);
+    setInterval (srcPolice, 40);
     document.addEventListener('keydown', function(event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
@@ -388,15 +388,15 @@ let policeSrc = `./images/gif/1.png`;
 
 function changeImageBlue() {
     var images = ['1', '1', '2', '3', '4', '5', '6', '1', '6', '6', '1', '6', '6', '1', '6', '5', '4', '3', '2', '1', '1', '6'];
-    indexP = (indexP + 1) % (images.length - 1);
-    return policeSrc = `./images/gif/${images[indexP]}.png`;
-}
-function changeImageRed() {
-    let images = ['11', '11', '11', '1', '11', '11', '1', '6', '6', '1', '6', '6', '6', '1'];
     indexP = (indexP + 1) % (images.length);
     return policeSrc = `./images/gif/${images[indexP]}.png`;
 }
-setInterval(changeImageBlue, 50);
+function changeImageRed() {
+    let images = ['1', '5', '1', '11'];
+    indexP = (indexP + 1) % (images.length);
+    return policeSrc = `./images/gif/${images[indexP]}.png`;
+}
+setInterval(changeImageRed, 80);
 
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
