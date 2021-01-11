@@ -4,7 +4,7 @@ let playerCarSelect = 0;
 
 let playerStartHeightPos = .76;
 
-var moveD = 8.8;
+var moveD = 9.25;
 
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
@@ -479,8 +479,8 @@ class Car {
             if (this.x <= 15) {
                 this.x = 15;
             }
-            if (this.x >= 365) {
-                this.x = 365;
+            if (this.x >= 366) {
+                this.x = 366;
             }
         }
         else //движение по у - вертикаль
@@ -573,7 +573,7 @@ let cars = [
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-var speed = 10;
+var speed = 9.5;
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -613,28 +613,29 @@ function Update() {
     roads[1].Update(roads[0]);
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
+    let x = RandomInteger (40, 260);
 
-    if (RandomInteger(151, 350) == 199) //создание машины
+    if (x == 148) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 14, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(351, 550) == 399) //создание машины
+    if (x == 149) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 100, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(551, 750) == 599) //создание машины
+    if (x == 150) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 189, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(751, 950) == 799) //создание машины
+    if (x == 151) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 278, (canvas.height - 100) * -1, false));
     }
 
-    if (RandomInteger(951, 1150) == 999) //создание машины
+    if (x == 152) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 366, (canvas.height - 100) * -1, false));
     }
