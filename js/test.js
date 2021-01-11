@@ -4,7 +4,7 @@ let playerCarSelect = 0;
 
 let playerStartHeightPos = .76;
 
-var moveD = 2.7;
+var moveD = 8.8;
 
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
@@ -350,22 +350,13 @@ truck_1.onclick = () => {
     document.getElementById('slider').style.top = '-50%';
     upSlider();
     returnStartPos();
-    changeD()
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
 }
 
-let indexP = 0;
-let policeSrc = `./images/gif/1.png`;
-function changeImage() {
-    var images = ['1', '2', '3', '4', '5', '6', '1', '6', '1', '6', '5', '4', '3', '2', '1', '1'];
-    indexP = (indexP + 1) % (images.length - 1);
-    return policeSrc = `./images/gif/${images[indexP]}.png`;
-}
-setInterval(changeImage, 50);
-
 prius.onclick = () => {
     eS.play();
+    upSlider();
     document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
@@ -375,18 +366,32 @@ prius.onclick = () => {
     }
     setInterval (srcPolice, 25);
     document.addEventListener('keydown', function(event) {
-        if (event.ctrlKey) {
+        if (event.shiftKey) {
             document.getElementById('siren').play();
+        }
+        if (event.ctrlKey) {
+            document.getElementById('sgu').play();
         }
       });
 }
 
+let indexP = 0;
+let policeSrc = `./images/gif/1.png`;
+
+function changeImageBlue() {
+    var images = ['1', '1', '2', '3', '4', '5', '6', '1', '6', '6', '1', '6', '6', '1', '6', '5', '4', '3', '2', '1', '1', '6'];
+    indexP = (indexP + 1) % (images.length - 1);
+    return policeSrc = `./images/gif/${images[indexP]}.png`;
+}
+function changeImageRed() {
+    let images = ['11', '11', '11', '1', '11', '11', '1', '6', '6', '1', '6', '6', '6', '1'];
+    indexP = (indexP + 1) % (images.length);
+    return policeSrc = `./images/gif/${images[indexP]}.png`;
+}
+setInterval(changeImageBlue, 50);
+
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
-}
-
-function changeD() {
-    return moveD = 1.8;
 }
 
 class Road {
@@ -487,7 +492,7 @@ class Car {
 }
 
 
-const UPDATE_TIME = 1000 / 60;
+let UPDATE_TIME = 1000 / 60;
 
 var timer = null;
 
@@ -560,9 +565,15 @@ let cars = [
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-var speed = 7;
+var speed = 10;
 
-let S = RandomInteger(1, document.getElementsByClassName('music').length)
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+}
+
+let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 
 function Start(sec) {
     if (!player.dead) {
@@ -595,9 +606,31 @@ function Update() {
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
 
-    if ((RandomInteger(0, 100) == 0) || (RandomInteger(0, 100) == 100)) {
-        objects.push(new Car(randomCarsSrc, RandomInteger(10, 368), (70, canvas.height - 70) * -1, false));
+    if (RandomInteger(151, 350) == 199) //создание машины
+    {
+        objects.push(new Car(randomCarsSrc, 14, (canvas.height - 100) * -1, false));
     }
+
+    if (RandomInteger(351, 550) == 399) //создание машины
+    {
+        objects.push(new Car(randomCarsSrc, 100, (canvas.height - 100) * -1, false));
+    }
+
+    if (RandomInteger(551, 750) == 599) //создание машины
+    {
+        objects.push(new Car(randomCarsSrc, 189, (canvas.height - 100) * -1, false));
+    }
+
+    if (RandomInteger(751, 950) == 799) //создание машины
+    {
+        objects.push(new Car(randomCarsSrc, 278, (canvas.height - 100) * -1, false));
+    }
+
+    if (RandomInteger(951, 1150) == 999) //создание машины
+    {
+        objects.push(new Car(randomCarsSrc, 366, (canvas.height - 100) * -1, false));
+    }
+
 
     player.Update();
 
@@ -686,33 +719,33 @@ function DrawCar(car) {
 function KeyDown(e) {
     switch (e.keyCode) {
         case 37: //Left
-            document.getElementById('sound_wheel_main').play();
+            document.getElementById('sound_wheel_left').play();
             let timerId37 = setInterval(() => {
-                player.Move("x", -speed * .15)
+                player.Move("x", -speed * .1)
             }, 25);
             setTimeout(() => { clearInterval(timerId37); }, 250);
             break;
 
         case 65: //Left
-            document.getElementById('sound_wheel_main').play();
+            document.getElementById('sound_wheel_left').play();
             let timerId65 = setInterval(() => {
-                player.Move("x", -speed * .15)
+                player.Move("x", -speed * .1)
             }, 25);
             setTimeout(() => { clearInterval(timerId65); }, 250);
             break;
 
         case 39: //Right
-            document.getElementById('sound_wheel_main').play();
+            document.getElementById('sound_wheel_right').play();
             let timerId39 = setInterval(() => {
-                player.Move("x", speed * .15)
+                player.Move("x", speed * .1)
             }, 25);
             setTimeout(() => { clearInterval(timerId39); }, 250);
             break;
 
         case 68: //Right
-            document.getElementById('sound_wheel_main').play();
+            document.getElementById('sound_wheel_right').play();
             let timerId68 = setInterval(() => {
-                player.Move("x", speed * .15)
+                player.Move("x", speed * .1)
             }, 25);
             setTimeout(() => { clearInterval(timerId68); }, 250);
             break;
@@ -736,7 +769,7 @@ function KeyDown(e) {
         case 81: //Left-Up
             document.getElementById('sound_wheel_left_up').play();
             let timerId81 = setInterval(() => {
-                player.Move("x", -speed * .15), player.Move("y", -speed * .25)
+                player.Move("x", -speed * .05), player.Move("y", -speed * .5)
             }, 25);
             setTimeout(() => { clearInterval(timerId81); }, 500);
             break;
@@ -744,7 +777,7 @@ function KeyDown(e) {
         case 69: //Right-Up
             document.getElementById('sound_wheel_right_up').play();
             let timerId69 = setInterval(() => {
-                player.Move("x", speed * .15), player.Move("y", -speed * .25)
+                player.Move("x", speed * .05), player.Move("y", -speed * .5)
             }, 25);
             setTimeout(() => { clearInterval(timerId69); }, 500);
             break;
