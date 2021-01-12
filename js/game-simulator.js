@@ -578,7 +578,7 @@ let cars = [
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-var speed = 7;
+var speed = 8;
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);

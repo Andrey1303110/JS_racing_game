@@ -372,7 +372,7 @@ prius.onclick = () => {
     function srcPolice () {
         player.image.src = policeSrc;
     }
-    setInterval (srcPolice, 40);
+    setInterval (srcPolice, 45);
     document.addEventListener('keydown', function(event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
@@ -392,11 +392,11 @@ function changeImageBlue() {
     return policeSrc = `./images/gif/${images[indexP]}.png`;
 }
 function changeImageRed() {
-    let images = ['1', '5', '1', '11'];
+    let images = ['1', '6', '1', '11' ];
     indexP = (indexP + 1) % (images.length);
     return policeSrc = `./images/gif/${images[indexP]}.png`;
 }
-setInterval(changeImageRed, 80);
+setInterval(changeImageRed, 100);
 
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
