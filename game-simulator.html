@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<div class="your-class" id="slider">
+	<div class="up_slider" id="slider">
 		<img src="./images/Cars main screen/logo/seat.png" id="leon_main" alt="">
 		<img src="./images/Cars main screen/logo/peugeot_logo.png" id="P2008_main" alt="">
 		<img src="./images/Cars main screen/logo/vw_t_logo.png" id="touareg_main" alt="">
@@ -134,8 +134,21 @@
 				slidesToScroll: 1,
 				draggable: true,
 				initialSlide: 0,
-				speed: 600,
+				speed: 750,
 				fade: true,
+				cssEase: 'linear',
+			});
+		});
+		$(document).ready(function () {
+			$('.up_slider').slick({
+				arrows: true,
+				dots: true,
+				infinite: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				draggable: true,
+				initialSlide: 0,
+				speed: 900,
 				cssEase: 'linear',
 			});
 		});
