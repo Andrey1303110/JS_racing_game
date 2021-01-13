@@ -369,25 +369,25 @@ prius.onclick = () => {
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
-    function srcPolice () {
+    function srcPolice() {
         player.image.src = policeSrc;
     }
-    setInterval (srcPolice, 45);
-    document.addEventListener('keydown', function(event) {
+    setInterval(srcPolice, 45);
+    document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
         }
         if (event.ctrlKey) {
             document.getElementById('sgu').play();
         }
-      });
+    });
 }
 
 let indexP = 0;
 let policeSrc = `./images/gif/1.png`;
 
 function changeImageRed() {
-    let images = ['1', '6', '1', '11' ];
+    let images = ['1', '6', '1', '11'];
     indexP = (indexP + 1) % (images.length);
     return policeSrc = `./images/gif/${images[indexP]}.png`;
 }
@@ -608,7 +608,7 @@ function Update() {
     roads[1].Update(roads[0]);
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
-    let x = RandomInteger (50, 250);
+    let x = RandomInteger(50, 250);
 
     if (x == 151) //создание машины
     {
