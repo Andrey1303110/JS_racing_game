@@ -14,10 +14,10 @@ body, html
 	height: 630px;
 }
 
-canvas
+#canvas
 {
 	width: 440px;
-	height: 630px;
+	height: auto;
 }
 
 div.main {
@@ -92,4 +92,8 @@ div.main {
     left: 50%; transform: 
     translateX(-50%); 
     transition: all .5s ease-in-out;
+}
+
+img {
+	cursor: pointer;
 }
