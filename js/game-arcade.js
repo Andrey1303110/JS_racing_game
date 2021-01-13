@@ -608,9 +608,9 @@ function Update() {
     roads[1].Update(roads[0]);
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
-    let x = RandomInteger (40, 260);
+    let x = RandomInteger (50, 250);
 
-    if (x == 148) //создание машины
+    if (x == 151) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 14, (canvas.height - 100) * -1, false));
     }
@@ -620,17 +620,17 @@ function Update() {
         objects.push(new Car(randomCarsSrc, 100, (canvas.height - 100) * -1, false));
     }
 
-    if (x == 150) //создание машины
+    if (x == 152) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 189, (canvas.height - 100) * -1, false));
     }
 
-    if (x == 151) //создание машины
+    if (x == 148) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 278, (canvas.height - 100) * -1, false));
     }
 
-    if (x == 152) //создание машины
+    if (x == 150) //создание машины
     {
         objects.push(new Car(randomCarsSrc, 366, (canvas.height - 100) * -1, false));
     }
@@ -723,6 +723,7 @@ function DrawCar(car) {
 function KeyDown(e) {
     switch (e.keyCode) {
         case 37: //Left
+            //if () TODO = false when x<=15 
             document.getElementById('sound_wheel_left').play();
             let timerId37 = setInterval(() => {
                 player.Move("x", -speed * .1)
@@ -731,6 +732,7 @@ function KeyDown(e) {
             break;
 
         case 65: //Left
+            //if () TODO = false when x<=15 
             document.getElementById('sound_wheel_left').play();
             let timerId65 = setInterval(() => {
                 player.Move("x", -speed * .1)
@@ -739,6 +741,7 @@ function KeyDown(e) {
             break;
 
         case 39: //Right
+            //if () TODO = false when x>=366 
             document.getElementById('sound_wheel_right').play();
             let timerId39 = setInterval(() => {
                 player.Move("x", speed * .1)
@@ -747,6 +750,7 @@ function KeyDown(e) {
             break;
 
         case 68: //Right
+            //if () TODO = false when x>=366 
             document.getElementById('sound_wheel_right').play();
             let timerId68 = setInterval(() => {
                 player.Move("x", speed * .1)
