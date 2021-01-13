@@ -386,11 +386,6 @@ prius.onclick = () => {
 let indexP = 0;
 let policeSrc = `./images/gif/1.png`;
 
-function changeImageBlue() {
-    var images = ['1', '1', '2', '3', '4', '5', '6', '1', '6', '6', '1', '6', '6', '1', '6', '5', '4', '3', '2', '1', '1', '6'];
-    indexP = (indexP + 1) % (images.length);
-    return policeSrc = `./images/gif/${images[indexP]}.png`;
-}
 function changeImageRed() {
     let images = ['1', '6', '1', '11' ];
     indexP = (indexP + 1) % (images.length);
