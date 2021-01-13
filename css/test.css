@@ -71,28 +71,25 @@ div.main {
     display: inline-block;
 }
 
-div.color_car.white {
-    background-color: whitesmoke;
-}
-
-div.color_car.blue {
-    background-color: blue;
-}
-
-div.color_car.green {
-    background-color: green;
-}
-
-div.color_car.black {
-    background-color: black;
-}
-
-div.color_car.orange {
-    background-color: orange;
-}
-
 #audiojs_wrapper0, #audiojs_wrapper1, #audiojs_wrapper2, #audiojs_wrapper3, #audiojs_wrapper4, #audiojs_wrapper5, #audiojs_wrapper6 {
     display: none;
-} 
+}
 
+#slider {
+    width: 395px; 
+    height: 230px; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    top: 8%; 
+    transition: all .5s ease-in-out;
+}
 
+#slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1 {
+    width: 395px; 
+    height: 230px; 
+    position: absolute; 
+    left: 50%; transform: 
+    translateX(-50%); 
+    transition: all .5s ease-in-out;
+}

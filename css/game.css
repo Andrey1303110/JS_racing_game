@@ -4,7 +4,8 @@ body, html
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
-	overflow: hidden;
+    overflow: hidden;
+    background-color: #8C8C89;
 }
 
 .wrapper
@@ -13,18 +14,82 @@ body, html
 	height: 630px;
 }
 
-.canvas
+canvas
 {
-	width: 100%;
-	height: 100%;
-	background: #000;
+	width: 440px;
+	height: 630px;
+}
+
+div.main {
+    position: absolute;
 }
 
 #timer {
-	left: 25px;
+    opacity: 0;
+	left: 35%;
 	position: absolute;
 	color: orange;
 	font-size: 30px;
-	font-weight: bold;
+    font-weight: bold;
+    transition: all 1s ease-in-out;
 }
 
+.car {
+	position: absolute;
+    left: 50px;
+    width: 300px;
+	transition: .1s all ease-in-out;
+}
+
+.car:active {
+	transform: scale(1.3);
+}
+
+#touareg_green, #touareg_white, #touareg_black, #touareg_orange {
+    display: none;
+}
+
+#i8_green {
+    position: relative;
+    top: 180px;
+}
+
+.color_sect {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    position: relative;
+    top: 180px;
+    left: 100px;
+    width: 250px;
+}
+
+.color_car {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#audiojs_wrapper0, #audiojs_wrapper1, #audiojs_wrapper2, #audiojs_wrapper3, #audiojs_wrapper4, #audiojs_wrapper5, #audiojs_wrapper6 {
+    display: none;
+}
+
+#slider {
+    width: 395px; 
+    height: 230px; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    top: 8%; 
+    transition: all .5s ease-in-out;
+}
+
+#slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1 {
+    width: 395px; 
+    height: 230px; 
+    position: absolute; 
+    left: 50%; transform: 
+    translateX(-50%); 
+    transition: all .5s ease-in-out;
+}
