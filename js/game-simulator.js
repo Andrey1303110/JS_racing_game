@@ -353,14 +353,70 @@ xl_4.onclick = () => {
     return player.image.src = `./images/Smooth models/Xl1/car_4.png`;
 }
 
+truck_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-truck').style.top = '50%';
+}
+
 truck_1.onclick = () => {
     eS.play();
-    document.getElementById('slider').style.top = '-50%';
-    upSlider();
     returnStartPos();
     changeD()
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
+}
+
+prius_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-prius').style.top = '50%';
+}
+
+prius_1.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-prius').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Prius/car_1.png`;
+}
+
+prius_2.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-prius').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Prius/car_2.png`;
+}
+
+prius_3.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-prius').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Prius/car_3.png`;
+}
+
+prius_4.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-prius').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Prius/car_4.png`;
+}
+
+prius_5.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-prius').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Prius/car_5.png`;
+}
+
+prius_6.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-prius').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Prius/car_6.png`;
 }
 
 prius.onclick = () => {

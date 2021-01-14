@@ -271,4 +271,33 @@
     color: orange;
 }
 
+#slick-slide-control70::before {
+    color: silver;
+}
+
+#slick-slide-control71::before {
+    color: rgb(255, 116, 139);
+}
+
+#slick-slide-control72::before {
+    color: rgb(255, 51, 51);
+}
+
+#slick-slide-control73::before {
+    color: rgb(224, 235, 76);
+}
+
+#slick-slide-control74::before {
+    color: rgb(6, 199, 80);;
+}
+
+#slick-slide-control75::before {
+    color: rgb(14, 207, 207);
+}
+
+#slick-slide-control76::before {
+    color: rgb(250, 250, 250);
+}
+
+
 
