@@ -632,7 +632,13 @@ let cars = [
     "images/Smooth models/Xl1/car_1.png",    //39
     "images/Smooth models/Xl1/car_2.png",    //40
     "images/Smooth models/Xl1/car_3.png",    //41
-    "images/Smooth models/Xl1/car_4.png",    //42
+    "images/Smooth models/Prius/car_1.png",    //42
+    "images/Smooth models/Prius/car_2.png",
+    "images/Smooth models/Prius/car_3.png",
+    "images/Smooth models/Prius/car_4.png",
+    "images/Smooth models/Prius/car_5.png",
+    "images/Smooth models/Prius/car_6.png",
+    "images/Smooth models/Prius/car_7.png",
 ];
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
