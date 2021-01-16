@@ -419,6 +419,14 @@ prius_6.onclick = () => {
     return player.image.src = `./images/Smooth models/Prius/car_6.png`;
 }
 
+prius_7.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-prius').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(Start, 500);
+    return player.image.src = `./images/Smooth models/Prius/car_7.png`;
+}
+
 prius.onclick = () => {
     eS.play();
     upSlider();
