@@ -426,6 +426,15 @@ prius.onclick = () => {
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
+    let indexP = 0;
+    let policeSrc = `./images/gif/1.png`;
+
+    function changeImageBlue() {
+        var images = ['1', '1', '2', '3', '4', '5', '6', '1', '6', '6', '1', '6', '6', '1', '6', '5', '4', '3', '2', '1', '1', '6'];
+        indexP = (indexP + 1) % (images.length - 1);
+        return policeSrc = `./images/gif/${images[indexP]}.png`;
+    }
+    setInterval(changeImageBlue, 50);
     function srcPolice () {
         player.image.src = policeSrc;
     }
@@ -439,16 +448,6 @@ prius.onclick = () => {
         }
       });
 }
-
-let indexP = 0;
-let policeSrc = `./images/gif/1.png`;
-
-function changeImageBlue() {
-    var images = ['1', '1', '2', '3', '4', '5', '6', '1', '6', '6', '1', '6', '6', '1', '6', '5', '4', '3', '2', '1', '1', '6'];
-    indexP = (indexP + 1) % (images.length - 1);
-    return policeSrc = `./images/gif/${images[indexP]}.png`;
-}
-setInterval(changeImageBlue, 50);
 
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);

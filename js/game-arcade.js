@@ -426,6 +426,15 @@ prius.onclick = () => {
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
+    let indexP = 0;
+    let policeSrc = `./images/gif/1.png`;
+
+    function changeImageRed() {
+        let images = ['1', '6', '1', '11'];
+        indexP = (indexP + 1) % (images.length);
+        return policeSrc = `./images/gif/${images[indexP]}.png`;
+    }
+    setInterval(changeImageRed, 100);
     function srcPolice () {
         player.image.src = policeSrc;
     }
@@ -439,16 +448,6 @@ prius.onclick = () => {
         }
     });
 }
-
-let indexP = 0;
-let policeSrc = `./images/gif/1.png`;
-
-function changeImageRed() {
-    let images = ['1', '6', '1', '11'];
-    indexP = (indexP + 1) % (images.length);
-    return policeSrc = `./images/gif/${images[indexP]}.png`;
-}
-setInterval(changeImageRed, 100);
 
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
