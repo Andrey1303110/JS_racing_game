@@ -42,6 +42,16 @@ xl1_main.onclick = () => {
     document.getElementById('slider-down-xl1').style.top = '50%';
 }
 
+truck_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-truck').style.top = '50%';
+}
+
+prius_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-prius').style.top = '50%';
+}
+
 touareg_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
@@ -354,22 +364,14 @@ xl_4.onclick = () => {
     return player.image.src = `./images/Smooth models/Xl1/car_4.png`;
 }
 
-truck_main.onclick = () => {
-    upSlider();
-    document.getElementById('slider-down-truck').style.top = '50%';
-}
-
 truck_1.onclick = () => {
     eS.play();
+    document.getElementById('slider-down-truck').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     returnStartPos();
-    changeD()
+    changeD();
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
-}
-
-prius_main.onclick = () => {
-    upSlider();
-    document.getElementById('slider-down-prius').style.top = '50%';
 }
 
 prius_1.onclick = () => {

@@ -4,7 +4,7 @@ let playerCarSelect = 0;
 
 let playerStartHeightPos = .76;
 
-var moveD = 6.1;
+var moveD = 6.3;
 
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
@@ -39,6 +39,16 @@ i8_main.onclick = () => {
 xl1_main.onclick = () => {
     upSlider();
     document.getElementById('slider-down-xl1').style.top = '50%';
+}
+
+truck_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-truck').style.top = '50%';
+}
+
+prius_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-prius').style.top = '50%';
 }
 
 touareg_1.onclick = () => {
@@ -353,22 +363,13 @@ xl_4.onclick = () => {
     return player.image.src = `./images/Smooth models/Xl1/car_4.png`;
 }
 
-truck_main.onclick = () => {
-    upSlider();
-    document.getElementById('slider-down-truck').style.top = '50%';
-}
-
 truck_1.onclick = () => {
     eS.play();
+    document.getElementById('slider-down-truck').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
     returnStartPos();
-    changeD()
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
-}
-
-prius_main.onclick = () => {
-    upSlider();
-    document.getElementById('slider-down-prius').style.top = '50%';
 }
 
 prius_1.onclick = () => {
