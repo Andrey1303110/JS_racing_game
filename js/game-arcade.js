@@ -4,7 +4,7 @@ let playerCarSelect = 0;
 
 let playerStartHeightPos = .76;
 
-var moveD = 9.25;
+var moveD = 6.1;
 
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
