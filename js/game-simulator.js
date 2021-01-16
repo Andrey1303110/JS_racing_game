@@ -14,6 +14,7 @@ function upSlider() {
 leon_main.onclick = () => {
     upSlider();
     document.getElementById('slider-down-leon').style.top = '50%';
+
 }
 
 P2008_main.onclick = () => {

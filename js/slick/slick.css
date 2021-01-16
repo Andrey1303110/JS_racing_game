@@ -309,3 +309,8 @@
     50% { color: blue; }
     100% { color: red; }
 }
+
+img:focus {
+    outline: -webkit-focus-ring-color none 0px;
+    outline-width: none;
+}
