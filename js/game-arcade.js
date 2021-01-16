@@ -4,11 +4,11 @@ let playerCarSelect = 0;
 
 let playerStartHeightPos = .76;
 
-var moveD = 6.3;
+var moveD = 6.2;
 
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
-    var i; for (i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
+    for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
 }
 
 leon_main.onclick = () => {

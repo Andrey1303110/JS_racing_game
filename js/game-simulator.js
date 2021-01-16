@@ -8,7 +8,7 @@ var moveD = 2.7;
 
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
-    var i; for (i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
+    for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
 }
 
 leon_main.onclick = () => {
