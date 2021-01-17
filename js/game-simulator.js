@@ -8,6 +8,18 @@ let playerStartHeightPos = .76;
 
 var moveD = 2.7;
 
+function clearSlider () {
+    document.getElementById('slider').remove();
+    document.getElementById('slider-down-leon').remove();
+    document.getElementById('slider-down-touareg').remove();
+    document.getElementById('slider-down-2008').remove();
+    document.getElementById('slider-down-i8').remove();
+    document.getElementById('slider-down-tesla').remove();
+    document.getElementById('slider-down-xl1').remove();
+    document.getElementById('slider-down-truck').remove();
+    document.getElementById('slider-down-prius').remove();
+}
+
 function upSlider() {
     var sliderX = document.getElementsByClassName('your-class slider-down');
     for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
@@ -660,6 +672,7 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function Start(sec) {
     if (!player.dead) {
+        setTimeout (clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme1').pause();

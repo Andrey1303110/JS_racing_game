@@ -8,8 +8,20 @@ let playerStartHeightPos = .76;
 
 var moveD = 6.2;
 
+function clearSlider () {
+    document.getElementById('slider').remove();
+    document.getElementById('slider-down-leon').remove();
+    document.getElementById('slider-down-touareg').remove();
+    document.getElementById('slider-down-2008').remove();
+    document.getElementById('slider-down-i8').remove();
+    document.getElementById('slider-down-tesla').remove();
+    document.getElementById('slider-down-xl1').remove();
+    document.getElementById('slider-down-truck').remove();
+    document.getElementById('slider-down-prius').remove();
+}
+
 function upSlider() {
-    var sliderX = document.getElementsByClassName('your-class slider-down');
+    let sliderX = document.getElementsByClassName('your-class slider-down');
     for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
 }
 
@@ -152,6 +164,7 @@ i8_7.onclick = () => {
 leon_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider-down-leon').remove;
     document.getElementById('slider').style.top = '-50%';
     setTimeout(Start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_1.png`;
@@ -654,6 +667,7 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function Start(sec) {
     if (!player.dead) {
+        setTimeout (clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme1').pause();
@@ -753,10 +767,9 @@ function Update() {
             player.dead = true;
             /*let question = prompt('Желаете начать заново?');
             if question != 'No' || 'no' || 'Нет' || 'нет' {
-            }*/
+            }*/   
         }
     }
-
     Draw();
 }
 
