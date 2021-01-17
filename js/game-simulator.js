@@ -8,7 +8,7 @@ let playerStartHeightPos = .76;
 
 var moveD = 2.7;
 
-function clearSlider () {
+function clearSlider() {
     document.getElementById('slider').remove();
     document.getElementById('slider-down-leon').remove();
     document.getElementById('slider-down-touareg').remove();
@@ -460,18 +460,18 @@ prius.onclick = () => {
         return policeSrc = `./images/gif/${images[indexP]}.png`;
     }
     setInterval(changeImageBlue, 50);
-    function srcPolice () {
+    function srcPolice() {
         player.image.src = policeSrc;
     }
-    setInterval (srcPolice, 25);
-    document.addEventListener('keydown', function(event) {
+    setInterval(srcPolice, 25);
+    document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
         }
         if (event.ctrlKey) {
             document.getElementById('sgu').play();
         }
-      });
+    });
 }
 
 function returnStartPos() {
@@ -668,11 +668,11 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
 
-let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
+var S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 
 function Start(sec) {
     if (!player.dead) {
-        setTimeout (clearSlider, 500);
+        setTimeout(clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme1').pause();
@@ -709,10 +709,14 @@ function Update() {
     roads[0].Update(roads[1]);
     roads[1].Update(roads[0]);
 
-    let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
-
-    if ((RandomInteger(0, 100) == 0) || (RandomInteger(0, 100) == 100)) {
-        objects.push(new Car(randomCarsSrc, RandomInteger(10, 368), (70, canvas.height - 70) * -1, false));
+    let x = RandomInteger(140, 160)
+    if (x == 151) {
+        let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
+        objects.push(new Car(randomCarsSrc, RandomInteger(10, 368), 350 * -1, false));
+        if (objects.length >= 2) {
+            overlapCars();
+        }
+        
     }
 
     player.Update();
@@ -888,3 +892,19 @@ function RandomInteger(min, max) {
     let rand = min - 1 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
+
+function overlapCars() {
+    if (objects[objects.length-1].y - (objects[objects.length-2].y >= (objects[objects.length-1].image.height * scale)))  //Стокновнение по высоте
+    {
+        if (objects[objects.length-1].x - (objects[objects.length-2].x >= (objects[objects.length-1].image.width * scale)) || (objects[objects.length-2].x - objects[objects.length-1].x <= (objects[objects.length-1].image.width * scale))) {
+            objects.pop();
+        }
+    }
+}
+
+/*function overlapCars() {
+    if (((objects[objects.length - 2].x >= objects[objects.length - 1].x + (objects[objects.length - 1].image.width * scale)) && (objects[objects.length - 1].x >= objects[objects.length - 2].x + (objects[objects.length - 2].image.width * scale))) || ((objects[objects.length - 2].y <= objects[objects.length - 1].y + (objects[objects.length - 1].image.height * scale)) && (objects[objects.length - 1].y <= objects[objects.length - 2].y + (objects[objects.length - 1].image.height * scale)))) {
+        objects.pop();
+    }
+}*/
+

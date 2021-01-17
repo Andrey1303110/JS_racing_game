@@ -706,6 +706,9 @@ function Update() {
 
     let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     let x = RandomInteger(50, 250);
+    if (objects.length >= 2) {
+        overlapCars();
+    }
 
     if (x == 151) //создание машины
     {
@@ -902,4 +905,11 @@ function Resize() {
 function RandomInteger(min, max) {
     let rand = min - 1 + Math.random() * (max - min + 1);
     return Math.round(rand);
+}
+
+function overlapCars() {
+    if (objects[objects.length-1].y - (objects[objects.length-2].y >= (objects[objects.length-1].image.height * scale)))  //Стокновнение по высоте
+    {
+        objects.pop();
+    }
 }
