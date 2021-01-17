@@ -2,6 +2,8 @@ let eS = document.getElementById('engine_start');
 
 let playerCarSelect = 0;
 
+let scoreV = [, 33, 25, 15, 10, 5, 3, 1];
+
 let playerStartHeightPos = .76;
 
 var moveD = 2.7;
@@ -634,6 +636,7 @@ let cars = [
     "images/Smooth models/Xl1/car_1.png",    //39
     "images/Smooth models/Xl1/car_2.png",    //40
     "images/Smooth models/Xl1/car_3.png",    //41
+    "images/Smooth models/Xl1/car_4.png",
     "images/Smooth models/Prius/car_1.png",    //42
     "images/Smooth models/Prius/car_2.png",
     "images/Smooth models/Prius/car_3.png",
@@ -645,7 +648,7 @@ let cars = [
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-var speed = 8;
+var speed = 8.3;
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -663,7 +666,7 @@ function Start(sec) {
         document.getElementById('main_theme' + S).play();
         timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;
-        timerScore = setInterval(tick, 33);
+        timerScore = setInterval(tick, scoreV[1]);
         function tick() {
             sec++;
             document.getElementById("timer").
@@ -679,6 +682,15 @@ function Stop() {
     clearInterval(timerScore);
     timerScore = null;
 }
+
+/*function clearLevel() {
+    document.getElementById('main_theme' + S).pause();
+    alert (`Level cleared! You eneared + document.getElementById('timer').innerText + $`)
+    clearInterval(timer); //Остановка игры
+    timer = null;
+    clearInterval(timerScore);
+    timerScore = null;
+} */
 
 function Update() {
     roads[0].Update(roads[1]);
@@ -720,7 +732,7 @@ function Update() {
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
-            alert(`Crash! \nPress F5 for restart \nYour score is ` + document.getElementById('timer').innerText);
+            alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
             player.dead = true
             /*let question = prompt('Желаете начать заново?');
             if question != 'No' || 'no' || 'Нет' || 'нет' {
