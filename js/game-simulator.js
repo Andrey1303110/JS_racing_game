@@ -894,7 +894,7 @@ function RandomInteger(min, max) {
 }
 
 function overlapCars() {
-    if (objects[objects.length-1].y - (objects[objects.length-2].y >= (objects[objects.length-1].image.height * scale)))  //Стокновнение по высоте
+    if ((objects[objects.length-1].y - (objects[objects.length-2].y) >= (objects[objects.length-1].image.height * scale)))  //Стокновнение по высоте
     {
         if (objects[objects.length-1].x - (objects[objects.length-2].x >= (objects[objects.length-1].image.width * scale)) || (objects[objects.length-2].x - objects[objects.length-1].x <= (objects[objects.length-1].image.width * scale))) {
             objects.pop();
