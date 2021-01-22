@@ -8,16 +8,23 @@ let playerStartHeightPos = .76;
 
 var moveD = 2.7;
 
-function clearSlider() {
-    document.getElementById('slider').remove();
-    document.getElementById('slider-down-leon').remove();
-    document.getElementById('slider-down-touareg').remove();
-    document.getElementById('slider-down-2008').remove();
-    document.getElementById('slider-down-i8').remove();
-    document.getElementById('slider-down-tesla').remove();
-    document.getElementById('slider-down-xl1').remove();
-    document.getElementById('slider-down-truck').remove();
-    document.getElementById('slider-down-prius').remove();
+function clearSlider () {
+    if (document.getElementById('slider') != null) {
+            document.getElementById('slider').remove();
+            document.getElementById('slider-down-leon').remove();
+            document.getElementById('slider-down-touareg').remove();
+            document.getElementById('slider-down-2008').remove();
+            document.getElementById('slider-down-i8').remove();
+            document.getElementById('slider-down-tesla').remove();
+            document.getElementById('slider-down-xl1').remove();
+            document.getElementById('slider-down-truck').remove();
+            document.getElementById('slider-down-prius').remove();
+    }
+}
+
+function clearCarPreloadDOM () { 
+    if (document.getElementById('game_cars') != null) { 
+        document.getElementById('game_cars').remove(); } 
 }
 
 function upSlider() {
@@ -673,6 +680,7 @@ var S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 function Start(sec) {
     if (!player.dead) {
         setTimeout(clearSlider, 500);
+        clearCarPreloadDOM ();
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme1').pause();
@@ -859,7 +867,7 @@ function KeyDown(e) {
                 let timerId81 = setInterval(() => {
                     player.Move("x", -speed * .15), player.Move("y", -speed * .25)
                 }, 25);
-                setTimeout(() => { clearInterval(timerId81); }, 500);
+                setTimeout(() => { clearInterval(timerId81); }, 250);
                 break;
 
             case 69: //Right-Up
@@ -867,7 +875,7 @@ function KeyDown(e) {
                 let timerId69 = setInterval(() => {
                     player.Move("x", speed * .15), player.Move("y", -speed * .25)
                 }, 25);
-                setTimeout(() => { clearInterval(timerId69); }, 500);
+                setTimeout(() => { clearInterval(timerId69); }, 250);
                 break;
 
             case 32: //Space
