@@ -1,24 +1,26 @@
 let eS = document.getElementById('engine_start');
 
+let objectsPre = [];
+
 let playerCarSelect = 0;
 
 let scoreV = [, 33, 25, 15, 10, 5, 3, 1];
 
 let playerStartHeightPos = .76;
 
-var moveD = 2.7;
+var moveD = 6.2;
 
 function clearSlider () {
     if (document.getElementById('slider') != null) {
-            document.getElementById('slider').remove();
-            document.getElementById('slider-down-leon').remove();
-            document.getElementById('slider-down-touareg').remove();
-            document.getElementById('slider-down-2008').remove();
-            document.getElementById('slider-down-i8').remove();
-            document.getElementById('slider-down-tesla').remove();
-            document.getElementById('slider-down-xl1').remove();
-            document.getElementById('slider-down-truck').remove();
-            document.getElementById('slider-down-prius').remove();
+        document.getElementById('slider').remove();
+        document.getElementById('slider-down-leon').remove();
+        document.getElementById('slider-down-touareg').remove();
+        document.getElementById('slider-down-2008').remove();
+        document.getElementById('slider-down-i8').remove();
+        document.getElementById('slider-down-tesla').remove();
+        document.getElementById('slider-down-xl1').remove();
+        document.getElementById('slider-down-truck').remove();
+        document.getElementById('slider-down-prius').remove();
     }
 }
 
@@ -28,14 +30,13 @@ function clearCarPreloadDOM () {
 }
 
 function upSlider() {
-    var sliderX = document.getElementsByClassName('your-class slider-down');
+    let sliderX = document.getElementsByClassName('your-class slider-down');
     for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
 }
 
 leon_main.onclick = () => {
     upSlider();
     document.getElementById('slider-down-leon').style.top = '50%';
-
 }
 
 P2008_main.onclick = () => {
@@ -77,7 +78,7 @@ touareg_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_1.png`;
 }
 
@@ -85,7 +86,7 @@ touareg_2.onclick = () => {
     eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_2.png`;
 }
 
@@ -93,7 +94,7 @@ touareg_3.onclick = () => {
     eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_3.png`;
 }
 
@@ -101,7 +102,7 @@ touareg_4.onclick = () => {
     eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_4.png`;
 }
 
@@ -109,7 +110,7 @@ touareg_5.onclick = () => {
     eS.play();
     document.getElementById('slider-down-touareg').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Touareg/car_5.png`;
 }
 
@@ -117,7 +118,7 @@ i8_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/i8/car_1.png`;
 }
 
@@ -125,7 +126,7 @@ i8_2.onclick = () => {
     eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/i8/car_2.png`;
 }
 
@@ -133,7 +134,7 @@ i8_3.onclick = () => {
     eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/i8/car_3.png`;
 }
 
@@ -141,7 +142,7 @@ i8_4.onclick = () => {
     eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/i8/car_4.png`;
 }
 
@@ -149,7 +150,7 @@ i8_5.onclick = () => {
     eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/i8/car_5.png`;
 }
 
@@ -157,7 +158,7 @@ i8_6.onclick = () => {
     eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/i8/car_6.png`;
 }
 
@@ -165,15 +166,16 @@ i8_7.onclick = () => {
     eS.play();
     document.getElementById('slider-down-i8').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/i8/car_7.png`;
 }
 
 leon_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
+    document.getElementById('slider-down-leon').remove;
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_1.png`;
 }
 
@@ -181,7 +183,7 @@ leon_2.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_2.png`;
 }
 
@@ -189,7 +191,7 @@ leon_3.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_3.png`;
 }
 
@@ -197,7 +199,7 @@ leon_4.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_4.png`;
 }
 
@@ -205,7 +207,7 @@ leon_5.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_5.png`;
 }
 
@@ -213,7 +215,7 @@ leon_6.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_6.png`;
 }
 
@@ -221,7 +223,7 @@ leon_7.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_7.png`;
 }
 
@@ -229,7 +231,7 @@ leon_8.onclick = () => {
     eS.play();
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Leon/car_8.png`;
 }
 
@@ -237,7 +239,7 @@ P2008_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/2008/car_1.png`;
 }
 
@@ -245,7 +247,7 @@ P2008_2.onclick = () => {
     eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/2008/car_2.png`;
 }
 
@@ -253,7 +255,7 @@ P2008_3.onclick = () => {
     eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/2008/car_3.png`;
 }
 
@@ -261,7 +263,7 @@ P2008_4.onclick = () => {
     eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/2008/car_4.png`;
 }
 
@@ -269,7 +271,7 @@ P2008_5.onclick = () => {
     eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/2008/car_5.png`;
 }
 
@@ -277,7 +279,7 @@ P2008_6.onclick = () => {
     eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/2008/car_6.png`;
 }
 
@@ -285,7 +287,7 @@ P2008_7.onclick = () => {
     eS.play();
     document.getElementById('slider-down-2008').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/2008/car_7.png`;
 }
 
@@ -293,7 +295,7 @@ tesla_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_1.png`;
 }
 
@@ -301,7 +303,7 @@ tesla_2.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_2.png`;
 }
 
@@ -309,7 +311,7 @@ tesla_3.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_3.png`;
 }
 
@@ -317,7 +319,7 @@ tesla_4.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_4.png`;
 }
 
@@ -325,7 +327,7 @@ tesla_5.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_5.png`;
 }
 
@@ -333,7 +335,7 @@ tesla_6.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_6.png`;
 }
 
@@ -341,7 +343,7 @@ tesla_7.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_7.png`;
 }
 
@@ -349,7 +351,7 @@ tesla_8.onclick = () => {
     eS.play();
     document.getElementById('slider-down-tesla').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Tesla/car_8.png`;
 }
 
@@ -357,7 +359,7 @@ xl_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Xl1/car_1.png`;
 }
 
@@ -365,7 +367,7 @@ xl_2.onclick = () => {
     eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Xl1/car_2.png`;
 }
 
@@ -373,7 +375,7 @@ xl_3.onclick = () => {
     eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Xl1/car_3.png`;
 }
 
@@ -381,7 +383,7 @@ xl_4.onclick = () => {
     eS.play();
     document.getElementById('slider-down-xl1').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Xl1/car_4.png`;
 }
 
@@ -389,9 +391,8 @@ truck_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-truck').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    returnStartPos();
-    changeD();
-    setTimeout(Start, 500);
+    returnstartPos();
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
 }
 
@@ -399,7 +400,7 @@ prius_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-prius').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Prius/car_1.png`;
 }
 
@@ -407,7 +408,7 @@ prius_2.onclick = () => {
     eS.play();
     document.getElementById('slider-down-prius').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Prius/car_2.png`;
 }
 
@@ -415,7 +416,7 @@ prius_3.onclick = () => {
     eS.play();
     document.getElementById('slider-down-prius').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Prius/car_3.png`;
 }
 
@@ -423,7 +424,7 @@ prius_4.onclick = () => {
     eS.play();
     document.getElementById('slider-down-prius').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Prius/car_4.png`;
 }
 
@@ -431,7 +432,7 @@ prius_5.onclick = () => {
     eS.play();
     document.getElementById('slider-down-prius').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Prius/car_5.png`;
 }
 
@@ -439,7 +440,7 @@ prius_6.onclick = () => {
     eS.play();
     document.getElementById('slider-down-prius').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Prius/car_6.png`;
 }
 
@@ -447,7 +448,7 @@ prius_7.onclick = () => {
     eS.play();
     document.getElementById('slider-down-prius').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Prius/car_7.png`;
 }
 
@@ -457,20 +458,20 @@ prius.onclick = () => {
     document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider-down-leon').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    setTimeout(Start, 500);
+    setTimeout(start, 500);
     let indexP = 0;
     let policeSrc = `./images/gif/1.png`;
 
-    function changeImageBlue() {
-        var images = ['1', '1', '2', '3', '4', '5', '6', '1', '6', '6', '1', '6', '6', '1', '6', '5', '4', '3', '2', '1', '1', '6'];
-        indexP = (indexP + 1) % (images.length - 1);
+    function changeImageRed() {
+        let images = ['1', '6', '1', '11'];
+        indexP = (indexP + 1) % (images.length);
         return policeSrc = `./images/gif/${images[indexP]}.png`;
     }
-    setInterval(changeImageBlue, 50);
-    function srcPolice() {
+    setInterval(changeImageRed, 100);
+    function srcPolice () {
         player.image.src = policeSrc;
     }
-    setInterval(srcPolice, 25);
+    setInterval(srcPolice, 45);
     document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
@@ -483,10 +484,6 @@ prius.onclick = () => {
 
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
-}
-
-function changeD() {
-    return moveD = 1.8;
 }
 
 class Road {
@@ -504,7 +501,7 @@ class Road {
         this.image.src = image;
     }
 
-    Update(road) {
+    update(road) {
         this.y += speed; //изображание идёт вниз при каждом новом кадре
 
         if (this.y > window.innerHeight) //Y не может уйти влево за экран
@@ -531,7 +528,7 @@ class Car {
         this.image.src = image;
     }
 
-    Update() {
+    update() {
         if (!this.isPlayer) {
             this.y += speed;
         }
@@ -541,7 +538,7 @@ class Car {
         }
     }
 
-    Collide(car) {
+    collide(car) {
         var hit = false;
 
         if (this.y < car.y + (car.image.height * .75) * scale && this.y + (this.image.height * .75) * scale > car.y) //Стокновнение по высоте
@@ -555,7 +552,7 @@ class Car {
         return hit;
     }
 
-    Move(v, d) {
+    move(v, d) {
         if (v == "x") //движение по Х - горизонталь
         {
             d *= moveD;
@@ -563,11 +560,11 @@ class Car {
             this.x += d; //смена позиции
 
             //не позволяет машине уехать за кран канваса
-            if (this.x <= 2) {
-                this.x = 2;
+            if (this.x <= 15) {
+                this.x = 15;
             }
-            if (this.x >= 377) {
-                this.x = 377;
+            if (this.x >= 366) {
+                this.x = 366;
             }
         }
         else //движение по у - вертикаль
@@ -596,9 +593,9 @@ var ctx = canvas.getContext("2d"); //получаем внутренность C
 
 var scale = .2; //масштаб машин
 
-Resize(); //Изменяет размер Canvas при загрузке страницы
+resize(); //Изменяет размер Canvas при загрузке страницы
 
-window.addEventListener("resize", Resize); //Подтягивает размер содержимого Canvas до размеров окна
+window.addEventListener("resize", resize); //Подтягивает размер содержимого Canvas до размеров окна
 
 //Заготовка для моб. устройств
 canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); return false; });
@@ -655,8 +652,8 @@ let cars = [
     "images/Smooth models/Xl1/car_1.png",    //39
     "images/Smooth models/Xl1/car_2.png",    //40
     "images/Smooth models/Xl1/car_3.png",    //41
-    "images/Smooth models/Xl1/car_4.png",
-    "images/Smooth models/Prius/car_1.png",    //42
+    "images/Smooth models/Xl1/car_4.png",    //42
+    "images/Smooth models/Prius/car_1.png",    //43
     "images/Smooth models/Prius/car_2.png",
     "images/Smooth models/Prius/car_3.png",
     "images/Smooth models/Prius/car_4.png",
@@ -667,7 +664,7 @@ let cars = [
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-var speed = 8.3;
+var speed = 9.5;
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -675,17 +672,17 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
 
-var S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
+let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 
-function Start(sec) {
+function start(sec) {
     if (!player.dead) {
-        setTimeout(clearSlider, 500);
         clearCarPreloadDOM ();
+        setTimeout (clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme1').pause();
         document.getElementById('main_theme' + S).play();
-        timer = setInterval(Update, UPDATE_TIME); //Количество обновлений игры
+        timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;
         timerScore = setInterval(tick, scoreV[1]);
         function tick() {
@@ -696,7 +693,7 @@ function Start(sec) {
     }
 }
 
-function Stop() {
+function stop() {
     document.getElementById('main_theme' + S).pause();
     clearInterval(timer); //Остановка игры
     timer = null;
@@ -713,30 +710,36 @@ function Stop() {
     timerScore = null;
 } */
 
-function Update() {
-    roads[0].Update(roads[1]);
-    roads[1].Update(roads[0]);
+function update() {
+    roads[0].update(roads[1]);
+    roads[1].update(roads[0]);
 
-    let x = RandomInteger(100, 200)
-    if (x == 151) {
-        let randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
-        objects.push(new Car(randomCarsSrc, RandomInteger(10, 368), 350 * -1, false));
-        if (objects.length >= 2) {
-            overlapCars();
+    let carsX = [14, 100, 189, 278, 366];
+
+    var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
+    var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
+    var xCars = RandomInteger(140, 160);
+
+    /*addCars ();
+
+    function addCars () {
+        if (xCars == 150) {
+            objects.push(new Car(randomCarsSrc, 14, canvas.height * - 1, false));
+
         }
-        
-    }
+    }*/
 
-    player.Update();
+
+    player.update();
 
     if (player.dead) {
-        Stop();
+        stop();
     }
 
     var isDead = false;
 
     for (var i = 0; i < objects.length; i++) {
-        objects[i].Update();
+        objects[i].update();
 
         if (objects[i].dead) {
             isDead = true;
@@ -750,27 +753,24 @@ function Update() {
     var hit = false;
 
     for (var i = 0; i < objects.length; i++) {
-        hit = player.Collide(objects[i]);
+        hit = player.collide(objects[i]);
 
         if (hit) {
-            Stop();
+            stop();
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
             alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
-            player.dead = true
+            player.dead = true;
             /*let question = prompt('Желаете начать заново?');
             if question != 'No' || 'no' || 'Нет' || 'нет' {
-	
-            }*/
-
+            }*/   
         }
     }
-
-    Draw();
+    draw();
 }
 
-function Draw() //Функция для прорисовки
+function draw() //Функция для прорисовки
 {
     ctx.clearRect(0, 0, canvas.width, canvas.height); //Очистка окна canvas
 
@@ -789,14 +789,14 @@ function Draw() //Функция для прорисовки
             );
     }
 
-    DrawCar(player);
+    drawCar(player);
 
     for (var i = 0; i < objects.length; i++) {
-        DrawCar(objects[i]);
+        drawCar(objects[i]);
     }
 }
 
-function DrawCar(car) {
+function drawCar(car) {
     ctx.drawImage
         (
             car.image,
@@ -817,7 +817,7 @@ function KeyDown(e) {
             case 37: //Left
                 document.getElementById('sound_wheel_main').play();
                 let timerId37 = setInterval(() => {
-                    player.Move("x", -speed * .15)
+                    player.move("x", -speed * .15)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId37); }, 250);
                 break;
@@ -825,7 +825,7 @@ function KeyDown(e) {
             case 65: //Left
                 document.getElementById('sound_wheel_main').play();
                 let timerId65 = setInterval(() => {
-                    player.Move("x", -speed * .15)
+                    player.move("x", -speed * .15)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId65); }, 250);
                 break;
@@ -833,7 +833,7 @@ function KeyDown(e) {
             case 39: //Right
                 document.getElementById('sound_wheel_main').play();
                 let timerId39 = setInterval(() => {
-                    player.Move("x", speed * .15)
+                    player.move("x", speed * .15)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId39); }, 250);
                 break;
@@ -841,31 +841,31 @@ function KeyDown(e) {
             case 68: //Right
                 document.getElementById('sound_wheel_main').play();
                 let timerId68 = setInterval(() => {
-                    player.Move("x", speed * .15)
+                    player.move("x", speed * .15)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId68); }, 250);
                 break;
 
             case 38: //Up
-                player.Move("y", -speed);
+                player.move("y", -speed);
                 break;
 
             case 87: //Up
-                player.Move("y", -speed);
+                player.move("y", -speed);
                 break;
 
             case 40: //Down
-                player.Move("y", speed);
+                player.move("y", speed);
                 break;
 
             case 83: //Down
-                player.Move("y", speed);
+                player.move("y", speed);
                 break;
 
             case 81: //Left-Up
                 document.getElementById('sound_wheel_left_up').play();
                 let timerId81 = setInterval(() => {
-                    player.Move("x", -speed * .15), player.Move("y", -speed * .25)
+                    player.move("x", -speed * .15), player.move("y", -speed * .25)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId81); }, 250);
                 break;
@@ -873,17 +873,17 @@ function KeyDown(e) {
             case 69: //Right-Up
                 document.getElementById('sound_wheel_right_up').play();
                 let timerId69 = setInterval(() => {
-                    player.Move("x", speed * .15), player.Move("y", -speed * .25)
+                    player.move("x", speed * .15), player.move("y", -speed * .25)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId69); }, 250);
                 break;
 
             case 32: //Space
                 if (timer == null) {
-                    Start();
+                    start();
                 }
                 else {
-                    Stop();
+                    stop();
                 }
                 break;
         }
@@ -891,7 +891,7 @@ function KeyDown(e) {
     else false;
 }
 
-function Resize() {
+function resize() {
     canvas.width = 440;
     canvas.height = window.innerHeight;
 }
@@ -901,18 +901,41 @@ function RandomInteger(min, max) {
     return Math.round(rand);
 }
 
+/*
 function overlapCars() {
-    if ((objects[objects.length-1].y - (objects[objects.length-2].y) >= (objects[objects.length-1].image.height * scale)))  //Стокновнение по высоте
-    {
-        if (objects[objects.length-1].x - (objects[objects.length-2].x >= (objects[objects.length-1].image.width * scale)) || (objects[objects.length-2].x - objects[objects.length-1].x <= (objects[objects.length-1].image.width * scale))) {
-            objects.pop();
+    for (let i = 1; i <= objects.length; i++) {
+        if (objects[objects.length-i].x == objects[objects.length-1].x) {
+            for (let i = 1; i <= objects.length; i++) {
+                if ((objects[objects.length-i].y - (objects[objects.length-1].y) <= (objects[objects.length-i].image.height * scale)))  //Стокновнение по высоте
+                    {
+                objects.pop();
+                console.log("с экрана будет удалён " + objects[objects.length-1].image.src + "X = " + objects[objects.length-1].x)
+                }
+            }    
         }
-    }
+}   }
+*/
+
+let it = () => {
+    setInterval(() => {
+        return randomCarsSrc = cars[Math.floor(Math.random() * cars.length)]
+    }, 200);
 }
 
-/*function overlapCars() {
-    if (((objects[objects.length - 2].x >= objects[objects.length - 1].x + (objects[objects.length - 1].image.width * scale)) && (objects[objects.length - 1].x >= objects[objects.length - 2].x + (objects[objects.length - 2].image.width * scale))) || ((objects[objects.length - 2].y <= objects[objects.length - 1].y + (objects[objects.length - 1].image.height * scale)) && (objects[objects.length - 1].y <= objects[objects.length - 2].y + (objects[objects.length - 1].image.height * scale)))) {
-        objects.pop();
-    }
-}*/
+let fc = () => {
+    setInterval(() => {
+        objects.push(new Car(randomCarsSrc, 100, canvas.height * - 1, false))
+    }, RandomInteger(1500,5000));
+}
 
+fc();
+
+let fs = () => {
+    setInterval(() => {
+        objects.push(new Car(randomCarsSrc, 14, canvas.height * - 1, false))
+    }, RandomInteger(1500,5000));
+}
+
+fc();
+fs();
+it();
