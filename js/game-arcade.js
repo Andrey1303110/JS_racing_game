@@ -716,7 +716,7 @@ function update() {
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
-    var xCars = RandomInteger(100, 200);
+    var xCars = RandomInteger(130, 170);
 
     addCars ();
 
