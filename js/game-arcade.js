@@ -19,6 +19,9 @@ function clearSlider () {
         document.getElementById('slider-down-xl1').remove();
         document.getElementById('slider-down-truck').remove();
         document.getElementById('slider-down-prius').remove();
+        document.getElementById('slider-down-enzo').remove();
+        document.getElementById('slider-down-f1').remove();
+        document.getElementById('slider-down-cbr').remove();
     }
 }
 
@@ -70,6 +73,21 @@ truck_main.onclick = () => {
 prius_main.onclick = () => {
     upSlider();
     document.getElementById('slider-down-prius').style.top = '50%';
+}
+
+enzo_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-enzo').style.top = '50%';
+}
+
+f1_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-f1').style.top = '50%';
+}
+
+cbr_main.onclick = () => {
+    upSlider();
+    document.getElementById('slider-down-cbr').style.top = '50%';
 }
 
 touareg_1.onclick = () => {
@@ -480,8 +498,87 @@ prius.onclick = () => {
     });
 }
 
+enzo_1.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-enzo').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/Enzo/car_1.png`;
+}
+
+enzo_2.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-enzo').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/Enzo/car_2.png`;
+}
+
+enzo_3.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-enzo').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/Enzo/car_3.png`;
+}
+
+f1_1.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-f1').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/f1/car_1.png`;
+}
+
+f1_2.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-f1').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/f1/car_2.png`;
+}
+
+f1_3.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-f1').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/f1/car_3.png`;
+}
+
+cbr_1.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-cbr').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    returnStartPosMoto()
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/cbr/car_1.png`;
+}
+
+cbr_2.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-cbr').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    returnStartPosMoto()
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/cbr/car_2.png`;
+}
+
+cbr_3.onclick = () => {
+    eS.play();
+    document.getElementById('slider-down-cbr').style.top = '-50%';
+    document.getElementById('slider').style.top = '-50%';
+    returnStartPosMoto()
+    setTimeout(start, 500);
+    return player.image.src = `./images/Smooth models/cbr/car_3.png`;
+}
+
 function returnStartPos() {
     return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
+}
+
+function returnStartPosMoto() {
+    return player = new Car(cars[playerCarSelect], canvas.width / 2 - 16, canvas.height * .8, true);
 }
 
 class Road {
@@ -658,6 +755,13 @@ let cars = [
     "images/Smooth models/Prius/car_5.png",
     "images/Smooth models/Prius/car_6.png",
     "images/Smooth models/Prius/car_7.png",
+    "images/Smooth models/Enzo/car_1.png",  
+    "images/Smooth models/Enzo/car_2.png",
+    "images/Smooth models/Enzo/car_3.png",
+    "images/Smooth models/Enzo/car_4.png",
+    "images/Smooth models/f1/car_1.png",  
+    "images/Smooth models/f1/car_2.png",
+    "images/Smooth models/f1/car_3.png",
 ];
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока

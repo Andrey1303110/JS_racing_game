@@ -304,6 +304,42 @@
     animation: light .5s ease-in-out infinite;
 }
 
+#slick-slide-control80::before {
+    color: rgb(255, 0, 0);
+}
+
+#slick-slide-control81::before {
+    color: rgb(255, 174, 0);
+}
+
+#slick-slide-control82::before {
+    color: rgb(0, 195, 255);
+}
+
+#slick-slide-control90::before {
+    color: rgb(255, 0, 0);
+}
+
+#slick-slide-control91::before {
+    color: rgb(172, 0, 240);
+}
+
+#slick-slide-control92::before {
+    color: rgb(78, 209, 17);
+}
+
+#slick-slide-control100::before {
+    color: rgb(255, 0, 0);
+}
+
+#slick-slide-control101::before {
+    color: rgb(0, 36, 240);
+}
+
+#slick-slide-control102::before {
+    color: rgb(78, 209, 17);
+}
+
 @keyframes light {
     0% { color: red; }
     50% { color: blue; }
