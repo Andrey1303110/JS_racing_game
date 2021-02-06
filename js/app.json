@@ -1,5 +1,4 @@
-{
-    "cars": [
+[
     "images/Smooth models/Leon/car_1.png",
     "images/Smooth models/Leon/car_2.png",
     "images/Smooth models/Leon/car_3.png",
@@ -50,4 +49,3 @@
     "images/Smooth models/Prius/car_6.png",
     "images/Smooth models/Prius/car_7.png"
 ]
-}
