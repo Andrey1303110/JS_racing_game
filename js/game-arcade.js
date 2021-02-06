@@ -1,4 +1,4 @@
-
+let audios = document.querySelectorAll("audio");
 
 class Road {
     constructor(image, y) {
@@ -417,4 +417,24 @@ function RandomInteger(min, max) {
 }   } 
 */
 
-var audios = document.querySelectorAll("audio");
+/*function newGame () {
+    if (timer == null || player.dead == true) {
+        objects = [];
+        player.x = canvas.width / 2 - 30;
+        player.y = canvas.height * playerStartHeightPos;
+        draw();
+        player.dead = false;
+    }
+    start();
+}
+
+function newGameNewCar () {
+    if (timer == null || player.dead == true) {
+        objects = [];
+        player.x = canvas.width / 2 - 30;
+        player.y = canvas.height * playerStartHeightPos;
+        draw();
+        player.dead = false;
+    }
+}*/
+

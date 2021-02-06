@@ -25,6 +25,8 @@ function clearSlider () {
     }
 }
 
+//document.getElementById('slider-down-leon').style.visibility = 'hidden';
+
 function clearCarPreloadDOM () { 
     if (document.getElementById('game_cars') != null) { 
         document.getElementById('game_cars').remove(); } 
