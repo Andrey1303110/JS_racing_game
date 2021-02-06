@@ -375,9 +375,22 @@ function KeyDown(e) {
                     stop();
                 }
                 break;
+            case 75: //K
+                if (document.getElementById('main_theme' + S).volume == 1) {
+                    for (let i = 0; i < audios.length; i++) {
+                        audios[i].volume = 0;
+                        }
+                }
+                break;
+            case 76: //L
+                if (document.getElementById('main_theme' + S).volume == 0) {
+                    for (let i = 0; i < audios.length; i++) {
+                        audios[i].volume = 1;
+                    }
+                }
+                break;
         }
     }
-    else false;
 }
 
 function resize() {
@@ -403,3 +416,5 @@ function RandomInteger(min, max) {
         }
 }   } 
 */
+
+var audios = document.querySelectorAll("audio");
