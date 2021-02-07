@@ -9,21 +9,36 @@ let playerStartHeightPos = .76;
 var moveD = 6.2;
 
 function clearSlider () {
-    if (document.getElementById('slider') != null) {
-        document.getElementById('slider').remove();
-        document.getElementById('slider-down-leon').remove();
-        document.getElementById('slider-down-touareg').remove();
-        document.getElementById('slider-down-2008').remove();
-        document.getElementById('slider-down-i8').remove();
-        document.getElementById('slider-down-tesla').remove();
-        document.getElementById('slider-down-xl1').remove();
-        document.getElementById('slider-down-truck').remove();
-        document.getElementById('slider-down-prius').remove();
-        document.getElementById('slider-down-enzo').remove();
-        document.getElementById('slider-down-f1').remove();
-        document.getElementById('slider-down-cbr').remove();
-    }
+        document.getElementById('slider').style.display = "none";
+        document.getElementById('slider-down-leon').style.display = "none";
+        document.getElementById('slider-down-touareg').style.display = "none";
+        document.getElementById('slider-down-2008').style.display = "none";
+        document.getElementById('slider-down-i8').style.display = "none";
+        document.getElementById('slider-down-tesla').style.display = "none";
+        document.getElementById('slider-down-xl1').style.display = "none";
+        document.getElementById('slider-down-truck').style.display = "none";
+        document.getElementById('slider-down-prius').style.display = "none";
+        document.getElementById('slider-down-enzo').style.display = "none";
+        document.getElementById('slider-down-f1').style.display = "none";
+        document.getElementById('slider-down-cbr').style.display = "none";
 }
+
+function showSlider () {
+        document.getElementById('slider').style.display = "block";
+        document.getElementById('slider-down-leon').style.display = "block";
+        document.getElementById('slider-down-touareg').style.display = "block";
+        document.getElementById('slider-down-2008').style.display = "block";
+        document.getElementById('slider-down-i8').style.display = "block";
+        document.getElementById('slider-down-tesla').style.display = "block";
+        document.getElementById('slider-down-xl1').style.display = "block";
+        document.getElementById('slider-down-truck').style.display = "block";
+        document.getElementById('slider-down-prius').style.display = "block";
+        document.getElementById('slider-down-enzo').style.display = "block";
+        document.getElementById('slider-down-f1').style.display = "block";
+        document.getElementById('slider-down-cbr').style.display = "block";
+}
+
+
 
 //document.getElementById('slider-down-leon').style.visibility = 'hidden';
 
@@ -409,7 +424,7 @@ truck_1.onclick = () => {
     eS.play();
     document.getElementById('slider-down-truck').style.top = '-50%';
     document.getElementById('slider').style.top = '-50%';
-    returnstartPos();
+    returnStartPos();
     setTimeout(start, 500);
     return player.image.src = `./images/Smooth models/Other/car_2.png`;
 }
@@ -480,16 +495,18 @@ prius.onclick = () => {
     let indexP = 0;
     let policeSrc = `./images/gif/1.png`;
 
+    setInterval(changeImageRed, 100);
     function changeImageRed() {
         let images = ['1', '6', '1', '11'];
         indexP = (indexP + 1) % (images.length);
         return policeSrc = `./images/gif/${images[indexP]}.png`;
     }
-    setInterval(changeImageRed, 100);
+
+    setInterval(srcPolice, 45);
     function srcPolice () {
         player.image.src = policeSrc;
-    }
-    setInterval(srcPolice, 45);
+    } 
+
     document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
@@ -576,9 +593,9 @@ cbr_3.onclick = () => {
 }
 
 function returnStartPos() {
-    return player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * .68, true);
+    return player = new Car(cars[playerCarSelect], canvas.width / 2 - player.image.width * scale / 2, canvas.height * .68, true);
 }
 
 function returnStartPosMoto() {
-    return player = new Car(cars[playerCarSelect], canvas.width / 2 - 16, canvas.height * .8, true);
+    return player = new Car(cars[playerCarSelect], (canvas.width / 2) - (176 * scale / 2), canvas.height * .8, true);
 }

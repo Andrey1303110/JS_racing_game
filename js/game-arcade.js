@@ -136,7 +136,7 @@ let roads =
         new Road("images/road7.jpg", canvas.height)
     ]; //Background в виде дороги
 
-let cars = function () {
+let cars = function () { // доступ к JSON
     var jsonTemp = null;
     $.ajax({
         'async': false,
@@ -148,7 +148,7 @@ let cars = function () {
     return jsonTemp;
 }(); 
 
-var player = new Car(cars[playerCarSelect], canvas.width / 2 - 30, canvas.height * playerStartHeightPos, true); //Машина игрока
+var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
 var speed = 9.5;
 
@@ -162,6 +162,8 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function start(sec) {
     if (!player.dead) {
+        document.getElementById('canvas').style.visibility = "visible";
+        document.getElementById('slider').style.display = "none";
         clearCarPreloadDOM ();
         setTimeout (clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
@@ -246,6 +248,7 @@ function update() {
 
         if (hit) {
             stop();
+            document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
@@ -301,7 +304,7 @@ function drawCar(car) {
 }
 
 function KeyDown(e) {
-    if (document.getElementById('timer').innerText != 0) {
+    if (timer != null) {
         switch (e.keyCode) {
             case 37: //Left
                 document.getElementById('sound_wheel_main').play();
@@ -417,24 +420,27 @@ function RandomInteger(min, max) {
 }   } 
 */
 
-/*function newGame () {
+function restartGame () {
     if (timer == null || player.dead == true) {
         objects = [];
-        player.x = canvas.width / 2 - 30;
+        player.x = canvas.width / 2 - player.image.width * scale / 2;
         player.y = canvas.height * playerStartHeightPos;
         draw();
         player.dead = false;
     }
-    start();
 }
 
 function newGameNewCar () {
     if (timer == null || player.dead == true) {
         objects = [];
-        player.x = canvas.width / 2 - 30;
+        player.x = canvas.width / 2 - player.image.width * scale / 2;
         player.y = canvas.height * playerStartHeightPos;
         draw();
         player.dead = false;
+        showSlider();
     }
-}*/
+    document.getElementById('canvas').style.visibility = "hidden";
+    document.getElementById('slider').style.top = "8%";
+}
+
 
