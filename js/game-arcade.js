@@ -252,7 +252,7 @@ function update() {
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
-            alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
+            //alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
             player.dead = true;
             /*let question = prompt('Желаете начать заново?');
             if question != 'No' || 'no' || 'Нет' || 'нет' {
