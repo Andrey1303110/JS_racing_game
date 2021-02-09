@@ -252,6 +252,7 @@ function update() {
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
+            document.getElementById('menu').style.top = "30%";
             //alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
             player.dead = true;
             /*let question = prompt('Желаете начать заново?');
@@ -376,6 +377,7 @@ function KeyDown(e) {
                 }
                 else {
                     stop();
+                    timer = null;
                 }
                 break;
             case 75: //K
@@ -425,10 +427,14 @@ function restartGame () {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
         player.y = canvas.height * playerStartHeightPos;
-        draw();
         player.dead = false;
+        draw();
+        setTimeout(() => {start()}, 850);
     }
+    document.getElementById('menu').style.top = "-50%";
 }
+
+restart_button.onclick = restartGame;
 
 function newGameNewCar () {
     if (timer == null || player.dead == true) {
@@ -439,8 +445,11 @@ function newGameNewCar () {
         player.dead = false;
         showSlider();
     }
+    document.getElementById('menu').style.top = "-50%";
     document.getElementById('canvas').style.visibility = "hidden";
     document.getElementById('slider').style.top = "8%";
 }
+
+garage_button.onclick = newGameNewCar;
 
 
