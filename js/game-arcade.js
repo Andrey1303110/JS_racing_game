@@ -1,4 +1,7 @@
 let audios = document.querySelectorAll("audio");
+let menu = document.getElementById('menu');
+let sound_on = document.getElementById('sound_on');
+let sound_off = document.getElementById('sound_off');
 
 class Road {
     constructor(image, y) {
@@ -146,7 +149,7 @@ let cars = function () { // доступ к JSON
         }
     });
     return jsonTemp;
-}(); 
+}();
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
@@ -164,8 +167,8 @@ function start(sec) {
     if (!player.dead) {
         document.getElementById('canvas').style.visibility = "visible";
         document.getElementById('slider').style.display = "none";
-        clearCarPreloadDOM ();
-        setTimeout (clearSlider, 500);
+        clearCarPreloadDOM();
+        setTimeout(clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         document.getElementById('main_theme1').pause();
@@ -187,6 +190,7 @@ function stop() {
     timer = null;
     clearInterval(timerScore);
     timerScore = null;
+    selectVolume();
 }
 
 /*function clearLevel() {
@@ -208,16 +212,16 @@ function update() {
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
     var xCars = RandomInteger(125, 185);
 
-    addCars ();
+    addCars();
 
-    function addCars () {
+    function addCars() {
         if (xCars == 151) {
             objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false))
-            for (let i = 1; i < objects[objects.length]; i++) {
-                if (((objects[objects.length-1].x == (objects[objects.length-i].x)) || ((objects[objects.length-1].y) > ((objects[objects.length-i].y) - (objects[objects.length-1].image.height))))) {
-                    objects[objects.length-1].dead = true;
+            /*for (let i = 1; i < objects[objects.length]; i++) {
+                if (((objects[objects.length - 1].x == (objects[objects.length - i].x)) || ((objects[objects.length - 1].y) > ((objects[objects.length - i].y) - (objects[objects.length - 1].image.height))))) {
+                    objects[objects.length - 1].dead = true;
                 }
-            }
+            }*/
         }
     }
 
@@ -252,12 +256,13 @@ function update() {
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
-            document.getElementById('menu').style.top = "30%";
+            menu.style.top = "30%";
             //alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
             player.dead = true;
+            document.getElementById('resume_button').classList.add('hide_button');
             /*let question = prompt('Желаете начать заново?');
             if question != 'No' || 'no' || 'Нет' || 'нет' {
-            }*/   
+            }*/
         }
     }
     draw();
@@ -372,19 +377,14 @@ function KeyDown(e) {
                 break;
 
             case 32: //Space
-                if (timer == null) {
-                    start();
-                }
-                else {
-                    stop();
-                    timer = null;
-                }
+                stop();
+                menu.style.top = "30%";
                 break;
             case 75: //K
                 if (document.getElementById('main_theme' + S).volume == 1) {
                     for (let i = 0; i < audios.length; i++) {
                         audios[i].volume = 0;
-                        }
+                    }
                 }
                 break;
             case 76: //L
@@ -422,21 +422,24 @@ function RandomInteger(min, max) {
 }   } 
 */
 
-function restartGame () {
+function restartGame() {
+    document.getElementById('resume_button').classList.remove('hide_button');
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
         player.y = canvas.height * playerStartHeightPos;
         player.dead = false;
         draw();
-        setTimeout(() => {start()}, 850);
+        setTimeout(() => { start() }, 850);
     }
-    document.getElementById('menu').style.top = "-50%";
+    this.blur();
+    menu.style.top = "-50%";
 }
 
 restart_button.onclick = restartGame;
 
-function newGameNewCar () {
+function newGameNewCar() {
+    document.getElementById('resume_button').classList.remove('hide_button');
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
@@ -444,12 +447,50 @@ function newGameNewCar () {
         draw();
         player.dead = false;
         showSlider();
+        document.getElementById('main_theme1').currentTime = 0;
+        document.getElementById('main_theme1').play();
     }
-    document.getElementById('menu').style.top = "-50%";
+    menu.style.top = "-50%";
+    this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
     document.getElementById('slider').style.top = "8%";
 }
 
 garage_button.onclick = newGameNewCar;
+
+function resume() {
+    menu.style.top = "-50%";
+    start();
+    this.blur();
+}
+
+resume_button.onclick = resume;
+
+function selectVolume() {
+    if (document.getElementById('main_theme' + S).volume == 1) {
+        sound_on.style.opacity = '1';
+        sound_off.style.opacity = '.5';
+    }
+    if ((document.getElementById('main_theme' + S).volume == 0)) {
+        sound_on.style.opacity = '.5';
+        sound_off.style.opacity = '1';
+    }
+}
+
+sound_on.onclick = () => {
+    sound_on.style.opacity = '1';
+    sound_off.style.opacity = '.5';
+    for (let i = 0; i < audios.length; i++) {
+        audios[i].volume = 1;
+    }
+}
+
+sound_off.onclick = () => {
+    sound_on.style.opacity = '.5';
+    sound_off.style.opacity = '1';
+    for (let i = 0; i < audios.length; i++) {
+        audios[i].volume = 0;
+    }
+}
 
 
