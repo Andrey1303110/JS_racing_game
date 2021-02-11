@@ -19,7 +19,9 @@ body, html
 #canvas
 {
 	width: 440px;
-	height: auto;
+    height: auto;
+    transition: height 1s ease-in-out,
+                visiblity 0s;
 }
 
 div.main {
@@ -28,7 +30,8 @@ div.main {
 
 #timer {
     opacity: 0;
-	left: 35%;
+	text-align: left;
+    padding-left: 25px;
 	position: absolute;
 	color: orange;
 	font-size: 30px;
@@ -128,13 +131,6 @@ img {
 }
 
 #resume_button.hide_button, #resume_button.hide_button:hover, #resume_button.hide_button:active {
-    /*cursor: not-allowed;
-    opacity: .5;
-    width: 60%;
-    box-shadow: none;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    border-width: 0;*/
     display: none;
 }
 

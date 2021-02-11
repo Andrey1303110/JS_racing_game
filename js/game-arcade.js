@@ -3,6 +3,14 @@ let menu = document.getElementById('menu');
 let sound_on = document.getElementById('sound_on');
 let sound_off = document.getElementById('sound_off');
 
+let UPDATE_TIME = 1000 / 60;
+var timer = null;
+var canvas = document.getElementById("canvas"); //получем Canvas из DOM
+var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
+
+let scale = .2; //масштаб машин
+
+
 class Road {
     constructor(image, y) {
         this.x = 0;
@@ -112,16 +120,6 @@ class Car {
     }
 }
 
-
-let UPDATE_TIME = 1000 / 60;
-
-var timer = null;
-
-var canvas = document.getElementById("canvas"); //получем Canvas из DOM
-var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
-
-let scale = .2; //масштаб машин
-
 resize(); //Изменяет размер Canvas при загрузке страницы
 
 window.addEventListener("resize", resize); //Подтягивает размер содержимого Canvas до размеров окна
@@ -189,7 +187,6 @@ function stop() {
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);
-    timerScore = null;
     selectVolume();
 }
 
@@ -260,9 +257,6 @@ function update() {
             //alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
-            /*let question = prompt('Желаете начать заново?');
-            if question != 'No' || 'no' || 'Нет' || 'нет' {
-            }*/
         }
     }
     draw();
@@ -423,14 +417,17 @@ function RandomInteger(min, max) {
 */
 
 function restartGame() {
-    document.getElementById('resume_button').classList.remove('hide_button');
+    document.getElementById('timer').style.opacity = "0";
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
         player.y = canvas.height * playerStartHeightPos;
         player.dead = false;
-        draw();
-        setTimeout(() => { start() }, 850);
+        document.getElementById('canvas').style.height = "0";
+        setTimeout(() => { draw() }, 1000);
+        setTimeout(() => { start() }, 2000);
+        setTimeout(() => { document.getElementById('canvas').style.height = "100vh"; }, 1000);
+        setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
     }
     this.blur();
     menu.style.top = "-50%";
@@ -439,7 +436,6 @@ function restartGame() {
 restart_button.onclick = restartGame;
 
 function newGameNewCar() {
-    document.getElementById('resume_button').classList.remove('hide_button');
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
@@ -454,6 +450,8 @@ function newGameNewCar() {
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
     document.getElementById('slider').style.top = "8%";
+    setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
+    return S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 }
 
 garage_button.onclick = newGameNewCar;
@@ -478,6 +476,7 @@ function selectVolume() {
 }
 
 sound_on.onclick = () => {
+    localStorage.setItem('volume', 1);
     sound_on.style.opacity = '1';
     sound_off.style.opacity = '.5';
     for (let i = 0; i < audios.length; i++) {
@@ -486,11 +485,26 @@ sound_on.onclick = () => {
 }
 
 sound_off.onclick = () => {
+    localStorage.setItem('volume', 0);
     sound_on.style.opacity = '.5';
     sound_off.style.opacity = '1';
     for (let i = 0; i < audios.length; i++) {
         audios[i].volume = 0;
     }
 }
+
+function setVolume () {
+    let vol = localStorage.getItem('volume');
+    if (vol == 1) {
+        document.getElementById('main_theme1').play();
+    }
+    else {
+        for (let i = 0; i < audios.length; i++) {
+            audios[i].volume = 0;
+        }
+    }
+}
+
+setVolume();
 
 
