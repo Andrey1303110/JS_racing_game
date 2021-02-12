@@ -506,5 +506,6 @@ function setVolume () {
 }
 
 setVolume();
+localStorage.setItem('volume', 1);
 
 
