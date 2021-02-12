@@ -10,6 +10,7 @@ var ctx = canvas.getContext("2d"); //получаем внутренность C
 
 let scale = .2; //масштаб машин
 
+setVolume();
 
 class Road {
     constructor(image, y) {
@@ -187,7 +188,6 @@ function stop() {
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);
-    selectVolume();
 }
 
 /*function clearLevel() {
@@ -446,6 +446,7 @@ function newGameNewCar() {
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
     }
+    document.getElementById('timer').style.opacity = "0";
     menu.style.top = "-50%";
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
@@ -463,17 +464,6 @@ function resume() {
 }
 
 resume_button.onclick = resume;
-
-function selectVolume() {
-    if (document.getElementById('main_theme' + S).volume == 1) {
-        sound_on.style.opacity = '1';
-        sound_off.style.opacity = '.5';
-    }
-    if ((document.getElementById('main_theme' + S).volume == 0)) {
-        sound_on.style.opacity = '.5';
-        sound_off.style.opacity = '1';
-    }
-}
 
 sound_on.onclick = () => {
     localStorage.setItem('volume', 1);
@@ -496,16 +486,38 @@ sound_off.onclick = () => {
 function setVolume () {
     let vol = localStorage.getItem('volume');
     if (vol == 1) {
-        document.getElementById('main_theme1').play();
+        sound_on.style.opacity = '1';
+        sound_off.style.opacity = '.5';
+        for (let i = 0; i < audios.length; i++) {
+            audios[i].volume = 1;
+        }
     }
-    else {
+    if (vol == 0) {
+        sound_on.style.opacity = '.5';
+        sound_off.style.opacity = '1';
         for (let i = 0; i < audios.length; i++) {
             audios[i].volume = 0;
         }
     }
 }
 
-setVolume();
-localStorage.setItem('volume', 1);
+let menu_sound = document.getElementById('menu_sound');
 
+/*$(document).ready(function(){
+    $(`.hover-icon_360`).mouseenter(function(){ 
+        let color = Math.random() * 360;
+      $("img", this).css("top", "0").css("opacity", "1").css("filter", `hue-rotate(${color}deg)`)
+      $(".hover-icon_360").css("opacity", ".6")
+      $(this).css("opacity", "1")
+    });
+    $(`.hover-icon_360`).mouseleave(function(){ 
+        $("img", this).css("top", "-35%").css("opacity", "0")
+        $(".hover-icon_360").css("opacity", "1")
+  });
+});*/
 
+/*$(document).ready(function(){
+    $(".cars_img").click(function(){ 
+        console.log(this.id);
+    });
+});*/
