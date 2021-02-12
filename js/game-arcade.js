@@ -501,7 +501,7 @@ function setVolume () {
     }
 }
 
-let menu_sound = document.getElementById('menu_sound');
+/*let menu_sound = document.getElementById('menu_sound');*/
 
 /*$(document).ready(function(){
     $(`.hover-icon_360`).mouseenter(function(){ 
