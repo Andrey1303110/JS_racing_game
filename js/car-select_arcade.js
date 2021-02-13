@@ -52,14 +52,13 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $(".cars_img").click(function(){
-        //prius
-    eS.play();
-    $(`#slider-down-${this.name}`)[0].style.top = '-50%';
-    document.getElementById('slider').style.top = '-50%';
-    setTimeout(start, 500);
-    sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
-    sessionStorage.setItem('current car', this.alt);
-    return player.image.src = `./images/Smooth models/all_cars/${this.alt}.png`; 
+        eS.play();
+        $(`#slider-down-${this.name}`)[0].style.top = '-50%';
+        document.getElementById('slider').style.top = '-50%';
+        setTimeout(start, 500);
+        sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
+        sessionStorage.setItem('current car', this.alt);
+        return player.image.src = `./images/Smooth models/all_cars/${this.alt}.png`; 
     });
 });
 
