@@ -609,8 +609,8 @@ var objects = []; //Массив игровых объектов
 
 var roads =
     [
-        new Road("images/road7.jpg", 0),
-        new Road("images/road7.jpg", canvas.height)
+        new Road("./images/road/road9.jpg", 0),
+        new Road("./images/road/road9.jpg", canvas.height)
     ]; //Background в виде дороги
 
 let cars = [
