@@ -87,12 +87,14 @@ function prius_function () {
     document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider').style.top = '-50%';
     sessionStorage.setItem('last down slider', 'slider-down-prius');
+    sessionStorage.setItem('current car', 'prius_police');
     returnStartPos();
     setTimeout(start, 500);
     let indexP = 0;
     let policeSrc = `./images/gif/1.png`;
 
     setInterval(changeImageRed, 100);
+    //garage_button.onclick = clearInterval(changeImageRed), clearInterval(srcPolice);
     function changeImageRed() {
         let images = ['1', '6', '1', '12'];
         indexP = (indexP + 1) % (images.length);
@@ -100,7 +102,7 @@ function prius_function () {
     }
 
     setInterval(srcPolice, 40);
-    function srcPolice () {
+    function srcPolice() {
         player.image.src = policeSrc;
     } 
 

@@ -137,8 +137,8 @@ let objects = []; //Массив игровых объектов
 
 let roads =
     [
-        new Road("images/road7.jpg", 0),
-        new Road("images/road7.jpg", canvas.height)
+        new Road("images/road/road7.jpg", 0),
+        new Road("images/road/road7.jpg", canvas.height)
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
@@ -155,7 +155,19 @@ let cars = function () { // доступ к JSON
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-var speed = 9.5;
+let speed = 9.5;
+
+function accelerate() {
+    /*setTimeout(() => {return speed = 1}, 200)
+    setTimeout(() => {return speed = 2}, 400)
+    setTimeout(() => {return speed = 3}, 600)
+    setTimeout(() => {return speed = 4}, 800)
+    setTimeout(() => {return speed = 5}, 1000)
+    setTimeout(() => {return speed = 6}, 1200)
+    setTimeout(() => {return speed = 7}, 1400)
+    setTimeout(() => {return speed = 8}, 1600)
+    setTimeout(() => {return speed = 9.5}, 1800)*/
+}
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -167,6 +179,7 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function start(sec) {
     if (!player.dead) {
+        accelerate();
         document.getElementById('canvas').style.visibility = "visible";
         document.getElementById('slider').style.display = "none";
         clearCarPreloadDOM();
