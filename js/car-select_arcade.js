@@ -51,10 +51,14 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+    $("#slick-slide77").click(function(){
+        prius_function ()
+    })
     $(".cars_img").click(function(){
         eS.play();
         $(`#slider-down-${this.name}`)[0].style.top = '-50%';
         document.getElementById('slider').style.top = '-50%';
+        document.getElementById('timer').style.color = 'orange';
         setTimeout(start, 500);
         sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
         sessionStorage.setItem('current car', this.alt);
@@ -82,18 +86,20 @@ function prius_function () {
     upSlider();
     document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider').style.top = '-50%';
+    sessionStorage.setItem('last down slider', 'slider-down-prius');
+    returnStartPos();
     setTimeout(start, 500);
     let indexP = 0;
     let policeSrc = `./images/gif/1.png`;
 
     setInterval(changeImageRed, 100);
     function changeImageRed() {
-        let images = ['1', '6', '1', '11'];
+        let images = ['1', '6', '1', '12'];
         indexP = (indexP + 1) % (images.length);
         return policeSrc = `./images/gif/${images[indexP]}.png`;
     }
 
-    setInterval(srcPolice, 45);
+    setInterval(srcPolice, 40);
     function srcPolice () {
         player.image.src = policeSrc;
     } 
