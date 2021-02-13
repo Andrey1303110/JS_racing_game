@@ -109,6 +109,11 @@ function prius_function () {
     document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
+            /*for (let i = 0; i < objects.length; i++) {
+                if (((player.x - objects[i].x) <= 10) && ((objects[i].x - player.x) <= 10)) {
+                    objects[i].x+=85
+                }
+            }*/
         }
         if (event.ctrlKey) {
             document.getElementById('sgu').play();
