@@ -424,10 +424,8 @@ function restartGame() {
         player.y = canvas.height * playerStartHeightPos;
         player.dead = false;
         document.getElementById('canvas').style.height = "0";
-        setTimeout(() => { draw() }, 1000);
-        setTimeout(() => { start() }, 2000);
-        setTimeout(() => { document.getElementById('canvas').style.height = "100vh"; }, 1000);
-        setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
+        setTimeout(() => { draw(); document.getElementById('canvas').style.height = "100vh"; }, 1000);
+        setTimeout(() => { start(); document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
     }
     this.blur();
     menu.style.top = "-50%";
@@ -436,13 +434,15 @@ function restartGame() {
 restart_button.onclick = restartGame;
 
 function newGameNewCar() {
+    let last_slider = sessionStorage.getItem('last down slider');
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
         player.y = canvas.height * playerStartHeightPos;
         draw();
         player.dead = false;
-        showSlider();
+        setTimeout (showSlider, 500);
+        setTimeout (()=>{document.getElementById(`${last_slider}`).style.top = '50%'},1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
     }
@@ -459,7 +459,7 @@ garage_button.onclick = newGameNewCar;
 
 function resume() {
     menu.style.top = "-50%";
-    start();
+    setTimeout(() => { start(); }, 1000);
     this.blur();
 }
 
@@ -502,22 +502,3 @@ function setVolume () {
 }
 
 /*let menu_sound = document.getElementById('menu_sound');*/
-
-/*$(document).ready(function(){
-    $(`.hover-icon_360`).mouseenter(function(){ 
-        let color = Math.random() * 360;
-      $("img", this).css("top", "0").css("opacity", "1").css("filter", `hue-rotate(${color}deg)`)
-      $(".hover-icon_360").css("opacity", ".6")
-      $(this).css("opacity", "1")
-    });
-    $(`.hover-icon_360`).mouseleave(function(){ 
-        $("img", this).css("top", "-35%").css("opacity", "0")
-        $(".hover-icon_360").css("opacity", "1")
-  });
-});*/
-
-/*$(document).ready(function(){
-    $(".cars_img").click(function(){ 
-        console.log(this.id);
-    });
-});*/
