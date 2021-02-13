@@ -2,8 +2,9 @@ let audios = document.querySelectorAll("audio");
 let menu = document.getElementById('menu');
 let sound_on = document.getElementById('sound_on');
 let sound_off = document.getElementById('sound_off');
+let main_theme = document.getElementById('main_theme1');
 
-let UPDATE_TIME = 1000 / 60;
+let UPDATE_TIME = 1000 / 90;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
@@ -11,6 +12,8 @@ var ctx = canvas.getContext("2d"); //получаем внутренность C
 let scale = .2; //масштаб машин
 
 setVolume();
+
+document.onload = main_theme.play();
 
 class Road {
     constructor(image, y) {
@@ -56,7 +59,7 @@ class Car {
 
     update() {
         if (!this.isPlayer) {
-            this.y += speed;
+            this.y += speed*.65;
         }
 
         if (this.y > canvas.height) {
@@ -86,10 +89,10 @@ class Car {
             this.x += d; //смена позиции
 
             if (player.image.width < 312) {
-                if (player.x < 27) {
+                if (player.x <= 27) {
                     return player.x = 27;
                 }
-                if (player.x + player.image.width * scale > 415) {
+                if (player.x + player.image.width * scale >= 415) {
                     return player.x = 415 - player.image.width * scale;
                 }
             }
@@ -97,7 +100,7 @@ class Car {
                 if (player.x <= 12) {
                     return player.x = 15;
                 }
-                if (player.x + player.image.width * scale > 428) {
+                if (player.x + player.image.width * scale >= 428) {
                     return player.x = 428 - player.image.width * scale;
                 }
             }
@@ -170,7 +173,7 @@ function start(sec) {
         setTimeout(clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
-        document.getElementById('main_theme1').pause();
+        main_theme.pause();
         document.getElementById('main_theme' + S).play();
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;
@@ -207,7 +210,7 @@ function update() {
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
-    var xCars = RandomInteger(125, 185);
+    var xCars = RandomInteger(110, 190);
 
     addCars();
 
@@ -498,6 +501,9 @@ function setVolume () {
         for (let i = 0; i < audios.length; i++) {
             audios[i].volume = 0;
         }
+    }
+    else {
+        localStorage.setItem('volume', 1);
     }
 }
 
