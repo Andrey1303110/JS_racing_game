@@ -98,7 +98,7 @@ class Car {
             }
             if (player.image.width >= 312) {
                 if (player.x <= 12) {
-                    return player.x = 15;
+                    return player.x = 12;
                 }
                 if (player.x + player.image.width * scale >= 428) {
                     return player.x = 428 - player.image.width * scale;

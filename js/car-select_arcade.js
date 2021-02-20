@@ -109,14 +109,27 @@ function prius_function () {
     document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
             document.getElementById('siren').play();
-            /*for (let i = 0; i < objects.length; i++) {
-                if (((player.x - objects[i].x) <= 10) && ((objects[i].x - player.x) <= 10)) {
-                    objects[i].x+=85
-                }
-            }*/
         }
         if (event.ctrlKey) {
             document.getElementById('sgu').play();
+            for (let i = 0; i < objects.length; i++) {
+                if (((player.x - objects[i].x) <= 10) && ((objects[i].x - player.x) <= 10)) {
+                    if (objects[i].y > 0) {
+                        if (objects[i].x >= 360 && objects[i].x <= 370) {
+                            let move = setInterval(() => {
+                                objects[i].x -= 8.8
+                            }, 25);
+                            setTimeout(() => { clearInterval(move); }, 250);
+                        }
+                        else {
+                            let move = setInterval(() => {
+                                objects[i].x += 8.6
+                            }, 25);
+                            setTimeout(() => { clearInterval(move); }, 250);
+                        }
+                    }
+                }
+            }
         }
     });
 }
