@@ -50,11 +50,15 @@ $(document).ready(function(){
     });
 });
 
+var isPolice = false;
+
 $(document).ready(function(){
     $("#slick-slide77").click(function(){
         prius_function ()
+        return isPolice = true;
     })
     $(".cars_img").click(function(){
+        isPolice = false;
         eS.play();
         $(`#slider-down-${this.name}`)[0].style.top = '-50%';
         document.getElementById('slider').style.top = '-50%';
@@ -96,6 +100,10 @@ function prius_function () {
     setInterval(changeImageRed, 100);
     //garage_button.onclick = clearInterval(changeImageRed), clearInterval(srcPolice);
     function changeImageRed() {
+        if (!isPolice) {
+            return "";
+        }
+
         let images = ['1', '6', '1', '12'];
         indexP = (indexP + 1) % (images.length);
         return policeSrc = `./images/gif/${images[indexP]}.png`;
@@ -103,6 +111,10 @@ function prius_function () {
 
     setInterval(srcPolice, 40);
     function srcPolice() {
+        if (!isPolice) {
+            return;
+        }
+
         player.image.src = policeSrc;
     } 
 
