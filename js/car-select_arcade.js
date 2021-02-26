@@ -6,7 +6,7 @@ let playerCarSelect = 0;
 
 let scoreV = [, 33, 25, 15, 10, 5, 3, 1];
 
-let playerStartHeightPos = .76;
+let playerStartHeightPos = .7;
 
 var moveD = 6.2;
 
@@ -66,7 +66,7 @@ $(document).ready(function(){
         setTimeout(start, 500);
         sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
         sessionStorage.setItem('current car', this.alt);
-        return player.image.src = `./images/Smooth models/all_cars/${this.alt}.png`; 
+        return player.image.src = `./images/Smooth models/${this.alt}.png`; 
     });
 });
 

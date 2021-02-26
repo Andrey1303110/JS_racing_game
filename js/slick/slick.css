@@ -340,6 +340,118 @@
     color: rgb(78, 209, 17);
 }
 
+#slick-slide-control110::before {
+    color: #FD831C;
+}
+
+#slick-slide-control111::before {
+    color: #FA2018;
+}
+
+#slick-slide-control112::before {
+    color: #252525;
+}
+
+#slick-slide-control120::before {
+    color: #F4CC4C;
+}
+
+#slick-slide-control121::before {
+    color: #8AF448;
+}
+
+#slick-slide-control122::before {
+    color: #4C9AF4;
+}
+
+#slick-slide-control123::before {
+    color: #E33E46;
+}
+
+#slick-slide-control130::before {
+    color: #656598;
+}
+
+#slick-slide-control131::before {
+    color: #C77481;
+}
+
+#slick-slide-control132::before {
+    color: #8bd387;
+}
+
+#slick-slide-control133::before {
+    color: #000000;
+}
+
+#slick-slide-control140::before {
+    color: #F0F1F4;
+}
+
+#slick-slide-control141::before {
+    color: #F2E663;
+}
+
+#slick-slide-control142::before {
+    color: #62DBEF;
+}
+
+#slick-slide-control150::before {
+    color: #295079;
+}
+
+#slick-slide-control151::before {
+    color: #851D2A;
+}
+
+#slick-slide-control152::before {
+    color: #0DA35E;
+}
+
+#slick-slide-control153::before {
+    color: #D99900;
+}
+
+#slick-slide-control154::before {
+    color: #EFEFEF;
+}
+
+#slick-slide-control160::before {
+    color: #7CBEDF;
+}
+
+#slick-slide-control161::before {
+    color: #C8758D;
+}
+
+#slick-slide-control162::before {
+    color: #377E1A;
+}
+
+#slick-slide-control163::before {
+    color: #FAFAFA;
+}
+
+#slick-slide-control170::before {
+    color: #295079;
+}
+
+#slick-slide-control171::before {
+    color: #722D23;
+}
+
+#slick-slide-control172::before {
+    color: #9A2351;
+}
+
+#slick-slide-control173::before {
+    color: rgb(22, 214, 96);
+}
+
+#slick-slide-control174::before {
+    color: #875B2C;
+}
+
 @keyframes light {
     0% { color: red; }
     50% { color: blue; }
