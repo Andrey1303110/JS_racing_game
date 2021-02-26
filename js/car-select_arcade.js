@@ -72,7 +72,7 @@ $(document).ready(function(){
 
 function returnStartPos() {
     player.x = (canvas.width / 2) - (312 * scale / 2);
-    player.y = canvas.height * .8;
+    player.y = canvas.height * .73;
 }
 
 function returnStartPosTruck() {
