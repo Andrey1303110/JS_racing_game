@@ -520,4 +520,8 @@ function setVolume () {
     }
 }
 
+setTimeout(() => {$('#pervue').css('opacity', '0')}, 3000)
+
+
+
 /*let menu_sound = document.getElementById('menu_sound');*/
