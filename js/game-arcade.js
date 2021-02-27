@@ -520,8 +520,11 @@ function setVolume () {
     }
 }
 
-setTimeout(() => {$('#pervue').css('opacity', '0').css('z-index', '-1')}, 3500)
+setTimeout(() => {$('#start_new_game').css('right', '10%')}, 1000)
 
+start_new_game.onclick = () => {
+    $('#pervue').css('opacity', '0').css('z-index', '-1')
+}
 
 
 /*let menu_sound = document.getElementById('menu_sound');*/
