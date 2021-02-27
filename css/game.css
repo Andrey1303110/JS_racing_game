@@ -33,7 +33,7 @@ div.main {
     height: 60px;
     position: absolute;
     line-height: 10px;
-    font-size: 36px;
+    font-size: 40px;
     text-transform: uppercase;
     text-align: left;
     font-weight: bold;
@@ -41,7 +41,7 @@ div.main {
     font-family: 'Architects Daughter', cursive;
     bottom: 10%;
     right: 200%;
-    padding: 20px;
+    padding: 20px 0;
     background-image: url(/images/icons/garage.png);
     background-position: right;
     background-repeat: no-repeat;
