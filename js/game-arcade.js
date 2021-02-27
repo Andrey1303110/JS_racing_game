@@ -520,7 +520,7 @@ function setVolume () {
     }
 }
 
-setTimeout(() => {$('#pervue').css('opacity', '0')}, 3000)
+setTimeout(() => {$('#pervue').css('opacity', '0').css('z-index', '-1')}, 3500)
 
 
 
