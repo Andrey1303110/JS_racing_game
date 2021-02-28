@@ -43,7 +43,7 @@ div.main {
     bottom: 10%;
     right: 200%;
     padding: 20px 0;
-    background-image: url(/images/icons/garage.png);
+    background-image: url(./images/icons/garage.png);
     background-position: right;
     background-repeat: no-repeat;
     background-color: rgba(0, 115, 216, 0);
