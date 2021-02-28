@@ -520,15 +520,14 @@ function setVolume () {
     }
 }
 
-setTimeout(() => {$('#start_new_game').css('right', '10%')}, 1000)
-
 start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
     setTimeout(() => {$('#pervue').remove()}, 2500)
 }
 
 $(document).ready(function(){
-    setTimeout(() => {$('#start_new_game').css('right', '10%')}, 1500)
+    setTimeout(() => {$('#intro_video').play()}, 1500);
+    setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5000);
 });
 
 
