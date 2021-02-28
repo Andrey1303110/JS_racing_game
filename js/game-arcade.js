@@ -219,7 +219,7 @@ function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
-    let carsX = [9, 100, 189, 278, 360];
+    let carsX = [6, 96, 187, 276, 356];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
