@@ -89,16 +89,16 @@ class Car {
             this.x += d; //смена позиции
 
             if (player.image.width < 312) {
-                if (player.x <= 27) {
-                    return player.x = 27;
+                if (player.x <= 20) {
+                    return player.x = 20;
                 }
                 if (player.x + player.image.width * scale >= 415) {
                     return player.x = 415 - player.image.width * scale;
                 }
             }
             if (player.image.width >= 312) {
-                if (player.x <= 12) {
-                    return player.x = 12;
+                if (player.x <= 5) {
+                    return player.x = 5;
                 }
                 if (player.x + player.image.width * scale >= 428) {
                     return player.x = 428 - player.image.width * scale;
@@ -219,7 +219,7 @@ function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
-    let carsX = [14, 100, 189, 278, 366];
+    let carsX = [9, 100, 189, 278, 360];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
