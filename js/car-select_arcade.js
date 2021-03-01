@@ -125,17 +125,17 @@ function prius_function () {
         if (event.ctrlKey) {
             document.getElementById('sgu').play();
             for (let i = 0; i < objects.length; i++) {
-                if (((player.x - objects[i].x) <= 12) && ((objects[i].x - player.x) <= 12)) {
+                if (((player.x - objects[i].x) <= 10) && ((objects[i].x - player.x) <= 10)) {
                     if (objects[i].y > 0) {
-                        if (objects[i].x >= 355 && objects[i].x <= 365) {
+                        if (objects[i].x >= 360 && objects[i].x <= 370) {
                             let move = setInterval(() => {
-                                objects[i].x -= 8.6
+                                objects[i].x -= 8.7
                             }, 25);
                             setTimeout(() => { clearInterval(move); }, 250);
                         }
                         else {
                             let move = setInterval(() => {
-                                objects[i].x += 8.4
+                                objects[i].x += 8.7
                             }, 25);
                             setTimeout(() => { clearInterval(move); }, 250);
                         }
