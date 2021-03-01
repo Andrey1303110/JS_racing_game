@@ -98,7 +98,6 @@ function prius_function () {
     let policeSrc = `./images/gif/1.png`;
 
     setInterval(changeImageRed, 100);
-    //garage_button.onclick = clearInterval(changeImageRed), clearInterval(srcPolice);
     function changeImageRed() {
         if (!isPolice) {
             return "";
@@ -120,24 +119,28 @@ function prius_function () {
 
     document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
-            document.getElementById('siren').play();
+            if (sessionStorage.getItem('current car') == 'prius_police') {
+                document.getElementById('siren').play();
+            }
         }
         if (event.ctrlKey) {
-            document.getElementById('sgu').play();
-            for (let i = 0; i < objects.length; i++) {
-                if (((player.x - objects[i].x) <= 10) && ((objects[i].x - player.x) <= 10)) {
-                    if (objects[i].y > 0) {
-                        if (objects[i].x >= 360 && objects[i].x <= 370) {
-                            let move = setInterval(() => {
-                                objects[i].x -= 8.7
-                            }, 25);
-                            setTimeout(() => { clearInterval(move); }, 250);
-                        }
-                        else {
-                            let move = setInterval(() => {
-                                objects[i].x += 8.7
-                            }, 25);
-                            setTimeout(() => { clearInterval(move); }, 250);
+            if (sessionStorage.getItem('current car') == 'prius_police') {
+                document.getElementById('sgu').play();
+                for (let i = 0; i < objects.length; i++) {
+                    if (((player.x - objects[i].x) <= 15) && ((player.x - objects[i].x) >= -15)) {
+                        if (objects[i].y > 0) {
+                            if (objects[i].x >= 350 && objects[i].x <= canvas.width) {
+                                let move = setInterval(() => {
+                                    objects[i].x -= 8.7
+                                }, 25);
+                                setTimeout(() => { clearInterval(move); }, 250);
+                            }
+                            else {
+                                let move = setInterval(() => {
+                                    objects[i].x += 8.7
+                                }, 25);
+                                setTimeout(() => { clearInterval(move); }, 250);
+                            }
                         }
                     }
                 }

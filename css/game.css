@@ -19,7 +19,7 @@ body, html
 #canvas
 {
     width: 424px;
-    object-fit: contain;
+    object-fit: fill;
     height: auto;
     transition: height 1s ease-in-out,
                 visiblity 0s;
@@ -183,5 +183,3 @@ img {
 #menu div img:hover {
     opacity: 1;
 }
-
-

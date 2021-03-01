@@ -95,11 +95,11 @@ class Car {
                 }
             }
             if (player.image.width >= 312) {
-                if (player.x <= 12) {
-                    return player.x = 12;
+                if (player.x <= 10) {
+                    return player.x = 10;
                 }
-                if (player.x + player.image.width * scale >= 428) {
-                    return player.x = 428 - player.image.width * scale;
+                if (player.x + player.image.width * scale >= 430) {
+                    return player.x = 430 - player.image.width * scale;
                 }
             }
 
@@ -217,7 +217,7 @@ function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
-    let carsX = [14, 100, 189, 278, 366];
+    let carsX = [10, 100, 189, 278, 370];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
