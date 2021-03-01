@@ -13,8 +13,6 @@ let scale = .2; //масштаб машин
 
 setVolume();
 
-document.onload = main_theme.play();
-
 class Road {
     constructor(image, y) {
         this.x = 0;
@@ -522,11 +520,12 @@ function setVolume () {
 
 start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
+    document.onload = main_theme.play();
     setTimeout(() => {$('#pervue').remove()}, 2500)
 }
 
 $(document).ready(function(){
-    setTimeout(() => {$('#intro_video').play()}, 1500);
+    setTimeout(() => {$('#intro_video')[0].play()}, 1500);
     setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5000);
 });
 
