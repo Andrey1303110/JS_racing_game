@@ -15,6 +15,22 @@
 </head>
 
 <body>
+	<section id="mobile_controls">
+		<div class="controls" id="mobile_controls_left"></div>
+		<div class="controls" id="mobile_controls_right"></div>
+	</section>
+
+	<section id="for_name">
+		<div id="name_insert">
+			<p>Hello</p>
+			<p>my name is</p>
+			<form>
+				<input type="text">
+				<input id="pervue_start" type="button" value="start" minlength="3">
+			</form>
+		</div>
+	</section>
+
 	<section id="pervue">
 		<form>
 			<input id="start_new_game" type="button" value="go to garage">
@@ -187,8 +203,8 @@
 			<input id="restart_button" class="menu_button" type="button" value="restart">
 			<input id="garage_button" class="menu_button" type="button" value="garage">
 			<div>
-				<img id="sound_off" src="./images/icons/icons8-no-audio-64.png" alt="">
 				<img id="sound_on" src="./images/icons/icons8-audio-64.png" alt="">
+				<img id="sound_off" src="./images/icons/icons8-no-audio-64.png" alt="">
 			</div>
 		</form>
 		<div id="timer" class="timer_main">0</div>
@@ -229,7 +245,7 @@
 	<script src="./js/slider-set.js"></script>
 	<script defer src="./js/car-select_arcade.js"></script>
 	<script defer src="./js/game-arcade.js"></script>
-	<script src="./js/app.JSON"></script>
+	<script src="./js/app.json"></script>
 </body>
 
 </html>

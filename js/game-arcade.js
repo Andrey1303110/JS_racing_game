@@ -189,6 +189,7 @@ function start(sec) {
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;
         timerScore = setInterval(tick, scoreV[1]);
+        $('#mobile_controls').css('z-index', '2');
         function tick() {
             sec++;
             document.getElementById("timer").
@@ -202,6 +203,7 @@ function stop() {
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);
+    $('#mobile_controls').css('z-index', '0');
 }
 
 /*function clearLevel() {
@@ -388,21 +390,30 @@ function KeyDown(e) {
                 stop();
                 menu.style.top = "30%";
                 break;
+        }
+    }
+    else {
+        switch (e.keyCode) {
             case 75: //K
-                if (document.getElementById('main_theme' + S).volume == 1) {
-                    for (let i = 0; i < audios.length; i++) {
-                        audios[i].volume = 0;
-                    }
+            if (document.getElementById('main_theme' + S).volume == 1) {
+                sound_on.style.opacity = '1';
+                sound_off.style.opacity = '.5';
+                for (let i = 0; i < audios.length; i++) {
+                    audios[i].volume = 0;
                 }
-                break;
+            }
+            break;
             case 76: //L
                 if (document.getElementById('main_theme' + S).volume == 0) {
+                    sound_on.style.opacity = '.5';
+                    sound_off.style.opacity = '1';
                     for (let i = 0; i < audios.length; i++) {
                         audios[i].volume = 1;
                     }
                 }
                 break;
         }
+        
     }
 }
 
@@ -524,10 +535,31 @@ start_new_game.onclick = () => {
     setTimeout(() => {$('#pervue').remove()}, 2500)
 }
 
-$(document).ready(function(){
-    setTimeout(() => {$('#intro_video')[0].play()}, 1500);
-    setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5000);
-});
+pervue_start.onclick = () => {
+    $('#name_insert').css('opacity', '0').css('z-index', '-1');
+    setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
+    $(document).ready(function(){
+        setTimeout(() => {$('#intro_video')[0].play()}, 1500);
+        setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5000);
+    });
+    setTimeout(() => {$('#pervue').remove()}, 20000)
+}
+
+mobile_controls_left.onclick = () => {
+    document.getElementById('sound_wheel_main').play();
+    let timerId37 = setInterval(() => {
+        player.move("x", -speed * .15)
+    }, 25);
+    setTimeout(() => { clearInterval(timerId37); }, 250);
+}
+
+mobile_controls_right.onclick = () => {
+    document.getElementById('sound_wheel_main').play();
+    let timerId68 = setInterval(() => {
+        player.move("x", speed * .15)
+    }, 25);
+    setTimeout(() => { clearInterval(timerId68); }, 250);
+}
 
 
 /*let menu_sound = document.getElementById('menu_sound');*/

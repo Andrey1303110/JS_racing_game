@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@font-face {
+    font-family: "Architects Daughter";
+    src: url("../font/ArchitectsDaughter-Regular.ttf") format("opentype");
+   }
 
 body, html
 {
@@ -19,14 +22,107 @@ body, html
 #canvas
 {
     width: 424px;
-    object-fit: fill;
+    object-fit: scale-down;
     height: auto;
     transition: height 1s ease-in-out,
                 visiblity 0s;
 }
 
+.controls {
+    width: 100%;
+}
+
+#mobile_controls {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
 div.main {
     position: absolute;
+}
+
+#for_name {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#name_insert {
+    position: relative;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 400px;
+    min-width: 320px;
+    max-width: 450px;
+    text-align: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    background-color: rgb(238, 16, 16);
+    color: white;
+    line-height: 1;
+    font-family: cursive, fantasy;
+    border-radius: 5%;
+    z-index: 1005;
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+
+#name_insert p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+#name_insert p:nth-child(1) {
+    font-size: 100px;
+    margin-block-start: 10px;
+}
+
+#name_insert p:nth-child(2) {
+    font-size: 50px;
+    margin-block-end: 30px;
+}
+
+#name_insert form input {
+    padding: 0;
+    border: 0;
+    text-align: center;
+}
+
+#name_insert form input:nth-child(1) {
+    height: 100%;
+    width: 100%;
+    font-family: cursive, fantasy;
+    font-size: 70px;
+    text-align: center;
+}
+
+#name_insert form input:nth-child(2) {
+    height: 100%;
+    width: 100%;
+    font-family: cursive;
+    font-size: 70px;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0);
+    color: white;
+    text-transform: uppercase;
+    top: 15px;
+    position: relative;
+}
+
+#name_insert form input:nth-child(1):focus {
+    outline: 0;
+    border: 0;
+}
+
+#name_insert form input:nth-child(2):focus {
+    outline: 0;
+    border: 0;
 }
 
 #start_new_game {
@@ -69,6 +165,8 @@ div.main {
 video {
     height: 100%;
     width: 100%;
+    opacity: 0;
+    transition: all .7s ease-in-out;
     object-fit: contain;
 }
 
@@ -126,7 +224,7 @@ img {
     width: 300px;
     margin: 0 auto;
     background-color: rgba(173, 172, 170, 0.78);
-    transform: translateX(25%) translateY(-25%);
+    transform: translateX(20%) translateY(-25%);
     top: -50%;
     height: 300px;
     display: flex;
