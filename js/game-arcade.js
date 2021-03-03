@@ -90,16 +90,16 @@ class Car {
                 if (player.x <= 27) {
                     return player.x = 27;
                 }
-                if (player.x + player.image.width * scale >= 415) {
-                    return player.x = 415 - player.image.width * scale;
+                if (player.x + player.image.width * scale >= 408) {
+                    return player.x = 408 - player.image.width * scale;
                 }
             }
             if (player.image.width >= 312) {
                 if (player.x <= 10) {
                     return player.x = 10;
                 }
-                if (player.x + player.image.width * scale >= 430) {
-                    return player.x = 430 - player.image.width * scale;
+                if (player.x + player.image.width * scale >= 420) {
+                    return player.x = 420 - player.image.width * scale;
                 }
             }
 
@@ -135,8 +135,8 @@ let objects = []; //Массив игровых объектов
 
 let roads =
     [
-        new Road("images/road/road7.jpg", 0),
-        new Road("images/road/road7.jpg", canvas.height)
+        new Road("images/road/road7_1.jpg", 0),
+        new Road("images/road/road7_1.jpg", canvas.height)
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
@@ -418,7 +418,7 @@ function KeyDown(e) {
 }
 
 function resize() {
-    canvas.width = 440;
+    canvas.width = 424;
     canvas.height = window.innerHeight;
 }
 
@@ -532,7 +532,7 @@ function setVolume () {
 start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
     document.onload = main_theme.play();
-    setTimeout(() => {$('#pervue').remove()}, 2500)
+    setTimeout(() => {$('#pervue').remove(); $('#for_name').remove()}, 2500)
 }
 
 pervue_start.onclick = () => {
@@ -540,9 +540,8 @@ pervue_start.onclick = () => {
     setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
     $(document).ready(function(){
         setTimeout(() => {$('#intro_video')[0].play()}, 1500);
-        setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5000);
+        setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5500);
     });
-    setTimeout(() => {$('#pervue').remove()}, 20000)
 }
 
 mobile_controls_left.onclick = () => {
