@@ -10,23 +10,24 @@ let playerStartHeightPos = .7;
 
 var moveD = 6.2;
 
-function clearSlider () {
+function clearSlider() {
     document.getElementById('slider').style.display = "block";
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
 }
 
-function showSlider () {
+function showSlider() {
     document.getElementById('slider').style.display = "block";
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "block";
     }
 }
 
-function clearCarPreloadDOM () { 
-    if (document.getElementById('game_cars') != null) { 
-        document.getElementById('game_cars').remove(); } 
+function clearCarPreloadDOM() {
+    if (document.getElementById('game_cars') != null) {
+        document.getElementById('game_cars').remove();
+    }
 }
 
 function upSlider() {
@@ -34,15 +35,15 @@ function upSlider() {
     for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
 }
 
-$(document).ready(function(){
-    $(".main_screen_cars_img").click(function(){
+$(document).ready(function () {
+    $(".main_screen_cars_img").click(function () {
         upSlider();
         returnStartPos();
         document.getElementById(`slider-down-${this.name}`).style.top = '50%';
-        $("#cbr_main").click(function() {
+        $("#cbr_main").click(function () {
             returnStartPosMoto();
         })
-        $("#truck_main").click(function() {
+        $("#truck_main").click(function () {
             returnStartPosTruck();
         })
     });
@@ -50,12 +51,12 @@ $(document).ready(function(){
 
 var isPolice = false;
 
-$(document).ready(function(){
-    $("#slick-slide77").click(function(){
-        prius_function ()
+$(document).ready(function () {
+    $("#slick-slide77").click(function () {
+        prius_function()
         return isPolice = true;
     })
-    $(".cars_img").click(function(){
+    $(".cars_img").click(function () {
         isPolice = false;
         eS.play();
         $(`#slider-down-${this.name}`)[0].style.top = '-50%';
@@ -64,7 +65,7 @@ $(document).ready(function(){
         setTimeout(start, 500);
         sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
         sessionStorage.setItem('current car', this.alt);
-        return player.image.src = `./images/Smooth models/${this.alt}.png`; 
+        return player.image.src = `./images/Smooth_models/${this.alt}.png`;
     });
 });
 
@@ -83,7 +84,7 @@ function returnStartPosMoto() {
     player.y = canvas.height * .82;
 }
 
-function prius_function () {
+function prius_function() {
     eS.play();
     upSlider();
     document.getElementById('timer').style.color = 'aqua';
@@ -113,7 +114,7 @@ function prius_function () {
         }
 
         player.image.src = policeSrc;
-    } 
+    }
 
     document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
@@ -129,13 +130,13 @@ function prius_function () {
                         if (objects[i].y > 0) {
                             if (objects[i].x >= 350 && objects[i].x <= canvas.width) {
                                 let move = setInterval(() => {
-                                    objects[i].x -= 8.7
+                                    objects[i].x -= 8.2
                                 }, 25);
                                 setTimeout(() => { clearInterval(move); }, 250);
                             }
                             else {
                                 let move = setInterval(() => {
-                                    objects[i].x += 8.7
+                                    objects[i].x += 8.2
                                 }, 25);
                                 setTimeout(() => { clearInterval(move); }, 250);
                             }
