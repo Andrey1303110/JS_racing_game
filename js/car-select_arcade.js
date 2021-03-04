@@ -8,7 +8,7 @@ let scoreV = [, 33, 25, 15, 10, 5, 3, 1];
 
 let playerStartHeightPos = .7;
 
-var moveD = 6.2;
+var moveD = 6;
 
 function clearSlider() {
     document.getElementById('slider').style.display = "block";
@@ -128,15 +128,15 @@ function prius_function() {
                 for (let i = 0; i < objects.length; i++) {
                     if (((player.x - objects[i].x) <= 15) && ((player.x - objects[i].x) >= -15)) {
                         if (objects[i].y > 0) {
-                            if (objects[i].x >= 350 && objects[i].x <= canvas.width) {
+                            if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
                                 let move = setInterval(() => {
-                                    objects[i].x -= 8.2
+                                    objects[i].x -= 8.3
                                 }, 25);
                                 setTimeout(() => { clearInterval(move); }, 250);
                             }
                             else {
                                 let move = setInterval(() => {
-                                    objects[i].x += 8.2
+                                    objects[i].x += 8.3
                                 }, 25);
                                 setTimeout(() => { clearInterval(move); }, 250);
                             }

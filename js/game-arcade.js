@@ -90,16 +90,16 @@ class Car {
                 if (player.x <= 27) {
                     return player.x = 27;
                 }
-                if (player.x + player.image.width * scale >= 408) {
-                    return player.x = 408 - player.image.width * scale;
+                if (player.x + player.image.width * scale >= canvas.width - 17) {
+                    return player.x = (canvas.width - 17) - player.image.width * scale;
                 }
             }
             if (player.image.width >= 312) {
-                if (player.x <= 10) {
-                    return player.x = 10;
+                if (player.x <= 12) {
+                    return player.x = 12;
                 }
-                if (player.x + player.image.width * scale >= canvas.width - 5) {
-                    return player.x = canvas.width - 5 - player.image.width * scale;
+                if (player.x + player.image.width * scale >= canvas.width - 12) {
+                    return player.x = (canvas.width - 12) - player.image.width * scale;
                 }
             }
 
@@ -128,6 +128,7 @@ window.addEventListener("resize", resize); //Подтягивает размер
 
 //Заготовка для моб. устройств
 canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); return false; });
+name_insert.addEventListener("submit", function (e) { e.preventDefault(); return false; });
 
 window.addEventListener("keydown", function (e) { KeyDown(e); }); //Слушатель нажатий на клавиатуру
 
@@ -219,11 +220,11 @@ function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
-    let carsX = [10, 100, 189, 278, 370];
+    let carsX = [12, 96, 180, 264, 348];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
-    var xCars = RandomInteger(110, 190);
+    var xCars = RandomInteger(120, 180);
 
     addCars();
 
@@ -540,7 +541,7 @@ pervue_start.onclick = () => {
     setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
     $(document).ready(function(){
         setTimeout(() => {$('#intro_video')[0].play()}, 1500);
-        setTimeout(() => {$('#start_new_game').css('right', '0%')}, 5500);
+        setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5500);
     });
 }
 
