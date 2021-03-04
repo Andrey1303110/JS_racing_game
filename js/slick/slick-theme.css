@@ -202,3 +202,9 @@
     transform: scale(1.8);
     transition: all .5s ease-in-out;
 }
+
+@media screen and (max-width: 550px) {
+    .slick-prev.slick-arrow, .slick-next.slick-arrow {
+        display: none;
+    } 
+}
