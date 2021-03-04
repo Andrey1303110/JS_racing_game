@@ -98,8 +98,8 @@ class Car {
                 if (player.x <= 10) {
                     return player.x = 10;
                 }
-                if (player.x + player.image.width * scale >= 420) {
-                    return player.x = 420 - player.image.width * scale;
+                if (player.x + player.image.width * scale >= canvas.width - 5) {
+                    return player.x = canvas.width - 5 - player.image.width * scale;
                 }
             }
 
@@ -540,7 +540,7 @@ pervue_start.onclick = () => {
     setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
     $(document).ready(function(){
         setTimeout(() => {$('#intro_video')[0].play()}, 1500);
-        setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5500);
+        setTimeout(() => {$('#start_new_game').css('right', '0%')}, 5500);
     });
 }
 

@@ -27,7 +27,7 @@ body, html
 #canvas
 {
     width: 424px;
-    object-fit: scale-down;
+    object-fit: cover;
     height: auto;
     transition: height 1s ease-in-out,
                 visiblity 0s;
@@ -131,7 +131,7 @@ div.main {
 }
 
 #start_new_game {
-    width: 380px;
+    width: 400px;
     height: 60px;
     position: absolute;
     line-height: 10px;
@@ -145,12 +145,16 @@ div.main {
     right: 200%;
     padding: 20px 0;
     background-image: url(../images/icons/garage.png);
-    background-position: right;
+    background-position-x: 90%;
     background-repeat: no-repeat;
     background-color: rgba(0, 115, 216, 0);
     cursor: pointer;
     z-index: 1002;
     transition: all 1.5s ease-in-out;
+}
+
+#start_new_game:hover {
+    background-position-x: 100%;
 }
 
 #pervue {
