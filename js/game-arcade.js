@@ -190,7 +190,7 @@ function start(sec) {
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
         sec = 0;
         timerScore = setInterval(tick, scoreV[1]);
-        $('#mobile_controls').css('z-index', '2');
+        $('#mobile_controls').css('display', 'flex');
         function tick() {
             sec++;
             document.getElementById("timer").
@@ -204,7 +204,7 @@ function stop() {
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);
-    $('#mobile_controls').css('z-index', '0');
+    $('#mobile_controls').css('display', 'none');
 }
 
 /*function clearLevel() {
