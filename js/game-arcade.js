@@ -13,6 +13,18 @@ let scale = .2; //масштаб машин
 
 setVolume();
 
+$("#name_player")[0].value = localStorage.getItem ('name');
+
+function setName() {
+    let name_player = $("#name_player")[0].value;
+    if (localStorage.getItem ('name') == "") {
+        localStorage.setItem ('name', `${name_player}`);
+    }
+    if (localStorage.getItem ('name') != "") {
+        localStorage.setItem ('name', `${name_player}`);
+    }
+}
+
 class Road {
     constructor(image, y) {
         this.x = 0;
@@ -388,33 +400,9 @@ function KeyDown(e) {
                 break;
 
             case 32: //Space
-                stop();
                 menu.style.top = "30%";
-                break;
+                stop(); 
         }
-    }
-    else {
-        switch (e.keyCode) {
-            case 75: //K
-            if (document.getElementById('main_theme' + S).volume == 1) {
-                sound_on.style.opacity = '1';
-                sound_off.style.opacity = '.5';
-                for (let i = 0; i < audios.length; i++) {
-                    audios[i].volume = 0;
-                }
-            }
-            break;
-            case 76: //L
-                if (document.getElementById('main_theme' + S).volume == 0) {
-                    sound_on.style.opacity = '.5';
-                    sound_off.style.opacity = '1';
-                    for (let i = 0; i < audios.length; i++) {
-                        audios[i].volume = 1;
-                    }
-                }
-                break;
-        }
-        
     }
 }
 
@@ -532,11 +520,12 @@ function setVolume () {
 
 start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
-    document.onload = main_theme.play();
+    main_theme.play();
     setTimeout(() => {$('#pervue').remove(); $('#for_name').remove()}, 2500)
 }
 
 pervue_start.onclick = () => {
+    setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
     $(document).ready(function(){
