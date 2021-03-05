@@ -10,6 +10,14 @@ $(document).ready(function () {
         speed: 600,
         fade: true,
         cssEase: 'linear',
+        responsive: [
+            {
+                breakpoint: 581,
+                settings: {
+                    arrows: false,
+                }
+            },  
+        ]
     });
 });
 $(document).ready(function () {
@@ -22,5 +30,13 @@ $(document).ready(function () {
         initialSlide: 0,
         speed: 900,
         cssEase: 'linear',
+        responsive: [
+            {
+                breakpoint: 581,
+                settings: {
+                    arrows: false,
+                }
+            },  
+        ]
     });
 });
