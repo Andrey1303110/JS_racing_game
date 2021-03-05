@@ -550,5 +550,11 @@ mobile_controls_right.onclick = () => {
     setTimeout(() => { clearInterval(timerId68); }, 250);
 }
 
+button_question.onclick = () => {
+    $("#keyboards_controls").css('opacity', '1').css('z-index', '2');
+    setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 5000);
+    setTimeout(() => {$("#keyboards_controls").css('z-index', '0')}, 6500)
+}
+
 
 /*let menu_sound = document.getElementById('menu_sound');*/

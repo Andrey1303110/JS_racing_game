@@ -289,3 +289,58 @@ img {
 #menu div img:hover {
     opacity: 1;
 }
+
+#keyboards_controls {
+    position: absolute;
+    width: 100%;
+    height: 450px;
+    opacity: 0;
+    z-index: 0;
+    transition: all 1s ease-in-out;
+}
+
+#icons_controls {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+    transform: translateX(250px);
+    width: 220px;
+}
+
+#icons_controls img {
+    opacity: .5;
+    cursor: pointer;
+}
+
+#icons_controls img:hover {
+    opacity: 1;
+}
+ 
+#key_code {
+    color: white;
+    font-family: 'Architects Daughter';
+    position: relative;
+    top: 10%;
+    left: 50%;
+    text-align: start;
+    width: 424px;
+    transform: translate(-50%);
+    font-size: 22px;
+    background-color: #8C8C89;
+}
+
+#img_keyboard {
+    width: 424px;
+    height: 500px;
+    background-image: url(/./images/icons/keyboard_icons.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8C8C89;
+}
