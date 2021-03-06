@@ -15,6 +15,13 @@ setVolume();
 
 $("#name_player")[0].value = localStorage.getItem ('name');
 
+name_player.onkeypress = (e) => {
+    keyCode = (window.event) ? e.which : e.keyCode;
+    if (keyCode == 13) {
+        $("#pervue_start").click();
+    }
+}
+
 function setName() {
     let name_player = $("#name_player")[0].value;
     if (localStorage.getItem ('name') == "") {
@@ -552,8 +559,8 @@ mobile_controls_right.onclick = () => {
 
 button_question.onclick = () => {
     $("#keyboards_controls").css('opacity', '1').css('z-index', '2');
-    setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 10000);
-    setTimeout(() => {$("#keyboards_controls").css('z-index', '0')}, 11500)
+    setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 8000);
+    setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 9500)
 }
 
 
