@@ -322,7 +322,7 @@ img {
     color: white;
     font-family: 'Architects Daughter';
     position: relative;
-    top: 10%;
+    top: 15%;
     left: 50%;
     text-align: start;
     width: 424px;
@@ -332,10 +332,10 @@ img {
 }
 
 #img_keyboard {
-    width: 424px;
+    width: 450px;
     height: 500px;
     background-image: url(/./images/icons/keyboard_icons.png);
-    background-size: contain;
+    background-size: 300px;
     background-repeat: no-repeat;
     background-position: top;
     position: relative;
