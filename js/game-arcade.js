@@ -15,20 +15,15 @@ setVolume();
 
 $("#name_player")[0].value = localStorage.getItem ('name');
 
-name_player.onkeypress = (e) => {
-    keyCode = (window.event) ? e.which : e.keyCode;
-    if (keyCode == 13) {
-        $("#pervue_start").click();
-    }
-}
-
 function setName() {
     let name_player = $("#name_player")[0].value;
-    if (localStorage.getItem ('name') == "") {
-        localStorage.setItem ('name', `${name_player}`);
-    }
-    if (localStorage.getItem ('name') != "") {
-        localStorage.setItem ('name', `${name_player}`);
+    localStorage.setItem ('name', `${name_player}`);
+}
+
+name_player.onkeypress = (e) => {
+    keyCode = (window.event) ? e.which : e.keyCode;
+    if ((keyCode == 13) && (name_player.value != "")) {
+        $("#pervue_start").click();
     }
 }
 
