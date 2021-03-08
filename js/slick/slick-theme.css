@@ -85,7 +85,7 @@
     background-size: 20px;
     background-position: center;
     background-repeat: no-repeat;
-    animation: arrows .6s ease-in-out;
+    animation: arrows .5s ease-in-out;
     filter: brightness(.9) saturate(.9);
 }
 
@@ -101,7 +101,7 @@
 
 @keyframes arrows {
     0% { filter: brightness(.9) saturate(.9); }
-    25% { filter: brightness(1.4) saturate(1.4); }
+    15% { filter: brightness(1.5) saturate(1.5); }
     100% { filter: brightness(.9) saturate(.9); }
 }
 
@@ -115,7 +115,7 @@
     background-size: 20px;
     background-position: center;
     background-repeat: no-repeat;
-    animation: arrows .7s ease-in-out;
+    animation: arrows .5s ease-in-out;
     filter: brightness(.9) saturate(.9);
 }
 [dir='rtl'] .slick-next
