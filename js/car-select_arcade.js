@@ -30,6 +30,14 @@ function clearCarPreloadDOM() {
     }
 }
 
+$(document).ready(function () {
+    $('.slider-down button.slick-prev').click(() => { spray.play() });
+    $('.slider-down button.slick-next').click(() => { spray.play() });
+    $('.up_slider button.slick-prev').click(() => { car_select.play() });
+    $('.up_slider button.slick-next').click(() => { car_select.play() });
+});
+
+
 function upSlider() {
     let sliderX = document.getElementsByClassName('your-class slider-down');
     for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }

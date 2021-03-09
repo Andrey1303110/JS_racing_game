@@ -7,9 +7,9 @@ $(document).ready(function () {
         slidesToScroll: 1,
         draggable: true,
         initialSlide: 0,
-        speed: 600,
+        speed: 2000,
         fade: true,
-        cssEase: 'linear',
+        cssEase: 'cubic-bezier(1,-0.07,.6,.53)',
         responsive: [
             {
                 breakpoint: 581,
