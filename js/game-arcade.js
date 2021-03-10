@@ -11,6 +11,9 @@ var ctx = canvas.getContext("2d"); //получаем внутренность C
 
 let scale = .2; //масштаб машин
 
+let lowwer = 100;
+let upper = 200;
+
 setVolume();
 
 $("#name_player")[0].value = localStorage.getItem ('name');
@@ -25,6 +28,10 @@ name_player.onkeypress = (e) => {
     if ((keyCode == 13) && (name_player.value != "")) {
         $("#pervue_start").click();
     }
+}
+
+function upDifficulty () {
+    setInterval(()=>{lowwer+=5;upper-=5;}, 5000)
 }
 
 class Road {
@@ -192,6 +199,7 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function start(sec) {
     if (!player.dead) {
+        upDifficulty();
         setPosY();
         accelerate();
         document.getElementById('canvas').style.visibility = "visible";
@@ -239,7 +247,7 @@ function update() {
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
-    var xCars = RandomInteger(140, 160);
+    var xCars = RandomInteger(lowwer, upper);
 
     addCars();
 
@@ -600,9 +608,6 @@ mobile_controls_right.onclick = () => {
 
 button_question.onclick = () => {
     $("#keyboards_controls").css('opacity', '1').css('z-index', '2');
-    setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 8000);
-    setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 9500)
+    setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 4000);
+    setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 5500)
 }
-
-
-/*let menu_sound = document.getElementById('menu_sound');*/
