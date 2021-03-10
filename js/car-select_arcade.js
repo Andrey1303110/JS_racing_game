@@ -47,16 +47,16 @@ function upSlider() {
 $(document).ready(function () {
     $(".main_screen_cars_img").click(function () {
         upSlider();
-        returnStartPos();
         document.getElementById(`slider-down-${this.name}`).style.top = '50%';
         $("#cbr_main").click(function () {
-            returnStartPosMoto();
-        })
-        $("#truck_main").click(function () {
-            returnStartPosTruck();
+            setTimeout(() => {returnStartPosMoto()}, 1500)
         })
     });
 });
+
+function setPosY() {
+    return player.y = canvas.height - (player.image.height * scale);
+}
 
 var isPolice = false;
 
@@ -81,11 +81,6 @@ $(document).ready(function () {
 function returnStartPos() {
     player.x = (canvas.width / 2) - (312 * scale / 2);
     player.y = canvas.height * .73;
-}
-
-function returnStartPosTruck() {
-    player.x = (canvas.width / 2) - (312 * scale / 2);
-    player.y = canvas.height * .69;
 }
 
 function returnStartPosMoto() {

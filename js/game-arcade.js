@@ -192,6 +192,7 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function start(sec) {
     if (!player.dead) {
+        setPosY();
         accelerate();
         document.getElementById('canvas').style.visibility = "visible";
         document.getElementById('slider').style.display = "none";
