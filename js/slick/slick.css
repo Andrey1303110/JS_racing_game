@@ -452,6 +452,14 @@
     color: #875B2C;
 }
 
+#slick-slide-control180::before {
+    color: #0e0e0e;
+}
+
+#slick-slide-control181::before {
+    color: rgb(230, 230, 230);
+}
+
 @keyframes light {
     0% { color: red; }
     50% { color: blue; }

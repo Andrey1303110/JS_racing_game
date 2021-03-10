@@ -215,7 +215,7 @@ video {
     transition: all .5s ease-in-out;
 }
 
-#slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1 {
+#slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-bmw_x5 {
     width: 395px; 
     height: 230px; 
     position: absolute; 
