@@ -430,7 +430,7 @@ function overlapCars() {
             }
         }
     }
-    if (objects.length > 2) {
+    if (objects.length == 3) {
         if (objects[objects.length-2].x == objects[objects.length-1].x) {
             if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
             {
@@ -446,7 +446,36 @@ function overlapCars() {
             }
         }
     }
-
+    if (objects.length > 3) {
+        if (objects[objects.length-2].x == objects[objects.length-1].x) {
+            if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
+            {
+                objects.pop();
+                console.log("с экрана будет удалёна машинка");
+            }
+        }
+        if (objects[objects.length-3].x == objects[objects.length-1].x) {
+            if (objects[objects.length-3].y - objects[objects.length-1].y <= objects[objects.length-3].image.height * scale)  //Стокновнение по высоте 
+            {
+                objects.pop();
+                console.log("с экрана будет удалёна машинка");
+            }
+        }
+        if (objects[objects.length-4].x == objects[objects.length-1].x) {
+            if (objects[objects.length-4].y - objects[objects.length-1].y <= objects[objects.length-4].image.height * scale)  //Стокновнение по высоте 
+            {
+                objects.pop();
+                console.log("с экрана будет удалёна машинка");
+            }
+        }
+        if (objects[objects.length-4].x == objects[objects.length-2].x) {
+            if (objects[objects.length-4].y - objects[objects.length-2].y <= objects[objects.length-4].image.height * scale)  //Стокновнение по высоте 
+            {
+                objects.pop();
+                console.log("с экрана будет удалёна машинка");
+            }
+        }
+    }
 }
 
 function restartGame() {
