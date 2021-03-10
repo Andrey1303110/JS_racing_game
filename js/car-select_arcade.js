@@ -78,11 +78,6 @@ $(document).ready(function () {
     });
 });
 
-function returnStartPos() {
-    player.x = (canvas.width / 2) - (312 * scale / 2);
-    player.y = canvas.height * .73;
-}
-
 function returnStartPosMoto() {
     player.x = (canvas.width / 2) - (176 * scale / 2);
     player.y = canvas.height * .82;
@@ -95,7 +90,6 @@ function prius_function() {
     document.getElementById('slider').style.top = '-50%';
     sessionStorage.setItem('last down slider', 'slider-down-prius');
     sessionStorage.setItem('current car', 'prius_police');
-    returnStartPos();
     setTimeout(start, 500);
     let indexP = 0;
     let policeSrc = `./images/gif/1.png`;
