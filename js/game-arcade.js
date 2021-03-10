@@ -239,13 +239,14 @@ function update() {
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
-    var xCars = RandomInteger(120, 180);
+    var xCars = RandomInteger(140, 160);
 
     addCars();
 
     function addCars() {
         if (xCars == 151) {
-            objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false))
+            objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false));
+            overlapCars();
             /*for (let i = 1; i < objects[objects.length]; i++) {
                 if (((objects[objects.length - 1].x == (objects[objects.length - i].x)) || ((objects[objects.length - 1].y) > ((objects[objects.length - i].y) - (objects[objects.length - 1].image.height))))) {
                     objects[objects.length - 1].dead = true;
@@ -419,19 +420,34 @@ function RandomInteger(min, max) {
     return Math.round(rand);
 }
 
-/*function overlapCars() {
-    for (let i = 1; i <= objects.length; i++) {
-        if (objects[objects.length-i].x == objects[objects.length-1].x) {
-            for (let i = 1; i <= objects.length; i++) {
-                if ((objects[objects.length-i].y - (objects[objects.length-1].y) <= (objects[objects.length-i].image.height * scale)))  //Стокновнение по высоте
-                    {
+function overlapCars() {
+    if (objects.length == 2) {
+        if (objects[objects.length-2].x == objects[objects.length-1].x) {
+            if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
+            {
                 objects.pop();
-                console.log("с экрана будет удалён " + objects[objects.length-1].image.src + "X = " + objects[objects.length-1].x)
-                }
-            }    
+                console.log("с экрана будет удалёна машинка");
+            }
         }
-}   } 
-*/
+    }
+    if (objects.length > 2) {
+        if (objects[objects.length-2].x == objects[objects.length-1].x) {
+            if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
+            {
+                objects.pop();
+                console.log("с экрана будет удалёна машинка");
+            }
+        }
+        if (objects[objects.length-3].x == objects[objects.length-1].x) {
+            if (objects[objects.length-3].y - objects[objects.length-1].y <= objects[objects.length-3].image.height * scale)  //Стокновнение по высоте 
+            {
+                objects.pop();
+                console.log("с экрана будет удалёна машинка");
+            }
+        }
+    }
+
+}
 
 function restartGame() {
     document.getElementById('timer').style.opacity = "0";
