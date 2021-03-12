@@ -11,12 +11,12 @@ var ctx = canvas.getContext("2d"); //получаем внутренность C
 
 let scale = .2; //масштаб машин
 
-var lowwer = 112; 
-var upper = 188;
+var lowwer = 110; 
+var upper = 190;
 
 setVolume();
 
-$("#name_player")[0].value = localStorage.getItem ('name');
+document.onload = $("#name_player")[0].value = localStorage.getItem ('name');
 
 function setName() {
     let name_player = $("#name_player")[0].value;
