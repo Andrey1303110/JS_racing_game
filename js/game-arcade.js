@@ -11,8 +11,8 @@ var ctx = canvas.getContext("2d"); //получаем внутренность C
 
 let scale = .2; //масштаб машин
 
-let lowwer = 100;
-let upper = 200;
+var lowwer = 112; 
+var upper = 188;
 
 setVolume();
 
@@ -28,10 +28,6 @@ name_player.onkeypress = (e) => {
     if ((keyCode == 13) && (name_player.value != "")) {
         $("#pervue_start").click();
     }
-}
-
-function upDifficulty () {
-    setInterval(()=>{lowwer+=5;upper-=5;}, 5000)
 }
 
 class Road {
@@ -150,6 +146,7 @@ window.addEventListener("resize", resize); //Подтягивает размер
 //Заготовка для моб. устройств
 canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); return false; });
 name_insert.addEventListener("submit", function (e) { e.preventDefault(); return false; });
+intro_video.addEventListener("play", function (e) { e.preventDefault(); return false; });
 
 window.addEventListener("keydown", function (e) { KeyDown(e); }); //Слушатель нажатий на клавиатуру
 
@@ -196,6 +193,13 @@ function getRandomIntInclusive(min, max) {
 }
 
 let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
+
+function upDifficulty () {
+    let interv = 10000;
+    let period = interv * 13; 
+    let diff = setInterval(() => {lowwer+=2;upper-=2;console.log(lowwer)}, interv);
+    setTimeout(() => {clearInterval(diff)}, period);
+}
 
 function start(sec) {
     if (!player.dead) {
@@ -255,11 +259,6 @@ function update() {
         if (xCars == 151) {
             objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false));
             overlapCars();
-            /*for (let i = 1; i < objects[objects.length]; i++) {
-                if (((objects[objects.length - 1].x == (objects[objects.length - i].x)) || ((objects[objects.length - 1].y) > ((objects[objects.length - i].y) - (objects[objects.length - 1].image.height))))) {
-                    objects[objects.length - 1].dead = true;
-                }
-            }*/
         }
     }
 
@@ -288,7 +287,7 @@ function update() {
     for (var i = 0; i < objects.length; i++) {
         hit = player.collide(objects[i]);
 
-        if (hit) {
+        /*if (hit) {
             stop();
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
@@ -298,7 +297,7 @@ function update() {
             //alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
-        }
+        }*/
     }
     draw();
 }
@@ -454,7 +453,7 @@ function overlapCars() {
             }
         }
     }
-    if (objects.length > 3) {
+    if (objects.length >= 4) {
         if (objects[objects.length-2].x == objects[objects.length-1].x) {
             if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
             {
@@ -586,24 +585,24 @@ pervue_start.onclick = () => {
     setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
     $(document).ready(function(){
         setTimeout(() => {$('#intro_video')[0].play()}, 1500);
-        setTimeout(() => {$('#start_new_game').css('right', '10%')}, 5500);
+        setTimeout(() => {$('#start_new_game').css('right', '10%').focus()}, 5500);
     });
 }
 
 mobile_controls_left.onclick = () => {
     document.getElementById('sound_wheel_main').play();
-    let timerId37 = setInterval(() => {
+    let left = setInterval(() => {
         player.move("x", -speed * .15)
     }, 25);
-    setTimeout(() => { clearInterval(timerId37); }, 250);
+    setTimeout(() => { clearInterval(left); }, 250);
 }
 
 mobile_controls_right.onclick = () => {
     document.getElementById('sound_wheel_main').play();
-    let timerId68 = setInterval(() => {
+    let right = setInterval(() => {
         player.move("x", speed * .15)
     }, 25);
-    setTimeout(() => { clearInterval(timerId68); }, 250);
+    setTimeout(() => { clearInterval(right); }, 250);
 }
 
 button_question.onclick = () => {

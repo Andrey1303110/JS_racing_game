@@ -157,6 +157,10 @@ div.main {
     color: white;
 }
 
+#start_new_game:focus {
+    outline: 0px;
+}
+
 #pervue {
     width: 100%;
     height: 100%;
