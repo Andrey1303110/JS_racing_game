@@ -21,6 +21,13 @@ document.onload = $("#name_player")[0].value = localStorage.getItem ('name');
 function setName() {
     let name_player = $("#name_player")[0].value;
     localStorage.setItem ('name', `${name_player}`);
+    if (localStorage.getItem ('score') != undefined) {
+        $("#score")[0].innerText = localStorage.getItem ('score');
+        $("#name")[0].innerText = localStorage.getItem ('name');
+    }
+    if (localStorage.getItem ('score') == undefined) {
+        $("#score")[0].innerText = "0";
+    }
 }
 
 name_player.onkeypress = (e) => {
@@ -203,6 +210,8 @@ function upDifficulty () {
 
 function start(sec) {
     if (!player.dead) {
+        lowwer = 110; 
+        upper = 190;
         upDifficulty();
         setPosY();
         accelerate();
@@ -247,6 +256,8 @@ function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
+
+
     let carsX = [12, 96, 180, 264, 348];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
@@ -259,6 +270,12 @@ function update() {
         if (xCars == 151) {
             objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false));
             overlapCars();
+            if (lowwer > 140) {
+                return lowwer = 136
+            }
+            if (upper <= 160) {
+                return upper = 164
+            }
         }
     }
 
@@ -287,20 +304,28 @@ function update() {
     for (var i = 0; i < objects.length; i++) {
         hit = player.collide(objects[i]);
 
-        /*if (hit) {
+        if (hit) {
+            let score = document.getElementById('timer').innerText;
             stop();
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
             menu.style.top = "30%";
-            //alert(`Crash! \nPress F5 for restart \nYour eneared ` + document.getElementById('timer').innerText + `$`);
+            console.log(`Crash! \nYour eneared ` + score + `$`);
+            high_score_base.push(`${score}`);
+            high_score_base.sort(function(a, b) {return b - a});
+            localStorage.setItem ('score', `${high_score_base[0]}`);
+            $("#score")[0].innerText = localStorage.getItem ('score');
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
-        }*/
+        }
     }
     draw();
 }
+
+let high_score_base = [];
+high_score_base.push(`${localStorage.getItem ('score')}`);
 
 function draw() //Функция для прорисовки
 {
@@ -412,7 +437,8 @@ function KeyDown(e) {
 
             case 32: //Space
                 menu.style.top = "30%";
-                stop(); 
+                resume_button.focus();
+                stop();
         }
     }
 }
@@ -610,3 +636,6 @@ button_question.onclick = () => {
     setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 4000);
     setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 5500)
 }
+
+
+//if (localStorage.getItem ('score') < 3800) { $("#slider-down-leon").css("opacity", ".5") }
