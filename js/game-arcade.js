@@ -312,6 +312,7 @@ function update() {
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren').pause();
             menu.style.top = "30%";
+            resume_button.focus();
             console.log(`Crash! \nYour eneared ` + score + `$`);
             high_score_base.push(`${score}`);
             high_score_base.sort(function(a, b) {return b - a});
