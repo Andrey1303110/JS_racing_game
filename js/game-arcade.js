@@ -253,6 +253,7 @@ function start(sec) {
         sec = 0;
         timerScore = setInterval(tick, scoreV[1]);
         $('#mobile_controls').css('display', 'flex');
+        $('#pause').css('opacity', '1');
         function tick() {
             sec++;
             document.getElementById("timer").
@@ -345,6 +346,7 @@ function update() {
             $("#score")[0].innerText = localStorage.getItem ('score');
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
+            $('#pause').css('opacity', '0');
         }
     }
     draw();
@@ -664,4 +666,16 @@ button_question.onclick = () => {
     $("#keyboards_controls").css('opacity', '1').css('z-index', '2');
     setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 4000);
     setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 5500)
+}
+
+button_top_score.onclick = () => {
+    $("#high_scores").css('z-index', '1').css('top', '0');
+    setTimeout(() => {$("#high_scores").css('top', '-500px')}, 3000);
+    setTimeout(() => {$("#high_scores").css('z-index', '-1')}, 3500)
+}
+
+pause.onclick = () => {
+    menu.style.top = "30%";
+    $("#resume_button").focus()
+    stop();
 }
