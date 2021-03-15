@@ -568,6 +568,7 @@ function newGameNewCar() {
         setTimeout (()=>{document.getElementById(`${last_slider}`).style.top = '50%'},1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
+        $("#message_score").css("opacity", "0");
     }
     document.getElementById('timer').style.opacity = "0";
     menu.style.top = "-50%";

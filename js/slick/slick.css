@@ -128,22 +128,18 @@
 }
 
 #slick-slide-control03::before {
-    color: rgb(0, 214, 208);
-}
-
-#slick-slide-control04::before {
     color: blue;
 }
 
-#slick-slide-control05::before {
+#slick-slide-control04::before {
     color: violet;
 }
 
-#slick-slide-control06::before {
+#slick-slide-control05::before {
     color: red;
 }
 
-#slick-slide-control07::before {
+#slick-slide-control06::before {
     color: whitesmoke;
 }
 
