@@ -447,10 +447,10 @@ img {
 
 #message_score {
     position: absolute;
-    bottom: 15%;
+    bottom: 5%;
     width: 424px;
     text-align: center;
-    font-size: 35px;
+    font-size: 55px;
     font-family: 'Architects Daughter';
     font-weight: bold;
     text-transform: uppercase;
