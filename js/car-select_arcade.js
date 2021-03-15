@@ -56,6 +56,7 @@ $(document).ready(function () {
         $("#lock_cars").removeClass("active_lock");
         prius_main.onclick = () => {
             $("#lock_cars").addClass("active_lock");
+            $("#lock_cars.active_lock")[0].onclick = () => { main_theme.volume = .5; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 1800 ) }
         }
         $("#slider-down-prius")[0].onclick = () => {
             $("#lock_cars").addClass("active_lock");

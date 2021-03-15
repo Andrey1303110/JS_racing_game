@@ -44,7 +44,7 @@ function locked_cars () {
         $("#slider-down-prius").css("opacity", ".5");
         $("#slider-down-prius .slick-list.draggable").css("pointer-events", "none");
         $("#lock_cars").css("z-index", "2"); 
-        $("#slider-down-prius")[0].onclick = () => acces_denied.play();
+        $("#slider-down-prius")[0].onclick = () => { main_theme.volume = .5; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000 ) }
         lock_cars.onclick = () => acces_denied.play();
     }
     if (localStorage.getItem ('score') >= 3500) {
