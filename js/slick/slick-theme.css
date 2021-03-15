@@ -79,7 +79,7 @@
 .slick-prev
 {
     left: -30%;
-    background-image: url(/./images/icons/left-arrow.png);
+    background-image: url(./icons/left-arrow.png);
     width: 100px;
     height: 100px;
     background-size: 20px;
@@ -105,11 +105,10 @@
     100% { filter: brightness(.9) saturate(.9); }
 }
 
-
 .slick-next
 {
     right: -30%;
-    background-image: url(/./images/icons/right-arrow.png);
+    background-image: url(./icons/right-arrow.png);
     width: 100px;
     height: 100px;
     background-size: 20px;
@@ -213,3 +212,5 @@
     transform: scale(1.8);
     transition: all .5s ease-in-out;
 }
+
+

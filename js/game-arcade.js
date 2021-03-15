@@ -29,12 +29,28 @@ function setName() {
     if (localStorage.getItem ('score') == undefined) {
         $("#score")[0].innerText = "0";
     }
+    locked_cars();
 }
 
 name_player.onkeypress = (e) => {
     keyCode = (window.event) ? e.which : e.keyCode;
     if ((keyCode == 13) && (name_player.value != "")) {
         $("#pervue_start").click();
+    }
+}
+
+function locked_cars () {
+    if (localStorage.getItem ('score') < 3500) { 
+        $("#slider-down-prius").css("opacity", ".5");
+        $("#slider-down-prius .slick-list.draggable").css("pointer-events", "none");
+        $("#lock_cars").css("z-index", "2"); 
+        $("#slider-down-prius")[0].onclick = () => acces_denied.play();
+        lock_cars.onclick = () => acces_denied.play();
+    }
+    if (localStorage.getItem ('score') >= 3500) {
+        $("#lock_cars").css("z-index", "-1"); 
+        $("#slider-down-prius").css("opacity", "1");
+        $("#slider-down-prius .slick-list.draggable").css("pointer-events", "auto"); 
     }
 }
 
@@ -87,6 +103,12 @@ class Car {
 
         if (this.y > canvas.height) {
             this.dead = true;
+        }
+        if (this.x >= 348) {
+            return this.x = 348
+        }
+        if (this.x <= 12) {
+            return this.x = 12
         }
     }
 
@@ -440,7 +462,7 @@ function KeyDown(e) {
 
             case 32: //Space
                 menu.style.top = "30%";
-                resume_button.focus();
+                $("#resume_button").focus()
                 stop();
         }
     }
@@ -550,6 +572,7 @@ function newGameNewCar() {
     document.getElementById('canvas').style.visibility = "hidden";
     document.getElementById('slider').style.top = "8%";
     setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
+    locked_cars();
     return S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 }
 
@@ -642,6 +665,3 @@ button_question.onclick = () => {
     setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 4000);
     setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 5500)
 }
-
-
-//if (localStorage.getItem ('score') < 3800) { $("#slider-down-leon").css("opacity", ".5") }

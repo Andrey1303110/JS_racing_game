@@ -28,6 +28,12 @@ function clearCarPreloadDOM() {
     if (document.getElementById('game_cars') != null) {
         document.getElementById('game_cars').remove();
     }
+    if (document.getElementById('for_name') != null) {
+        document.getElementById('for_name').remove();
+    }
+    if (document.getElementById('pervue') != null) {
+        document.getElementById('pervue').remove();
+    }
 }
 
 $(document).ready(function () {
@@ -47,6 +53,13 @@ function upSlider() {
 $(document).ready(function () {
     $(".main_screen_cars_img").click(function () {
         upSlider();
+        $("#lock_cars").removeClass("active_lock");
+        prius_main.onclick = () => {
+            $("#lock_cars").addClass("active_lock");
+        }
+        $("#slider-down-prius")[0].onclick = () => {
+            $("#lock_cars").addClass("active_lock");
+        }
         document.getElementById(`slider-down-${this.name}`).style.top = '50%';
         $("#cbr_main").click(function () {
             setTimeout(() => {returnStartPosMoto()}, 1500)
@@ -124,19 +137,19 @@ function prius_function() {
             if (sessionStorage.getItem('current car') == 'prius_police') {
                 document.getElementById('sgu').play();
                 for (let i = 0; i < objects.length; i++) {
-                    if (((player.x - objects[i].x) <= 15) && ((player.x - objects[i].x) >= -15)) {
+                    if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
                         if (objects[i].y > 0) {
                             if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
                                 let move = setInterval(() => {
                                     objects[i].x -= 8.3
-                                }, 25);
-                                setTimeout(() => { clearInterval(move); }, 250);
+                                }, 35);
+                                setTimeout(() => { clearInterval(move); }, 350);
                             }
                             else {
                                 let move = setInterval(() => {
                                     objects[i].x += 8.3
-                                }, 25);
-                                setTimeout(() => { clearInterval(move); }, 250);
+                                }, 35);
+                                setTimeout(() => { clearInterval(move); }, 350);
                             }
                         }
                     }

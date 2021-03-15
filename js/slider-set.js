@@ -30,13 +30,5 @@ $(document).ready(function () {
         initialSlide: 0,
         speed: 900,
         cssEase: 'linear',
-        responsive: [
-            {
-                breakpoint: 581,
-                settings: {
-                    arrows: false,
-                }
-            },  
-        ]
     });
 });

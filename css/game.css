@@ -223,8 +223,8 @@ video {
     width: 395px; 
     height: 230px; 
     position: absolute; 
-    left: 50%; transform: 
-    translateX(-50%); 
+    left: 50%; 
+    transform: translateX(-50%); 
     transition: all .5s ease-in-out;
 }
 
@@ -355,7 +355,7 @@ img {
     width: 100%;
     height: 300px;
     opacity: 1;
-    z-index: 9999999999999999;
+    /*z-index: 9999999999999999;*/
     transition: all 1s ease-in-out;
     color: white;
 }
@@ -387,4 +387,40 @@ img {
     width: 200px;
     font-family: Architects Daughter;
     font-size: 27px;
+}
+
+#lock_cars {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -50%;
+    width: 580px;
+    height: 300px;
+    background: url(../images/icons/lock.png) center no-repeat;
+    background-size: 300px;
+    z-index: -2;
+    opacity: .7;
+    transition: all .5s ease-in-out;
+}
+
+#lock_cars:active {
+    background-size: 350px;
+    opacity: 1;
+    transition: all .15s ease-in-out;
+}
+
+#lock_cars.active_lock {
+    top: 50%;
+    z-index: 2;
+    opacity: .7;
+}
+
+#lock_cars p {
+    text-align: center;
+    font-size: 34px;
+    font-family: 'Architects Daughter';
+    font-weight: bold;
+    color: red;
+    top: -20%;
+    position: relative;
 }
