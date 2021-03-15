@@ -339,7 +339,7 @@ img {
 #img_keyboard {
     width: 550px;
     height: 500px;
-    background-image: url(/./images/icons/keyboard_icons.png);
+    background-image: url(../images/icons/keyboard_icons.png);
     background-size: 250px;
     background-repeat: no-repeat;
     background-position: top;
@@ -373,18 +373,20 @@ img {
 #title_sect_score {
     position: absolute;
     text-transform: uppercase;
-    top: 70px;
+    top: 0px;
     font-family: Architects Daughter;
     font-size: 40px;
 }
 
 #scores p {
     text-align: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 #names_hs, #score_hs {
     position: relative;
-    top: 150px;
+    top: 50px;
     width: 200px;
     font-family: Architects Daughter;
     font-size: 27px;
