@@ -201,27 +201,20 @@ function getRandomIntInclusive(min, max) {
 
 let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 
-var interv = 1000000;
+var diff;
 
 function upDifficulty () {
-    let period = interv * 13; 
-    let diff = setInterval(() => {lowwer+=2;upper-=2;console.log(lowwer)}, interv);
+    let interv = 8000;
+    let period = interv * 20; 
+    diff = setInterval(() => {lowwer+=2;upper-=2;console.log(lowwer)}, interv);
     setTimeout(() => {clearInterval(diff)}, period);
-}
-
-function returnInt () {
-    return interv = 10000;
-}
-
-function returnBigInt () {
-    return interv = 1000000;
 }
 
 function start(sec) {
     if (!player.dead) {
-        returnInt ();
-        lowwer = 110; 
-        upper = 190;
+        clearInterval(diff);
+        lowwer = 100; 
+        upper = 200;
         upDifficulty();
         setPosY();
         accelerate();
@@ -251,6 +244,7 @@ function stop() {
     timer = null;
     clearInterval(timerScore);
     $('#mobile_controls').css('display', 'none');
+    clearInterval(diff);
 }
 
 /*function clearLevel() {
@@ -328,7 +322,6 @@ function update() {
             $("#score")[0].innerText = localStorage.getItem ('score');
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
-            returnBigInt ();
         }
     }
     draw();
