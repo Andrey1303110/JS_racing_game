@@ -37,11 +37,8 @@ function clearCarPreloadDOM() {
 }
 
 $(document).ready(function () {
-    $('.slider-down button.slick-prev').click(() => { spray.play() });
-    $('.slider-down button.slick-next').click(() => { spray.play() });
-    $('.slick-dots li').click(() => { spray.play() });
-    $('.up_slider button.slick-prev').click(() => { car_select.play() });
-    $('.up_slider button.slick-next').click(() => { car_select.play() });
+    $(".slider-down").on("beforeChange", function () { spray.play() });
+    $(".up_slider").on("beforeChange", function () { car_select.play() });
 });
 
 

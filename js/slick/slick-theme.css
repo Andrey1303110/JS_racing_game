@@ -213,4 +213,15 @@
     transition: all .5s ease-in-out;
 }
 
-
+@media (max-width: 580px) {
+    #slider .slick-next.slick-arrow {
+        right: 20%;
+        top: 250px;
+        background-size: 40px;
+    }
+    #slider .slick-prev.slick-arrow {
+        left: 20%;
+        top: 250px;
+        background-size: 40px;
+    }
+}

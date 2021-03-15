@@ -401,6 +401,7 @@ img {
     z-index: -2;
     opacity: .7;
     transition: all .5s ease-in-out;
+    cursor: pointer;
 }
 
 #lock_cars:active {
