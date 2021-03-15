@@ -201,15 +201,25 @@ function getRandomIntInclusive(min, max) {
 
 let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 
+var interv = 1000000;
+
 function upDifficulty () {
-    let interv = 10000;
     let period = interv * 13; 
     let diff = setInterval(() => {lowwer+=2;upper-=2;console.log(lowwer)}, interv);
     setTimeout(() => {clearInterval(diff)}, period);
 }
 
+function returnInt () {
+    return interv = 10000;
+}
+
+function returnBigInt () {
+    return interv = 1000000;
+}
+
 function start(sec) {
     if (!player.dead) {
+        returnInt ();
         lowwer = 110; 
         upper = 190;
         upDifficulty();
@@ -255,8 +265,6 @@ function stop() {
 function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
-
-
 
     let carsX = [12, 96, 180, 264, 348];
 
@@ -320,6 +328,7 @@ function update() {
             $("#score")[0].innerText = localStorage.getItem ('score');
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
+            returnBigInt ();
         }
     }
     draw();
