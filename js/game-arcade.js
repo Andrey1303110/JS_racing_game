@@ -19,8 +19,9 @@ setVolume();
 document.onload = $("#name_player")[0].value = localStorage.getItem ('name');
 
 function setName() {
-    let name_player = $("#name_player")[0].value;
+    var name_player = $("#name_player")[0].value;
     localStorage.setItem ('name', `${name_player}`);
+    high_score_base.push(`${localStorage.getItem ('score')}`);
     if (localStorage.getItem ('score') != undefined) {
         $("#score")[0].innerText = localStorage.getItem ('score');
         $("#name")[0].innerText = localStorage.getItem ('name');
@@ -328,7 +329,6 @@ function update() {
 }
 
 let high_score_base = [];
-high_score_base.push(`${localStorage.getItem ('score')}`);
 
 function draw() //Функция для прорисовки
 {
@@ -609,6 +609,9 @@ start_new_game.onclick = () => {
 }
 
 pervue_start.onclick = () => {
+    if(localStorage.getItem ('name') != name_player.value) {
+        localStorage.setItem ('score', '0');
+    }
     setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
