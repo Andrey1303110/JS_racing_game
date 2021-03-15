@@ -254,6 +254,7 @@ function start(sec) {
         timerScore = setInterval(tick, scoreV[1]);
         $('#mobile_controls').css('display', 'flex');
         $('#pause').css('opacity', '1');
+        $("#message_score").css("opacity", "0");
         function tick() {
             sec++;
             document.getElementById("timer").
@@ -339,7 +340,6 @@ function update() {
             document.getElementById('siren').pause();
             menu.style.top = "30%";
             restart_button.focus();
-            console.log(`Crash! \nYour eneared ` + score + `$`);
             high_score_base.push(`${score}`);
             high_score_base.sort(function(a, b) {return b - a});
             localStorage.setItem ('score', `${high_score_base[0]}`);
@@ -347,6 +347,8 @@ function update() {
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
             $('#pause').css('opacity', '0');
+            showScore();
+            return score;
         }
     }
     draw();
@@ -463,9 +465,7 @@ function KeyDown(e) {
                 break;
 
             case 32: //Space
-                menu.style.top = "30%";
-                $("#resume_button").focus()
-                stop();
+                pause_function();
         }
     }
 }
@@ -540,6 +540,7 @@ function overlapCars() {
 
 function restartGame() {
     document.getElementById('timer').style.opacity = "0";
+    $("#message_score").css("opacity", "0");
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
@@ -581,12 +582,24 @@ function newGameNewCar() {
 garage_button.onclick = newGameNewCar;
 
 function resume() {
+    $("#message_score").css("opacity", "0");
     menu.style.top = "-50%";
     setTimeout(() => { start(); }, 1000);
     this.blur();
 }
 
 resume_button.onclick = resume;
+
+
+pause.onclick = pause_function;
+
+function pause_function () {
+    menu.style.top = "30%";
+    $("#resume_button").focus()
+    stop();
+    $('#pause').css('opacity', '0');
+}
+
 
 sound_on.onclick = () => {
     localStorage.setItem('volume', 1);
@@ -674,8 +687,7 @@ button_top_score.onclick = () => {
     setTimeout(() => {$("#high_scores").css('z-index', '-1')}, 3500)
 }
 
-pause.onclick = () => {
-    menu.style.top = "30%";
-    $("#resume_button").focus()
-    stop();
+function showScore() {
+    $("#message_score")[0].innerText = `your score is ` + $("#timer")[0].innerText;
+    $("#message_score").css("opacity", "1");
 }

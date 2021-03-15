@@ -428,12 +428,33 @@ img {
 }
 
 #pause {
+    display: flex;
+    justify-content: center;
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: -160px;
+    width: 100%;
+    height: 50px;
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+#pause div {
     width: 50px;
     height: 50px;
     background: url(../images/icons/pause.png) no-repeat center;
+}
+
+#message_score {
+    position: absolute;
+    bottom: 15%;
+    width: 424px;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Architects Daughter';
+    font-weight: bold;
+    text-transform: uppercase;
+    color: darkorange;
     opacity: 0;
     transition: 1s ease-in-out;
 }
