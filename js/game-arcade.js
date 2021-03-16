@@ -254,7 +254,7 @@ function start(sec) {
         timerScore = setInterval(tick, scoreV[1]);
         $('#mobile_controls').css('display', 'flex');
         $('#pause').css('opacity', '1');
-        $("#message_score").css("opacity", "0");
+        $("#message_score").css("opacity", "0").css("z-index", "-1");
         function tick() {
             sec++;
             document.getElementById("timer").
@@ -540,7 +540,7 @@ function overlapCars() {
 
 function restartGame() {
     document.getElementById('timer').style.opacity = "0";
-    $("#message_score").css("opacity", "0");
+    $("#message_score").css("opacity", "0").css("z-index", "-1");
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
@@ -568,7 +568,7 @@ function newGameNewCar() {
         setTimeout (()=>{document.getElementById(`${last_slider}`).style.top = '50%'},1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
-        $("#message_score").css("opacity", "0");
+        $("#message_score").css("opacity", "0").css("z-index", "-1");
     }
     document.getElementById('timer').style.opacity = "0";
     menu.style.top = "-50%";
@@ -583,7 +583,7 @@ function newGameNewCar() {
 garage_button.onclick = newGameNewCar;
 
 function resume() {
-    $("#message_score").css("opacity", "0");
+    $("#message_score").css("opacity", "0").css("z-index", "-1");
     menu.style.top = "-50%";
     setTimeout(() => { start(); }, 1000);
     this.blur();
@@ -690,5 +690,5 @@ button_top_score.onclick = () => {
 
 function showScore() {
     $("#message_score")[0].innerText = `your score is ` + $("#timer")[0].innerText;
-    $("#message_score").css("opacity", "1");
+    $("#message_score").css("opacity", "1").css('z-index', '1');
 }

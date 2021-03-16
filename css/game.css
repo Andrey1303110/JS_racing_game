@@ -21,7 +21,7 @@ body, html
 .wrapper
 {	margin: 0 auto;
 	width: 440px; 
-	height: 630px;
+	height: 100%;
 }
 
 #canvas
@@ -279,7 +279,7 @@ img {
 
 #menu div {
     display: flex;
-    width: 50%;
+    width: 57%;
     margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;
@@ -452,11 +452,12 @@ img {
     bottom: 5%;
     width: 424px;
     text-align: center;
-    font-size: 55px;
+    font-size: 35px;
     font-family: 'Architects Daughter';
     font-weight: bold;
     text-transform: uppercase;
     color: darkorange;
     opacity: 0;
+    z-index: -1;
     transition: 1s ease-in-out;
 }
