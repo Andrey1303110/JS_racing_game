@@ -253,7 +253,7 @@ function start(sec) {
         sec = 0;
         timerScore = setInterval(tick, scoreV[1]);
         $('#mobile_controls').css('display', 'flex');
-        $('#pause').css('opacity', '1');
+        $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
         function tick() {
             sec++;
@@ -346,7 +346,7 @@ function update() {
             $("#score")[0].innerText = localStorage.getItem ('score');
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
-            $('#pause').css('opacity', '0');
+            $('#pause').css('opacity', '0').css("z-index", "-1");
             showScore();
             return score;
         }
@@ -598,7 +598,7 @@ function pause_function () {
     menu.style.top = "30%";
     $("#resume_button").focus()
     stop();
-    $('#pause').css('opacity', '0');
+    $('#pause').css('opacity', '0').css("z-index", "-1");
 }
 
 

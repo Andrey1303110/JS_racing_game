@@ -436,8 +436,7 @@ img {
     justify-content: center;
     position: absolute;
     top: 20px;
-    right: -160px;
-    width: 100%;
+    left: calc(50% + 150px);
     height: 50px;
     opacity: 0;
     transition: 1s ease-in-out;
