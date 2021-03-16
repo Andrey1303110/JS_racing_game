@@ -682,10 +682,16 @@ button_question.onclick = () => {
     setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 5500)
 }
 
-button_top_score.onclick = () => {
-    $("#high_scores").css('z-index', '1').css('top', '0');
-    setTimeout(() => {$("#high_scores").css('top', '-500px')}, 3000);
-    setTimeout(() => {$("#high_scores").css('z-index', '-1')}, 3500)
+button_top_score[0].onclick = () => {
+    $("#high_scores").css('z-index', '1').css('opacity', '1');
+    setTimeout(() => {$("#high_scores").css('opacity', '0')}, 3000);
+    setTimeout(() => {$("#high_scores").css('z-index', '-1')}, 3500);
+}
+
+button_top_score[1].onclick = () => {
+    $("#high_scores").css('z-index', '1').css('opacity', '1');
+    setTimeout(() => {$("#high_scores").css('opacity', '0')}, 3000);
+    setTimeout(() => {$("#high_scores").css('z-index', '-1')}, 3500);
 }
 
 function showScore() {
