@@ -138,7 +138,7 @@ div.main {
     height: 60px;
     position: absolute;
     line-height: 10px;
-    font-size: 40px;
+    font-size: 35px;
     text-transform: uppercase;
     text-align: left;
     font-weight: bold;
@@ -148,7 +148,7 @@ div.main {
     right: 200%;
     padding: 20px 2%;
     background-image: url(../images/icons/garage.png);
-    background-position-x: 100%;
+    background-position-x: right;
     background-repeat: no-repeat;
     background-color: rgba(0, 115, 216, 0);
     cursor: pointer;
@@ -421,12 +421,14 @@ img {
 
 #lock_cars p {
     text-align: center;
+    width: 400px;
     font-size: 34px;
     font-family: 'Architects Daughter';
     font-weight: bold;
     color: red;
     top: -20%;
     position: relative;
+    margin: 0 auto;
 }
 
 #pause {

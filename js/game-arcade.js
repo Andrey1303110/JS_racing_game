@@ -227,8 +227,8 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 var diff;
 
 function upDifficulty () {
-    let interv = 8000;
-    let period = interv * 20; 
+    let interv = 6000;
+    let period = interv * 15; 
     diff = setInterval(() => {lowwer+=2;upper-=2;console.log(lowwer)}, interv);
     setTimeout(() => {clearInterval(diff)}, period);
 }
@@ -236,8 +236,8 @@ function upDifficulty () {
 function start(sec) {
     if (!player.dead) {
         clearInterval(diff);
-        lowwer = 100; 
-        upper = 200;
+        lowwer = 110; 
+        upper = 190;
         upDifficulty();
         setPosY();
         accelerate();
