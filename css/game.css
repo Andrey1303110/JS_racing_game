@@ -295,6 +295,10 @@ img {
     opacity: 1;
 }
 
+.second_top_score {
+    display: none;
+}
+
 #keyboards_controls {
     position: absolute;
     width: 100%;
@@ -461,4 +465,16 @@ img {
     opacity: 0;
     z-index: -1;
     transition: 1s ease-in-out;
+}
+
+@media (max-width: 580px) {
+    #menu div:nth-child(4) {
+        display: none;
+    }
+    #menu div {
+        width: 75%;
+    }
+    .second_top_score {
+        display: block;
+    }
 }

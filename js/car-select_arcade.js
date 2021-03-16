@@ -66,7 +66,7 @@ $(document).ready(function () {
 });
 
 function setPosY() {
-    return player.y = canvas.height - (player.image.height * scale);
+    return player.y = canvas.height - (player.image.height * scale) - 50;
 }
 
 var isPolice = false;
