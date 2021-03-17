@@ -28,7 +28,7 @@ function setName() {
         $("#score")[0].innerText = localStorage.getItem('score');
         $("#name")[0].innerText = localStorage.getItem('name');
     }
-    if (localStorage.getItem('score') == undefined) {
+    else {
         $("#score")[0].innerText = "0";
     }
     locked_cars();
