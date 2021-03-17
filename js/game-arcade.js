@@ -227,20 +227,19 @@ function getRandomIntInclusive(min, max) {
 let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 
 var diff;
+var xScore;
+var scoreVnumber;
 
 function upDifficulty () {
+    scoreVnumber = 0;
     let interv = 6000;
     let period = interv * 15; 
-    diff = setInterval(() => {lowwer+=2;upper-=2;console.log(lowwer)}, interv);
+    diff = setInterval(() => {lowwer+=2;upper-=2; scoreVnumber+=1; console.log(scoreVnumber)}, interv);
     setTimeout(() => {clearInterval(diff)}, period);
 }
 
 function start(sec) {
     if (!player.dead) {
-        clearInterval(diff);
-        lowwer = 110; 
-        upper = 190;
-        upDifficulty();
         setPosY();
         accelerate();
         document.getElementById('canvas').style.visibility = "visible";
@@ -252,15 +251,20 @@ function start(sec) {
         main_theme.pause();
         document.getElementById('main_theme' + S).play();
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
-        timerScore = setInterval(tick, scoreV[0]);
         $('#mobile_controls').css('display', 'flex');
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
+        timerScore = setInterval(tick, scoreV[scoreVnumber]);
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length-1] * 1;
         }
         else {
             sec = 0;
+            clearInterval(diff);
+            scoreVnumber = 0;
+            lowwer = 110; 
+            upper = 190;
+            upDifficulty();
         }
         function tick() {
             if (scoreTimer.length != 0) {
