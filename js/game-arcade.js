@@ -11,24 +11,24 @@ var ctx = canvas.getContext("2d"); //получаем внутренность C
 
 let scale = .2; //масштаб машин
 
-var lowwer = 110; 
+var lowwer = 110;
 var upper = 190;
 
 var scoreTimer = [];
 
 setVolume();
 
-document.onload = $("#name_player")[0].value = localStorage.getItem ('name');
+document.onload = $("#name_player")[0].value = localStorage.getItem('name');
 
 function setName() {
     var name_player = $("#name_player")[0].value;
-    localStorage.setItem ('name', `${name_player}`);
-    high_score_base.push(`${localStorage.getItem ('score')}`);
-    if (localStorage.getItem ('score') != undefined) {
-        $("#score")[0].innerText = localStorage.getItem ('score');
-        $("#name")[0].innerText = localStorage.getItem ('name');
+    localStorage.setItem('name', `${name_player}`);
+    high_score_base.push(`${localStorage.getItem('score')}`);
+    if (localStorage.getItem('score') != undefined) {
+        $("#score")[0].innerText = localStorage.getItem('score');
+        $("#name")[0].innerText = localStorage.getItem('name');
     }
-    if (localStorage.getItem ('score') == undefined) {
+    if (localStorage.getItem('score') == undefined) {
         $("#score")[0].innerText = "0";
     }
     locked_cars();
@@ -41,18 +41,18 @@ name_player.onkeypress = (e) => {
     }
 }
 
-function locked_cars () {
-    if (localStorage.getItem ('score') < 3500) { 
+function locked_cars() {
+    if (localStorage.getItem('score') < 5500) {
         $("#slider-down-prius").css("opacity", ".5");
         $("#slider-down-prius .slick-list.draggable").css("pointer-events", "none");
-        $("#lock_cars").css("z-index", "2"); 
-        $("#slider-down-prius")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000 ) }
+        $("#lock_cars").css("z-index", "2");
+        $("#slider-down-prius")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
         lock_cars.onclick = () => acces_denied.play();
     }
-    if (localStorage.getItem ('score') >= 3500) {
-        $("#lock_cars").css("z-index", "-1"); 
+    if (localStorage.getItem('score') >= 5500) {
+        $("#lock_cars").css("z-index", "-1");
         $("#slider-down-prius").css("opacity", "1");
-        $("#slider-down-prius .slick-list.draggable").css("pointer-events", "auto"); 
+        $("#slider-down-prius .slick-list.draggable").css("pointer-events", "auto");
     }
 }
 
@@ -100,7 +100,7 @@ class Car {
 
     update() {
         if (!this.isPlayer) {
-            this.y += speed*.65;
+            this.y += speed * .65;
         }
 
         if (this.y > canvas.height) {
@@ -230,12 +230,12 @@ var diff;
 var xScore;
 var scoreVnumber;
 
-function upDifficulty () {
+function upDifficulty() {
     scoreVnumber = 0;
     let interv = 6000;
-    let period = interv * 15; 
-    diff = setInterval(() => {lowwer+=2;upper-=2; scoreVnumber+=1; console.log(scoreVnumber)}, interv);
-    setTimeout(() => {clearInterval(diff)}, period);
+    let period = interv * 15;
+    diff = setInterval(() => { lowwer += 2; upper -= 2; scoreVnumber += 1; console.log(scoreVnumber) }, interv);
+    setTimeout(() => { clearInterval(diff) }, period);
 }
 
 function start(sec) {
@@ -256,13 +256,13 @@ function start(sec) {
         $("#message_score").css("opacity", "0").css("z-index", "-1");
         timerScore = setInterval(tick, scoreV[scoreVnumber]);
         if (scoreTimer.length != 0) {
-            sec = scoreTimer[scoreTimer.length-1] * 1;
+            sec = scoreTimer[scoreTimer.length - 1] * 1;
         }
         else {
             sec = 0;
             clearInterval(diff);
             scoreVnumber = 0;
-            lowwer = 110; 
+            lowwer = 110;
             upper = 190;
             upDifficulty();
         }
@@ -358,9 +358,9 @@ function update() {
             menu.style.top = "30%";
             restart_button.focus();
             high_score_base.push(`${score}`);
-            high_score_base.sort(function(a, b) {return b - a});
-            localStorage.setItem ('score', `${high_score_base[0]}`);
-            $("#score")[0].innerText = localStorage.getItem ('score');
+            high_score_base.sort(function (a, b) { return b - a });
+            localStorage.setItem('score', `${high_score_base[0]}`);
+            $("#score")[0].innerText = localStorage.getItem('score');
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
             $('#pause').css('opacity', '0').css("z-index", "-1");
@@ -499,8 +499,8 @@ function RandomInteger(min, max) {
 
 function overlapCars() {
     if (objects.length == 2) {
-        if (objects[objects.length-2].x == objects[objects.length-1].x) {
-            if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
+        if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
+            if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
             {
                 objects.pop();
                 console.log("с экрана будет удалёна машинка");
@@ -508,15 +508,15 @@ function overlapCars() {
         }
     }
     if (objects.length == 3) {
-        if (objects[objects.length-2].x == objects[objects.length-1].x) {
-            if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
+        if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
+            if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
             {
                 objects.pop();
                 console.log("с экрана будет удалёна машинка");
             }
         }
-        if (objects[objects.length-3].x == objects[objects.length-1].x) {
-            if (objects[objects.length-3].y - objects[objects.length-1].y <= objects[objects.length-3].image.height * scale)  //Стокновнение по высоте 
+        if (objects[objects.length - 3].x == objects[objects.length - 1].x) {
+            if (objects[objects.length - 3].y - objects[objects.length - 1].y <= objects[objects.length - 3].image.height * scale)  //Стокновнение по высоте 
             {
                 objects.pop();
                 console.log("с экрана будет удалёна машинка");
@@ -524,29 +524,29 @@ function overlapCars() {
         }
     }
     if (objects.length >= 4) {
-        if (objects[objects.length-2].x == objects[objects.length-1].x) {
-            if (objects[objects.length-2].y - objects[objects.length-1].y <= objects[objects.length-2].image.height * scale)  //Стокновнение по высоте 
+        if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
+            if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
             {
                 objects.pop();
                 console.log("с экрана будет удалёна машинка");
             }
         }
-        if (objects[objects.length-3].x == objects[objects.length-1].x) {
-            if (objects[objects.length-3].y - objects[objects.length-1].y <= objects[objects.length-3].image.height * scale)  //Стокновнение по высоте 
+        if (objects[objects.length - 3].x == objects[objects.length - 1].x) {
+            if (objects[objects.length - 3].y - objects[objects.length - 1].y <= objects[objects.length - 3].image.height * scale)  //Стокновнение по высоте 
             {
                 objects.pop();
                 console.log("с экрана будет удалёна машинка");
             }
         }
-        if (objects[objects.length-4].x == objects[objects.length-1].x) {
-            if (objects[objects.length-4].y - objects[objects.length-1].y <= objects[objects.length-4].image.height * scale)  //Стокновнение по высоте 
+        if (objects[objects.length - 4].x == objects[objects.length - 1].x) {
+            if (objects[objects.length - 4].y - objects[objects.length - 1].y <= objects[objects.length - 4].image.height * scale)  //Стокновнение по высоте 
             {
                 objects.pop();
                 console.log("с экрана будет удалёна машинка");
             }
         }
-        if (objects[objects.length-4].x == objects[objects.length-2].x) {
-            if (objects[objects.length-4].y - objects[objects.length-2].y <= objects[objects.length-4].image.height * scale)  //Стокновнение по высоте 
+        if (objects[objects.length - 4].x == objects[objects.length - 2].x) {
+            if (objects[objects.length - 4].y - objects[objects.length - 2].y <= objects[objects.length - 4].image.height * scale)  //Стокновнение по высоте 
             {
                 objects.pop();
                 console.log("с экрана будет удалёна машинка");
@@ -582,8 +582,8 @@ function newGameNewCar() {
         player.y = canvas.height * playerStartHeightPos;
         draw();
         player.dead = false;
-        setTimeout (showSlider, 500);
-        setTimeout (()=>{document.getElementById(`${last_slider}`).style.top = '50%'},1000);
+        setTimeout(showSlider, 500);
+        setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '50%' }, 1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
         $("#message_score").css("opacity", "0").css("z-index", "-1");
@@ -613,7 +613,7 @@ resume_button.onclick = resume;
 
 pause.onclick = pause_function;
 
-function pause_function () {
+function pause_function() {
     scoreTimer.push($("#timer")[0].innerText);
     menu.style.top = "30%";
     $("#resume_button").focus()
@@ -640,7 +640,7 @@ sound_off.onclick = () => {
     }
 }
 
-function setVolume () {
+function setVolume() {
     let vol = localStorage.getItem('volume');
     if (vol == 1) {
         sound_on.style.opacity = '1';
@@ -664,19 +664,19 @@ function setVolume () {
 start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
     main_theme.play();
-    setTimeout(() => {$('#pervue').remove(); $('#for_name').remove()}, 2500)
+    setTimeout(() => { $('#pervue').remove(); $('#for_name').remove() }, 2500)
 }
 
 pervue_start.onclick = () => {
-    if(localStorage.getItem ('name') != name_player.value) {
-        localStorage.setItem ('score', '0');
+    if (localStorage.getItem('name') != name_player.value) {
+        localStorage.setItem('score', '0');
     }
     setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
-    setTimeout(() => {$('#intro_video').css('opacity', '1')}, 1000)
-    $(document).ready(function(){
-        setTimeout(() => {$('#intro_video')[0].play()}, 1500);
-        setTimeout(() => {$('#start_new_game').css('right', '10%').focus()}, 5500);
+    setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000)
+    $(document).ready(function () {
+        setTimeout(() => { $('#intro_video')[0].play() }, 1500);
+        setTimeout(() => { $('#start_new_game').css('right', '10%').focus() }, 5500);
     });
 }
 
@@ -698,20 +698,20 @@ mobile_controls_right.onclick = () => {
 
 button_question.onclick = () => {
     $("#keyboards_controls").css('opacity', '1').css('z-index', '2');
-    setTimeout(() => {$("#keyboards_controls").css('opacity', '0')}, 4000);
-    setTimeout(() => {$("#keyboards_controls").css('z-index', '-1')}, 5500)
+    setTimeout(() => { $("#keyboards_controls").css('opacity', '0') }, 4000);
+    setTimeout(() => { $("#keyboards_controls").css('z-index', '-1') }, 5500)
 }
 
 button_top_score[0].onclick = () => {
     $("#high_scores").css('z-index', '1').css('opacity', '1');
-    setTimeout(() => {$("#high_scores").css('opacity', '0')}, 3000);
-    setTimeout(() => {$("#high_scores").css('z-index', '-1')}, 3500);
+    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 3000);
+    setTimeout(() => { $("#high_scores").css('z-index', '-1') }, 5500);
 }
 
 button_top_score[1].onclick = () => {
     $("#high_scores").css('z-index', '1').css('opacity', '1');
-    setTimeout(() => {$("#high_scores").css('opacity', '0')}, 3000);
-    setTimeout(() => {$("#high_scores").css('z-index', '-1')}, 3500);
+    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 3000);
+    setTimeout(() => { $("#high_scores").css('z-index', '-1') }, 5500);
 }
 
 function showScore() {
