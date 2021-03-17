@@ -4,7 +4,7 @@ let slides = document.getElementsByClassName("your-class slider-down");
 
 let playerCarSelect = 0;
 
-let scoreV = [50, 40, 30, 24, 19, 15, 12, 10, 8, 6, 5, 4, 3, 2, 1];
+let scoreV = [50, 40, 30, 24, 19, 15, 12, 10, 8, 6, 5, 4, 3, 2, 1, 0];
 
 let playerStartHeightPos = .7;
 
