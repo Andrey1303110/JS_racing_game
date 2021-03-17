@@ -14,6 +14,8 @@ let scale = .2; //масштаб машин
 var lowwer = 110; 
 var upper = 190;
 
+var scoreTimer = [];
+
 setVolume();
 
 document.onload = $("#name_player")[0].value = localStorage.getItem ('name');
@@ -250,15 +252,26 @@ function start(sec) {
         main_theme.pause();
         document.getElementById('main_theme' + S).play();
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
-        sec = 0;
         timerScore = setInterval(tick, scoreV[1]);
         $('#mobile_controls').css('display', 'flex');
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
+        if (scoreTimer.length != 0) {
+            sec = scoreTimer[scoreTimer.length-1] * 1;
+        }
+        else {
+            sec = 0;
+        }
         function tick() {
-            sec++;
-            document.getElementById("timer").
-                childNodes[0].nodeValue = sec;
+            if (scoreTimer.length != 0) {
+                $("#timer")[0].innerText = $("#timer")[0].innerText * 1;
+                sec++;
+                $("#timer")[0].innerText = sec;
+            }
+            else {
+                sec++;
+                $("#timer")[0].innerText = sec;
+            }
         }
     }
 }
@@ -549,6 +562,7 @@ function restartGame() {
         document.getElementById('canvas').style.height = "0";
         setTimeout(() => { draw(); document.getElementById('canvas').style.height = "100vh"; }, 1000);
         setTimeout(() => { start(); document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
+        scoreTimer.length = 0;
     }
     this.blur();
     menu.style.top = "-50%";
@@ -569,6 +583,7 @@ function newGameNewCar() {
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
         $("#message_score").css("opacity", "0").css("z-index", "-1");
+        scoreTimer.length = 0;
     }
     document.getElementById('timer').style.opacity = "0";
     menu.style.top = "-50%";
@@ -595,6 +610,7 @@ resume_button.onclick = resume;
 pause.onclick = pause_function;
 
 function pause_function () {
+    scoreTimer.push($("#timer")[0].innerText);
     menu.style.top = "30%";
     $("#resume_button").focus()
     stop();
