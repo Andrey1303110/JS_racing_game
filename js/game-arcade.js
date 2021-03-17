@@ -252,7 +252,7 @@ function start(sec) {
         main_theme.pause();
         document.getElementById('main_theme' + S).play();
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
-        timerScore = setInterval(tick, scoreV[1]);
+        timerScore = setInterval(tick, scoreV[0]);
         $('#mobile_controls').css('display', 'flex');
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
