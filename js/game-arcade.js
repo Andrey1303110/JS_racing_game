@@ -234,7 +234,7 @@ function upDifficulty() {
     scoreVnumber = 0;
     let interv = 6000;
     let period = interv * 15;
-    diff = setInterval(() => { lowwer += 2; upper -= 2; scoreVnumber += 1; console.log(scoreVnumber) }, interv);
+    diff = setInterval(() => { lowwer += 2; upper -= 2; console.log(lowwer) }, interv);
     setTimeout(() => { clearInterval(diff) }, period);
 }
 
@@ -254,14 +254,13 @@ function start(sec) {
         $('#mobile_controls').css('display', 'flex');
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
-        timerScore = setInterval(tick, scoreV[scoreVnumber]);
+        timerScore = setInterval(tick, scoreV[4]);
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length - 1] * 1;
         }
         else {
             sec = 0;
             clearInterval(diff);
-            scoreVnumber = 0;
             lowwer = 110;
             upper = 190;
             upDifficulty();
