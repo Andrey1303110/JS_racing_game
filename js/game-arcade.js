@@ -282,7 +282,7 @@ function start(sec) {
         main_theme.pause();
         document.getElementById('main_theme' + S).play();
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
-        $('#mobile_controls').css('display', 'flex');
+        $('#mobile_controls').css('display', 'flex').css("z-index", "1");
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
         timerScore = setInterval(tick, scoreV[4]);
@@ -295,6 +295,12 @@ function start(sec) {
             lowwer = 110;
             upper = 190;
             upDifficulty();
+        }
+        if (sessionStorage.getItem('current car') == 'prius_police') {
+            $("#button_special_signals").css("display", "flex");
+        }
+        else {
+            $("#button_special_signals").css("display", "none");
         }
         function tick() {
             if (scoreTimer.length != 0) {

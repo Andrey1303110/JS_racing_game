@@ -97,7 +97,7 @@ function returnStartPosMoto() {
 }
 
 function sgu() {
-    if (sessionStorage.getItem('current car') == 'prius_police') {
+    if (sessionStorage.getItem('current car') == 'prius_police') { 
         document.getElementById('sgu_sound').play();
         for (let i = 0; i < objects.length; i++) {
             if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {

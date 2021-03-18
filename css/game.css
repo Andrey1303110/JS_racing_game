@@ -28,6 +28,7 @@ body, html
     display: none;
     justify-content: center;
     display: none;
+    z-index: 2;
 }
 
 #canvas
@@ -45,7 +46,6 @@ body, html
 
 #mobile_controls {
     position: absolute;
-    display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
@@ -467,7 +467,7 @@ img {
 
 #button_special_signals {
     width: 90%;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-between;
     position: absolute;
@@ -481,6 +481,7 @@ img {
     width: 50px;
     opacity: .5;
     transition: .4s ease-in-out;
+    z-index: 2;
 }
 
 #button_special_signals img:hover {
