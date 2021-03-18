@@ -77,6 +77,7 @@ $(document).ready(function () {
         return isPolice = true;
     })
     $(".cars_img").click(function () {
+        setScreen();
         isPolice = false;
         eS.play();
         $(`#slider-down-${this.name}`)[0].style.top = '-50%';

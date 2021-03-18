@@ -313,7 +313,7 @@ function drawCar(car) {
             car.x,
             car.y,
             car.image.width * scale,
-            car.image.height * scale
+            car.image.height * scale * (375/424)
         );
 }
 

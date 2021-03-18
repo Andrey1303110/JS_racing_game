@@ -8,6 +8,12 @@ let UPDATE_TIME = 1000 / 90;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
+var scaleX;
+var translateX;
+
+var diff;
+var xScore;
+var scoreVnumber;
 
 let scale = .2; //масштаб машин
 
@@ -117,9 +123,9 @@ class Car {
     collide(car) {
         var hit = false;
 
-        if (this.y < car.y + (car.image.height * .75) * scale && this.y + (this.image.height * .75) * scale > car.y) //Стокновнение по высоте
+        if (this.y < car.y + (car.image.height * .7) * scale && this.y + (this.image.height * .7) * scale > car.y) //Стокновнение по высоте
         {
-            if (this.x + (this.image.width * .77) * scale > car.x && this.x < car.x + (car.image.width * .77) * scale) //Столкновение по ширине
+            if (this.x + (this.image.width * .7) * scale > car.x && this.x < car.x + (car.image.width * .7) * scale) //Столкновение по ширине
             {
                 hit = true;
             }
@@ -173,7 +179,35 @@ class Car {
 
 resize(); //Изменяет размер Canvas при загрузке страницы
 
+setScaleX();
+setTranslateX();
+
 window.addEventListener("resize", resize); //Подтягивает размер содержимого Canvas до размеров окна
+
+function setScaleX() {
+    if (window.innerWidth < 424) {
+        scaleX = window.innerWidth/canvas.width;
+    }
+    if (window.innerWidth >= 424) {
+        scaleX = 1;
+    }
+}
+
+function setTranslateX() {
+    if (window.innerWidth < 424) {
+        translateX = 50/scaleX;
+    }
+    if (window.innerWidth >= 424) {
+        translateX = -50;
+    }
+}
+
+function setScreen() {
+    $("#wrapper").css("transform", "scaleX("+ scaleX +") translateX("+ translateX +"%)").css("display", "flex");
+    $("#menu").css("transform", "scaleY("+ scaleX +")");
+    $("#pause").css("transform", "scaleY("+ scaleX +")");
+    $("#timer").css("transform", "scaleY("+ scaleX +")");
+}
 
 //Заготовка для моб. устройств
 canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); return false; });
@@ -226,10 +260,6 @@ function getRandomIntInclusive(min, max) {
 
 let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 
-var diff;
-var xScore;
-var scoreVnumber;
-
 function upDifficulty() {
     scoreVnumber = 0;
     let interv = 6000;
@@ -240,6 +270,7 @@ function upDifficulty() {
 
 function start(sec) {
     if (!player.dead) {
+        $("#wrapper").css('display', 'flex');
         setPosY();
         accelerate();
         document.getElementById('canvas').style.visibility = "visible";
@@ -314,10 +345,10 @@ function update() {
             objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false));
             overlapCars();
             if (lowwer > 140) {
-                return lowwer = 136
+                return lowwer = 138
             }
             if (upper <= 160) {
-                return upper = 164
+                return upper = 162
             }
         }
     }
@@ -399,53 +430,69 @@ function draw() //Функция для прорисовки
 }
 
 function drawCar(car) {
-    ctx.drawImage
-        (
-            car.image,
-            0,
-            0,
-            car.image.width,
-            car.image.height,
-            car.x,
-            car.y,
-            car.image.width * scale,
-            car.image.height * scale
+    if (window.innerWidth < 424) {
+        ctx.drawImage
+            (
+                car.image,
+                0,
+                0,
+                car.image.width,
+                car.image.height,
+                car.x,
+                car.y,
+                car.image.width * scale,
+                car.image.height * scale * window.innerWidth / canvas.width,
         );
+    }
+    if (window.innerWidth >= 424) {
+        ctx.drawImage
+            (
+                car.image,
+                0,
+                0,
+                car.image.width,
+                car.image.height,
+                car.x,
+                car.y,
+                car.image.width * scale,
+                car.image.height * scale,
+            );
+    }
+}
+
+function turn_left() {
+    document.getElementById('sound_wheel_main').play();
+    let timerId65 = setInterval(() => {
+        player.move("x", -speed * .15)
+    }, 25);
+    setTimeout(() => { clearInterval(timerId65); }, 250);
+}
+
+function turn_right() {
+    document.getElementById('sound_wheel_main').play();
+    let right = setInterval(() => {
+        player.move("x", speed * .15)
+    }, 25);
+    setTimeout(() => { clearInterval(right); }, 250);
 }
 
 function KeyDown(e) {
     if (timer != null) {
         switch (e.keyCode) {
             case 37: //Left
-                document.getElementById('sound_wheel_main').play();
-                let timerId37 = setInterval(() => {
-                    player.move("x", -speed * .15)
-                }, 25);
-                setTimeout(() => { clearInterval(timerId37); }, 250);
+                turn_left();
                 break;
 
             case 65: //Left
-                document.getElementById('sound_wheel_main').play();
-                let timerId65 = setInterval(() => {
-                    player.move("x", -speed * .15)
-                }, 25);
-                setTimeout(() => { clearInterval(timerId65); }, 250);
+                turn_left();
                 break;
 
             case 39: //Right
-                document.getElementById('sound_wheel_main').play();
-                let timerId39 = setInterval(() => {
-                    player.move("x", speed * .15)
-                }, 25);
-                setTimeout(() => { clearInterval(timerId39); }, 250);
+                turn_right();
                 break;
 
             case 68: //Right
-                document.getElementById('sound_wheel_main').play();
-                let timerId68 = setInterval(() => {
-                    player.move("x", speed * .15)
-                }, 25);
-                setTimeout(() => { clearInterval(timerId68); }, 250);
+                turn_right();
                 break;
 
             case 38: //Up
@@ -563,7 +610,7 @@ function restartGame() {
         player.y = canvas.height * playerStartHeightPos;
         player.dead = false;
         document.getElementById('canvas').style.height = "0";
-        setTimeout(() => { draw(); document.getElementById('canvas').style.height = "100vh"; }, 1000);
+        setTimeout(() => { draw(); document.getElementById('canvas').style.height = "100%"; }, 1000);
         setTimeout(() => { start(); document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
         scoreTimer.length = 0;
     }
@@ -575,6 +622,7 @@ restart_button.onclick = restartGame;
 
 function newGameNewCar() {
     let last_slider = sessionStorage.getItem('last down slider');
+    $("#wrapper").css('display', 'none');
     if (timer == null || player.dead == true) {
         objects = [];
         player.x = canvas.width / 2 - player.image.width * scale / 2;
@@ -592,7 +640,7 @@ function newGameNewCar() {
     menu.style.top = "-50%";
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
-    document.getElementById('slider').style.top = "8%";
+    document.getElementById('slider').style.top = "6%";
     setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
     locked_cars();
     return S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
@@ -614,7 +662,7 @@ pause.onclick = pause_function;
 
 function pause_function() {
     scoreTimer.push($("#timer")[0].innerText);
-    menu.style.top = "30%";
+    menu.style.top = "20%";
     $("#resume_button").focus()
     stop();
     $('#pause').css('opacity', '0').css("z-index", "-1");
@@ -679,38 +727,23 @@ pervue_start.onclick = () => {
     });
 }
 
-mobile_controls_left.onclick = () => {
-    document.getElementById('sound_wheel_main').play();
-    let left = setInterval(() => {
-        player.move("x", -speed * .15)
-    }, 25);
-    setTimeout(() => { clearInterval(left); }, 250);
-}
+mobile_controls_left.onclick = turn_left;
 
-mobile_controls_right.onclick = () => {
-    document.getElementById('sound_wheel_main').play();
-    let right = setInterval(() => {
-        player.move("x", speed * .15)
-    }, 25);
-    setTimeout(() => { clearInterval(right); }, 250);
-}
+mobile_controls_right.onclick = turn_right;
 
 button_question.onclick = () => {
     $("#keyboards_controls").css('opacity', '1').css('z-index', '2');
-    setTimeout(() => { $("#keyboards_controls").css('opacity', '0') }, 4000);
-    setTimeout(() => { $("#keyboards_controls").css('z-index', '-1') }, 5500)
+    setTimeout(() => { $("#keyboards_controls").css('opacity', '0').css('z-index', '-1') }, 4500);
 }
 
 button_top_score[0].onclick = () => {
     $("#high_scores").css('z-index', '1').css('opacity', '1');
-    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 3000);
-    setTimeout(() => { $("#high_scores").css('z-index', '-1') }, 5500);
+    setTimeout(() => { $("#high_scores").css('opacity', '0').css('z-index', '-1') }, 2500);
 }
 
 button_top_score[1].onclick = () => {
     $("#high_scores").css('z-index', '1').css('opacity', '1');
-    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 3000);
-    setTimeout(() => { $("#high_scores").css('z-index', '-1') }, 5500);
+    setTimeout(() => { $("#high_scores").css('opacity', '0').css('z-index', '-1') }, 2500);
 }
 
 function showScore() {

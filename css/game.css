@@ -18,10 +18,16 @@ body, html
     background-color: #8C8C89;
 }
 
-.wrapper
-{	margin: 0 auto;
-	width: 424px; 
-	height: 100%;
+#wrapper
+{	width: 424px;
+    height: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    display: none;
+    justify-content: center;
+    display: none;
 }
 
 #canvas
@@ -149,6 +155,7 @@ div.main {
     padding: 20px 2%;
     background-image: url(../images/icons/garage.png);
     background-position-x: right;
+    background-position-y: center;
     background-repeat: no-repeat;
     background-color: rgba(0, 115, 216, 0);
     cursor: pointer;
@@ -178,6 +185,7 @@ div.main {
 video {
     height: 100%;
     width: 100%;
+    min-width: 424px;
     opacity: 0;
     transition: all .7s ease-in-out;
     object-fit: contain;
@@ -186,7 +194,8 @@ video {
 #timer {
     opacity: 0;
 	text-align: left;
-    padding-left: 25px;
+    width: 100%;
+    padding-left: 35px;
 	position: absolute;
 	color: orange;
 	font-size: 30px;
@@ -215,7 +224,7 @@ video {
     position: absolute; 
     left: 50%; 
     transform: translateX(-50%); 
-    top: 8%; 
+    top: 6%; 
     transition: all .5s ease-in-out;
 }
 
@@ -237,9 +246,11 @@ img {
     width: 300px;
     margin: 0 auto;
     background-color: rgba(173, 172, 170, 0.78);
-    transform: translateX(20%) translateY(-25%);
+    transform: translateY(-25%);
     top: -50%;
-    height: 400px;
+    height: 50%;
+    max-height: 400px;
+    min-height: 320px;
     display: flex;
     flex-direction: column;
     transition: all .65s ease-in-out;
@@ -348,7 +359,7 @@ img {
     background-repeat: no-repeat;
     background-position: top;
     position: relative;
-    top: 10%;
+    top: 9%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #8C8C89;
@@ -356,8 +367,9 @@ img {
 
 #high_scores {
     position: absolute;
+    top: 30px;
     width: 100%;
-    height: 300px;
+    height: 100px;
     opacity: 0;
     transition: all 1s ease-in-out;
     color: white;
@@ -365,8 +377,9 @@ img {
 }
 
 #scores {
-    width: 420px;
-    height: 300px;
+    width: 100%;
+    max-width: 420px;
+    height: 100px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -390,7 +403,7 @@ img {
 #names_hs, #score_hs {
     position: relative;
     top: 50px;
-    width: 200px;
+    width: 100px;
     font-family: Architects Daughter;
     font-size: 27px;
 }
@@ -443,6 +456,7 @@ img {
     height: 50px;
     opacity: 0;
     transition: 1s ease-in-out;
+    cursor: pointer;
 }
 
 #pause div {
@@ -477,3 +491,84 @@ img {
         display: block;
     }
 }
+
+@media (max-width: 400px) {
+    #slider {
+        width: 355px; 
+    }
+    #name_insert {
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    #slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-bmw_x5, #slider-down-scania {
+        width: 355px; 
+    }
+    #start_new_game {
+        min-width: 340px;
+        font-size: 30px;
+        background-size: 50px;
+    }
+    #intro_video {
+        min-width: 520px;
+    }
+}
+
+@media (max-width: 380px) {
+    #slider {
+        width: 340px; 
+    }
+    
+    #slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-bmw_x5, #slider-down-scania {
+        width: 340px; 
+    }
+    #start_new_game {
+        min-width: 300px;
+        font-size: 28px;
+        background-size: 45px;
+    }
+    #intro_video {
+        min-width: 500px;
+    }
+}
+
+@media (max-width: 350px) {
+    #slider {
+        width: 340px; 
+    }
+    
+    #slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-bmw_x5, #slider-down-scania {
+        width: 340px; 
+    }
+    #start_new_game {
+        min-width: 300px;
+        font-size: 28px;
+        background-size: 40px;
+        
+    }
+    #intro_video {
+        min-width: 465px;
+    }
+}
+
+@media (max-width: 330px) {
+    #slider {
+        width: 315px; 
+    }
+    #name_insert {
+        min-width: 300px;
+    }
+    
+    #slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-bmw_x5, #slider-down-scania {
+        width: 315px; 
+    }
+    #start_new_game {
+        min-width: 250px;
+        font-size: 28px;
+        background-size: 40px;
+    }
+    #intro_video {
+        min-width: 440px;
+    }
+}
+
+
