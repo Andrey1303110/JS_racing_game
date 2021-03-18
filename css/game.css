@@ -465,6 +465,28 @@ img {
     background: url(../images/icons/pause.png) no-repeat center;
 }
 
+#button_special_signals {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 77%;
+    height: 50px;
+    cursor: pointer;
+}
+
+#button_special_signals img {
+    height: 50px;
+    width: 50px;
+    opacity: .5;
+    transition: .4s ease-in-out;
+}
+
+#button_special_signals img:hover {
+    opacity: 1;
+}
+
 #message_score {
     position: absolute;
     bottom: 5%;
@@ -511,6 +533,9 @@ img {
     #intro_video {
         min-width: 520px;
     }
+    #button_special_signals {
+        width: 380px;
+    }
 }
 
 @media (max-width: 380px) {
@@ -528,6 +553,9 @@ img {
     }
     #intro_video {
         min-width: 500px;
+    }
+    #button_special_signals {
+        width: 360px;
     }
 }
 
@@ -547,6 +575,9 @@ img {
     }
     #intro_video {
         min-width: 465px;
+    }
+    #button_special_signals {
+        width: 335px;
     }
 }
 
@@ -568,6 +599,9 @@ img {
     }
     #intro_video {
         min-width: 440px;
+    }
+    #button_special_signals {
+        width: 315px;
     }
 }
 

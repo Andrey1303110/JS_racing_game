@@ -316,6 +316,7 @@ function stop() {
     timer = null;
     clearInterval(timerScore);
     $('#mobile_controls').css('display', 'none');
+    $("#button_special_signals").css("display", "none");
     clearInterval(diff);
 }
 
@@ -384,7 +385,7 @@ function update() {
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
-            document.getElementById('siren').pause();
+            document.getElementById('siren_sound').pause();
             menu.style.top = "30%";
             restart_button.focus();
             high_score_base.push(`${score}`);
@@ -662,7 +663,7 @@ pause.onclick = pause_function;
 
 function pause_function() {
     scoreTimer.push($("#timer")[0].innerText);
-    menu.style.top = "20%";
+    menu.style.top = "30%";
     $("#resume_button").focus()
     stop();
     $('#pause').css('opacity', '0').css("z-index", "-1");

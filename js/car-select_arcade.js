@@ -73,6 +73,7 @@ var isPolice = false;
 
 $(document).ready(function () {
     $("#slick-slide77").click(function () {
+        $("#button_special_signals").css("display", "flex");
         prius_function()
         return isPolice = true;
     })
@@ -93,6 +94,34 @@ $(document).ready(function () {
 function returnStartPosMoto() {
     player.x = (canvas.width / 2) - (176 * scale / 2);
     player.y = canvas.height * .82;
+}
+
+function sgu() {
+    if (sessionStorage.getItem('current car') == 'prius_police') {
+        document.getElementById('sgu_sound').play();
+        for (let i = 0; i < objects.length; i++) {
+            if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
+                if (objects[i].y > 0) {
+                    if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
+                        let move = setInterval(() => {
+                            objects[i].x -= 8.3
+                        }, 35);
+                        setTimeout(() => { clearInterval(move); }, 350);
+                    }
+                    else {
+                        let move = setInterval(() => {
+                            objects[i].x += 8.3
+                        }, 35);
+                        setTimeout(() => { clearInterval(move); }, 350);
+                    }
+                }
+            }
+        }
+    }
+}
+
+function siren() {
+    document.getElementById('siren_sound').play();
 }
 
 function prius_function() {
@@ -129,31 +158,14 @@ function prius_function() {
     document.addEventListener('keydown', function (event) {
         if (event.shiftKey) {
             if (sessionStorage.getItem('current car') == 'prius_police') {
-                document.getElementById('siren').play();
+                siren();
             }
         }
         if (event.ctrlKey) {
-            if (sessionStorage.getItem('current car') == 'prius_police') {
-                document.getElementById('sgu').play();
-                for (let i = 0; i < objects.length; i++) {
-                    if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
-                        if (objects[i].y > 0) {
-                            if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
-                                let move = setInterval(() => {
-                                    objects[i].x -= 8.3
-                                }, 35);
-                                setTimeout(() => { clearInterval(move); }, 350);
-                            }
-                            else {
-                                let move = setInterval(() => {
-                                    objects[i].x += 8.3
-                                }, 35);
-                                setTimeout(() => { clearInterval(move); }, 350);
-                            }
-                        }
-                    }
-                }
-            }
+            sgu();
         }
     });
 }
+
+$("#siren")[0].onclick = siren;
+$("#sgu")[0].onclick = sgu;
