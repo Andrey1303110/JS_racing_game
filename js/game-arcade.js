@@ -744,13 +744,13 @@ button_question.onclick = () => {
 }
 
 button_top_score[0].onclick = () => {
-    $("#high_scores").css('z-index', '3').css('opacity', '1');
-    setTimeout(() => { $("#high_scores").css('opacity', '0').css('z-index', '-1') }, 2500);
+    $("#high_scores").css('opacity', '1');
+    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 2500);
 }
 
 button_top_score[1].onclick = () => {
-    $("#high_scores").css('z-index', '3').css('opacity', '1');
-    setTimeout(() => { $("#high_scores").css('opacity', '0').css('z-index', '-1') }, 2500);
+    $("#high_scores").css('opacity', '1');
+    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 2500);
 }
 
 function showScore() {

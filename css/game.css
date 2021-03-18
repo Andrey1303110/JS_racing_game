@@ -373,7 +373,7 @@ img {
     opacity: 0;
     transition: all 1s ease-in-out;
     color: white;
-    z-index: -1;
+    z-index: 3;
 }
 
 #scores {
