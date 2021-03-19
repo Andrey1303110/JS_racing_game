@@ -108,7 +108,7 @@ function sgu() {
                         }, 35);
                         setTimeout(() => { clearInterval(move); }, 350);
                     }
-                    else {
+                    if (objects[i].x < 340 && objects[i].x >= 0) {
                         let move = setInterval(() => {
                             objects[i].x += 8.3
                         }, 35);
