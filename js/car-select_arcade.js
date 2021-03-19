@@ -38,7 +38,7 @@ function clearCarPreloadDOM() {
 
 $(document).ready(function () {
     $(".slider-down").on("beforeChange", function () { spray.play() });
-    $(".up_slider").on("beforeChange", function () { car_select.play() });
+    $(".up_slider").on("beforeChange", function () { car_select.play(); });
 });
 
 
@@ -49,20 +49,142 @@ function upSlider() {
 
 $(document).ready(function () {
     $(".main_screen_cars_img").click(function () {
-        upSlider();
         $("#lock_cars").removeClass("active_lock");
-        prius_main.onclick = () => {
-            $("#lock_cars").addClass("active_lock");
-            $("#lock_cars.active_lock")[0].onclick = () => { main_theme.volume = .5; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 1800 ) }
-        }
-        $("#slider-down-prius")[0].onclick = () => {
-            $("#lock_cars").addClass("active_lock");
-        }
+        upSlider();
         document.getElementById(`slider-down-${this.name}`).style.top = '50%';
         $("#cbr_main").click(function () {
             setTimeout(() => {returnStartPosMoto()}, 1500)
         })
     });
+    
+    prius_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_prius) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_prius} or more!`;
+            $("#slider-down-prius").css("opacity", ".5");
+            $("#slider-down-prius .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-prius")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_prius) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-prius").css("opacity", "1");
+            $("#slider-down-prius .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    scania_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_scania) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_scania} or more!`;
+            $("#slider-down-scania").css("opacity", ".5");
+            $("#slider-down-scania .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-scania")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_scania) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-scania").css("opacity", "1");
+            $("#slider-down-scania .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    cbr_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_cbr) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_cbr} or more!`;
+            $("#slider-down-cbr").css("opacity", ".5");
+            $("#slider-down-cbr .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-cbr")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_cbr) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-cbr").css("opacity", "1");
+            $("#slider-down-cbr .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    f1_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_f1) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_f1} or more!`;
+            $("#slider-down-f1").css("opacity", ".5");
+            $("#slider-down-f1 .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-f1")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_f1) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-f1").css("opacity", "1");
+            $("#slider-down-f1 .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    bmw_x5_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_bmw_x5) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_bmw_x5} or more!`;
+            $("#slider-down-bmw_x5").css("opacity", ".5");
+            $("#slider-down-bmw_x5 .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-bmw_x5")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_bmw_x5) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-bmw_x5").css("opacity", "1");
+            $("#slider-down-bmw_x5 .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    volvo_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_volvo) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_volvo} or more!`;
+            $("#slider-down-volvo").css("opacity", ".5");
+            $("#slider-down-volvo .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-volvo")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_volvo) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-volvo").css("opacity", "1");
+            $("#slider-down-volvo .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    fj_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_fj) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_fj} or more!`;
+            $("#slider-down-fj").css("opacity", ".5");
+            $("#slider-down-fj .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-fj")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_fj) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-fj").css("opacity", "1");
+            $("#slider-down-fj .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    buggati_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_buggati) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_buggati} or more!`;
+            $("#slider-down-buggati").css("opacity", ".5");
+            $("#slider-down-buggati .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+            $("#slider-down-buggati")[0].onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) }
+            lock_cars.onclick = () => acces_denied.play();
+        }
+        if (localStorage.getItem('score') >= lock_buggati) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-buggati").css("opacity", "1");
+            $("#slider-down-buggati .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
 });
 
 function setPosY() {
