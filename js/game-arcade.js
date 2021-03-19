@@ -5,7 +5,7 @@ let sound_on = document.getElementById('sound_on');
 let sound_off = document.getElementById('sound_off');
 let main_theme = document.getElementById('main_theme1');
 
-let UPDATE_TIME = 1000 / 90;
+let UPDATE_TIME = 1000 / 78;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
@@ -18,8 +18,8 @@ var scoreVnumber;
 
 let scale = .2; //масштаб машин
 
-var lowwer = 110;
-var upper = 190;
+var lowwer = 114;
+var upper = 186;
 
 var scoreTimer = [];
 
@@ -45,132 +45,6 @@ name_player.onkeypress = (e) => {
     keyCode = (window.event) ? e.which : e.keyCode;
     if ((keyCode == 13) && (name_player.value != "")) {
         $("#pervue_start").click();
-    }
-}
-
-let lock_prius = 5500;
-let lock_cbr = 2500;
-let lock_scania = 3500;
-let lock_volvo = 2000;
-let lock_bmw_x5 = 4000;
-let lock_f1 = 5000;
-let lock_buggati = 4500;
-let lock_fj = 1500;
-//document.querySelector("#lock_cars p").innerText = `You may take score ${lock_prius} or more!`
-
-function locked_cars() {
-    lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
-    prius_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_prius) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_prius} or more!`;
-            $("#slider-down-prius").css("opacity", ".5");
-            $("#slider-down-prius .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_prius) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-prius").css("opacity", "1");
-            $("#slider-down-prius .slick-list.draggable").css("pointer-events", "auto");
-        }
-    }
-    scania_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_scania) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_scania} or more!`;
-            $("#slider-down-scania").css("opacity", ".5");
-            $("#slider-down-scania .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_scania) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-scania").css("opacity", "1");
-            $("#slider-down-scania .slick-list.draggable").css("pointer-events", "auto");
-        }
-    }
-    cbr_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_cbr) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_cbr} or more!`;
-            $("#slider-down-cbr").css("opacity", ".5");
-            $("#slider-down-cbr .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_cbr) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-cbr").css("opacity", "1");
-            $("#slider-down-cbr .slick-list.draggable").css("pointer-events", "auto");
-        }
-    }
-    f1_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_f1) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_f1} or more!`;
-            $("#slider-down-f1").css("opacity", ".5");
-            $("#slider-down-f1 .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_f1) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-f1").css("opacity", "1");
-            $("#slider-down-f1 .slick-list.draggable").css("pointer-events", "auto");
-        }
-    }
-    bmw_x5_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_bmw_x5) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_bmw_x5} or more!`;
-            $("#slider-down-bmw_x5").css("opacity", ".5");
-            $("#slider-down-bmw_x5 .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_bmw_x5) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-bmw_x5").css("opacity", "1");
-            $("#slider-down-bmw_x5 .slick-list.draggable").css("pointer-events", "auto");
-        }
-    }
-    volvo_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_volvo) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_volvo} or more!`;
-            $("#slider-down-volvo").css("opacity", ".5");
-            $("#slider-down-volvo .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_volvo) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-volvo").css("opacity", "1");
-            $("#slider-down-volvo .slick-list.draggable").css("pointer-events", "auto");
-        }
-    }
-    fj_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_fj) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_fj} or more!`;
-            $("#slider-down-fj").css("opacity", ".5");
-            $("#slider-down-fj .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_fj) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-fj").css("opacity", "1");
-            $("#slider-down-fj .slick-list.draggable").css("pointer-events", "auto");
-        }
-    }
-    buggati_main.onclick = () => {
-        if (localStorage.getItem('score') < lock_buggati) {
-            $("#lock_cars").addClass("active_lock");
-            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_buggati} or more!`;
-            $("#slider-down-buggati").css("opacity", ".5");
-            $("#slider-down-buggati .slick-list.draggable").css("pointer-events", "none");
-            $("#lock_cars").css("z-index", "2");
-        }
-        if (localStorage.getItem('score') >= lock_buggati) {
-            $("#lock_cars").css("z-index", "-1");
-            $("#slider-down-buggati").css("opacity", "1");
-            $("#slider-down-buggati .slick-list.draggable").css("pointer-events", "auto");
-        }
     }
 }
 
@@ -350,8 +224,6 @@ let cars = function () { // доступ к JSON
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-let speed = 9.5;
-
 function accelerate() {
     /*setTimeout(() => {return speed = 1}, 200)
     setTimeout(() => {return speed = 2}, 400)
@@ -374,8 +246,8 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function upDifficulty() {
     scoreVnumber = 0;
-    let interv = 6000;
-    let period = interv * 15;
+    let interv = 7100;
+    let period = interv * 12;
     diff = setInterval(() => { lowwer += 2; upper -= 2; console.log(lowwer) }, interv);
     setTimeout(() => { clearInterval(diff) }, period);
 }
@@ -397,7 +269,7 @@ function start(sec) {
         $('#mobile_controls').css('display', 'flex').css("z-index", "1");
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
-        timerScore = setInterval(tick, scoreV[4]);
+        timerScore = setInterval(tick, scoreV[2]);
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length - 1] * 1;
         }
