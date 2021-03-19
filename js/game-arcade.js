@@ -302,6 +302,10 @@ function start(sec) {
         else {
             $("#button_special_signals").css("display", "none");
         }
+        if (window.innerWidth > 1024) {
+            $('#mobile_controls').css('display', 'none');
+            $("#button_special_signals").css("display", "none");
+        }
         function tick() {
             if (scoreTimer.length != 0) {
                 $("#timer")[0].innerText = $("#timer")[0].innerText * 1;
@@ -739,21 +743,21 @@ mobile_controls_left.onclick = turn_left;
 mobile_controls_right.onclick = turn_right;
 
 button_question.onclick = () => {
-    $("#keyboards_controls").css('opacity', '1').css('z-index', '2');
+    $("#keyboards_controls").css('opacity', '1').css('z-index', '3');
     setTimeout(() => { $("#keyboards_controls").css('opacity', '0').css('z-index', '-1') }, 4500);
 }
 
 button_top_score[0].onclick = () => {
-    $("#high_scores").css('opacity', '1');
-    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 2500);
+    $("#high_scores").css('opacity', '1').css("display", "block");
+    setTimeout(() => { $("#high_scores").css('opacity', '0').css("display", "none") }, 2500);
 }
 
 button_top_score[1].onclick = () => {
-    $("#high_scores").css('opacity', '1');
-    setTimeout(() => { $("#high_scores").css('opacity', '0') }, 2500);
+    $("#high_scores").css('opacity', '1').css("display", "block");
+    setTimeout(() => { $("#high_scores").css('opacity', '0').css("display", "none") }, 2500);
 }
 
 function showScore() {
     $("#message_score")[0].innerText = `your score is ` + $("#timer")[0].innerText;
-    $("#message_score").css("opacity", "1").css('z-index', '1');
+    $("#message_score").css("opacity", "1").css('z-index', '2');
 }

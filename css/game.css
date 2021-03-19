@@ -374,6 +374,7 @@ img {
     transition: all 1s ease-in-out;
     color: white;
     z-index: 3;
+    display: none;
 }
 
 #scores {
