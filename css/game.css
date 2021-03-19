@@ -535,7 +535,7 @@ img {
         width: 550px; 
     }
     .slick-prev.slick-arrow, .slick-next.slick-arrow {
-        transform: translate(0, -35%);
+        transform: translate(0, -20px);
         background-size: 45px;
     }
     ul.slick-dots {
