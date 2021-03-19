@@ -1,3 +1,4 @@
+let intro_video = $('#intro_video')[0];
 let audios = document.querySelectorAll("audio");
 let menu = document.getElementById('menu');
 let sound_on = document.getElementById('sound_on');
@@ -733,13 +734,15 @@ pervue_start.onclick = () => {
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000)
     $(document).ready(function () {
-        setTimeout(() => { $('#intro_video')[0].play() }, 1500);
-        setTimeout(() => { $('#start_new_game').css('right', '10%').focus() }, 5500);
+        if (intro_video.readyState >= 3) { setTimeout(() => intro_video.play(), 1500) };
+        intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
+        //intro_video.currentTime = .01;
+        //setTimeout(() => { $('#intro_video')[0].play() }, 1500);
+        //setTimeout(() => { $('#start_new_game').css('right', '10%').focus() }, 5500);
     });
 }
 
 mobile_controls_left.onclick = turn_left;
-
 mobile_controls_right.onclick = turn_right;
 
 button_question.onclick = () => {
