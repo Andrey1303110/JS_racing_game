@@ -1,6 +1,7 @@
 let eS = document.getElementById('engine_start');
 
 let slides = document.getElementsByClassName("your-class slider-down");
+let slider = document.getElementById('slider');
 
 let playerCarSelect = 0;
 
@@ -216,14 +217,14 @@ function locked_cars() {
 }
 
 function clearSlider() {
-    document.getElementById('slider').style.display = "block";
+    slider.style.display = "none";
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
 }
 
 function showSlider() {
-    document.getElementById('slider').style.display = "block";
+    slider.style.display = "block";
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "block";
     }
