@@ -7,7 +7,7 @@ $(document).ready(function () {
         slidesToScroll: 1,
         draggable: true,
         initialSlide: 0,
-        speed: 2000,
+        speed: 2150,
         fade: true,
         cssEase: 'cubic-bezier(1,-0.07,.6,.53)',
         responsive: [
