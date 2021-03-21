@@ -172,7 +172,7 @@ window.addEventListener("resize", resize); //Подтягивает размер
 
 function setScaleX() {
     if (window.innerWidth < 424) {
-        scaleX = window.innerWidth/canvas.width;
+        scaleX = window.innerWidth / canvas.width;
     }
     if (window.innerWidth >= 424) {
         scaleX = 1;
@@ -181,7 +181,7 @@ function setScaleX() {
 
 function setTranslateX() {
     if (window.innerWidth < 424) {
-        translateX = 50/scaleX;
+        translateX = 50 / scaleX;
     }
     if (window.innerWidth >= 424) {
         translateX = -50;
@@ -189,10 +189,10 @@ function setTranslateX() {
 }
 
 function setScreen() {
-    $("#wrapper").css("transform", "scaleX("+ scaleX +") translateX("+ translateX +"%)").css("display", "flex");
-    $("#menu").css("transform", "scaleY("+ scaleX +")");
-    $("#pause").css("transform", "scaleY("+ scaleX +")");
-    $("#timer").css("transform", "scaleY("+ scaleX +")");
+    $("#wrapper").css("transform", "scaleX(" + scaleX + ") translateX(" + translateX + "%)").css("display", "flex");
+    $("#menu").css("transform", "scaleY(" + scaleX + ")");
+    $("#pause").css("transform", "scaleY(" + scaleX + ")");
+    $("#timer").css("transform", "scaleY(" + scaleX + ")");
 }
 
 //Заготовка для моб. устройств
@@ -380,7 +380,7 @@ function update() {
             document.getElementById('sound').play();
             document.getElementById('main_theme' + S).pause();
             document.getElementById('siren_sound').pause();
-            menu.style.top = "30%";
+            menu.style.top = "23%";
             restart_button.focus();
             high_score_base.push(`${score}`);
             high_score_base.sort(function (a, b) { return b - a });
@@ -437,7 +437,7 @@ function drawCar(car) {
                 car.y,
                 car.image.width * scale,
                 car.image.height * scale * window.innerWidth / canvas.width,
-        );
+            );
     }
     if (window.innerWidth >= 424) {
         ctx.drawImage
@@ -610,7 +610,7 @@ function restartGame() {
         scoreTimer.length = 0;
     }
     this.blur();
-    menu.style.top = "-50%";
+    menu.style.top = "-70%";
 }
 
 restart_button.onclick = restartGame;
@@ -632,7 +632,7 @@ function newGameNewCar() {
         scoreTimer.length = 0;
     }
     document.getElementById('timer').style.opacity = "0";
-    menu.style.top = "-50%";
+    menu.style.top = "-70%";
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
     document.getElementById('slider').style.top = "6%";
@@ -645,7 +645,7 @@ garage_button.onclick = newGameNewCar;
 
 function resume() {
     $("#message_score").css("opacity", "0").css("z-index", "-1");
-    menu.style.top = "-50%";
+    menu.style.top = "-70%";
     setTimeout(() => { start(); }, 1000);
     this.blur();
 }
@@ -657,7 +657,7 @@ pause.onclick = pause_function;
 
 function pause_function() {
     scoreTimer.push($("#timer")[0].innerText);
-    menu.style.top = "30%";
+    menu.style.top = "23%";
     $("#resume_button").focus()
     stop();
     $('#pause').css('opacity', '0').css("z-index", "-1");

@@ -247,10 +247,10 @@ img {
     margin: 0 auto;
     background-color: rgba(173, 172, 170, 0.78);
     transform: translateY(-25%);
-    top: -50%;
+    top: -70%;
     height: 50%;
-    max-height: 400px;
-    min-height: 320px;
+    max-height: 450px;
+    min-height: 360px;
     display: flex;
     flex-direction: column;
     transition: all .65s ease-in-out;
