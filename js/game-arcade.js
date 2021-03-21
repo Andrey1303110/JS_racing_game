@@ -30,13 +30,16 @@ document.onload = $("#name_player")[0].value = localStorage.getItem('name');
 function setName() {
     var name_player = $("#name_player")[0].value;
     localStorage.setItem('name', `${name_player}`);
-    high_score_base.push(`${localStorage.getItem('score')}`);
+    high_score_base.push(`${localStorage.getItem('score')}` * 1);
     if (localStorage.getItem('score') != undefined) {
         $("#score")[0].innerText = localStorage.getItem('score');
         $("#name")[0].innerText = localStorage.getItem('name');
     }
     else {
         $("#score")[0].innerText = "0";
+    }
+    if (high_score_base.includes("null")) {
+        high_score_base[high_score_base.indexOf("null")] = "0"
     }
     locked_cars();
 }
@@ -46,6 +49,14 @@ name_player.onkeypress = (e) => {
     if ((keyCode == 13) && (name_player.value != "")) {
         $("#pervue_start").click();
     }
+}
+
+function push_high_score() {
+    let score = document.getElementById('timer').innerText;
+    high_score_base.push(`${score}` * 1);
+    high_score_base.sort(function (a, b) { return b - a });
+    localStorage.setItem('score', `${high_score_base[0]}`);
+    $("#score")[0].innerText = localStorage.getItem('score');
 }
 
 class Road {
@@ -374,7 +385,6 @@ function update() {
         hit = player.collide(objects[i]);
 
         if (hit) {
-            let score = document.getElementById('timer').innerText;
             stop();
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
@@ -382,10 +392,7 @@ function update() {
             document.getElementById('siren_sound').pause();
             menu.style.top = "23%";
             restart_button.focus();
-            high_score_base.push(`${score}`);
-            high_score_base.sort(function (a, b) { return b - a });
-            localStorage.setItem('score', `${high_score_base[0]}`);
-            $("#score")[0].innerText = localStorage.getItem('score');
+            push_high_score();
             player.dead = true;
             document.getElementById('resume_button').classList.add('hide_button');
             $('#pause').css('opacity', '0').css("z-index", "-1");
@@ -638,6 +645,7 @@ function newGameNewCar() {
     document.getElementById('slider').style.top = "6%";
     setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
     locked_cars();
+    push_high_score();
     return S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 }
 
