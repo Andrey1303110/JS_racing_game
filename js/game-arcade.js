@@ -25,8 +25,6 @@ var scoreTimer = [];
 
 setVolume();
 
-document.onload = $("#name_player")[0].value = localStorage.getItem('name');
-
 function setName() {
     var name_player = $("#name_player")[0].value;
     localStorage.setItem('name', `${name_player}`);
@@ -232,6 +230,8 @@ let cars = function () { // доступ к JSON
     });
     return jsonTemp;
 }();
+
+preloadcars ();
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
@@ -755,3 +755,14 @@ function showScore() {
     $("#message_score")[0].innerText = `your score is ` + $("#timer")[0].innerText;
     $("#message_score").css("opacity", "1").css('z-index', '2');
 }
+
+function preloadcars (){ 
+    for (let i = 0; i < cars.length; i++) {
+        $('#game_cars').append('<img src=' + cars[i] + '>');
+    }
+}
+
+document.onload = () => console.log("document load");
+window.onload = () => console.log("window load");
+
+window.onload = $("#name_player")[0].value = localStorage.getItem('name');
