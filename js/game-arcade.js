@@ -701,6 +701,8 @@ function setVolume() {
         sound_off.style.opacity = '.5';
         for (let i = 0; i < audios.length; i++) {
             audios[i].volume = 1;
+            sound_wheel_right.volume = .75;
+            sound_wheel_left.volume = .75;
         }
     }
     if (vol == 0) {
