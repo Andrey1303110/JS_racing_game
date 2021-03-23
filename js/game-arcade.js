@@ -261,7 +261,7 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function upDifficulty() {
     scoreVnumber = 0;
-    let interv = 7100;
+    let interv = 1000;
     let period = interv * 12;
     diff = setInterval(() => { lowwer += 2; upper -= 2; console.log(lowwer) }, interv);
     setTimeout(() => { clearInterval(diff) }, period);
@@ -550,7 +550,7 @@ function RandomInteger(min, max) {
 }
 
 function overlapCars() {
-    if (objects.length == 2) {
+    if (objects.length >= 2) {
         if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
             if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
             {
@@ -559,7 +559,7 @@ function overlapCars() {
             }
         }
     }
-    if (objects.length == 3) {
+    if (objects.length >= 3) {
         if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
             if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
             {
