@@ -508,8 +508,9 @@ img {
     opacity: 0;
     z-index: -1;
     transition: 1s ease-in-out;
+    letter-spacing: -.5px;
     background: rgb(160,255,255);
-    background: linear-gradient(90deg, rgba(160,255,255,0.2) 0%, rgba(165,255,255,0.75) 12%, rgba(165,255,255,0.75) 88%, rgba(160,255,255,0.2) 100%);
+    background: linear-gradient(90deg, rgba(205,255,255,0.2) 0%, rgba(162,251,251,.65) 7%, rgba(162,251,251,0.65) 93%, rgba(205,255,255,.2) 100%);
 }
 
 #game_cars {
