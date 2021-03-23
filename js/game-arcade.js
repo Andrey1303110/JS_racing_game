@@ -261,7 +261,7 @@ let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length
 
 function upDifficulty() {
     scoreVnumber = 0;
-    let interv = 1000;
+    let interv = 6500;
     let period = interv * 12;
     diff = setInterval(() => { lowwer += 2; upper -= 2; console.log(lowwer) }, interv);
     setTimeout(() => { clearInterval(diff) }, period);
@@ -467,7 +467,7 @@ function drawCar(car) {
 }
 
 function turn_left() {
-    document.getElementById('sound_wheel_main').play();
+    document.getElementById('sound_wheel_left').play();
     let timerId65 = setInterval(() => {
         player.move("x", -speed * .15)
     }, 25);
@@ -475,7 +475,7 @@ function turn_left() {
 }
 
 function turn_right() {
-    document.getElementById('sound_wheel_main').play();
+    document.getElementById('sound_wheel_right').play();
     let right = setInterval(() => {
         player.move("x", speed * .15)
     }, 25);
