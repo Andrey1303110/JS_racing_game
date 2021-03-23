@@ -291,8 +291,8 @@ function start(sec) {
         else {
             sec = 0;
             clearInterval(diff);
-            lowwer = 110;
-            upper = 190;
+            lowwer = 112;
+            upper = 188;
             upDifficulty();
         }
         if (sessionStorage.getItem('current car') == 'prius_police') {
