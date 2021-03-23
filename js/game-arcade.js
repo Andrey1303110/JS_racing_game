@@ -729,11 +729,8 @@ pervue_start.onclick = () => {
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000)
     $(document).ready(function () {
-        if (intro_video.readyState >= 3) { setTimeout(() => intro_video.play(), 1500) };
+        if (intro_video.readyState >= 3) { setTimeout(() => {intro_video.play(), intro_video.currentTime = 0.01}, 1500) };
         intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
-        //intro_video.currentTime = .01;
-        //setTimeout(() => { $('#intro_video')[0].play() }, 1500);
-        //setTimeout(() => { $('#start_new_game').css('right', '10%').focus() }, 5500);
     });
 }
 
