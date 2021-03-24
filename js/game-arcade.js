@@ -5,7 +5,7 @@ let sound_on = document.getElementById('sound_on');
 let sound_off = document.getElementById('sound_off');
 let main_theme = document.getElementById('main_theme1');
 
-let UPDATE_TIME = 1000 / 78;
+let UPDATE_TIME = 1000 / 80;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
@@ -105,7 +105,7 @@ class Car {
 
     update() {
         if (!this.isPlayer) {
-            this.y += speed * .65;
+            this.y += speed * .6;
         }
 
         if (this.y > canvas.height) {
