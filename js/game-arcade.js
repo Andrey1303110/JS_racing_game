@@ -763,6 +763,9 @@ function preloadcars (){
     for (let i = 0; i < cars.length; i++) {
         $('#game_cars').append('<img src=' + cars[i] + '>');
     }
+    for (let j = 1; j < 36; j++) {
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw/' + j + '.png>');
+    }
 }
 
 document.onload = () => console.log("document load");
