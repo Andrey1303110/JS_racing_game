@@ -456,6 +456,10 @@
     color: rgb(230, 230, 230);
 }
 
+#slick-slide-control182::before {
+    color: rgb(20, 48, 204);
+}
+
 #slick-slide-control190::before {
     color: silver;
 }
