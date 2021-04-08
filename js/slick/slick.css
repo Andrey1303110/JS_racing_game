@@ -123,6 +123,10 @@
     color: red;
 }
 
+#slick-slide-control02::before {
+    color: whitesmoke;
+}
+
 #slick-slide-control10::before {
     color: whitesmoke;
 }

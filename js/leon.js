@@ -7,6 +7,7 @@ function play() {
     else iLeon += 1;
     $('#slick-slide00')[0].src = `./images/Cars_main_screen/all_cars/leon/blue/${iLeon}.png`;
     $('#slick-slide01')[0].src = `./images/Cars_main_screen/all_cars/leon/red/${iLeon}.png`;
+    $('#slick-slide02')[0].src = `./images/Cars_main_screen/all_cars/leon/white/${iLeon}.png`;
 }
 
 var direction = "",
@@ -30,7 +31,9 @@ var direction = "",
         oldx = e.pageX;
         $('#slick-slide00')[0].src = `./images/Cars_main_screen/all_cars/leon/blue/${iLeon}.png`;
         $('#slick-slide01')[0].src = `./images/Cars_main_screen/all_cars/leon/red/${iLeon}.png`;
+        $('#slick-slide02')[0].src = `./images/Cars_main_screen/all_cars/leon/white/${iLeon}.png`;
     }
 
 $('#leon_8').on('mousemove', mousemovemethod);
 $('#leon_7').on('mousemove', mousemovemethod);
+$('#leon_1').on('mousemove', mousemovemethod);

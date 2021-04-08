@@ -769,6 +769,7 @@ function preloadcars() {
     for (let k = 1; k < 25; k++) {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/blue/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/red/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/white/' + k + '.png>');
     }
 }
 
