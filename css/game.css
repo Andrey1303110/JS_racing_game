@@ -15,7 +15,7 @@ body, html
 	padding: 0px;
 	margin: 0px;
     overflow: hidden;
-    background-color: #8C8C89;
+    background-color: #9C9C9C;
 }
 
 #wrapper
@@ -88,7 +88,6 @@ div.main {
 #name_insert form input::placeholder {
     font-size: 45px;
 }
-
 
 #name_insert p {
     margin-block-start: 0em;
@@ -230,15 +229,24 @@ video {
     position: absolute; 
     left: 50%; 
     transform: translateX(-50%); 
-    top: 6%; 
+    top: 2%; 
     transition: all .5s ease-in-out;
 }
 
-#slider-down-leon, #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-bmw_x5, #slider-down-scania {
-    width: 395px; 
-    height: 230px; 
+#slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania {
+    width: 395px;
+    height: 230px;
     position: absolute; 
-    left: 50%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    transition: all .5s ease-in-out;
+}
+
+#slider-down-leon, #slider-down-bmw_x5 {
+    width: 700px; 
+    height: 300px; 
+    position: absolute; 
+    left: 50%;
     transform: translateX(-50%); 
     transition: all .5s ease-in-out;
 }

@@ -324,7 +324,7 @@ prius.onclick = () => {
     upSlider();
     document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider-down-leon').style.top = '-50%';
-    document.getElementById('slider').style.top = '-50%';
+    document.getElementById('slider').style.top = '-110%';
     setTimeout(Start, 500);
     function srcPolice() {
         player.image.src = policeSrc;

@@ -235,7 +235,7 @@ let cars = function () { // доступ к JSON
     return jsonTemp;
 }();
 
-preloadcars ();
+preloadcars();
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
@@ -636,7 +636,7 @@ function newGameNewCar() {
         draw();
         player.dead = false;
         setTimeout(showSlider, 500);
-        setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '50%' }, 1000);
+        setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '40%' }, 1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
         $("#message_score").css("opacity", "0").css("z-index", "-1");
@@ -646,7 +646,7 @@ function newGameNewCar() {
     menu.style.top = "-70%";
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
-    document.getElementById('slider').style.top = "6%";
+    document.getElementById('slider').style.top = "2%";
     setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
     locked_cars();
     push_high_score();
@@ -731,7 +731,7 @@ pervue_start.onclick = () => {
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000)
     $(document).ready(function () {
-        if (intro_video.readyState >= 3) { setTimeout(() => {intro_video.play(), intro_video.currentTime = 0.01}, 1500) };
+        if (intro_video.readyState >= 3) { setTimeout(() => { intro_video.play(), intro_video.currentTime = 0.01 }, 1500) };
         intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
     });
 }
@@ -759,12 +759,16 @@ function showScore() {
     $("#message_score").css("opacity", "1").css('z-index', '2');
 }
 
-function preloadcars (){ 
+function preloadcars() {
     for (let i = 0; i < cars.length; i++) {
         $('#game_cars').append('<img src=' + cars[i] + '>');
     }
     for (let j = 1; j < 36; j++) {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw/' + j + '.png>');
+    }
+    for (let k = 1; k < 25; k++) {
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/blue/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/red/' + k + '.png>');
     }
 }
 

@@ -116,31 +116,11 @@
 }
 
 #slick-slide-control00::before {
-    color: turquoise;
+    color: #7899d6;
 }
 
 #slick-slide-control01::before {
-    color: yellow;
-}
-
-#slick-slide-control02::before {
-    color: rgb(157, 255, 0);
-}
-
-#slick-slide-control03::before {
-    color: blue;
-}
-
-#slick-slide-control04::before {
-    color: violet;
-}
-
-#slick-slide-control05::before {
     color: red;
-}
-
-#slick-slide-control06::before {
-    color: whitesmoke;
 }
 
 #slick-slide-control10::before {

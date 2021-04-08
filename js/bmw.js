@@ -1,6 +1,6 @@
 var iBmw = 32;
 
-function playBmw() {
+function play() {
     if (iBmw >= 35) {
         iBmw = 1;
     }

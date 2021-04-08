@@ -250,7 +250,7 @@ $(document).ready(function () {
 
 function upSlider() {
     let sliderX = document.getElementsByClassName('your-class slider-down');
-    for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-50%'; }
+    for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-110%'; }
 }
 
 $(document).ready(function () {
@@ -261,9 +261,15 @@ $(document).ready(function () {
         locked_cars();
         upSlider();
         returnStartPos();
+        $("#leon_main").click(function () {
+            document.getElementById(`slider-down-leon`).style.top = '35%';
+        })
+        $("#bmw_x5_main").click(function () {
+            document.getElementById(`slider-down-bmw_x5`).style.top = '35%';
+        })
         document.getElementById(`slider-down-${this.name}`).style.top = '50%';
         $("#cbr_main").click(function () {
-            setTimeout(() => {returnStartPosMoto()}, 1500)
+            setTimeout(() => { returnStartPosMoto() }, 1500)
         })
     });
 });
@@ -284,8 +290,8 @@ $(document).ready(function () {
         setScreen();
         isPolice = false;
         eS.play();
-        $(`#slider-down-${this.name}`)[0].style.top = '-50%';
-        document.getElementById('slider').style.top = '-50%';
+        $(`#slider-down-${this.name}`)[0].style.top = '-110%';
+        document.getElementById('slider').style.top = '-110%';
         document.getElementById('timer').style.color = 'orange';
         setTimeout(start, 500);
         sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
@@ -303,7 +309,7 @@ function returnStartPos() {
 }
 
 function sgu() {
-    if (sessionStorage.getItem('current car') == 'prius_police') { 
+    if (sessionStorage.getItem('current car') == 'prius_police') {
         document.getElementById('sgu_sound').play();
         for (let i = 0; i < objects.length; i++) {
             if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
@@ -334,7 +340,7 @@ function prius_function() {
     eS.play();
     upSlider();
     document.getElementById('timer').style.color = 'aqua';
-    document.getElementById('slider').style.top = '-50%';
+    document.getElementById('slider').style.top = '-110%';
     sessionStorage.setItem('last down slider', 'slider-down-prius');
     sessionStorage.setItem('current car', 'prius_police');
     setTimeout(start, 500);
