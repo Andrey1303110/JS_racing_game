@@ -1,10 +1,16 @@
 var iLeon = 3;
 
+/*let play3D = setInterval(() => {
+    iLeon += 1
+}, 125);
+setTimeout(() => { clearInterval(play3D); }, 125*50);*/
+
 function play() {
     if (iLeon >= 25) {
         iLeon = 1;
     }
     else iLeon += 1;
+
     $('#slick-slide00')[0].src = `./images/Cars_main_screen/all_cars/leon/blue/${iLeon}.png`;
     $('#slick-slide01')[0].src = `./images/Cars_main_screen/all_cars/leon/red/${iLeon}.png`;
     $('#slick-slide02')[0].src = `./images/Cars_main_screen/all_cars/leon/white/${iLeon}.png`;
