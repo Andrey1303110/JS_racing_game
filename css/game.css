@@ -242,12 +242,12 @@ video {
     transition: all .5s ease-in-out;
 }
 
-#slider-down-leon, #slider-down-bmw_x5 {
+#slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113 {
     width: 700px; 
     height: 300px; 
     position: absolute; 
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%) translateY(-100px); 
     transition: all .5s ease-in-out;
 }
 

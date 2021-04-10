@@ -770,6 +770,8 @@ function preloadcars() {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/blue/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/red/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/white/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/vaz2113/black/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/vaz2113/white/' + k + '.png>');
     }
 }
 

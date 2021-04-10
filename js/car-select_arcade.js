@@ -261,12 +261,6 @@ $(document).ready(function () {
         locked_cars();
         upSlider();
         returnStartPos();
-        $("#leon_main").click(function () {
-            document.getElementById(`slider-down-leon`).style.top = '35%';
-        })
-        $("#bmw_x5_main").click(function () {
-            document.getElementById(`slider-down-bmw_x5`).style.top = '35%';
-        })
         document.getElementById(`slider-down-${this.name}`).style.top = '50%';
         $("#cbr_main").click(function () {
             setTimeout(() => { returnStartPosMoto() }, 1500)
