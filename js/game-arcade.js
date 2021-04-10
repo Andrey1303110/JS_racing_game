@@ -636,7 +636,7 @@ function newGameNewCar() {
         draw();
         player.dead = false;
         setTimeout(showSlider, 500);
-        setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '40%' }, 1000);
+        setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '50%' }, 1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
         $("#message_score").css("opacity", "0").css("z-index", "-1");
