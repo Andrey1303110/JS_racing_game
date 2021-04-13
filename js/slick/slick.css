@@ -468,6 +468,10 @@
     color: rgb(0, 9, 58);
 }
 
+#slick-slide-control220::before {
+    color: rgb(19, 66, 0);
+}
+
 @keyframes light {
     0% { color: red; }
     50% { color: blue; }
