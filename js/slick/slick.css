@@ -472,6 +472,18 @@
     color: rgb(19, 66, 0);
 }
 
+#slick-slide-control230::before {
+    color: rgb(226, 226, 226);
+}
+
+#slick-slide-control231::before {
+    color: rgb(19, 66, 0);
+}
+
+#slick-slide-control232::before {
+    color: rgb(42, 31, 197);
+}
+
 @keyframes light {
     0% { color: red; }
     50% { color: blue; }
