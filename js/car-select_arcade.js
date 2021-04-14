@@ -23,6 +23,9 @@ let lock_fj = 1500;
 let lock_enzo = 4000;
 let lock_tesla = 3000;
 let lock_i8 = 3500;
+let lock_passat = 2000;
+let lock_golf = 2500;
+let lock_camry = 3000;
 
 function locked_cars() {
     lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
@@ -212,6 +215,54 @@ function locked_cars() {
             $("#lock_cars").css("z-index", "-1");
             $("#slider-down-enzo").css("opacity", "1");
             $("#slider-down-enzo .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    passat_main.onclick = () => {
+        moveD = 5.4545;
+        speed = 10.45;
+        if (localStorage.getItem('score') < lock_passat) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_passat} or more!`;
+            $("#slider-down-passat").css("opacity", ".5");
+            $("#slider-down-passat .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+        }
+        if (localStorage.getItem('score') >= lock_passat) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-passat").css("opacity", "1");
+            $("#slider-down-passat .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    golf_main.onclick = () => {
+        moveD = 5.4545;
+        speed = 10.45;
+        if (localStorage.getItem('score') < lock_golf) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_golf} or more!`;
+            $("#slider-down-golf").css("opacity", ".5");
+            $("#slider-down-golf .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+        }
+        if (localStorage.getItem('score') >= lock_golf) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-golf").css("opacity", "1");
+            $("#slider-down-golf .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    camry_main.onclick = () => {
+        moveD = 5.4545;
+        speed = 10.45;
+        if (localStorage.getItem('score') < lock_camry) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_camry} or more!`;
+            $("#slider-down-camry").css("opacity", ".5");
+            $("#slider-down-camry .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+        }
+        if (localStorage.getItem('score') >= lock_camry) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-camry").css("opacity", "1");
+            $("#slider-down-camry .slick-list.draggable").css("pointer-events", "auto");
         }
     }
 }
