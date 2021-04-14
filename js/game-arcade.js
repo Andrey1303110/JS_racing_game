@@ -239,18 +239,6 @@ preloadcars();
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
-function accelerate() {
-    /*setTimeout(() => {return speed = 1}, 200)
-    setTimeout(() => {return speed = 2}, 400)
-    setTimeout(() => {return speed = 3}, 600)
-    setTimeout(() => {return speed = 4}, 800)
-    setTimeout(() => {return speed = 5}, 1000)
-    setTimeout(() => {return speed = 6}, 1200)
-    setTimeout(() => {return speed = 7}, 1400)
-    setTimeout(() => {return speed = 8}, 1600)
-    setTimeout(() => {return speed = 9.5}, 1800)*/
-}
-
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -271,7 +259,6 @@ function start(sec) {
     if (!player.dead) {
         $("#wrapper").css('display', 'flex');
         setPosY();
-        accelerate();
         document.getElementById('canvas').style.visibility = "visible";
         document.getElementById('slider').style.display = "none";
         clearCarPreloadDOM();
@@ -511,6 +498,15 @@ function KeyDown(e) {
 
             case 40: //Down
                 player.move("y", speed);
+                if (sessionStorage.getItem('current car') == 'passat_1') {
+                    if (player.image.src != './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png') { 
+                        player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png';
+                        setTimeout (()=>{player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + '.png'},250) 
+                    }
+                    else { 
+                        return; 
+                    }
+                }
                 break;
 
             case 83: //Down
