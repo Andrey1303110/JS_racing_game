@@ -26,6 +26,7 @@ let lock_i8 = 3500;
 let lock_passat = 2000;
 let lock_golf = 2500;
 let lock_camry = 3000;
+let lock_mazda = 4000;
 
 function locked_cars() {
     lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
@@ -263,6 +264,22 @@ function locked_cars() {
             $("#lock_cars").css("z-index", "-1");
             $("#slider-down-camry").css("opacity", "1");
             $("#slider-down-camry .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    mazda_main.onclick = () => {
+        moveD = 5;
+        speed = 11.4;
+        if (localStorage.getItem('score') < lock_mazda) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_mazda} or more!`;
+            $("#slider-down-mazda").css("opacity", ".5");
+            $("#slider-down-mazda .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+        }
+        if (localStorage.getItem('score') >= lock_mazda) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-mazda").css("opacity", "1");
+            $("#slider-down-mazda .slick-list.draggable").css("pointer-events", "auto");
         }
     }
 }

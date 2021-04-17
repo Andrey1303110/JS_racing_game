@@ -771,6 +771,8 @@ function preloadcars() {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/vaz2113/white/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/superb/green/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/camry/black/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/celica/red/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/mazda/blue/' + k + '.png>');
     }
 }
 
