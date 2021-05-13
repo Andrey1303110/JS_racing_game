@@ -285,6 +285,18 @@ function start(sec) {
         if (sessionStorage.getItem('current car') == 'prius_police') {
             $("#button_special_signals").css("display", "flex");
         }
+        if (sessionStorage.getItem('last down slider') == 'slider-down-camry') {
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
+            }
+            document.getElementById('main_theme' + 10).play();
+        }
+        if (sessionStorage.getItem('last down slider') == 'slider-down-panamera') {
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
+            }
+            document.getElementById('main_theme' + 11).play();
+        }
         else {
             $("#button_special_signals").css("display", "none");
         }
@@ -307,7 +319,9 @@ function start(sec) {
 }
 
 function stop() {
-    document.getElementById('main_theme' + S).pause();
+    for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+        document.getElementsByClassName('music')[i].pause() 
+    }
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);
@@ -379,7 +393,9 @@ function update() {
             stop();
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
-            document.getElementById('main_theme' + S).pause();
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
+            }
             document.getElementById('siren_sound').pause();
             menu.style.top = "23%";
             restart_button.focus();
