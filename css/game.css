@@ -242,7 +242,7 @@ video {
     transition: all .5s ease-in-out;
 }
 
-#slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry {
+#slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
     width: 700px; 
     height: 300px; 
     position: absolute; 
