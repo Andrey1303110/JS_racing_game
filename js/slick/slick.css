@@ -493,11 +493,11 @@
 }
 
 #slick-slide-control270::before {
-    color: rgb(0, 0, 0);
+    color: rgb(68, 57, 71);
 }
 
 #slick-slide-control271::before {
-    color: rgb(61, 54, 63);
+    color: rgb(0, 0, 0);
 }
 
 @keyframes light {

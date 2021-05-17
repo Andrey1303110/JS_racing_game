@@ -297,6 +297,12 @@ function start(sec) {
             }
             document.getElementById('main_theme' + 11).play();
         }
+        if (sessionStorage.getItem('last down slider') == 'slider-down-lc') {
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
+            }
+            document.getElementById('main_theme' + 12).play();
+        }
         else {
             $("#button_special_signals").css("display", "none");
         }
@@ -789,6 +795,8 @@ function preloadcars() {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/camry/black/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/celica/red/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/mazda/blue/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/lc/black/' + k + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/lc/violet/' + k + '.png>');
     }
 }
 
