@@ -592,12 +592,18 @@ img {
 
 @media (max-width: 540px) {
     #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
-        width: 450px; 
-        height: 200px; 
         position: absolute; 
         left: 50%;
         transform: translateX(-50%); 
         transition: all .5s ease-in-out;
+    }
+    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat {
+        width: 400px; 
+        height: 215px; 
+    }
+    #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
+        width: 510px; 
+        height: 250px; 
     }
 }
 
@@ -609,8 +615,11 @@ img {
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
     }
-    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
-        width: 355px; 
+    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat {
+        width: 370px; 
+    }
+    #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
+        width: 425px;
     }
     #start_new_game {
         min-width: 340px;
@@ -630,8 +639,11 @@ img {
         width: 340px; 
     }
     
-    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
-        width: 340px; 
+    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat {
+        width: 360px; 
+    }
+    #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
+        width: 415px;
     }
     #start_new_game {
         min-width: 300px;
@@ -651,8 +663,11 @@ img {
         width: 340px; 
     }
     
-    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
+    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat {
         width: 340px; 
+    }
+    #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
+        width: 400px;
     }
     #start_new_game {
         min-width: 300px;
@@ -676,8 +691,11 @@ img {
         min-width: 300px;
     }
     
-    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
+    #slider-down-touareg, #slider-down-2008, #slider-down-i8, #slider-down-tesla, #slider-down-xl1, #slider-down-truck, #slider-down-prius, #slider-down-enzo, #slider-down-f1, #slider-down-cbr, #slider-down-panamera, #slider-down-gtr, #slider-down-buggati, #slider-down-fj, #slider-down-polestar, #slider-down-volvo, #slider-down-a1, #slider-down-scania, #slider-down-passat {
         width: 315px; 
+    }
+    #slider-down-leon, #slider-down-bmw_x5, #slider-down-vaz2113, #slider-down-golf, #slider-down-superb, #slider-down-celica, #slider-down-mazda, #slider-down-camry, #slider-down-lc {
+        width: 360px;
     }
     #start_new_game {
         min-width: 250px;
