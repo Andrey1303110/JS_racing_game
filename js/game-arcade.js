@@ -245,7 +245,7 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
 
-let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length - 2);
+let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length - 3);
 
 function upDifficulty() {
     scoreVnumber = 0;
