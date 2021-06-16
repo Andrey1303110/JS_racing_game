@@ -798,6 +798,10 @@ function preloadcars() {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/lc/black/' + k + '.png>');
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/lc/violet/' + k + '.png>');
     }
+    for (let j = 1; g < 24; j++) {
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/red/' + j + '.png>');
+        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/white/' + j + '.png>');
+    }
 }
 
 document.onload = () => console.log("document load");
