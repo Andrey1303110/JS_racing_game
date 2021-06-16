@@ -500,6 +500,14 @@
     color: rgb(0, 0, 0);
 }
 
+#slick-slide-control280::before {
+    color: rgb(214, 23, 23);
+}
+
+#slick-slide-control281::before {
+    color: rgb(231, 220, 220);
+}
+
 @keyframes light {
     0% { color: red; }
     50% { color: blue; }

@@ -11,9 +11,8 @@ function play() {
     }
     else ilc += 1;
 
-    $('#slick-slide270')[0].src = `./images/Cars_main_screen/all_cars/lc/black/${ilc}.png`;
-    $('#slick-slide271')[0].src = `./images/Cars_main_screen/all_cars/lc/violet/${ilc}.png`;
-
+    $('#slick-slide270')[0].src = `./images/Cars_main_screen/all_cars/lc/violet/${ilc}.png`;
+    $('#slick-slide271')[0].src = `./images/Cars_main_screen/all_cars/lc/black/${ilc}.png`;
 }
 
 var direction = "",
