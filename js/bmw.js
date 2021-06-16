@@ -5,7 +5,7 @@ function play() {
         iBmw = 1;
     }
     else iBmw += 1;
-    $('#slick-slide182')[0].src = `./images/Cars_main_screen/all_cars/bmw/${iBmw}.png`;
+    $('#slick-slide180')[0].src = `./images/Cars_main_screen/all_cars/bmw/${iBmw}.png`;
 }
 
 var direction = "",
@@ -27,7 +27,7 @@ var direction = "",
             }
         }
         oldx = e.pageX;
-        $('#slick-slide182')[0].src = `./images/Cars_main_screen/all_cars/bmw/${iBmw}.png`;
+        $('#slick-slide180')[0].src = `./images/Cars_main_screen/all_cars/bmw/${iBmw}.png`;
     }
 
 $('#bmw_x5_3').on('mousemove', mousemovemethod);
