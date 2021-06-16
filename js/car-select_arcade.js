@@ -27,6 +27,8 @@ let lock_passat = 2000;
 let lock_golf = 2500;
 let lock_camry = 3000;
 let lock_mazda = 4000;
+let lock_cupra = 9000;
+let lock_new_leon = 2500;
 
 function locked_cars() {
     lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
@@ -280,6 +282,36 @@ function locked_cars() {
             $("#lock_cars").css("z-index", "-1");
             $("#slider-down-mazda").css("opacity", "1");
             $("#slider-down-mazda .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    cupra_main.onclick = () => {
+        moveD = 3.333;
+        speed = 17.1;
+        if (localStorage.getItem('score') < lock_cupra) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_cupra} or more!`;
+            $("#slider-down-cupra").css("opacity", ".5");
+            $("#slider-down-cupra .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+        }
+        if (localStorage.getItem('score') >= lock_cupra) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-cupra").css("opacity", "1");
+            $("#slider-down-cupra .slick-list.draggable").css("pointer-events", "auto");
+        }
+    }
+    new_leon_main.onclick = () => {
+        if (localStorage.getItem('score') < lock_new_leon) {
+            $("#lock_cars").addClass("active_lock");
+            document.querySelector("#lock_cars p").innerText = `You may take score ${lock_new_leon} or more!`;
+            $("#slider-down-new_leon").css("opacity", ".5");
+            $("#slider-down-new_leon .slick-list.draggable").css("pointer-events", "none");
+            $("#lock_cars").css("z-index", "2");
+        }
+        if (localStorage.getItem('score') >= lock_new_leon) {
+            $("#lock_cars").css("z-index", "-1");
+            $("#slider-down-new_leon").css("opacity", "1");
+            $("#slider-down-new_leon .slick-list.draggable").css("pointer-events", "auto");
         }
     }
 }
