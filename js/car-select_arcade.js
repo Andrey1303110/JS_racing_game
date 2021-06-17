@@ -11,6 +11,7 @@ let playerStartHeightPos = .7;
 
 var moveD = 6;
 var speed = 9.5
+var turn_var = 35;
 
 let lock_prius = 5500;
 let lock_cbr = 2500;
@@ -51,18 +52,22 @@ function locked_cars() {
     panamera_main.onclick = () => {
         moveD = 4.444;
         speed = 12.825;
+        turn_var = 25;
     }
     polestar_main.onclick = () => {
         moveD = 5.4545;
         speed = 10.45;
+        turn_var = 23;
     }
     gtr_main.onclick = () => {
         moveD = 4.286;
         speed = 13.3;
+        turn_var = 21;
     }
     i8_main.onclick = () => {
         moveD = 4.8;
         speed = 11.875;
+        turn_var = 22;
         if (localStorage.getItem('score') < lock_i8) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_i8} or more!`;
@@ -79,6 +84,7 @@ function locked_cars() {
     tesla_main.onclick = () => {
         moveD = 4.138;
         speed = 13.775;
+        turn_var = 25;
         if (localStorage.getItem('score') < lock_tesla) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_tesla} or more!`;
@@ -95,6 +101,7 @@ function locked_cars() {
     scania_main.onclick = () => {
         moveD = 9;
         speed = 6.3333;
+        turn_var = 50;
         if (localStorage.getItem('score') < lock_scania) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_scania} or more!`;
@@ -111,6 +118,7 @@ function locked_cars() {
     cbr_main.onclick = () => {
         moveD = 3;
         speed = 19;
+        turn_var = 18;
         if (localStorage.getItem('score') < lock_cbr) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_cbr} or more!`;
@@ -127,6 +135,7 @@ function locked_cars() {
     f1_main.onclick = () => {
         moveD = 3;
         speed = 19;
+        turn_var = 15;
         if (localStorage.getItem('score') < lock_f1) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_f1} or more!`;
@@ -143,6 +152,7 @@ function locked_cars() {
     bmw_x5_main.onclick = () => {
         moveD = 3.6363;
         speed = 15.675;
+        turn_var = 27;
         if (localStorage.getItem('score') < lock_bmw_x5) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_bmw_x5} or more!`;
@@ -159,6 +169,7 @@ function locked_cars() {
     volvo_main.onclick = () => {
         moveD = 4.138;
         speed = 13.775;
+        turn_var = 29;
         if (localStorage.getItem('score') < lock_volvo) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_volvo} or more!`;
@@ -175,6 +186,7 @@ function locked_cars() {
     fj_main.onclick = () => {
         moveD = 5;
         speed = 11.4;
+        turn_var = 40;
         if (localStorage.getItem('score') < lock_fj) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_fj} or more!`;
@@ -191,6 +203,7 @@ function locked_cars() {
     buggati_main.onclick = () => {
         moveD = 2.7272;
         speed = 20.9;
+        turn_var = 22;
         if (localStorage.getItem('score') < lock_buggati) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_buggati} or more!`;
@@ -207,6 +220,7 @@ function locked_cars() {
     enzo_main.onclick = () => {
         moveD = 3.333;
         speed = 17.1;
+        turn_var = 21;
         if (localStorage.getItem('score') < lock_enzo) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_enzo} or more!`;
@@ -239,6 +253,7 @@ function locked_cars() {
     golf_main.onclick = () => {
         moveD = 5.4545;
         speed = 10.45;
+        turn_var = 32;
         if (localStorage.getItem('score') < lock_golf) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_golf} or more!`;
@@ -255,6 +270,7 @@ function locked_cars() {
     camry_main.onclick = () => {
         moveD = 5.4545;
         speed = 10.45;
+        turn_var = 37;
         if (localStorage.getItem('score') < lock_camry) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_camry} or more!`;
@@ -287,6 +303,7 @@ function locked_cars() {
     cupra_main.onclick = () => {
         moveD = 3.333;
         speed = 17.1;
+        turn_var = 19;
         if (localStorage.getItem('score') < lock_cupra) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_cupra} or more!`;
@@ -301,6 +318,7 @@ function locked_cars() {
         }
     }
     new_leon_main.onclick = () => {
+        turn_var = 31;
         if (localStorage.getItem('score') < lock_new_leon) {
             $("#lock_cars").addClass("active_lock");
             document.querySelector("#lock_cars p").innerText = `You may take score ${lock_new_leon} or more!`;
@@ -357,6 +375,7 @@ $(document).ready(function () {
     $(".main_screen_cars_img").click(function () {
         moveD = 6;
         speed = 9.5;
+        turn_var = 35;
         $("#lock_cars").removeClass("active_lock");
         locked_cars();
         upSlider();

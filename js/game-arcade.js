@@ -479,16 +479,16 @@ function turn_left() {
     document.getElementById('sound_wheel_left').play();
     let timerId65 = setInterval(() => {
         player.move("x", -speed * .15)
-    }, 25);
-    setTimeout(() => { clearInterval(timerId65); }, 250);
+    }, turn_var);
+    setTimeout(() => { clearInterval(timerId65); }, turn_var * 10);
 }
 
 function turn_right() {
     document.getElementById('sound_wheel_right').play();
     let right = setInterval(() => {
         player.move("x", speed * .15)
-    }, 25);
-    setTimeout(() => { clearInterval(right); }, 250);
+    }, turn_var);
+    setTimeout(() => { clearInterval(right); }, turn_var * 10);
 }
 
 function KeyDown(e) {
