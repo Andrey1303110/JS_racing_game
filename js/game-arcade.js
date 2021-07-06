@@ -682,7 +682,6 @@ function resume() {
 
 resume_button.onclick = resume;
 
-
 pause.onclick = pause_function;
 
 function pause_function() {
