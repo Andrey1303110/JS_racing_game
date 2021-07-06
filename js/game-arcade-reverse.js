@@ -5,7 +5,7 @@ let sound_on = document.getElementById('sound_on');
 let sound_off = document.getElementById('sound_off');
 let main_theme = document.getElementById('main_theme1');
 
-let UPDATE_TIME = 1000 / 70;
+let UPDATE_TIME = 1000 / 75;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
