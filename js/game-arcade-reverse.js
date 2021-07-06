@@ -5,7 +5,7 @@ let sound_on = document.getElementById('sound_on');
 let sound_off = document.getElementById('sound_off');
 let main_theme = document.getElementById('main_theme1');
 
-let UPDATE_TIME = 1000 / 80;
+let UPDATE_TIME = 1000 / 70;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
@@ -105,7 +105,16 @@ class Car {
 
     update() {
         if (!this.isPlayer) {
-            this.y += speed * .6;
+            if (this.x < 180) {
+                this.y += speed * 1.15;
+            }
+            if (this.x > 180) {
+                this.y += speed * .9;
+            }
+            if (this.x == 180) {
+                this.y += speed;
+            }
+            
         }
 
         if (this.y > canvas.height) {
@@ -235,6 +244,18 @@ let cars = function () { // доступ к JSON
     return jsonTemp;
 }();
 
+let cars_reverse = function () { // доступ к JSON
+    var jsonTemp = null;
+    $.ajax({
+        'async': false,
+        'url': "./js/cars-reverse.json",
+        'success': function (data) {
+            jsonTemp = data;
+        }
+    });
+    return jsonTemp;
+}();
+
 preloadcars();
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
@@ -286,20 +307,20 @@ function start(sec) {
             $("#button_special_signals").css("display", "flex");
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-camry') {
-            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause()
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
             }
             document.getElementById('main_theme' + 10).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-panamera') {
-            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause()
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
             }
             document.getElementById('main_theme' + 11).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-lc') {
-            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause()
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
             }
             document.getElementById('main_theme' + 12).play();
         }
@@ -325,8 +346,8 @@ function start(sec) {
 }
 
 function stop() {
-    for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-        document.getElementsByClassName('music')[i].pause()
+    for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+        document.getElementsByClassName('music')[i].pause() 
     }
     clearInterval(timer); //Остановка игры
     timer = null;
@@ -352,6 +373,7 @@ function update() {
     let carsX = [12, 96, 180, 264, 348];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
+    var randomCars_reverse_Src = cars_reverse[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
     var xCars = RandomInteger(lowwer, upper);
 
@@ -359,6 +381,12 @@ function update() {
 
     function addCars() {
         if (xCars == 151) {
+            if (randomCarsX == 180) {
+                randomCarsSrc = "images/Smooth_models/road_work.png";
+            }
+            if (randomCarsX < 180) {
+                randomCarsSrc = randomCars_reverse_Src;
+            }
             objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false));
             overlapCars();
             if (lowwer > 140) {
@@ -381,8 +409,10 @@ function update() {
     for (var i = 0; i < objects.length; i++) {
         objects[i].update();
 
-        if (objects[i].dead) {
-            isDead = true;
+        if (objects[i].y > canvas.height * 2) {
+            if (objects[i].dead) {
+                isDead = true;
+            }
         }
     }
 
@@ -399,8 +429,8 @@ function update() {
             stop();
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
-            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause()
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
             }
             document.getElementById('siren_sound').pause();
             menu.style.top = "23%";
@@ -521,12 +551,12 @@ function KeyDown(e) {
             case 40: //Down
                 player.move("y", speed);
                 if (sessionStorage.getItem('current car') == 'passat_1') {
-                    if (player.image.src != './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png') {
+                    if (player.image.src != './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png') { 
                         player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png';
-                        setTimeout(() => { player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + '.png' }, 250)
+                        setTimeout (()=>{player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + '.png'},250) 
                     }
-                    else {
-                        return;
+                    else { 
+                        return; 
                     }
                 }
                 break;
