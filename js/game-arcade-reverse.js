@@ -396,6 +396,10 @@ function update() {
                 return upper = 162
             }
         }
+        if (xCars >= 149 && xCars <= 151 && xCars != 151) {
+            objects.push(new Car("images/Smooth_models/road_barrier.png", 180, canvas.height * -1, false));
+            overlapCars();
+        }
     }
 
     player.update();
