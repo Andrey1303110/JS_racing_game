@@ -18,8 +18,8 @@ var scoreVnumber;
 
 let scale = .2; //масштаб машин
 
-var lowwer = 100;
-var upper = 200;
+var lowwer = 108;
+var upper = 192;
 
 var scoreTimer = [];
 
@@ -301,8 +301,8 @@ function start(sec) {
         if (scoreTimer.length == 0) {
             sec = 0;
             clearInterval(diff);
-            lowwer = 100;
-            upper = 200;
+            lowwer = 108;
+            upper = 192;
             upDifficulty();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-camry') {
