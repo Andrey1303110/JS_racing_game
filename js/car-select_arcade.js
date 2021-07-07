@@ -395,8 +395,7 @@ var isPolice = false;
 
 $(document).ready(function () {
     $("#slick-slide77").click(function () {
-        $("#button_special_signals").css("display", "flex");
-        prius_function()
+        prius_function();
         return isPolice = true;
     })
     $(".cars_img").click(function () {

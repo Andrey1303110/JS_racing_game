@@ -275,35 +275,35 @@ function start(sec) {
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length - 1] * 1;
         }
-        else {
+        if (scoreTimer.length == 0) {
             sec = 0;
             clearInterval(diff);
             lowwer = 112;
             upper = 188;
             upDifficulty();
         }
-        if (sessionStorage.getItem('current car') == 'prius_police') {
-            $("#button_special_signals").css("display", "flex");
-        }
         if (sessionStorage.getItem('last down slider') == 'slider-down-camry') {
-            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause()
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
             }
             document.getElementById('main_theme' + 10).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-panamera') {
-            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause()
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
             }
             document.getElementById('main_theme' + 11).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-lc') {
-            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause()
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
             }
             document.getElementById('main_theme' + 12).play();
         }
-        else {
+        if (sessionStorage.getItem('current car') == 'prius_police' && window.innerWidth < 1024) {
+            $("#button_special_signals").css("display", "flex");
+        }
+        if (sessionStorage.getItem('current car') != 'prius_police') {
             $("#button_special_signals").css("display", "none");
         }
         if (window.innerWidth > 1024) {
