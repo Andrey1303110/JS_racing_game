@@ -426,7 +426,7 @@ function sgu() {
         document.getElementById('sgu_sound').play();
         for (let i = 0; i < objects.length; i++) {
             if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
-                if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">") {
+                if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
                     if (objects[i].y > 0) {
                         if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
                             let move = setInterval(() => {

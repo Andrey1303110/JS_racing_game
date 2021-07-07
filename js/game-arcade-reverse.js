@@ -5,7 +5,7 @@ let sound_on = document.getElementById('sound_on');
 let sound_off = document.getElementById('sound_off');
 let main_theme = document.getElementById('main_theme1');
 
-let UPDATE_TIME = 1000 / 80;
+let UPDATE_TIME = 1000 / 75;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
@@ -18,8 +18,8 @@ var scoreVnumber;
 
 let scale = .2; //масштаб машин
 
-var lowwer = 114;
-var upper = 186;
+var lowwer = 100;
+var upper = 200;
 
 var scoreTimer = [];
 
@@ -256,6 +256,8 @@ let cars_reverse = function () { // доступ к JSON
     return jsonTemp;
 }();
 
+var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];
+
 preloadcars();
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
@@ -266,7 +268,7 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
 
-let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length - 3);
+let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length - 2);
 
 function upDifficulty() {
     scoreVnumber = 0;
@@ -370,7 +372,7 @@ function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
-    let carsX = [12, 96, 180, 264, 348];
+    let carsX = [12, 96, 264, 348];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCars_reverse_Src = cars_reverse[Math.floor(Math.random() * cars.length)];
@@ -381,9 +383,6 @@ function update() {
 
     function addCars() {
         if (xCars == 151) {
-            if (randomCarsX == 180) {
-                randomCarsSrc = "images/Smooth_models/road_work.png";
-            }
             if (randomCarsX < 180) {
                 randomCarsSrc = randomCars_reverse_Src;
             }
@@ -396,8 +395,9 @@ function update() {
                 return upper = 162
             }
         }
-        if (xCars >= 149 && xCars <= 151 && xCars != 151) {
-            objects.push(new Car("images/Smooth_models/road_barrier.png", 180, canvas.height * -1, false));
+        if (xCars == 149) {
+            let randomRoadBarrier = randomRoadList[Math.floor(Math.random() * randomRoadList.length)];
+            objects.push(new Car(randomRoadBarrier, 180, canvas.height * -1, false));
             overlapCars();
         }
     }
