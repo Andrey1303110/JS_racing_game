@@ -109,7 +109,7 @@ class Car {
                 this.y += speed * 1.15;
             }
             if (this.x > 180) {
-                this.y += speed * .7;
+                this.y += speed * .75;
             }
             if (this.x == 180) {
                 this.y += speed;
@@ -163,6 +163,23 @@ class Car {
                 }
                 if (player.x + player.image.width * scale >= canvas.width - 12) {
                     return player.x = (canvas.width - 12) - player.image.width * scale;
+                }
+            }
+
+            if (player2.image.width < 312) {
+                if (player2.x <= 27) {
+                    return player2.x = 27;
+                }
+                if (player2.x + player2.image.width * scale >= canvas.width - 17) {
+                    return player2.x = (canvas.width - 17) - player2.image.width * scale;
+                }
+            }
+            if (player2.image.width >= 312) {
+                if (player2.x <= 12) {
+                    return player2.x = 12;
+                }
+                if (player2.x + player2.image.width * scale >= canvas.width - 12) {
+                    return player2.x = (canvas.width - 12) - player2.image.width * scale;
                 }
             }
 
@@ -260,7 +277,8 @@ var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_model
 
 preloadcars();
 
-var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
+var player = new Car(cars[playerCarSelect], 349, canvas.height * playerStartHeightPos, true);
+var player2 = new Car(cars[playerCarSelect], 262, canvas.height * playerStartHeightPos, true); //Машина игрока
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -279,7 +297,7 @@ function upDifficulty() {
 }
 
 function start(sec) {
-    if (!player.dead) {
+    if (!player.dead || !player2.dead) {
         $("#wrapper").css('display', 'flex');
         setPosY();
         document.getElementById('canvas').style.visibility = "visible";
@@ -403,8 +421,9 @@ function update() {
     }
 
     player.update();
+    player2.update();
 
-    if (player.dead) {
+    if (player.dead || player2.dead) {
         stop();
     }
 
@@ -447,6 +466,28 @@ function update() {
             return score;
         }
     }
+
+    for (var i = 0; i < objects.length; i++) {
+        hit = player2.collide(objects[i]);
+
+        if (hit) {
+            stop();
+            document.getElementById("timer").style.opacity = "0";
+            document.getElementById('sound').play();
+            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause() 
+            }
+            document.getElementById('siren_sound').pause();
+            menu.style.top = "23%";
+            restart_button.focus();
+            push_high_score();
+            player2.dead = true;
+            document.getElementById('resume_button').classList.add('hide_button');
+            $('#pause').css('opacity', '0').css("z-index", "-1");
+            showScore();
+            return score;
+        }
+    }
     draw();
 }
 
@@ -472,6 +513,7 @@ function draw() //Функция для прорисовки
     }
 
     drawCar(player);
+    drawCar(player2);
 
     for (var i = 0; i < objects.length; i++) {
         drawCar(objects[i]);
@@ -525,6 +567,22 @@ function turn_right() {
     setTimeout(() => { clearInterval(right); }, turn_var * 10);
 }
 
+function turn_left2() {
+    document.getElementById('sound_wheel_left').play();
+    let timerId65 = setInterval(() => {
+        player2.move("x", -speed * .15)
+    }, turn_var);
+    setTimeout(() => { clearInterval(timerId65); }, turn_var * 10);
+}
+
+function turn_right2() {
+    document.getElementById('sound_wheel_right').play();
+    let right = setInterval(() => {
+        player2.move("x", speed * .15)
+    }, turn_var);
+    setTimeout(() => { clearInterval(right); }, turn_var * 10);
+}
+
 function KeyDown(e) {
     if (timer != null) {
         switch (e.keyCode) {
@@ -533,7 +591,7 @@ function KeyDown(e) {
                 break;
 
             case 65: //Left
-                turn_left();
+                turn_left2();
                 break;
 
             case 39: //Right
@@ -541,7 +599,7 @@ function KeyDown(e) {
                 break;
 
             case 68: //Right
-                turn_right();
+                turn_right2();
                 break;
 
             case 38: //Up
@@ -549,7 +607,7 @@ function KeyDown(e) {
                 break;
 
             case 87: //Up
-                player.move("y", -speed);
+                player2.move("y", -speed);
                 break;
 
             case 40: //Down
@@ -566,13 +624,13 @@ function KeyDown(e) {
                 break;
 
             case 83: //Down
-                player.move("y", speed);
+                player2.move("y", speed);
                 break;
 
             case 81: //Left-Up
                 document.getElementById('sound_wheel_left_up').play();
                 let timerId81 = setInterval(() => {
-                    player.move("x", -speed * .15), player.move("y", -speed * .25)
+                    player2.move("x", -speed * .15), player2.move("y", -speed * .25)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId81); }, 250);
                 break;
@@ -580,7 +638,7 @@ function KeyDown(e) {
             case 69: //Right-Up
                 document.getElementById('sound_wheel_right_up').play();
                 let timerId69 = setInterval(() => {
-                    player.move("x", speed * .15), player.move("y", -speed * .25)
+                    player2.move("x", speed * .15), player2.move("y", -speed * .25)
                 }, 25);
                 setTimeout(() => { clearInterval(timerId69); }, 250);
                 break;
@@ -662,11 +720,14 @@ function overlapCars() {
 function restartGame() {
     document.getElementById('timer').style.opacity = "0";
     $("#message_score").css("opacity", "0").css("z-index", "-1");
-    if (timer == null || player.dead == true) {
+    if (timer == null || (player.dead == true || player2.dead == true)) {
         objects = [];
-        player.x = canvas.width / 2 - player.image.width * scale / 2;
+        player.x = 262;
+        player2.x = 349;
         player.y = canvas.height * playerStartHeightPos;
+        player2.y = canvas.height * playerStartHeightPos;
         player.dead = false;
+        player2.dead = false;
         document.getElementById('canvas').style.height = "0";
         setTimeout(() => { draw(); document.getElementById('canvas').style.height = "100%"; }, 1000);
         setTimeout(() => { start(); document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
@@ -681,12 +742,15 @@ restart_button.onclick = restartGame;
 function newGameNewCar() {
     let last_slider = sessionStorage.getItem('last down slider');
     $("#wrapper").css('display', 'none');
-    if (timer == null || player.dead == true) {
+    if (timer == null || (player.dead == true || player2.dead == true)) {
         objects = [];
-        player.x = canvas.width / 2 - player.image.width * scale / 2;
+        player.x = 262;
+        player2.x = 349;
         player.y = canvas.height * playerStartHeightPos;
+        player2.y = canvas.height * playerStartHeightPos;
         draw();
         player.dead = false;
+        player2.dead = false;
         setTimeout(showSlider, 500);
         setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '50%' }, 1000);
         document.getElementById('main_theme1').currentTime = 0;

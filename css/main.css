@@ -9,11 +9,26 @@
     margin-bottom: 20px;
 }
 
+.up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.down {
+    margin: 0 auto;
+}
+
+.down img {
+    width: 100%;
+}
+
 #main-wind {
     display: flex;
+    flex-direction: column;
     width: 50%;
     margin: 0 auto;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 img {
@@ -31,7 +46,7 @@ img:hover {
 }
 
 img:hover~p {
-    display: block;
+    opacity: 1;
     color: rgb(204, 0, 0);
 }
 
@@ -41,7 +56,8 @@ img:hover~p {
 }
 
 p {
-    display: none;
+    display: block;
+    opacity: 0;
     padding-top: 30px;
     text-align: center;
     font-size: 25px;
