@@ -415,6 +415,11 @@ $(document).ready(function () {
         let str = this.alt;
         str = str.slice(0, -1); 
         player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
+        if (this.alt == "bmw_x5_1") player2.image.src = `./images/Smooth_models/bmw_x5_3.png`;
+        if (this.alt == "celica_1") player2.image.src = `./images/Smooth_models/celica_2.png`;
+        if (this.alt == "golf_1") player2.image.src = `./images/Smooth_models/golf_2.png`;
+        if (this.alt == "mazda_1") player2.image.src = `./images/Smooth_models/mazda_2.png`;
+        if (this.alt == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
     });
 });
 

@@ -30,4 +30,4 @@ var direction = "",
         $('#slick-slide180')[0].src = `./images/Cars_main_screen/all_cars/bmw/${iBmw}.png`;
     }
 
-$('#bmw_x5_3').on('mousemove', mousemovemethod);
+$('#bmw_x5_1').on('mousemove', mousemovemethod);
