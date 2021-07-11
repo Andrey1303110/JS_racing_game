@@ -50,9 +50,13 @@ img:hover~p {
     color: rgb(204, 0, 0);
 }
 
-#arc, #sim {
+#arc, #simб {
 	display: flex;
 	flex-direction: column;
+}
+
+#mul a img {
+    min-width: 417px; 
 }
 
 p {
