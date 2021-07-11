@@ -420,6 +420,7 @@ $(document).ready(function () {
         if (this.alt == "golf_1") player2.image.src = `./images/Smooth_models/golf_2.png`;
         if (this.alt == "mazda_1") player2.image.src = `./images/Smooth_models/mazda_2.png`;
         if (this.alt == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
+        if (this.alt == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
     });
 });
 
