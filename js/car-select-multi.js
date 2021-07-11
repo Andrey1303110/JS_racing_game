@@ -408,8 +408,13 @@ $(document).ready(function () {
         setTimeout(start, 500);
         sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
         sessionStorage.setItem('current car', this.alt);
-        player.image.src = `./images/Smooth_models/${this.alt}.png`; 
-        player2.image.src = `./images/Smooth_models/${this.alt}.png`;
+        player.image.src = `./images/Smooth_models/${this.alt}.png`;
+
+        let car_count = document.querySelectorAll(`#slider-down-${this.name}`)[0].children[1].children[0].childElementCount; 
+        let car_number = getRandomIntInclusive(1, car_count);
+        let str = this.alt;
+        str = str.slice(0, -1); 
+        player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
     });
 });
 
@@ -429,6 +434,24 @@ function sgu() {
         document.getElementById('sgu_sound').play();
         for (let i = 0; i < objects.length; i++) {
             if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
+                if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
+                    if (objects[i].y > 0) {
+                        if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
+                            let move = setInterval(() => {
+                                objects[i].x -= 8.3
+                            }, 35);
+                            setTimeout(() => { clearInterval(move); }, 350);
+                        }
+                        if (objects[i].x < 340 && objects[i].x >= 0) {
+                            let move = setInterval(() => {
+                                objects[i].x += 8.3
+                            }, 35);
+                            setTimeout(() => { clearInterval(move); }, 350);
+                        }
+                    }
+                }
+            }
+            if (((player2.x - objects[i].x) <= 17) && ((player2.x - objects[i].x) >= -17)) {
                 if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
                     if (objects[i].y > 0) {
                         if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
