@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+a {
+    width: max-content;
+}
+
 #upper {
     width: 100%;
     font-size: 40px;
@@ -56,7 +60,7 @@ img:hover~p {
     color: rgb(204, 0, 0);
 }
 
-#arc, #simб {
+#arc, #sim {
 	display: flex;
 	flex-direction: column;
 }
