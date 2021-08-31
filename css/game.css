@@ -366,8 +366,12 @@ img {
     width: 550px;
     transform: translate(-50%);
     font-size: 22px;
-    background-color: #8C8C89;
+    background-color: #9C9C9C;
     padding-left: 10%;
+}
+
+#key_code p {
+    min-height: 2em;
 }
 
 #img_keyboard {
@@ -381,7 +385,8 @@ img {
     top: 9%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #8C8C89;
+    background-color: #9C9C9C;
+    min-height: 245px;
 }
 
 #high_scores {

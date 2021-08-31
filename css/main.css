@@ -2,6 +2,10 @@
     text-decoration: none;
 }
 
+body {
+    margin: 0;
+}
+
 #upper {
     width: 100%;
     font-size: 40px;
@@ -12,7 +16,7 @@
 .up {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .down {
@@ -26,7 +30,9 @@
 #main-wind {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
+    min-width: 320px;
+    max-width: 750px;
     margin: 0 auto;
     justify-content: space-between;
 }
@@ -35,8 +41,8 @@ img {
     filter: brightness(.8);
     transition: all .3s ease-in-out;
     cursor: pointer;
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    max-height: 225px;
 }
 
 
@@ -56,13 +62,13 @@ img:hover~p {
 }
 
 #mul a img {
-    min-width: 417px; 
+    min-width: 320px; 
 }
 
 p {
     display: block;
     opacity: 0;
-    padding-top: 30px;
+    padding-top: 10px;
     text-align: center;
     font-size: 25px;
     font-weight: bold;
