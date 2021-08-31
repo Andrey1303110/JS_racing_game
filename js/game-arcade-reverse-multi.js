@@ -275,10 +275,15 @@ let cars_reverse = function () { // доступ к JSON
 
 var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];
 
-preloadcars();
+if (innerWidth > 550 && window.orientation != 0) {
+    preloadcars();
+    $(".music").each(function(){
+        this.preload = "auto";
+    })
+}
 
-var player = new Car(cars[playerCarSelect], 349, canvas.height * playerStartHeightPos, true);
-var player2 = new Car(cars[playerCarSelect], 262, canvas.height * playerStartHeightPos, true); //Машина игрока
+var player2 = new Car(cars[playerCarSelect], 349, canvas.height * playerStartHeightPos, true);
+var player = new Car(cars[playerCarSelect], 262, canvas.height * playerStartHeightPos, true); //Машина игрока
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);

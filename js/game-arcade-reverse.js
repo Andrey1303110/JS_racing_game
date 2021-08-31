@@ -258,7 +258,12 @@ let cars_reverse = function () { // доступ к JSON
 
 var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];
 
-preloadcars();
+if (innerWidth > 550 && window.orientation != 0) {
+    preloadcars();
+    $(".music").each(function(){
+        this.preload = "auto";
+    })
+}
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 

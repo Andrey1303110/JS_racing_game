@@ -235,7 +235,12 @@ let cars = function () { // доступ к JSON
     return jsonTemp;
 }();
 
-preloadcars();
+if (innerWidth > 550 && window.orientation != 0) {
+    preloadcars();
+    $(".music").each(function(){
+        this.preload = "auto";
+    })
+}
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
