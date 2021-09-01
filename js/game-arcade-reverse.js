@@ -87,12 +87,13 @@ class Road {
 }
 
 class Car {
-    constructor(image, x, y, isPlayer) {
+    constructor(image, x, y, isPlayer, selfSpeed) {
         this.x = x;
         this.y = y;
         this.loaded = false;
         this.dead = false;
         this.isPlayer = isPlayer;
+        this.selfSpeed = selfSpeed;
 
         this.image = new Image();
 
@@ -106,10 +107,10 @@ class Car {
     update() {
         if (!this.isPlayer) {
             if (this.x < 180) {
-                this.y += speed * 1.15;
+                this.y += speed * 1.15 * this.selfSpeed;
             }
             if (this.x > 180) {
-                this.y += speed * .7;
+                this.y += speed * .7 * this.selfSpeed;
             }
             if (this.x == 180) {
                 this.y += speed;
@@ -117,7 +118,7 @@ class Car {
             
         }
 
-        if (this.y > canvas.height) {
+        if (this.y > canvas.height * 2) {
             this.dead = true;
         }
         if (this.x >= 348) {
@@ -258,7 +259,7 @@ let cars_reverse = function () { // доступ к JSON
 
 var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];
 
-if (innerWidth > 550 && window.orientation != 0) {
+if (innerWidth > 550) {
     preloadcars();
     $(".music").each(function(){
         this.preload = "auto";
@@ -373,11 +374,18 @@ function stop() {
     timerScore = null;
 } */
 
+function randomInteger(min, max) {
+    let rand = min + Math.random() * (max + 1 - min);
+    return rand;
+}
+
 function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
     let carsX = [12, 96, 264, 348];
+    let allCarsX = [12, 96, 180, 264, 348];
+    let allCarsX = [12, 96, 180, 264, 348];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCars_reverse_Src = cars_reverse[Math.floor(Math.random() * cars.length)];
@@ -391,8 +399,8 @@ function update() {
             if (randomCarsX < 180) {
                 randomCarsSrc = randomCars_reverse_Src;
             }
-            objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false));
-            overlapCars();
+            let selfSpeed = randomInteger(8.5, 10.5) / 10;
+            objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false, selfSpeed));
             if (lowwer > 140) {
                 return lowwer = 138
             }
@@ -403,7 +411,27 @@ function update() {
         if (xCars == 149) {
             let randomRoadBarrier = randomRoadList[Math.floor(Math.random() * randomRoadList.length)];
             objects.push(new Car(randomRoadBarrier, 180, canvas.height * -1, false));
-            overlapCars();
+        }
+    }
+
+    for (let i = 0; i < objects.length; i++) {
+        for (let j = 0; j < objects.length; j++) {
+            if (objects[i].x == objects[j].x && (objects[j].selfSpeed < objects[i].selfSpeed)) {
+                if (objects[j].y + objects[j].image.height * scale + objects[j].image.height * scale / 2 > objects[i].y && (objects[i].y > 0 && objects[j].y > 0) ) {
+                    objects[j].selfSpeed = objects[i].selfSpeed;
+                }
+            }
+        }
+    }
+
+    for (let q = 0; q < allCarsX.length; q++) {
+        let filter_x = objects.filter(objects => objects.x == allCarsX[q]);
+        if (filter_x.length >= 2) {
+            for (let i = 1; i < filter_x.length; i++) {
+                if (filter_x[i].y + filter_x[i].image.height * scale > filter_x[i-1].y) { 
+                    filter_x[i].y = filter_x[i].y - filter_x[i].image.height * scale;  
+                }
+            }
         }
     }
 
@@ -425,7 +453,7 @@ function update() {
         }
     }
 
-    if (isDead) {
+    if (isDead && objects[0].y > canvas.height) {
         objects.shift();
     }
 
@@ -606,64 +634,6 @@ function RandomInteger(min, max) {
     return Math.round(rand);
 }
 
-function overlapCars() {
-    if (objects.length >= 2) {
-        if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
-            if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
-            {
-                objects.pop();
-                console.log("с экрана будет удалёна машинка");
-            }
-        }
-    }
-    if (objects.length >= 3) {
-        if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
-            if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
-            {
-                objects.pop();
-                console.log("с экрана будет удалёна машинка");
-            }
-        }
-        if (objects[objects.length - 3].x == objects[objects.length - 1].x) {
-            if (objects[objects.length - 3].y - objects[objects.length - 1].y <= objects[objects.length - 3].image.height * scale)  //Стокновнение по высоте 
-            {
-                objects.pop();
-                console.log("с экрана будет удалёна машинка");
-            }
-        }
-    }
-    if (objects.length >= 4) {
-        if (objects[objects.length - 2].x == objects[objects.length - 1].x) {
-            if (objects[objects.length - 2].y - objects[objects.length - 1].y <= objects[objects.length - 2].image.height * scale)  //Стокновнение по высоте 
-            {
-                objects.pop();
-                console.log("с экрана будет удалёна машинка");
-            }
-        }
-        if (objects[objects.length - 3].x == objects[objects.length - 1].x) {
-            if (objects[objects.length - 3].y - objects[objects.length - 1].y <= objects[objects.length - 3].image.height * scale)  //Стокновнение по высоте 
-            {
-                objects.pop();
-                console.log("с экрана будет удалёна машинка");
-            }
-        }
-        if (objects[objects.length - 4].x == objects[objects.length - 1].x) {
-            if (objects[objects.length - 4].y - objects[objects.length - 1].y <= objects[objects.length - 4].image.height * scale)  //Стокновнение по высоте 
-            {
-                objects.pop();
-                console.log("с экрана будет удалёна машинка");
-            }
-        }
-        if (objects[objects.length - 4].x == objects[objects.length - 2].x) {
-            if (objects[objects.length - 4].y - objects[objects.length - 2].y <= objects[objects.length - 4].image.height * scale)  //Стокновнение по высоте 
-            {
-                objects.pop();
-                console.log("с экрана будет удалёна машинка");
-            }
-        }
-    }
-}
-
 function restartGame() {
     document.getElementById('timer').style.opacity = "0";
     $("#message_score").css("opacity", "0").css("z-index", "-1");
@@ -785,11 +755,9 @@ pervue_start.onclick = () => {
     }
     setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
-    setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000)
-    $(document).ready(function () {
-        if (intro_video.readyState >= 3) { setTimeout(() => { intro_video.play(), intro_video.currentTime = 0.01 }, 1500) };
-        intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
-    });
+    setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000);
+    setTimeout(() => { intro_video.currentTime = 0.01, intro_video.play() }, 1500);
+    intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
 }
 
 mobile_controls_left.onclick = turn_left;
