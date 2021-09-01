@@ -432,12 +432,14 @@ function sgu() {
                                 objects[i].x -= 8.3
                             }, 35);
                             setTimeout(() => { clearInterval(move); }, 350);
+                            objects[i].selfSpeed = 1.15
                         }
                         if (objects[i].x < 340 && objects[i].x >= 0) {
                             let move = setInterval(() => {
                                 objects[i].x += 8.3
                             }, 35);
                             setTimeout(() => { clearInterval(move); }, 350);
+                            objects[i].selfSpeed = 1.15
                         }
                     }
                 }
