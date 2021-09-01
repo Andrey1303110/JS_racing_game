@@ -109,7 +109,7 @@ class Car {
             this.y += speed * .6 * this.selfSpeed;
         }
 
-        if (this.y > canvas.height * 2) {
+        if (this.y > canvas.height) {
             this.dead = true;
         }
         if (this.x >= 348) {
