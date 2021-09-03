@@ -849,23 +849,16 @@ function showScore() {
 function preloadcars() {
     for (let i = 0; i < cars.length; i++) {
         $('#game_cars').append('<img src=' + cars[i] + '>');
+        $('#game_cars').append('<img src=' + cars_reverse[i] + '>');
     }
     for (let j = 1; j < 36; j++) {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw/' + j + '.png>');
     }
     for (let k = 1; k < 25; k++) {
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/blue/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/red/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/leon/white/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/golf/blue/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/vaz2113/black/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/vaz2113/white/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/superb/green/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/camry/black/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/celica/red/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/mazda/blue/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/lc/black/' + k + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/lc/violet/' + k + '.png>');
+        let carsSrc = ["leon/blue", "leon/red", "leon/white", "golf/blue", "vaz2113/black", "vaz2113/white", "superb/green", "camry/black", "celica/red", "mazda/blue", "lc/black", "lc/violet"];
+        for (let e = 0; e < carsSrc.length; e++) {
+           $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/'+ carsSrc[e] +'/' + k + '.png>'); 
+        }
     }
     for (let g = 1; g < 24; g++) {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/red/' + g + '.png>');
