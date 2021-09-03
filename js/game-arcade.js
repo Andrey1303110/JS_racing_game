@@ -776,6 +776,9 @@ function preloadcars() {
     for (let u = 1; u < 73; u++) {
         $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/cupra/' + u + '.png>');
     }
+    $('#game_cars').append('<img src=./images/Smooth_models/tram_1.png>');
+    $('#game_cars').append('<img src=./images/Smooth_models/tram_2.png>');
+    $('#game_cars').append('<img src=./images/road/road7_1_railways.jpg>'); 
 }
 
 document.onload = () => console.log("document load");
