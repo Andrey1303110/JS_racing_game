@@ -385,7 +385,6 @@ function update() {
 
     let carsX = [12, 96, 264, 348];
     let allCarsX = [12, 96, 180, 264, 348];
-    let allCarsX = [12, 96, 180, 264, 348];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCars_reverse_Src = cars_reverse[Math.floor(Math.random() * cars.length)];
