@@ -220,8 +220,8 @@ let objects = []; //Массив игровых объектов
 
 let roads =
     [
-        new Road("images/road/road7_1.jpg", 0),
-        new Road("images/road/road7_1.jpg", canvas.height)
+        new Road("images/road/road7_1_railways.jpg", 0),
+        new Road("images/road/road7_1_railways.jpg", canvas.height)
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
@@ -235,6 +235,7 @@ let cars = function () { // доступ к JSON
     });
     return jsonTemp;
 }();
+let randomRoadList = ["images/Smooth_models/tram_1.png", "images/Smooth_models/tram_2.png"];
 
 if (innerWidth > 550) {
     preloadcars();
@@ -360,8 +361,9 @@ function update() {
     roads[0].update(roads[1]);
     roads[1].update(roads[0]);
 
-    let carsX = [12, 96, 180, 264, 348];
-    let allCarsX = [12, 96, 180, 264, 348];
+    let carsX = [12, 96, 264, 348];
+    let tramX = 181;
+    let allCarsX = [12, 96, tramX, 264, 348];
 
     var randomCarsSrc = cars[Math.floor(Math.random() * cars.length)];
     var randomCarsX = carsX[Math.floor(Math.random() * carsX.length)];
@@ -371,7 +373,7 @@ function update() {
 
     function addCars() {
         if (xCars == 151) {
-            let selfSpeed = randomInteger(8, 11) / 10;
+            let selfSpeed = randomInteger(7, 11) / 10;
             objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false, selfSpeed));
             if (lowwer > 140) {
                 return lowwer = 138
@@ -379,6 +381,11 @@ function update() {
             if (upper <= 160) {
                 return upper = 162
             }
+        }
+        if ( (xCars == 150) && (objects.filter(objects => objects.x == tramX).length == 0) ) {
+            let selfSpeed = randomInteger(11, 13) / 10;
+            let randomRoadBarrier = randomRoadList[Math.floor(Math.random() * randomRoadList.length)];
+            objects.push(new Car(randomRoadBarrier, tramX, canvas.height * -1, false, selfSpeed));
         }
     }
 
