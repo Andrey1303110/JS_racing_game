@@ -15,18 +15,6 @@
 <body>
     <table>
         <tr>
-          <td>API used</td>
-          <td id="moApi"></td>
-        </tr>
-        <tr>
-          <td>linear acceleration (excl. gravity)</td>
-          <td id="moAccel"></td>
-        </tr>
-        <tr>
-          <td>rotation rate</td>
-          <td id="moRotation"></td>
-        </tr>
-        <tr>
           <td>right/left</td>
           <td id="rotat"></td>
         </tr>
@@ -92,13 +80,13 @@ function rotationHandler(rotation) {
   info = xyz.replace("X", rotation.alpha && rotation.alpha.toFixed(3));
   info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
   info = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
-  if (rotation.beta && rotation.beta.toFixed(3) > 1.5) {
+  if (rotation.beta > 2) {
   document.getElementById("rotat").innerHTML = 'right';
   }
-  if (rotation.beta && rotation.beta.toFixed(3) < -1.5) {
+  if (rotation.beta < -2) {
     document.getElementById("rotat").innerHTML = 'left';
   }
-  else {
+  if (rotation.beta < 2 && rotation.beta > -2) {
     document.getElementById("rotat").innerHTML = '0';
   }
 }
