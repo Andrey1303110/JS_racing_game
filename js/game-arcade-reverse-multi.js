@@ -847,29 +847,30 @@ function showScore() {
 }
 
 function preloadcars() {
-    for (let i = 0; i < cars.length; i++) {
-        $('#game_cars').append('<img src=' + cars[i] + '>');
-        $('#game_cars').append('<img src=' + cars_reverse[i] + '>');
-    }
-    for (let j = 1; j < 36; j++) {
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw/' + j + '.png>');
-    }
-    for (let k = 1; k < 25; k++) {
-        let carsSrc = ["leon/blue", "leon/red", "leon/white", "golf/blue", "vaz2113/black", "vaz2113/white", "superb/green", "camry/black", "celica/red", "mazda/blue", "lc/black", "lc/violet"];
-        for (let e = 0; e < carsSrc.length; e++) {
-           $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/'+ carsSrc[e] +'/' + k + '.png>'); 
+    $(document).ready(function(){
+        for (let i = 0; i < cars.length; i++) {
+            $('#game_cars').append('<img src=' + cars[i] + '>');
+            $('#game_cars').append('<img src=' + cars_reverse[i] + '>');
         }
-    }
-    for (let g = 1; g < 24; g++) {
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/red/' + g + '.png>');
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/white/' + g + '.png>');
-    }
-    for (let u = 1; u < 73; u++) {
-        $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/cupra/' + u + '.png>');
-    }
+        for (let j = 1; j < 36; j++) {
+            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw/' + j + '.png>');
+        }
+        for (let k = 1; k < 25; k++) {
+            let carsSrc = ["leon/blue", "leon/red", "leon/white", "golf/blue", "vaz2113/black", "vaz2113/white", "superb/green", "camry/black", "celica/red", "mazda/blue", "lc/black", "lc/violet"];
+            for (let e = 0; e < carsSrc.length; e++) {
+               $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/'+ carsSrc[e] +'/' + k + '.png>'); 
+            }
+        }
+        for (let g = 1; g < 24; g++) {
+            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/red/' + g + '.png>');
+            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/white/' + g + '.png>');
+        }
+        for (let u = 1; u < 73; u++) {
+            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/cupra/' + u + '.png>');
+        }
+    })
 }
 
-document.onload = () => console.log("document load");
-window.onload = () => console.log("window load");
-
-window.onload = $("#name_player")[0].value = localStorage.getItem('name');
+$(document).ready(function(){
+    $("#name_player")[0].value = localStorage.getItem('name');
+})

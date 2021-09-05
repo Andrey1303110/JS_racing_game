@@ -349,9 +349,6 @@ function showSlider() {
 }
 
 function clearCarPreloadDOM() {
-    if (document.getElementById('game_cars') != null) {
-        document.getElementById('game_cars').remove();
-    }
     if (document.getElementById('for_name') != null) {
         document.getElementById('for_name').remove();
     }
