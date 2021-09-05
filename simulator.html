@@ -34,7 +34,7 @@
 </body>
 
 <script>
-    if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
+if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   document.getElementById('moApi').innerHTML = 'Generic Sensor API';
   
   let lastReadingTimestamp;
@@ -77,14 +77,23 @@
   document.getElementById('moApi').innerHTML = 'No Accelerometer & Gyroscope API available';
 }
 
+function accelerationHandler(acceleration, targetId) {
+  var info, xyz = "[X, Y, Z]";
+
+  info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
+  info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
+  info = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
+  document.getElementById(targetId).innerHTML = info;
+}
+
 function rotationHandler(rotation) {
-  var info, xyz = "[Y]";
+  var info, xyz = "[X, Y, Z]";
 
+  info = xyz.replace("X", rotation.alpha && rotation.alpha.toFixed(3));
   info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
-  document.getElementById("moRotation").innerHTML = info;
-
+  info = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
   if (rotation.beta && rotation.beta.toFixed(3) > 1.5) {
-    document.getElementById("rotat").innerHTML = 'right';
+  document.getElementById("rotat").innerHTML = 'right';
   }
   if (rotation.beta && rotation.beta.toFixed(3) < -1.5) {
     document.getElementById("rotat").innerHTML = 'left';
@@ -92,8 +101,10 @@ function rotationHandler(rotation) {
   else {
     document.getElementById("rotat").innerHTML = '0';
   }
-  
+}
 
+function intervalHandler(interval) {
+  document.getElementById("moInterval").innerHTML = interval;
 }
 </script>
 
