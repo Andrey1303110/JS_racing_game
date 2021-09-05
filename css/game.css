@@ -363,7 +363,8 @@ img {
     top: 15%;
     left: 50%;
     text-align: start;
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     transform: translate(-50%);
     font-size: 22px;
     background-color: #9C9C9C;
@@ -375,7 +376,8 @@ img {
 }
 
 #img_keyboard {
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     height: 500px;
     background-image: url(../images/icons/keyboard_icons.png);
     background-size: 250px;
