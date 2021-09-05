@@ -23,16 +23,12 @@
           <td id="moAccel"></td>
         </tr>
         <tr>
-          <td>acceleration incl. gravity</td>
-          <td id="moAccelGrav"></td>
-        </tr>
-        <tr>
           <td>rotation rate</td>
           <td id="moRotation"></td>
         </tr>
         <tr>
-          <td>interval (ms)</td>
-          <td id="moInterval"></td>
+          <td>right/left</td>
+          <td id="rotat"></td>
         </tr>
       </table>
 </body>
@@ -81,26 +77,23 @@
   document.getElementById('moApi').innerHTML = 'No Accelerometer & Gyroscope API available';
 }
 
-function accelerationHandler(acceleration, targetId) {
-  var info, xyz = "[X, Y, Z]";
-
-  info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
-  info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
-  info = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
-  document.getElementById(targetId).innerHTML = info;
-}
-
 function rotationHandler(rotation) {
   var info, xyz = "[X, Y, Z]";
 
-  info = xyz.replace("X", rotation.alpha && rotation.alpha.toFixed(3));
   info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
-  info = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
   document.getElementById("moRotation").innerHTML = info;
-}
 
-function intervalHandler(interval) {
-  document.getElementById("moInterval").innerHTML = interval;
+  if (rotation.beta && rotation.beta.toFixed(3) > 1.5) {
+    document.getElementById("rotat").innerHTML = 'right';
+  }
+  if (rotation.beta && rotation.beta.toFixed(3) < -1.5) {
+    document.getElementById("rotat").innerHTML = 'left';
+  }
+  else {
+    document.getElementById("rotat").innerHTML = '0';
+  }
+  
+
 }
 </script>
 
