@@ -14,10 +14,10 @@
 
 <body>
     <table>
-        <tr>
-          <td>rotation rate</td>
-          <td id="moRotation"></td>
-        </tr>
+      <tr>
+        <td>rotation rate</td>
+        <td id="moRotation"></td>
+      </tr>
         <tr>
           <td>right/left</td>
           <td id="rotat"></td>
@@ -27,7 +27,6 @@
 
 <script>
 if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
-  document.getElementById('moApi').innerHTML = 'Generic Sensor API';
   
   let lastReadingTimestamp;
   let accelerometer = new LinearAccelerationSensor();
@@ -55,7 +54,6 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   gyroscope.start();
   
 } else if ('DeviceMotionEvent' in window) {
-  document.getElementById('moApi').innerHTML = 'Device Motion API';
   
   var onDeviceMotion = function (eventData) {
     accelerationHandler(eventData.acceleration, 'moAccel');
@@ -65,8 +63,6 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   }
   
   window.addEventListener('devicemotion', onDeviceMotion, false);
-} else {
-  document.getElementById('moApi').innerHTML = 'No Accelerometer & Gyroscope API available';
 }
 
 function accelerationHandler(acceleration, targetId) {
