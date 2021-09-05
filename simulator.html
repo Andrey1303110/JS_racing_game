@@ -80,13 +80,13 @@ function rotationHandler(rotation) {
   info = xyz.replace("X", rotation.alpha && rotation.alpha.toFixed(3));
   info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
   info = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
-  if (rotation.beta > 2) {
+  if (rotation.beta > 1.5) {
   document.getElementById("rotat").innerHTML = 'right';
   }
-  if (rotation.beta < -2) {
+  if (rotation.beta < 1.5) {
     document.getElementById("rotat").innerHTML = 'left';
   }
-  if (rotation.beta < 2 && rotation.beta > -2) {
+  if (rotation.beta < 1.5 && rotation.beta > -1.5) {
     document.getElementById("rotat").innerHTML = '0';
   }
 }
