@@ -78,7 +78,7 @@
 }
 
 function rotationHandler(rotation) {
-  var info, xyz = "[X, Y, Z]";
+  var info, xyz = "[Y]";
 
   info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
   document.getElementById("moRotation").innerHTML = info;
