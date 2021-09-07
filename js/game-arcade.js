@@ -247,6 +247,9 @@ if (innerWidth > 550) {
         this.preload = "auto";
     })
 }
+else if (navigator.connection.downlink > 5) {
+    preloadcars();
+}
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
