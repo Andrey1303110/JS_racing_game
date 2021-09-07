@@ -122,6 +122,9 @@ class Car {
         if (this.x <= 12) {
             return this.x = 12
         }
+        if (this.x == 181 && !this.isPlayer) {
+            if (this.y < canvas.height/20 && this.y > 0) { tram.currentTime =0; tram.play(); }
+        }
     }
 
     collide(car) {
@@ -654,6 +657,7 @@ function newGameNewCar() {
     menu.style.top = "-70%";
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
+    document.getElementById('slider').style.top = "2%";
     setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
     locked_cars();
     push_high_score();

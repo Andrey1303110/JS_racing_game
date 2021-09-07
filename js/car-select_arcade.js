@@ -340,7 +340,6 @@ function clearSlider() {
 
 function showSlider() {
     detach_content.appendTo('body');
-    document.getElementById('slider').style.top = "2%";
 }
 
 function clearCarPreloadDOM() {

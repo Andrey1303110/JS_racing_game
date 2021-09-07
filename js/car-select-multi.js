@@ -340,16 +340,17 @@ function clearSlider() {
 
 function showSlider() {
     detach_content.appendTo('body');
-    document.getElementById('slider').style.top = "2%";
 }
 
 function clearCarPreloadDOM() {
-    if (document.getElementById('for_name') != null) {
-        document.getElementById('for_name').remove();
-    }
-    if (document.getElementById('pervue') != null) {
-        document.getElementById('pervue').remove();
-    }
+    $(document).ready(function(){
+        if (document.getElementById('for_name') != null) {
+            document.getElementById('for_name').remove();
+        }
+        if (document.getElementById('pervue') != null) {
+            document.getElementById('pervue').remove();
+        }
+    })
 }
 
 $(document).ready(function () {

@@ -665,7 +665,7 @@ function newGameNewCar() {
         player.y = canvas.height * playerStartHeightPos;
         draw();
         player.dead = false;
-        setTimeout(showSlider, 500);
+        showSlider();
         setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '50%' }, 1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
