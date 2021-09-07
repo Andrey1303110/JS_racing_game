@@ -294,7 +294,6 @@ function start(sec) {
         $("#wrapper").css('display', 'flex');
         setPosY();
         document.getElementById('canvas').style.visibility = "visible";
-        document.getElementById('slider').style.display = "none";
         clearCarPreloadDOM();
         setTimeout(clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';

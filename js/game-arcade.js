@@ -276,7 +276,6 @@ function start(sec) {
         $("#wrapper").css('display', 'flex');
         setPosY();
         document.getElementById('canvas').style.visibility = "visible";
-        document.getElementById('slider').style.display = "none";
         clearCarPreloadDOM();
         setTimeout(clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
@@ -644,7 +643,7 @@ function newGameNewCar() {
         player.y = canvas.height * playerStartHeightPos;
         draw();
         player.dead = false;
-        setTimeout(showSlider, 500);
+        showSlider();
         setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '50%' }, 1000);
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
@@ -655,7 +654,6 @@ function newGameNewCar() {
     menu.style.top = "-70%";
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
-    document.getElementById('slider').style.top = "2%";
     setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
     locked_cars();
     push_high_score();

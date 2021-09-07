@@ -335,17 +335,12 @@ function locked_cars() {
 }
 
 function clearSlider() {
-    slider.style.display = "none";
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+    detach_content = $(".slick-slider").detach();
 }
 
 function showSlider() {
-    slider.style.display = "block";
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "block";
-    }
+    detach_content.appendTo('body');
+    document.getElementById('slider').style.top = "2%";
 }
 
 function clearCarPreloadDOM() {
