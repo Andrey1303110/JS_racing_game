@@ -114,6 +114,11 @@ class Car {
             }
             if (this.x == 180) {
                 this.y += speed;
+                let src = this.image.src;
+                src = src.slice(-13);
+                if (src == "road_work.png") {
+                    if (this.y < canvas.height/40 && this.y > 0) { road.currentTime = 0; road.play(); }
+                }
             }
             
         }
