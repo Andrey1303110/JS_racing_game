@@ -241,14 +241,16 @@ let cars = function () { // доступ к JSON
 }();
 let randomRoadList = ["images/Smooth_models/tram_1.png", "images/Smooth_models/tram_2.png"];
 
-if (innerWidth > 550) {
-    preloadcars();
-    $(".music").each(function(){
-        this.preload = "auto";
-    })
-}
-else if (navigator.connection.downlink > 5) {
-    preloadcars();
+function setPreloadCars() {
+    if (innerWidth > 550) {
+        preloadcars();
+        $(".music").each(function(){
+            this.preload = "auto";
+        })
+    }
+    else if (navigator.connection.downlink > 5 && innerWidth <= 550) {
+        preloadcars();
+    }
 }
 
 var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока

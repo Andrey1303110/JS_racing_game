@@ -276,11 +276,16 @@ let cars_reverse = function () { // доступ к JSON
 
 var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];
 
-if (innerWidth > 550) {
-    preloadcars();
-    $(".music").each(function(){
-        this.preload = "auto";
-    })
+function setPreloadCars() {
+    if (innerWidth > 550) {
+        preloadcars();
+        $(".music").each(function(){
+            this.preload = "auto";
+        })
+    }
+    else if (navigator.connection.downlink > 5 && innerWidth <= 550) {
+        preloadcars();
+    }
 }
 
 var player2 = new Car(cars[playerCarSelect], 349, canvas.height * playerStartHeightPos, true);
