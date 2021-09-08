@@ -841,12 +841,14 @@ function gyro_handling() {
       } 
       
       function accelerationHandler(acceleration) {
-      
-        if (acceleration.x > .65) {
-            return player.x -= canvas.width/10;
+        if (!player.dead) {
+            if (acceleration.x > .65) {
+                return player.x -= canvas.width/10;
+            }
+            if (acceleration.x < .65) {
+                return player.x += canvas.width/10;
+            }
         }
-        if (acceleration.x < .65) {
-            return player.x += canvas.width/10;
-        }
+        if (player.dead) return;
       }
 }
