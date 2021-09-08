@@ -853,8 +853,8 @@ gyro_handling = function() {
                 if (now_x < -.95) {
                     let right = setInterval(() => {
                         player.move("x", speed * .15)
-                    }, 5);
-                    setTimeout(() => { clearInterval(right); }, 5 * 10);
+                    }, 20);
+                    setTimeout(() => { clearInterval(right); }, 20 * 5);
                 }
             }
         }
