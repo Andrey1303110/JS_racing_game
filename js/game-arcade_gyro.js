@@ -15,6 +15,7 @@ var translateX;
 var diff;
 var xScore;
 var scoreVnumber;
+var old_pos_x;
 
 let scale = .2; //масштаб машин
 
@@ -841,16 +842,16 @@ gyro_handling = function() {
       
       function accelerationHandler(acceleration) {
         if (!player.dead) {
-            let old_pos_x = 0;
+            old_pos_x = 0;
             if (acceleration.x > 0) {
                 if (acceleration.x < .75) return
-                if (acceleration.x > old_pos_x + .75) {
+                if (acceleration.x > old_pos_x + .5) {
                     player.x -= canvas.width/20;
                 }
             }
             if (acceleration.x < 0) {
                 if (acceleration.x > -.75) return
-                if (acceleration.x < old_pos_x - .75) {
+                if (acceleration.x < old_pos_x - -.5) {
                     player.x += canvas.width/20;
                 }
             }
