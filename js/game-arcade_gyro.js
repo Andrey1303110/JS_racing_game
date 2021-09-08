@@ -358,6 +358,7 @@ function stop() {
     $("#button_special_signals").css("display", "none");
     clearInterval(diff);
     clearInterval(gyro);
+    gyro = null;
 }
 
 /*function clearLevel() {
