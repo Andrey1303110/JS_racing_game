@@ -61,9 +61,12 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
 function accelerationHandler(acceleration, targetId) {
   var info, xyz = "[X, Y, Z]";
 
-  info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
-  info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
-  info = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
+  if (acceleration.x > 2.5) {
+    info = 'left';
+  }
+  if (acceleration.x > -2.5) {
+    info = 'right';
+  }
   document.getElementById(targetId).innerHTML = info;
 }
 </script>
