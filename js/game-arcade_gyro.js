@@ -279,7 +279,6 @@ function start(sec) {
         $("#wrapper").css('display', 'flex');
         setPosY();
         document.getElementById('canvas').style.visibility = "visible";
-        gyro_handling();
         clearCarPreloadDOM();
         setTimeout(clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
@@ -803,7 +802,7 @@ $(document).ready(function(){
     $("#name_player")[0].value = localStorage.getItem('name');
 })
 
-function gyro_handling() {
+gyro_handling = function() {
     if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   
         let lastReadingTimestamp;
@@ -852,4 +851,4 @@ function gyro_handling() {
         }
         if (player.dead) return false;
       }
-}
+}();
