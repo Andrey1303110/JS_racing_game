@@ -530,7 +530,9 @@ $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
 
 function addScript3d(scriptName) {
-    if (scriptName != '') {
+    let str = $('.cars_3d')[0].attributes[1].nodeValue;
+    str = str.slice(5, -3);
+    if (scriptName != '' && scriptName != str) {
         $('.cars_3d').each(function(){
             $(this).remove()
         })
