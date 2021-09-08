@@ -67,7 +67,7 @@ function accelerationHandler(acceleration, targetId) {
   if (acceleration.x < -2) {
     info = 'right';
   }
-  else info = 0;
+  else if (acceleration.x < 2 && acceleration.x > -2) info = 0;
   document.getElementById(targetId).innerHTML = info;
 }
 </script>
