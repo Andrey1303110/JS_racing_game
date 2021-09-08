@@ -7,6 +7,7 @@ let main_theme = document.getElementById('main_theme1');
 
 let UPDATE_TIME = 1000 / 80;
 var timer = null;
+var gyro = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 var scaleX;
@@ -286,6 +287,7 @@ function start(sec) {
         main_theme.pause();
         document.getElementById('main_theme' + S).play();
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
+        gyro = setInterval(gyro_handling, UPDATE_TIME);
         $('#mobile_controls').css('display', 'flex').css("z-index", "1");
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
@@ -860,5 +862,4 @@ gyro_handling = function() {
         if (player.dead) return false;
       }
 };
-let gyro = setInterval(gyro_handling, UPDATE_TIME);
 
