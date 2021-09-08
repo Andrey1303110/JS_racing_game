@@ -13,20 +13,25 @@
 </head>
 
 <body>
-    <table>
-      <tr>
-        <td>rotation rate</td>
-        <td id="moRotation"></td>
-      </tr>
-        <tr>
-          <td>right/left</td>
-          <td id="rotat"></td>
-        </tr>
-      </table>
+  <table>
+    <tr>
+      <td>API used</td>
+      <td id="moApi"></td>
+    </tr>
+    <tr>
+      <td>linear acceleration (excl. gravity)</td>
+      <td id="moAccel"></td>
+    </tr>
+    <tr>
+      <td>acceleration incl. gravity</td>
+      <td id="moAccelGrav"></td>
+    </tr>
+  </table>
 </body>
 
 <script>
 if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
+  document.getElementById('moApi').innerHTML = 'Generic Sensor API';
   
   let lastReadingTimestamp;
   let accelerometer = new LinearAccelerationSensor();
@@ -54,6 +59,7 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   gyroscope.start();
   
 } else if ('DeviceMotionEvent' in window) {
+  document.getElementById('moApi').innerHTML = 'Device Motion API';
   
   var onDeviceMotion = function (eventData) {
     accelerationHandler(eventData.acceleration, 'moAccel');
@@ -63,36 +69,6 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   }
   
   window.addEventListener('devicemotion', onDeviceMotion, false);
-}
-
-function accelerationHandler(acceleration, targetId) {
-  var info, xyz = "[X, Y, Z]";
-
-  info = xyz.replace("X", acceleration.x && acceleration.x.toFixed(3));
-  info = info.replace("Y", acceleration.y && acceleration.y.toFixed(3));
-  info = info.replace("Z", acceleration.z && acceleration.z.toFixed(3));
-  document.getElementById(targetId).innerHTML = info;
-}
-
-function rotationHandler(rotation) {
-  var info, xyz = "[X, Y, Z]";
-
-  info = xyz.replace("X", rotation.alpha && rotation.alpha.toFixed(3));
-  info = info.replace("Y", rotation.beta && rotation.beta.toFixed(3));
-  info = info.replace("Z", rotation.gamma && rotation.gamma.toFixed(3));
-  if (rotation.beta > 1.25) {
-  document.getElementById("rotat").innerHTML = 'right';
-  }
-  if (rotation.beta < -1.25) {
-    document.getElementById("rotat").innerHTML = 'left';
-  }
-  if (rotation.beta < 1.5 && rotation.beta > -1.5) {
-    document.getElementById("rotat").innerHTML = '0';
-  }
-}
-
-function intervalHandler(interval) {
-  document.getElementById("moInterval").innerHTML = interval;
 }
 </script>
 
