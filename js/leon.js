@@ -87,13 +87,13 @@ var direction = "",
         }
         
         function rotationHandler(rotation) {
-            if (rotation.beta > 1.25) {
+            if (rotation.beta > .9) {
                 iLeon += 1;
                 if (iLeon >= 25) {
                     iLeon = 1;
                 }
             }
-            if (rotation.beta < -1.25) {
+            if (rotation.beta < -.9) {
                 iLeon -= 1;
                 if (iLeon < 1) {
                     iLeon = 25;

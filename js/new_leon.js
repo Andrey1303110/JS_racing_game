@@ -86,13 +86,13 @@ if (window.innerWidth < 550) {
     }
     
     function rotationHandler(rotation) {
-        if (rotation.beta > 1.25) {
+        if (rotation.beta > .9) {
             inew_leon += 1;
             if (inew_leon >= 23) {
                 inew_leon = 1;
             }
         }
-        if (rotation.beta < -1.25) {
+        if (rotation.beta < -.9) {
             inew_leon -= 1;
             if (inew_leon < 1) {
                 inew_leon = 23;

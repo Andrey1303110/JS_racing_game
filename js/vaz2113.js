@@ -85,13 +85,13 @@ if (window.innerWidth < 550) {
     }
     
     function rotationHandler(rotation) {
-        if (rotation.beta > 1.25) {
+        if (rotation.beta > .9) {
             iVaz2113 += 1;
             if (iVaz2113 >= 25) {
                 iVaz2113 = 1;
             }
         }
-        if (rotation.beta < -1.25) {
+        if (rotation.beta < -.9) {
             iVaz2113 -= 1;
             if (iVaz2113 < 1) {
                 iVaz2113 = 25;

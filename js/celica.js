@@ -81,13 +81,13 @@ var direction = "",
         }
         
         function rotationHandler(rotation) {
-            if (rotation.beta > 1.25) {
+            if (rotation.beta > .9) {
                 iCelica += 1;
                 if (iCelica >= 24) {
                     iCelica = 1;
                 }
             }
-            if (rotation.beta < -1.25) {
+            if (rotation.beta < -.9) {
                 iCelica -= 1;
                 if (iCelica < 1) {
                     iCelica = 24;
