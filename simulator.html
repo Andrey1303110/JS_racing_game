@@ -2,74 +2,415 @@
 <html>
 
 <head>
-    <title>Racing game Simulator</title>
-    <link rel="stylesheet" href="./css/game.css">
-    <link rel="icon" href="./images/icons8-racing-car-48.png">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="HandheldFriendly" content="true" />
+	<title>JS Game</title>
+	<link rel="stylesheet" href="./css/game.css">
+	<link rel="stylesheet" href="font/ArchitectsDaughter-Regular.ttf">
+	<link rel="stylesheet" href="font/IndieFlower-Regular.ttf">
+	<link rel="stylesheet" type="text/css" href="./js/slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="./js/slick/slick-theme.css" />
+	<link rel="icon" href="./images/icons8-racing-car-48.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="HandheldFriendly" content="true" />
 </head>
 
 <body>
-  <table>
-    <tr>
-      <td>acceleration incl. gravity</td>
-      <td id="moAccelGrav"></td>
-    </tr>
-  </table>
+	<section id="for_name">
+		<div id="name_insert">
+			<p>Hello</p>
+			<p>my name is</p>
+			<form>
+				<input id="name_player" type="text" value="loading..." placeholder="enter your name" autofocus>
+				<input id="pervue_start" type="button" value="start" minlength="3">
+			</form>
+		</div>
+	</section>
+
+	<section id="pervue">
+		<form>
+			<input id="start_new_game" type="button" value="go to garage">
+		</form>
+		<video id="intro_video" src="./intro.mp4" preload="auto"></video>
+	</section>
+
+	<section id="keyboards_controls">
+		<div id="key_code">
+			<p>W / A / S / D - up / left / down / right</p>
+			<p>Q / E - up + left / up + right</p>
+			<p>Space - pause</p>
+			<p>Shift/Ctrl - only for POLICE! Try it with Prius!</p>
+		</div>
+		<div id="img_keyboard">
+		</div>
+	</section>
+
+	<section id="high_scores">
+		<div id="scores">
+			<p id="title_sect_score">high score</p>
+			<div id="names_hs">
+				<p id="name"> </p>
+			</div>
+			<div id="score_hs">
+				<p id="score"> </p>
+			</div>
+		</div>
+	</section>
+
+	<div id="lock_cars">
+		<p>You may take score 5500 or more!</p>
+	</div>
+
+	<div class="up_slider" id="slider">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/seat.png" id="leon_main" alt="leon"
+			name="leon" autofocus>
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/seat_new.png" id="new_leon_main" alt="new_leon"
+			name="new_leon">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/vaz2113_logo.png" id="vaz2113_main" alt="vaz2113"
+			name="vaz2113">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/vw_golf_logo.png" id="golf_main" alt="golf"
+			name="golf">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/superb_logo.png" id="superb_main" alt="superb"
+			name="superb">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/vw_passat_logo.png" id="passat_main"
+			alt="" name="passat">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/totoya_camry_logo.png" id="camry_main"
+			alt="camry" name="camry">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/totoya_celica_logo.png" id="celica_main"
+			alt="celica" name="celica">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/mazda_logo.png" id="mazda_main" alt="mazda"
+			name="mazda">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/a1_logo.png" id="a1_main" alt=""
+			name="a1">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/peugeot_logo.png" id="P2008_main" alt=""
+			name="2008">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/totoya_fj_logo.png" id="fj_main" alt=""
+			name="fj">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/totoya_lc_logo.png" id="lc_main" alt="lc"
+			name="lc">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/vw_t_logo.png" id="touareg_main" alt=""
+			name="touareg">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/volvo.png" id="volvo_main" alt=""
+			name="volvo">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/tesla_logo.png" id="tesla_main" alt=""
+			name="tesla">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/polestar_logo.png" id="polestar_main"
+			alt="" name="polestar">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/bmw_logo.png" id="i8_main" alt=""
+			name="i8">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/vw_xl1_logo.png" id="xl1_main" alt=""
+			name="xl1">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/scania.png" id="scania_main" alt=""
+			name="scania">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/gtr_logo.png" id="gtr_main" alt=""
+			name="gtr">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/porshe_logo.png" id="panamera_main" alt=""
+			name="panamera">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/ferrari_enzo_logo.png" id="enzo_main"
+			alt="" name="enzo">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/buggati.png" id="buggati_main" alt=""
+			name="buggati">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/honda_cbr_logo.png" id="cbr_main" alt=""
+			name="cbr">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/ferrari_f1_logo.png" id="f1_main" alt=""
+			name="f1">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/totoya_logo.png" id="prius_main" alt=""
+			name="prius">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/bmw_x5_logo.png" id="bmw_x5_main" alt="bmw_x5"
+			name="bmw_x5">
+		<img class="main_screen_cars_img" src="./images/Cars_main_screen/logo/cupra.png" id="cupra_main" alt="cupra"
+			name="cupra">
+	</div>
+	<div class="your-class slider-down leon" id="slider-down-leon" style="top: 50%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/leon/blue/3.png" id="leon_8" alt="leon_8"
+			name="leon">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/leon/red/3.png" id="leon_7" alt="leon_7"
+			name="leon">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/leon/white/3.png" id="leon_1" alt="leon_1"
+			name="leon">
+	</div>
+	<div class="your-class slider-down touareg" id="slider-down-touareg" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Touareg_4.png" id="touareg_4" alt="touareg_4"
+			name="touareg">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Touareg_2.png" id="touareg_2" alt="touareg_2"
+			name="touareg">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Touareg_3.png" id="touareg_3" alt="touareg_3"
+			name="touareg">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Touareg_1.png" id="touareg_1" alt="touareg_1"
+			name="touareg">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Touareg_5.png" id="touareg_5" alt="touareg_5"
+			name="touareg">
+	</div>
+	<div class="your-class slider-down 2008" id="slider-down-2008" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/2008_3.png" id="P2008_3" alt="2008_3" name="2008">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/2008_2.png" id="P2008_2" alt="2008_2" name="2008">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/2008_1.png" id="P2008_1" alt="2008_1" name="2008">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/2008_4.png" id="P2008_4" alt="2008_4" name="2008">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/2008_5.png" id="P2008_5" alt="2008_5" name="2008">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/2008_6.png" id="P2008_6" alt="2008_6" name="2008">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/2008_7.png" id="P2008_7" alt="2008_7" name="2008">
+	</div>
+	<div class="your-class slider-down i8" id="slider-down-i8" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/i8_2.png" id="i8_2" alt="i8_2" name="i8">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/i8_1.png" id="i8_1" alt="i8_1" name="i8">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/i8_3.png" id="i8_3" alt="i8_3" name="i8">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/i8_4.png" id="i8_4" alt="i8_4" name="i8">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/i8_5.png" id="i8_5" alt="i8_5" name="i8">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/i8_6.png" id="i8_6" alt="i8_6" name="i8">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/i8_7.png" id="i8_7" alt="i8_7" name="i8">
+	</div>
+	<div class="your-class slider-down tesla" id="slider-down-tesla" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_8.png" id="tesla_8" alt="tesla_8"
+			name="tesla">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_2.png" id="tesla_2" alt="tesla_2"
+			name="tesla">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_3.png" id="tesla_3" alt="tesla_3"
+			name="tesla">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_4.png" id="tesla_4" alt="tesla_4"
+			name="tesla">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_5.png" id="tesla_5" alt="tesla_5"
+			name="tesla">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_6.png" id="tesla_6" alt="tesla_6"
+			name="tesla">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_7.png" id="tesla_7" alt="tesla_7"
+			name="tesla">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Tesla_1.png" id="tesla_1" alt="tesla_1"
+			name="tesla">
+	</div>
+	<div class="your-class slider-down xl1" id="slider-down-xl1" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Xl_1.png" id="xl1_1" alt="xl1_1" name="xl1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Xl_2.png" id="xl1_2" alt="xl1_2" name="xl1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Xl_3.png" id="xl1_3" alt="xl1_3" name="xl1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Xl_4.png" id="xl1_4" alt="xl1_4" name="xl1">
+	</div>
+	<div class="your-class slider-down truck" id="slider-down-truck" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Truck_1.png" id="truck_1" alt="truck_2"
+			name="truck">
+	</div>
+	<div class="your-class slider-down prius" id="slider-down-prius" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Prius_1.png" id="prius_1" alt="prius_1"
+			name="prius">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Prius_2.png" id="prius_2" alt="prius_2"
+			name="prius">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Prius_3.png" id="prius_3" alt="prius_3"
+			name="prius">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Prius_4.png" id="prius_4" alt="prius_4"
+			name="prius">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Prius_5.png" id="prius_5" alt="prius_5"
+			name="prius">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Prius_6.png" id="prius_6" alt="prius_6"
+			name="prius">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/Prius_7.png" id="prius_7" alt="prius_7"
+			name="prius">
+		<img class="" src="./images/Cars_main_screen/all_cars/Prius_red.gif" id="prius" alt="police_prius" name="prius">
+	</div>
+	<div class="your-class slider-down enzo" id="slider-down-enzo" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/enzo_1.png" id="enzo_1" alt="enzo_1" name="enzo">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/enzo_2.png" id="enzo_2" alt="enzo_2" name="enzo">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/enzo_3.png" id="enzo_3" alt="enzo_3" name="enzo">
+	</div>
+	<div class="your-class slider-down f1" id="slider-down-f1" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/f1_1.png" id="f1_1" alt="f1_1" name="f1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/f1_2.png" id="f1_2" alt="f1_2" name="f1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/f1_3.png" id="f1_3" alt="f1_3" name="f1">
+	</div>
+	<div class="your-class slider-down cbr" id="slider-down-cbr" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/cbr_1.png" id="cbr_1" alt="cbr_1" name="cbr">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/cbr_2.png" id="cbr_2" alt="cbr_2" name="cbr">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/cbr_3.png" id="cbr_3" alt="cbr_3" name="cbr">
+	</div>
+	<div class="your-class slider-down gtr" id="slider-down-gtr" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/gtr_2.png" id="gtr_2" alt="gtr_2" name="gtr">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/gtr_3.png" id="gtr_3" alt="gtr_3" name="gtr">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/gtr_1.png" id="gtr_1" alt="gtr_1" name="gtr">
+	</div>
+	<div class="your-class slider-down fj" id="slider-down-fj" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/fj_1.png" id="fj_1" alt="fj_1" name="fj">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/fj_3.png" id="fj_3" alt="fj_3" name="fj">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/fj_4.png" id="fj_4" alt="fj_4" name="fj">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/fj_5.png" id="fj_5" alt="fj_5" name="fj">
+	</div>
+	<div class="your-class slider-down volvo" id="slider-down-volvo" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/volvo_1.png" id="volvo_1" alt="volvo_1"
+			name="volvo">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/volvo_2.png" id="volvo_2" alt="volvo_2"
+			name="volvo">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/volvo_3.png" id="volvo_3" alt="volvo_3"
+			name="volvo">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/volvo_4.png" id="volvo_4" alt="volvo_4"
+			name="volvo">
+	</div>
+	<div class="your-class slider-down plestar" id="slider-down-polestar" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/polestar_1.png" id="polestar_1" alt="polestar_1"
+			name="polestar">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/polestar_2.png" id="polestar_2" alt="polestar_2"
+			name="polestar">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/polestar_3.png" id="polestar_3" alt="polestar_3"
+			name="polestar">
+	</div>
+	<div class="your-class slider-down panamera" id="slider-down-panamera" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/panamera_5.png" id="panamera_5" alt="panamera_5"
+			name="panamera">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/panamera_3.png" id="panamera_3" alt="panamera_3"
+			name="panamera">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/panamera_4.png" id="panamera_4" alt="panamera_4"
+			name="panamera">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/panamera_1.png" id="panamera_1" alt="panamera_1"
+			name="panamera">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/panamera_2.png" id="panamera_2" alt="panamera_2"
+			name="panamera">
+
+	</div>
+	<div class="your-class slider-down buggati" id="slider-down-buggati" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/buggati_1.png" id="buggati_1" alt="buggati_1"
+			name="buggati">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/buggati_2.png" id="buggati_2" alt="buggati_2"
+			name="buggati">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/buggati_3.png" id="buggati_3" alt="buggati_3"
+			name="buggati">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/buggati_4.png" id="buggati_4" alt="buggati_4"
+			name="buggati">
+	</div>
+	<div class="your-class slider-down a1" id="slider-down-a1" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/a1_1.png" id="a1_1" alt="a1_1" name="a1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/a1_2.png" id="a1_2" alt="a1_2" name="a1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/a1_4.png" id="a1_4" alt="a1_4" name="a1">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/a1_5.png" id="a1_5" alt="a1_5" name="a1">
+	</div>
+	<div class="your-class slider-down bmw_x5" id="slider-down-bmw_x5" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/bmw/33.png" id="bmw_x5_1" alt="bmw_x5_1"
+			name="bmw_x5">
+	</div>
+	<div class="your-class slider-down scania" id="slider-down-scania" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/scania_2.png" id="scania_2" alt="scania_2"
+			name="scania">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/scania_1.png" id="scania_1" alt="scania_1"
+			name="scania">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/scania_3.png" id="scania_3" alt="scania_3"
+			name="scania">
+	</div>
+	<div class="your-class slider-down vaz2113" id="slider-down-vaz2113" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/vaz2113/white/4.png" id="vaz2113_1"
+			alt="vaz2113_1" name="vaz2113">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/vaz2113/black/4.png" id="vaz2113_2"
+			alt="vaz2113_2" name="vaz2113">
+	</div>
+	<div class="your-class slider-down golf" id="slider-down-golf" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/golf/blue/3.png" id="golf_1" alt="golf_1"
+			name="golf">
+	</div>
+	<div class="your-class slider-down superb" id="slider-down-superb" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/superb/green/3.png" id="superb_1" alt="superb_1"
+			name="superb">
+	</div>
+	<div class="your-class slider-down passat" id="slider-down-passat" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/passat_1.png" id="passat_1" alt="passat_1"
+			name="passat">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/passat_2.png" id="passat_2" alt="passat_2"
+			name="passat">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/passat_3.png" id="passat_3" alt="passat_3"
+			name="passat">
+	</div>
+	<div class="your-class slider-down camry" id="slider-down-camry" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/camry/black/3.png" id="camry_1" alt="camry_1"
+			name="camry">
+	</div>
+	<div class="your-class slider-down celica" id="slider-down-celica" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/celica/red/3.png" id="celica_1" alt="celica_1"
+			name="celica">
+	</div>
+	<div class="your-class slider-down mazda" id="slider-down-mazda" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/mazda/blue/3.png" id="mazda_1" alt="mazda_1"
+			name="mazda">
+	</div>
+	<div class="your-class slider-down lc" id="slider-down-lc" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/lc/violet/3.png" id="lc_1" alt="lc_1" name="lc">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/lc/black/3.png" id="lc_2" alt="lc_2" name="lc">
+	</div>
+	<div class="your-class slider-down new_leon" id="slider-down-new_leon" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/new_leon/red/3.png" id="new_leon_2"
+			alt="new_leon_2" name="new_leon">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/new_leon/white/3.png" id="new_leon_1"
+			alt="new_leon_1" name="new_leon">
+	</div>
+	<div class="your-class slider-down cupra" id="slider-down-cupra" style="top: -110%;">
+		<img class="cars_img" src="./images/Cars_main_screen/all_cars/cupra/6.png" id="cupra_1" alt="cupra_1"
+			name="cupra">
+	</div>
+
+	<div id="wrapper">
+		<div id="mobile_controls">
+			<div class="controls" id="mobile_controls_left"></div>
+			<div class="controls" id="mobile_controls_right"></div>
+		</div>
+		<div id="message_score"></div>
+		<div id="pause">
+			<div></div>
+		</div>
+		<div id="button_special_signals">
+			<img id="siren" src="./images/icons/siren.svg" alt=""><img id="sgu" src="./images/icons/horn.svg" alt="">
+		</div>
+		<form id="menu">
+			<input id="resume_button" class="menu_button" type="button" value="resume">
+			<input id="restart_button" class="menu_button" type="button" value="restart">
+			<input id="garage_button" class="menu_button" type="button" value="garage">
+			<div>
+				<img id="button_top_score" src="./images/icons/winner.png" alt="">
+				<img id="button_question" src="./images/icons/question.png" alt="">
+			</div>
+			<div>
+				<img id="sound_on" src="./images/icons/icons8-audio-64.png" alt="">
+				<img id="sound_off" src="./images/icons/icons8-no-audio-64.png" alt="">
+				<img id="button_top_score" class="second_top_score" src="./images/icons/winner.png" alt="">
+			</div>
+		</form>
+		<div id="timer" class="timer_main">0</div>
+		<canvas class="canvas" id="canvas">
+			Your browser does not support JavaScript and HTML5!
+		</canvas>
+	</div>
+	<audio class="sfx" id="sound" src="./audio/crash.mp3"></audio>
+	<audio class="sfx" id="sound_wheel_right" src="./audio/wheel2.mp3"></audio>
+	<audio class="sfx" id="sound_wheel_left" src="./audio/wheel2.mp3"></audio>
+	<audio class="sfx" id="sound_wheel_right_up" src="./audio/wheel_right_up.mp3"></audio>
+	<audio class="sfx" id="sound_wheel_left_up" src="./audio/wheel_left_up.mp3"></audio>
+	<audio class="sfx" id="sound_wheel_main" src="./audio/sound_for_simulator.mp3"></audio>
+	<audio class="sfx" id="engine_start" src="./audio/engine_start.mp3"></audio>
+	<audio class="sfx" id="siren_sound" src="./audio/police.mp3"></audio>
+	<audio class="sfx" id="sgu_sound" src="./audio/sgu.mp3"></audio>
+	<audio class="sfx" id="menu_sound" src="./audio/menu.mp3"></audio>
+	<audio class="sfx" id="car_select" src="./audio/car_select.mp3"></audio>
+	<audio class="sfx" id="spray" src="./audio/spray.mp3"></audio>
+	<audio class="sfx" id="acces_denied" src="./audio/Access_denied.mp3"></audio>
+	<audio class="sfx" id="tram" src="./audio/tram.mp3"></audio>
+	<div id="music">
+		<audio id="main_theme1" loop preload="none"
+			src="./audio/Snoop_Dogg_ft_The_Doors-Riders_on_the_Storm(fredwreck_remix).mp3"></audio>
+		<audio id="main_theme2" preload="none" loop class="music" src="./audio/Hush-Fired_up.mp3" alt="Hush-Fired Up"></audio>
+		<audio id="main_theme3" preload="none" loop class="music" src="./audio/rock_i-am-rock.mp3"></audio>
+		<audio id="main_theme4" preload="none" loop class="music" src="./audio/Styles_of_Beyond-Nine_Thou.mp3"></audio>
+		<audio id="main_theme5" preload="none" loop class="music" src="./audio/Celldweller-Shapeshifter.mp3"></audio>
+		<audio id="main_theme6" preload="none" loop class="music" src="./audio/BT_The_Roots-Tao_Of_The_Machine.mp3"></audio>
+		<audio id="main_theme7" preload="none" loop class="music" src="./audio/TI_Presents_The_PSC-Do_Ya_Thang.mp3"></audio>
+		<audio id="main_theme8" preload="none" loop class="music" src="./audio/Suni_Clay-In_A_Hood_Near_You.mp3"></audio>
+		<audio id="main_theme9" preload="none" loop class="music" src="./audio/Juvenile-Sets_Go_Up.mp3"></audio>
+		<audio id="main_theme10" preload="none" loop class="music" src="./audio/UncleFlexxx-Camry_3.5.mp3"></audio>
+		<audio id="main_theme11" preload="none" loop class="music" src="./audio/goody-panamera.mp3"></audio>
+		<audio id="main_theme12" preload="none" loop class="music" src="./audio/Нурминский_-_Купить_бы_джип.mp3"></audio>
+	</div>
+	<div id="game_cars">
+		<img src="./images/gif/1.png" alt="">
+		<img src="./images/gif/6.png" alt="">
+		<img src="./images/gif/12.png" alt="">
+	</div>
+	<script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="./js/slick/slick.min.js"></script>
+	<script src="./js/slider-set.js"></script>
+	<script defer src="./js/car-select_arcade.js"></script>
+	<script defer src="./js/game-arcade_gyro.js"></script>
+	<script src="./js/cars.json"></script>
+	<script class="cars_3d" src="./js/leon.js"></script>
 </body>
-
-<script>
-if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
-  
-  let lastReadingTimestamp;
-  let accelerometer = new LinearAccelerationSensor();
-  accelerometer.addEventListener('reading', e => {
-    if (lastReadingTimestamp) {
-      intervalHandler(Math.round(accelerometer.timestamp - lastReadingTimestamp));
-    }
-    lastReadingTimestamp = accelerometer.timestamp
-    accelerationHandler(accelerometer, 'moAccel');
-  });
-  accelerometer.start();
-  
-  if ('GravitySensor' in window) {
-    let gravity = new GravitySensor();
-    gravity.addEventListener('reading', e => accelerationHandler(gravity, 'moAccelGrav'));
-    gravity.start();
-  }
-  
-  let gyroscope = new Gyroscope();
-  gyroscope.addEventListener('reading', e => rotationHandler({
-    alpha: gyroscope.x,
-    beta: gyroscope.y,
-    gamma: gyroscope.z
-  }));
-  gyroscope.start();
-  
-} else if ('DeviceMotionEvent' in window) {
-  
-  var onDeviceMotion = function (eventData) {
-    accelerationHandler(eventData.accelerationIncludingGravity, 'moAccelGrav');
-  }
-  
-  window.addEventListener('devicemotion', onDeviceMotion, false);
-} 
-
-function accelerationHandler(acceleration, targetId) {
-  var info, xyz = "";
-
-  if (acceleration.x > 2) {
-    info = 'left';
-  }
-  if (acceleration.x < -2) {
-    info = 'right';
-  }
-  else if (acceleration.x < 2 && acceleration.x > -2) info = 0;
-  document.getElementById(targetId).innerHTML = info;
-}
-</script>
 
 </html>
