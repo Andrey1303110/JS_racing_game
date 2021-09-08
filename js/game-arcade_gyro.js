@@ -846,13 +846,13 @@ gyro_handling = function() {
             if (acceleration.x > 0) {
                 if (acceleration.x < .75) return
                 if (acceleration.x > old_pos_x + .5) {
-                    player.x -= canvas.width/20;
+                    player.x -= canvas.width/13;
                 }
             }
             if (acceleration.x < 0) {
                 if (acceleration.x > -.75) return
                 if (acceleration.x < old_pos_x - -.5) {
-                    player.x += canvas.width/20;
+                    player.x += canvas.width/13;
                 }
             }
             old_pos_x = acceleration.x;
