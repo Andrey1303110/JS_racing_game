@@ -843,13 +843,13 @@ gyro_handling = function() {
         if (!player.dead) {
             let old_pos_x = 0;
             if (acceleration.x > 0) {
-                if (acceleration.x < now_x) return
+                if (acceleration.x < .75) return
                 if (acceleration.x > old_pos_x + .75) {
                     player.x -= canvas.width/20;
                 }
             }
             if (acceleration.x < 0) {
-                if (acceleration.x > now_x) return
+                if (acceleration.x > -.75) return
                 if (acceleration.x < old_pos_x - .75) {
                     player.x += canvas.width/20;
                 }
