@@ -81,13 +81,13 @@ var direction = "",
         }
         
         function rotationHandler(rotation) {
-            if (rotation.beta > .9) {
+            if (rotation.beta > .731) {
                 iGolf += 1;
                 if (iGolf >= 24) {
                     iGolf = 1;
                 }
             }
-            if (rotation.beta < -.9) {
+            if (rotation.beta < -.731) {
                 iGolf -= 1;
                 if (iGolf < 1) {
                     iGolf = 24;

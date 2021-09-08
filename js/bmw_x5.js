@@ -75,13 +75,13 @@ var direction = "",
         }
         
         function rotationHandler(rotation) {
-            if (rotation.beta > .9) {
+            if (rotation.beta > .731) {
                 iBmw += 1;
                 if (iBmw >= 35) {
                     iBmw = 1;
                 }
             }
-            if (rotation.beta < -.9) {
+            if (rotation.beta < -.731) {
                 iBmw -= 1;
                 if (iBmw < 1) {
                     iBmw = 35;

@@ -84,13 +84,13 @@ if (window.innerWidth < 550) {
     }
     
     function rotationHandler(rotation) {
-        if (rotation.beta > .9) {
+        if (rotation.beta > .731) {
             ilc += 1;
             if (ilc >= 25) {
                 ilc = 1;
             }
         }
-        if (rotation.beta < -.9) {
+        if (rotation.beta < -.731) {
             ilc -= 1;
             if (ilc < 1) {
                 ilc = 25;

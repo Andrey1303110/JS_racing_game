@@ -76,13 +76,13 @@ var direction = "",
         }
         
         function rotationHandler(rotation) {
-            if (rotation.beta > .9) {
+            if (rotation.beta > .731) {
                 iCamry += 1;
                 if (iCamry >= 24) {
                     iCamry = 1;
                 }
             }
-            if (rotation.beta < -.9) {
+            if (rotation.beta < -.731) {
                 iCamry -= 1;
                 if (iCamry < 1) {
                     iCamry = 24;

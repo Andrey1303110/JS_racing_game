@@ -81,13 +81,13 @@ var direction = "",
         }
         
         function rotationHandler(rotation) {
-            if (rotation.beta > .9) {
+            if (rotation.beta > .731) {
                 iMazda += 1;
                 if (iMazda >= 24) {
                     iMazda = 1;
                 }
             }
-            if (rotation.beta < -.9) {
+            if (rotation.beta < -.731) {
                 iMazda -= 1;
                 if (iMazda < 1) {
                     iMazda = 24;
