@@ -852,6 +852,10 @@ gyro_handling = function() {
                 if (acceleration.x > now_x) return
                 if (now_x < -.95) {
                     player.x += canvas.width/12;
+                    let right = setInterval(() => {
+                        player.move("x", speed * .15)
+                    }, 5);
+                    setTimeout(() => { clearInterval(right); }, 5 * 10);
                 }
             }
         }
