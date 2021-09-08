@@ -384,6 +384,9 @@ function stop() {
     for (let i=0; i < document.getElementsByClassName('music').length; i++) {
         document.getElementsByClassName('music')[i].pause() 
     }
+    for (let i = 1; i < document.getElementsByClassName('sfx').length; i++) {
+        document.getElementsByClassName('sfx')[i].pause()
+    }
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);
@@ -801,6 +804,7 @@ function setVolume() {
             audios[i].volume = 1;
             sound_wheel_right.volume = .35;
             sound_wheel_left.volume = .35;
+            road.volume = .75;
         }
     }
     if (vol == 0) {
