@@ -843,11 +843,9 @@ gyro_handling = function() {
         if (!player.dead) {
             if (acceleration.x > .65) {
                 player.x += canvas.width/12;
-                if (acceleration.x > 1.25) player.x += canvas.width/6;
             }
             if (acceleration.x < -.65) {
                 player.x -= canvas.width/12;
-                if (acceleration.x < -1.25) player.x -= canvas.width/6;
             }
         }
         if (player.dead) return false;
