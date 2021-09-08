@@ -355,6 +355,7 @@ function stop() {
     $('#mobile_controls').css('display', 'none');
     $("#button_special_signals").css("display", "none");
     clearInterval(diff);
+    clearInterval(gyro);
 }
 
 /*function clearLevel() {
@@ -845,19 +846,18 @@ gyro_handling = function() {
             if (acceleration.x > 0) {
                 if (acceleration.x < now_x) return
                 if (now_x > .95) {
-                    player.x -= canvas.width/12;
+                    player.x -= canvas.width/20;
                 }
             }
             if (acceleration.x < 0) {
                 if (acceleration.x > now_x) return
                 if (now_x < -.95) {
-                    let right = setInterval(() => {
-                        player.move("x", speed * .15)
-                    }, 13);
-                    setTimeout(() => { clearInterval(right); }, 13 * 5);
+                    player.x += canvas.width/20;
                 }
             }
         }
         if (player.dead) return false;
       }
-}();
+};
+let gyro = setInterval(gyro_handling, UPDATE_TIME);
+
