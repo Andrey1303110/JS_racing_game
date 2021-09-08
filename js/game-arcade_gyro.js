@@ -842,11 +842,11 @@ function gyro_handling() {
       
       function accelerationHandler(acceleration) {
       
-        if (acceleration.x > 2) {
-          turn_left();
+        if (acceleration.x > 1.5) {
+          player.x -= 8;
         }
-        if (acceleration.x < -2) {
-          turn_right();
+        if (acceleration.x < 1.5) {
+            player.x += 8;
         }
         else if (acceleration.x < 2 && acceleration.x > -2) false;
       }
