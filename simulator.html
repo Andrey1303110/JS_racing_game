@@ -64,7 +64,7 @@ function accelerationHandler(acceleration, targetId) {
   if (acceleration.x > 2) {
     info = 'left';
   }
-  if (acceleration.x > -2) {
+  if (acceleration.x < -2) {
     info = 'right';
   }
   else info = 0;
