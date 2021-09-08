@@ -855,6 +855,7 @@ gyro_handling = function() {
                     player.x += canvas.width/20;
                 }
             }
+            draw();
         }
         if (player.dead) return false;
       }
