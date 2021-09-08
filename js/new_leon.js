@@ -45,7 +45,7 @@ if (window.innerWidth > 550) {
     $('#new_leon_2').on('mousemove', mousemovemethod);
 }
 
-if (window.innerWidth < 550) {
+if (window.innerWidth < 550 && selectCar == 'new_leon') {
     if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
 
         let lastReadingTimestamp;

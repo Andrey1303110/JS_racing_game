@@ -4,6 +4,7 @@ let slides = document.getElementsByClassName("your-class slider-down");
 let slider = document.getElementById('slider');
 
 let playerCarSelect = 0;
+let selectCar = 'leon';
 
 let scoreV = [50, 40, 30, 24, 19, 15, 12, 10, 8, 6, 5, 4, 3, 2, 1, 0];
 
@@ -369,6 +370,7 @@ $(document).ready(function () {
         moveD = 6;
         speed = 9.5;
         turn_var = 35;
+        selectCar = this.name;
         $("#lock_cars").removeClass("active_lock");
         locked_cars();
         upSlider();

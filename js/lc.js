@@ -43,7 +43,7 @@ if (window.innerWidth > 550) {
     $('#lc_1').on('mousemove', mousemovemethod);
 }
 
-if (window.innerWidth < 550) {
+if (window.innerWidth < 550 && selectCar == 'lc') {
     if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
 
         let lastReadingTimestamp;

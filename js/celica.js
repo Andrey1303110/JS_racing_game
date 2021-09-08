@@ -40,7 +40,7 @@ var direction = "",
         $('#celica_1').on('mousemove', mousemovemethod);
     }
 
-    if (window.innerWidth < 550) {
+    if (window.innerWidth < 550 && selectCar == 'celica') {
         if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   
             let lastReadingTimestamp;
