@@ -7,7 +7,6 @@ let main_theme = document.getElementById('main_theme1');
 
 let UPDATE_TIME = 1000 / 80;
 var timer = null;
-var gyro = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 var scaleX;
@@ -287,7 +286,6 @@ function start(sec) {
         main_theme.pause();
         document.getElementById('main_theme' + S).play();
         timer = setInterval(update, UPDATE_TIME); //Количество обновлений игры
-        gyro = setInterval(gyro_handling, UPDATE_TIME);
         $('#mobile_controls').css('display', 'flex').css("z-index", "1");
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
@@ -357,8 +355,6 @@ function stop() {
     $('#mobile_controls').css('display', 'none');
     $("#button_special_signals").css("display", "none");
     clearInterval(diff);
-    clearInterval(gyro);
-    gyro = null;
 }
 
 /*function clearLevel() {
@@ -845,22 +841,23 @@ gyro_handling = function() {
       
       function accelerationHandler(acceleration) {
         if (!player.dead) {
-            let now_x = acceleration.x;
+            let old_pos_x = 0;
             if (acceleration.x > 0) {
                 if (acceleration.x < now_x) return
-                if (now_x > .95) {
+                if (acceleration.x > old_pos_x + .75) {
                     player.x -= canvas.width/20;
                 }
             }
             if (acceleration.x < 0) {
                 if (acceleration.x > now_x) return
-                if (now_x < -.95) {
+                if (acceleration.x < old_pos_x - .75) {
                     player.x += canvas.width/20;
                 }
             }
+            old_pos_x = acceleration.x;
             draw();
         }
         if (player.dead) return false;
       }
-};
+}();
 
