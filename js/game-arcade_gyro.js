@@ -843,10 +843,10 @@ function gyro_handling() {
       function accelerationHandler(acceleration) {
       
         if (acceleration.x > .65) {
-            return player.x -= 3;
+            return player.x -= 9;
         }
         if (acceleration.x < .65) {
-            return player.x += 3;
+            return player.x += 9;
         }
       }
 }
