@@ -844,14 +844,14 @@ gyro_handling = function() {
             let now_x = acceleration.x;
             if (acceleration.x > 0) {
                 if (acceleration.x < now_x) return
-                if (now_x > .65) {
-                    player.x -= canvas.width/16;
+                if (now_x > .95) {
+                    player.x -= canvas.width/12;
                 }
             }
             if (acceleration.x < 0) {
                 if (acceleration.x > now_x) return
-                if (now_x < -.65) {
-                    player.x += canvas.width/16;
+                if (now_x < -.95) {
+                    player.x += canvas.width/12;
                 }
             }
         }
