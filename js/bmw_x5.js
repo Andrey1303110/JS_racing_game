@@ -34,7 +34,7 @@ var direction = "",
         $('#bmw_x5_1').on('mousemove', mousemovemethod);
     }
 
-    if (window.innerWidth < 550 && selectCar == 'bmw_x5') {
+    if (window.innerWidth < 550) {
         if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   
             let lastReadingTimestamp;

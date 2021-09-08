@@ -42,7 +42,7 @@ var direction = "",
         $('#cupra_1').on('mousemove', mousemovemethod);
     }
 
-    if (window.innerWidth < 550 && selectCar == 'cupra') {
+    if (window.innerWidth < 550) {
         if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   
             let lastReadingTimestamp;

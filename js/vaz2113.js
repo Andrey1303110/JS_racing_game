@@ -44,7 +44,7 @@ if (window.innerWidth > 550) {
     $('#vaz2113_1').on('mousemove', mousemovemethod);
 }
 
-if (window.innerWidth < 550 && selectCar == 'vaz2113') {
+if (window.innerWidth < 550) {
     if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
 
         let lastReadingTimestamp;

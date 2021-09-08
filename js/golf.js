@@ -40,7 +40,7 @@ var direction = "",
         $('#golf_1').on('mousemove', mousemovemethod);
     }
 
-    if (window.innerWidth < 550 && selectCar == 'golf') {
+    if (window.innerWidth < 550) {
         if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   
             let lastReadingTimestamp;

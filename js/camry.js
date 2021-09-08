@@ -35,7 +35,7 @@ var direction = "",
         $('#camry_1').on('mousemove', mousemovemethod);
     }
 
-    if (window.innerWidth < 550 && selectCar == 'camry') {
+    if (window.innerWidth < 550) {
         if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
   
             let lastReadingTimestamp;

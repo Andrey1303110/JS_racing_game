@@ -370,7 +370,7 @@ $(document).ready(function () {
         moveD = 6;
         speed = 9.5;
         turn_var = 35;
-        selectCar = this.name;
+        addScript3d(this.alt);
         $("#lock_cars").removeClass("active_lock");
         locked_cars();
         upSlider();
@@ -528,3 +528,16 @@ function prius_function() {
 
 $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
+
+function addScript3d(scriptName) {
+    if (scriptName != '') {
+        $('.cars_3d').each(function(){
+            $(this).remove()
+        })
+        let s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "./js/" + scriptName + ".js";
+        s.classList.add("cars_3d");
+        $("body").append(s);
+    }
+}
