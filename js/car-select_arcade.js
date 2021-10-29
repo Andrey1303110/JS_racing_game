@@ -408,11 +408,11 @@ $(document).ready(function () {
 });
 
 function returnStartPosMoto() {
-    player.x = (canvas.width / 2) - (176 * scale / 2);
+    player.x = (canvas.width / 2) - (31.2 * scale / 2);
     player.y = canvas.height * .82;
 }
 function returnStartPos() {
-    player.x = (canvas.width / 2) - (312 * scale / 2);
+    player.x = (canvas.width / 2) - (62.4 * scale / 2);
 }
 
 function sgu() {

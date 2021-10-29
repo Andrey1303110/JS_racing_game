@@ -17,7 +17,7 @@ var xScore;
 var scoreVnumber;
 var old_pos_x;
 
-let scale = .2; //масштаб машин
+let scale = 1; //масштаб машин
 
 var lowwer = 114;
 var upper = 186;
@@ -149,7 +149,7 @@ class Car {
 
             this.x += d; //смена позиции
 
-            if (player.image.width < 312) {
+            if (player.image.width < 62.4) {
                 if (player.x <= 27) {
                     return player.x = 27;
                 }
@@ -157,7 +157,7 @@ class Car {
                     return player.x = (canvas.width - 17) - player.image.width * scale;
                 }
             }
-            if (player.image.width >= 312) {
+            if (player.image.width >= 62.4) {
                 if (player.x <= 12) {
                     return player.x = 12;
                 }
@@ -257,7 +257,7 @@ function setPreloadCars() {
     }
 }
 
-var player = new Car(cars[playerCarSelect], canvas.width / 2 - 312 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
+var player = new Car(cars[playerCarSelect], canvas.width / 2 - 62.4 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -798,6 +798,8 @@ function preloadcars() {
         $('#game_cars').append('<img src=./images/road/road7_1_railways.jpg>'); 
     })
 }
+
+setPreloadCars();
 
 $(document).ready(function(){
     $("#name_player")[0].value = localStorage.getItem('name');
