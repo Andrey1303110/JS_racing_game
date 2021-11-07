@@ -223,12 +223,14 @@ intro_video.addEventListener("play", function (e) { e.preventDefault(); return f
 
 window.addEventListener("keydown", function (e) { KeyDown(e); }); //Слушатель нажатий на клавиатуру
 
+let road_num = getRandomIntInclusive(1, 3);
+
 let objects = []; //Массив игровых объектов
 
 let roads =
     [
-        new Road("images/road/road7_1_railways.jpg", 0),
-        new Road("images/road/road7_1_railways.jpg", canvas.height)
+        new Road(`images/road/road7_${road_num}_railways.webp`, 0),
+        new Road(`images/road/road7_${road_num}_railways.webp`, canvas.height)
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
@@ -796,7 +798,9 @@ function preloadcars() {
         }
         $('#game_cars').append('<img src=./images/Smooth_models/tram_1.png>');
         $('#game_cars').append('<img src=./images/Smooth_models/tram_2.png>');
-        $('#game_cars').append('<img src=./images/road/road7_1_railways.jpg>'); 
+        $('#game_cars').append('<img src=./images/road/road7_1_railways.webp>');
+        $('#game_cars').append('<img src=./images/road/road7_2_railways.webp>'); 
+        $('#game_cars').append('<img src=./images/road/road7_3_railways.webp>'); 
     })
 }
 

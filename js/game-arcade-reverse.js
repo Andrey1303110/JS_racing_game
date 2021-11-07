@@ -234,8 +234,8 @@ let objects = []; //Массив игровых объектов
 
 let roads =
     [
-        new Road("images/road/road7_1.jpg", 0),
-        new Road("images/road/road7_1.jpg", canvas.height)
+        new Road("images/road/road7_1.webp", 0),
+        new Road("images/road/road7_1.webp", canvas.height)
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
@@ -817,6 +817,7 @@ function preloadcars() {
         for (let u = 1; u < 73; u++) {
             $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/cupra/' + u + '.png>');
         }
+        $('#game_cars').append('<img src=./images/road/road7_1.webp>');
     })
 }
 
