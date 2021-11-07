@@ -22,6 +22,7 @@ var lowwer = 108;
 var upper = 192;
 
 var scoreTimer = [];
+var detach_content = '';
 
 setVolume();
 
@@ -317,8 +318,6 @@ function start(sec) {
         $("#wrapper").css('display', 'flex');
         setPosY();
         document.getElementById('canvas').style.visibility = "visible";
-        clearCarPreloadDOM();
-        setTimeout(clearSlider, 500);
         document.getElementById('canvas').style.cursor = 'none';
         document.getElementById('timer').style.opacity = '1';
         main_theme.pause();
@@ -327,6 +326,7 @@ function start(sec) {
         $('#mobile_controls').css('display', 'flex').css("z-index", "1");
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
+        if ($(".slick-slider").length) detach_content = $(".slick-slider").detach();
         timerScore = setInterval(tick, scoreV[2]);
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length - 1] * 1;
