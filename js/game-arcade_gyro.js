@@ -118,8 +118,8 @@ class Car {
         if (this.y > canvas.height) {
             this.dead = true;
         }
-        if (this.x >= 348) {
-            return this.x = 348
+        if (this.x >= 368) {
+            return this.x = 368
         }
         if (this.x <= 12) {
             return this.x = 12
@@ -150,15 +150,15 @@ class Car {
 
             this.x += d; //смена позиции
 
-            if (player.image.width < 62.4) {
+            if (player.image.width < 59) {
                 if (player.x <= 27) {
                     return player.x = 27;
                 }
-                if (player.x + player.image.width * scale >= canvas.width - 17) {
-                    return player.x = (canvas.width - 17) - player.image.width * scale;
+                if (player.x + player.image.width * scale >= canvas.width - player.image.width * scale/2 - 5) {
+                    return player.x = (canvas.width - player.image.width * scale/2 - 5) - player.image.width * scale;
                 }
             }
-            if (player.image.width >= 62.4) {
+            if (player.image.width >= 59) {
                 if (player.x <= 12) {
                     return player.x = 12;
                 }
@@ -260,7 +260,7 @@ function setPreloadCars() {
     }
 }
 
-var player = new Car(cars[playerCarSelect], canvas.width / 2 - 62.4 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
+var player = new Car(cars[playerCarSelect], canvas.width / 2 - 59 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);

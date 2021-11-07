@@ -127,8 +127,8 @@ class Car {
         if (this.y > canvas.height) {
             this.dead = true;
         }
-        if (this.x >= 348) {
-            return this.x = 348
+        if (this.x >= 368) {
+            return this.x = 368
         }
         if (this.x <= 12) {
             return this.x = 12
@@ -156,15 +156,15 @@ class Car {
 
             this.x += d; //смена позиции
 
-            if (player.image.width < 62.4) {
+            if (player.image.width < 59) {
                 if (player.x <= 27) {
                     return player.x = 27;
                 }
-                if (player.x + player.image.width * scale >= canvas.width - 17) {
-                    return player.x = (canvas.width - 17) - player.image.width * scale;
+                if (player.x + player.image.width * scale >= canvas.width - player.image.width * scale/2 - 5) {
+                    return player.x = (canvas.width - player.image.width * scale/2 - 5) - player.image.width * scale;
                 }
             }
-            if (player.image.width >= 62.4) {
+            if (player.image.width >= 59) {
                 if (player.x <= 12) {
                     return player.x = 12;
                 }
@@ -173,15 +173,15 @@ class Car {
                 }
             }
 
-            if (player2.image.width < 62.4) {
+            if (player2.image.width < 59) {
                 if (player2.x <= 27) {
                     return player2.x = 27;
                 }
-                if (player2.x + player2.image.width * scale >= canvas.width - 17) {
-                    return player2.x = (canvas.width - 17) - player2.image.width * scale;
+                if (player2.x + player2.image.width * scale >= canvas.width - player.image.width * scale/2 - 5) {
+                    return player2.x = (canvas.width - player.image.width * scale/2 - 5) - player2.image.width * scale;
                 }
             }
-            if (player2.image.width >= 62.4) {
+            if (player2.image.width >= 59) {
                 if (player2.x <= 12) {
                     return player2.x = 12;
                 }
