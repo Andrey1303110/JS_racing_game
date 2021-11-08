@@ -327,7 +327,7 @@ function start(sec) {
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
         if ($(".slick-slider").length) detach_content = $(".slick-slider").detach();
-        timerScore = setInterval(tick, scoreV[2]);
+        timerScore = setInterval(tick, scoreV[0]);
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length - 1] * 1;
         }
@@ -737,8 +737,8 @@ function newGameNewCar() {
         draw();
         player.dead = false;
         player2.dead = false;
-        setTimeout(showSlider, 500);
-        setTimeout(() => { document.getElementById(`${last_slider}`).style.top = '50%' }, 1000);
+        detach_content.appendTo('body');
+        document.getElementById(`${last_slider}`).style.top = '50%';
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
         $("#message_score").css("opacity", "0").css("z-index", "-1");
