@@ -177,8 +177,8 @@ class Car {
                 if (player2.x <= 27) {
                     return player2.x = 27;
                 }
-                if (player2.x + player2.image.width * scale >= canvas.width - player.image.width * scale/2 - 5) {
-                    return player2.x = (canvas.width - player.image.width * scale/2 - 5) - player2.image.width * scale;
+                if (player2.x + player2.image.width * scale >= canvas.width - player2.image.width * scale/2 - 5) {
+                    return player2.x = (canvas.width - player2.image.width * scale/2 - 5) - player2.image.width * scale;
                 }
             }
             if (player2.image.width >= 59) {
@@ -709,7 +709,7 @@ function restartGame() {
     if (timer == null || (player.dead == true || player2.dead == true)) {
         objects = [];
         player.x = 262;
-        player2.x = 349;
+        player2.x = 353;
         player.y = canvas.height * playerStartHeightPos;
         player2.y = canvas.height * playerStartHeightPos;
         player.dead = false;
