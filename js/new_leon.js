@@ -41,8 +41,8 @@ var direction = "",
     }
 
 if (window.innerWidth > 550) {
-    $('#new_leon_1').on('mousemove', mousemovemethod);
-    $('#new_leon_2').on('mousemove', mousemovemethod);
+    $('[alt="new_leon_2"]').on('mousemove', mousemovemethod);
+    $('[alt="new_leon_1"]').on('mousemove', mousemovemethod);
 }
 
 if (window.innerWidth < 550) {
