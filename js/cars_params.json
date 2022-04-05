@@ -1,0 +1,147 @@
+{
+  "2008": {
+    "price": 0,
+    "speed": 9.5,
+    "turn_var": 35
+  },
+  "leon": {
+    "price": 0,
+    "speed": 9.5,
+    "turn_var": 35
+  },
+  "new_leon": {
+    "price": 2500,
+    "speed": 10.45,
+    "turn_var": 35
+  },
+  "vaz2113": {
+    "price": 0,
+    "speed": 9.5,
+    "turn_var": 35
+  },
+  "golf": {
+    "price": 0,
+    "speed": 10.45,
+    "turn_var": 32
+  },
+  "superb": {
+    "price": 0,
+    "speed": 9.5,
+    "turn_var": 35
+  },
+  "passat": {
+    "price": 2000,
+    "speed": 10.45,
+    "turn_var": 35
+  },
+  "camry": {
+    "price": 3000,
+    "speed": 10.45,
+    "turn_var": 37
+  },
+  "celica": {
+    "price": 0,
+    "speed": 9.5,
+    "turn_var": 35
+  },
+  "mazda": {
+    "price": 4000,
+    "speed": 10.45,
+    "turn_var": 35
+  },
+  "a1": {
+    "price": 0,
+    "speed": 9.5,
+    "turn_var": 35
+  },
+  "fj": {
+    "price": 1500,
+    "speed": 11.4,
+    "turn_var": 40
+  },
+  "lc": {
+    "price": 1500,
+    "speed": 11.4,
+    "turn_var": 40
+  },
+  "touareg": {
+    "price": 1500,
+    "speed": 11.4,
+    "turn_var": 40
+  },
+  "volvo": {
+    "price": 2000,
+    "speed": 13.775,
+    "turn_var": 40
+  },
+  "tesla": {
+    "price": 3000,
+    "speed": 13.775,
+    "turn_var": 25
+  },
+  "polestar": {
+    "price": 3000,
+    "speed": 10.45,
+    "turn_var": 28
+  },
+  "i8": {
+    "price": 3500,
+    "speed": 10.45,
+    "turn_var": 35
+  },
+  "xl1": {
+    "price": 4500,
+    "speed": 10.45,
+    "turn_var": 35
+  },
+  "scania": {
+    "price": 3500,
+    "speed": 6.3333,
+    "turn_var": 50
+  },
+  "gtr": {
+    "price": 4500,
+    "speed": 13.3,
+    "turn_var": 21
+  },
+  "panamera": {
+    "price": 9000,
+    "speed": 12.825,
+    "turn_var": 25
+  },
+  "enzo": {
+    "price": 4000,
+    "speed": 17.1,
+    "turn_var": 21
+  },
+  "buggati": {
+    "price": 4500,
+    "speed": 20.9,
+    "turn_var": 22
+  },
+  "cbr": {
+    "price": 2500,
+    "speed": 19,
+    "turn_var": 18
+  },
+  "f1": {
+    "price": 5000,
+    "speed": 19,
+    "turn_var": 15
+  },
+  "prius": {
+    "price": 5500,
+    "speed": 10.45,
+    "turn_var": 35
+  },
+  "bmw_x5": {
+    "price": 5000,
+    "speed": 15.675,
+    "turn_var": 27
+  },
+  "cupra": {
+    "price": 9000,
+    "speed": 17.1,
+    "turn_var": 19
+  }
+}
