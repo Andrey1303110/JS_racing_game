@@ -771,8 +771,13 @@ pervue_start.onclick = () => {
     intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
 }
 
-mobile_controls_left.onclick = turn_left;
-mobile_controls_right.onclick = turn_right;
+$('#mobile_controls_right').click(function(){
+    turn_car('right');
+});
+
+$('#mobile_controls_left').click(function(){
+    turn_car('left');
+});
 
 button_question.onclick = () => {
     $("#keyboards_controls").css('opacity', '1').css('z-index', '3');
