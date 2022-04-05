@@ -235,15 +235,15 @@ let roads =
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
-    var jsonTemp = null;
+    var car = null;
     $.ajax({
         'async': false,
         'url': "./js/cars.json",
         'success': function (data) {
-            jsonTemp = data;
+            car = data;
         }
     });
-    return jsonTemp;
+    return car;
 }();
 let randomRoadList = ["images/Smooth_models/tram_1.png", "images/Smooth_models/tram_2.png"];
 
