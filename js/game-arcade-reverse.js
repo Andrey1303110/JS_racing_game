@@ -24,6 +24,8 @@ var upper = 192;
 var scoreTimer = [];
 var detach_content = '';
 
+var turning = false;
+
 setVolume();
 
 function setName() {
@@ -553,39 +555,36 @@ function drawCar(car) {
     }
 }
 
-function turn_left() {
-    document.getElementById('sound_wheel_left').play();
-    let timerId65 = setInterval(() => {
-        player.move("x", -speed * .15)
-    }, turn_var);
-    setTimeout(() => { clearInterval(timerId65); }, turn_var * 10);
-}
-
-function turn_right() {
-    document.getElementById('sound_wheel_right').play();
-    let right = setInterval(() => {
-        player.move("x", speed * .15)
-    }, turn_var);
-    setTimeout(() => { clearInterval(right); }, turn_var * 10);
+function turn_car(direction) {
+    let coefficient;
+    direction == 'left' ? coefficient = -1 : coefficient = 1;
+    document.getElementById(`sound_wheel_${direction}`).play();
+    if (!turning) {
+        let turn = setInterval(() => {
+            player.move("x", speed * .15 * coefficient);
+            turning = true;
+        }, turn_var);
+        setTimeout(() => { clearInterval(turn); turning = false; }, turn_var * 10);
+    }
 }
 
 function KeyDown(e) {
     if (timer != null) {
         switch (e.keyCode) {
             case 37: //Left
-                turn_left();
+                turn_car('left');
                 break;
-
-            case 65: //Left
-                turn_left();
+                
+           case 65: //left
+                turn_car('left');
                 break;
 
             case 39: //Right
-                turn_right();
+                turn_car('right');
                 break;
 
             case 68: //Right
-                turn_right();
+                turn_car('right');
                 break;
 
             case 38: //Up
