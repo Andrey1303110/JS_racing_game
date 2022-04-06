@@ -199,6 +199,7 @@ video {
 #timer {
     opacity: 0;
 	text-align: left;
+    font-family: 'Architects Daughter';
     width: 100%;
     padding-left: 35px;
 	position: absolute;
