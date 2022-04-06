@@ -597,26 +597,13 @@ function drawCar(car) {
     }
 }
 
-function turn_car(direction) {
+function turn_car(direction, object, speed) {
     let coefficient;
     direction == 'left' ? coefficient = -1 : coefficient = 1;
     document.getElementById(`sound_wheel_${direction}`).play();
     if (!turning) {
         let turn = setInterval(() => {
-            player.move("x", speed * .15 * coefficient);
-            turning = true;
-        }, turn_var);
-        setTimeout(() => { clearInterval(turn); turning = false; }, turn_var * 10);
-    }
-}
-
-function turn_car2(direction) {
-    let coefficient;
-    direction == 'left' ? coefficient = -1 : coefficient = 1;
-    document.getElementById(`sound_wheel_${direction}`).play();
-    if (!turning) {
-        let turn = setInterval(() => {
-            player2.move("x", speed * .15 * coefficient);
+            object.move("x", speed * .15 * coefficient);
             turning = true;
         }, turn_var);
         setTimeout(() => { clearInterval(turn); turning = false; }, turn_var * 10);
@@ -627,19 +614,19 @@ function KeyDown(e) {
     if (timer != null) {
         switch (e.keyCode) {
             case 37: //Left
-                turn_car('left');
+                turn_car('left', player, speed);
                 break;
 
             case 65: //Left
-                turn_car2('left');
+                turn_car('left', player2, speed);
                 break;
 
             case 39: //Right
-                turn_car('right');
+                turn_car('right', player, speed);
                 break;
 
             case 68: //Right
-                turn_car2('right');
+                turn_car('right', player2, speed);
                 break;
 
             case 38: //Up
@@ -832,8 +819,13 @@ pervue_start.onclick = () => {
     intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
 }
 
-mobile_controls_left.onclick = turn_left;
-mobile_controls_right.onclick = turn_right;
+$('#mobile_controls_right').click(function(){
+    turn_car('right', player, speed);
+});
+
+$('#mobile_controls_left').click(function(){
+    turn_car('left', player, speed);
+});
 
 button_question.onclick = () => {
     $("#keyboards_controls").css('opacity', '1').css('z-index', '3');

@@ -555,13 +555,13 @@ function drawCar(car) {
     }
 }
 
-function turn_car(direction) {
+function turn_car(direction, object, speed) {
     let coefficient;
     direction == 'left' ? coefficient = -1 : coefficient = 1;
     document.getElementById(`sound_wheel_${direction}`).play();
     if (!turning) {
         let turn = setInterval(() => {
-            player.move("x", speed * .15 * coefficient);
+            object.move("x", speed * .15 * coefficient);
             turning = true;
         }, turn_var);
         setTimeout(() => { clearInterval(turn); turning = false; }, turn_var * 10);
@@ -572,19 +572,19 @@ function KeyDown(e) {
     if (timer != null) {
         switch (e.keyCode) {
             case 37: //Left
-                turn_car('left');
+                turn_car('left', player, speed);
                 break;
                 
            case 65: //left
-                turn_car('left');
+                turn_car('left', player, speed);
                 break;
 
             case 39: //Right
-                turn_car('right');
+                turn_car('right', player, speed);
                 break;
 
             case 68: //Right
-                turn_car('right');
+                turn_car('right', player, speed);
                 break;
 
             case 38: //Up
@@ -772,11 +772,11 @@ pervue_start.onclick = () => {
 }
 
 $('#mobile_controls_right').click(function(){
-    turn_car('right');
+    turn_car('right', player, speed);
 });
 
 $('#mobile_controls_left').click(function(){
-    turn_car('left');
+    turn_car('left', player, speed);
 });
 
 button_question.onclick = () => {
