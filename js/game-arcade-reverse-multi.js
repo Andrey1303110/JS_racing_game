@@ -258,27 +258,27 @@ let roads =
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
-    var jsonTemp = null;
+    var car = null;
     $.ajax({
         'async': false,
         'url': "./js/cars.json",
         'success': function (data) {
-            jsonTemp = data;
+            car = data;
         }
     });
-    return jsonTemp;
+    return car;
 }();
 
 let cars_reverse = function () { // доступ к JSON
-    var jsonTemp = null;
+    var car = null;
     $.ajax({
         'async': false,
         'url': "./js/cars-reverse.json",
         'success': function (data) {
-            jsonTemp = data;
+            car = data;
         }
     });
-    return jsonTemp;
+    return car;
 }();
 
 var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];

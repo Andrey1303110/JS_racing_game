@@ -125,7 +125,7 @@ class Car {
             return this.x = 12
         }
         if (this.x == 181 && !this.isPlayer) {
-            if (this.y < canvas.height/20 && this.y > 0) { tram.currentTime =0; tram.play(); }
+            if (this.y < canvas.height / 20 && this.y > 0) { tram.currentTime = 0; tram.play(); }
         }
     }
 
@@ -154,8 +154,8 @@ class Car {
                 if (player.x <= 27) {
                     return player.x = 27;
                 }
-                if (player.x + player.image.width * scale >= canvas.width - player.image.width * scale/2 - 5) {
-                    return player.x = (canvas.width - player.image.width * scale/2 - 5) - player.image.width * scale;
+                if (player.x + player.image.width * scale >= canvas.width - player.image.width * scale / 2 - 5) {
+                    return player.x = (canvas.width - player.image.width * scale / 2 - 5) - player.image.width * scale;
                 }
             }
             if (player.image.width >= 59) {
@@ -236,22 +236,22 @@ let roads =
     ]; //Background в виде дороги
 
 let cars = function () { // доступ к JSON
-    var jsonTemp = null;
+    var car = null;
     $.ajax({
         'async': false,
         'url': "./js/cars.json",
         'success': function (data) {
-            jsonTemp = data;
+            car = data;
         }
     });
-    return jsonTemp;
+    return car;
 }();
 let randomRoadList = ["images/Smooth_models/tram_1.png", "images/Smooth_models/tram_2.png"];
 
 function setPreloadCars() {
     if (innerWidth > 550) {
         preloadcars();
-        $(".music").each(function(){
+        $(".music").each(function () {
             this.preload = "auto";
         })
     }
@@ -304,20 +304,20 @@ function start(sec) {
             upDifficulty();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-camry') {
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('main_theme' + 10).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-panamera') {
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('main_theme' + 11).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-lc') {
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('main_theme' + 12).play();
         }
@@ -399,7 +399,7 @@ function update() {
                 return upper = 162
             }
         }
-        if ( (xCars == 150) && (objects.filter(objects => objects.x == tramX).length == 0) ) {
+        if ((xCars == 150) && (objects.filter(objects => objects.x == tramX).length == 0)) {
             let selfSpeed = randomInteger(11, 13) / 10;
             let randomRoadBarrier = randomRoadList[Math.floor(Math.random() * randomRoadList.length)];
             objects.push(new Car(randomRoadBarrier, tramX, canvas.height * -1, false, selfSpeed));
@@ -409,7 +409,7 @@ function update() {
     for (let i = 0; i < objects.length; i++) {
         for (let j = 0; j < objects.length; j++) {
             if (objects[i].x == objects[j].x && (objects[j].selfSpeed < objects[i].selfSpeed)) {
-                if (objects[j].y + objects[j].image.height * scale + objects[j].image.height * scale / 2 > objects[i].y && (objects[i].y > 0 && objects[j].y > 0) ) {
+                if (objects[j].y + objects[j].image.height * scale + objects[j].image.height * scale / 2 > objects[i].y && (objects[i].y > 0 && objects[j].y > 0)) {
                     objects[j].selfSpeed = objects[i].selfSpeed;
                 }
             }
@@ -420,8 +420,8 @@ function update() {
         let filter_x = objects.filter(objects => objects.x == allCarsX[q]);
         if (filter_x.length >= 2) {
             for (let i = 1; i < filter_x.length; i++) {
-                if (filter_x[i].y + filter_x[i].image.height * scale > filter_x[i-1].y) { 
-                    filter_x[i].y = filter_x[i].y - filter_x[i].image.height * scale;  
+                if (filter_x[i].y + filter_x[i].image.height * scale > filter_x[i - 1].y) {
+                    filter_x[i].y = filter_x[i].y - filter_x[i].image.height * scale;
                 }
             }
         }
@@ -775,7 +775,7 @@ function showScore() {
 }
 
 function preloadcars() {
-    $(document).ready(function(){
+    $(document).ready(function () {
         for (let i = 0; i < cars.length; i++) {
             $('#game_cars').append('<img src=' + cars[i] + '>');
         }
@@ -785,7 +785,7 @@ function preloadcars() {
         for (let k = 1; k < 25; k++) {
             let carsSrc = ["leon/blue", "leon/red", "leon/white", "golf/blue", "vaz2113/black", "vaz2113/white", "superb/green", "camry/black", "celica/red", "mazda/blue", "lc/black", "lc/violet"];
             for (let e = 0; e < carsSrc.length; e++) {
-               $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/'+ carsSrc[e] +'/' + k + '.png>'); 
+                $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/' + carsSrc[e] + '/' + k + '.png>');
             }
         }
         for (let g = 1; g < 24; g++) {
@@ -798,73 +798,73 @@ function preloadcars() {
         $('#game_cars').append('<img src=./images/Smooth_models/tram_1.png>');
         $('#game_cars').append('<img src=./images/Smooth_models/tram_2.png>');
         $('#game_cars').append('<img src=./images/road/road7_1_railways.webp>');
-        $('#game_cars').append('<img src=./images/road/road7_2_railways.webp>'); 
-        $('#game_cars').append('<img src=./images/road/road7_3_railways.webp>'); 
+        $('#game_cars').append('<img src=./images/road/road7_2_railways.webp>');
+        $('#game_cars').append('<img src=./images/road/road7_3_railways.webp>');
     })
 }
 
 setPreloadCars();
 
-$(document).ready(function(){
+$(document).ready(function () {
     $("#name_player")[0].value = localStorage.getItem('name');
 })
 
-gyro_handling = function() {
+gyro_handling = function () {
     if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
-  
+
         let lastReadingTimestamp;
         let accelerometer = new LinearAccelerationSensor();
         accelerometer.addEventListener('reading', e => {
-          if (lastReadingTimestamp) {
-            intervalHandler(Math.round(accelerometer.timestamp - lastReadingTimestamp));
-          }
-          lastReadingTimestamp = accelerometer.timestamp
-          accelerationHandler(accelerometer, 'moAccel');
+            if (lastReadingTimestamp) {
+                intervalHandler(Math.round(accelerometer.timestamp - lastReadingTimestamp));
+            }
+            lastReadingTimestamp = accelerometer.timestamp
+            accelerationHandler(accelerometer, 'moAccel');
         });
         accelerometer.start();
-        
+
         if ('GravitySensor' in window) {
-          let gravity = new GravitySensor();
-          gravity.addEventListener('reading', e => accelerationHandler(gravity, 'moAccelGrav'));
-          gravity.start();
+            let gravity = new GravitySensor();
+            gravity.addEventListener('reading', e => accelerationHandler(gravity, 'moAccelGrav'));
+            gravity.start();
         }
-        
+
         let gyroscope = new Gyroscope();
         gyroscope.addEventListener('reading', e => rotationHandler({
-          alpha: gyroscope.x,
-          beta: gyroscope.y,
-          gamma: gyroscope.z
+            alpha: gyroscope.x,
+            beta: gyroscope.y,
+            gamma: gyroscope.z
         }));
         gyroscope.start();
-        
-      } else if ('DeviceMotionEvent' in window) {
-        
+
+    } else if ('DeviceMotionEvent' in window) {
+
         var onDeviceMotion = function (eventData) {
-          accelerationHandler(eventData.accelerationIncludingGravity, 'moAccelGrav');
+            accelerationHandler(eventData.accelerationIncludingGravity, 'moAccelGrav');
         }
-        
+
         window.addEventListener('devicemotion', onDeviceMotion, false);
-      } 
-      
-      function accelerationHandler(acceleration) {
+    }
+
+    function accelerationHandler(acceleration) {
         if (!player.dead) {
             old_pos_x = 0;
             if (acceleration.x > 0) {
                 if (acceleration.x < .75) return
                 if (acceleration.x > old_pos_x + .5) {
-                    player.x -= canvas.width/13;
+                    player.x -= canvas.width / 13;
                 }
             }
             if (acceleration.x < 0) {
                 if (acceleration.x > -.75) return
                 if (acceleration.x < old_pos_x - -.5) {
-                    player.x += canvas.width/13;
+                    player.x += canvas.width / 13;
                 }
             }
             old_pos_x = acceleration.x;
             draw();
         }
         if (player.dead) return false;
-      }
+    }
 }();
 
