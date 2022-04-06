@@ -8,12 +8,6 @@ function car_rotate(car_name = 'leon') {
         last_frame = car["frames"];
         colors = car["colors"];
         slides = car["slides"];
-
-        console.log(frame_num);
-        console.log(last_frame);
-        console.log(colors);
-        console.log(slides);
-        console.log(car_name);
     
         var direction = "",
         oldx = 0,
