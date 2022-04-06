@@ -55,7 +55,7 @@
     "turn_var": 35,
     "is_3d" : true,
     "frames": 50,
-    "init_frame" : 1,
+    "init_frame" : 13,
     "colors" : ["silver"],
     "slides" : ["230"]
   },
