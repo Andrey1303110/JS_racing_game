@@ -86,7 +86,7 @@ $(document).ready(function () {
         upSlider();
         returnStartPos();
         document.getElementById(`slider-down-${this.name}`).style.top = '50%';
-        $("#cbr_main").click(function () {
+        $(".main_screen_cars_img[name='cbr']").click(function () {
             setTimeout(() => { returnStartPosMoto() }, 1500)
         })
     });
