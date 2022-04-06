@@ -24,8 +24,6 @@ var upper = 192;
 var scoreTimer = [];
 var detach_content = '';
 
-var turning = false;
-
 setVolume();
 
 function setName() {
@@ -90,13 +88,14 @@ class Road {
 }
 
 class Car {
-    constructor(image, x, y, isPlayer, selfSpeed) {
+    constructor(image, x, y, isPlayer, selfSpeed, turning) {
         this.x = x;
         this.y = y;
         this.loaded = false;
         this.dead = false;
         this.isPlayer = isPlayer;
         this.selfSpeed = selfSpeed;
+        this.turning = false;
 
         this.image = new Image();
 
@@ -600,15 +599,16 @@ function drawCar(car) {
 function turn_car(direction, object, speed) {
     let coefficient;
     direction == 'left' ? coefficient = -1 : coefficient = 1;
-    document.getElementById(`sound_wheel_${direction}`).play();
-    if (!turning) {
+    if (object == player || object == player2) document.getElementById(`sound_wheel_${direction}`).play();
+
+    if (!object.turning) {
         let turn = setInterval(() => {
             object.move("x", speed * .15 * coefficient);
-            turning = true;
+            object.turning = true;
         }, turn_var);
-        setTimeout(() => { clearInterval(turn); turning = false; }, turn_var * 10);
+        setTimeout(() => { clearInterval(turn); object.turning = false; }, turn_var * 10);
     }
-}
+} 
 
 function KeyDown(e) {
     if (timer != null) {
