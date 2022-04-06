@@ -818,8 +818,11 @@ function preloadcars() {
             $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/red/' + g + '.png>');
             $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/white/' + g + '.png>');
         }
+        for (let l = 1; l < 50; l++) {
+            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/passat/silver/' + l + '.png>');
+        }
         for (let u = 1; u < 73; u++) {
-            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/cupra/' + u + '.png>');
+            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/cupra/custom/' + u + '.png>');
         }
         $('#game_cars').append('<img src=./images/road/road7_1.webp>');
     })

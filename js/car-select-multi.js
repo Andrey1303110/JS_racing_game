@@ -44,7 +44,7 @@ function locked_cars(car_name = 'leon') {
     }
 
     speed = cars_params[car_name]['speed'];
-    moveD = speed_to_turn/speed;
+    moveD = speed_to_turn / speed;
     turn_var = cars_params[car_name]['turn_var'];
 }
 
@@ -57,7 +57,7 @@ function showSlider() {
 }
 
 function clearCarPreloadDOM() {
-    $(document).ready(function(){
+    $(document).ready(function () {
         if (document.getElementById('for_name') != null) {
             document.getElementById('for_name').remove();
         }
@@ -80,7 +80,7 @@ function upSlider() {
 
 $(document).ready(function () {
     $(".main_screen_cars_img").click(function () {
-        addScript3d(this.alt);
+        car_rotate(this.name);
         $("#lock_cars").removeClass("active_lock");
         locked_cars(this.name);
         upSlider();
@@ -93,7 +93,7 @@ $(document).ready(function () {
 });
 
 function setPosY() {
-    return () => {player.y = canvas.height - (player.image.height * scale) - 50; player2.y = canvas.height - (player.image.height * scale) - 50;}
+    return () => { player.y = canvas.height - (player.image.height * scale) - 50; player2.y = canvas.height - (player.image.height * scale) - 50; }
 }
 
 var isPolice = false;
@@ -115,17 +115,18 @@ $(document).ready(function () {
         sessionStorage.setItem('current car', this.alt);
         player.image.src = `./images/Smooth_models/${this.alt}.png`;
 
-        let car_count = document.querySelectorAll(`#slider-down-${this.name}`)[0].children[1].children[0].childElementCount; 
+        let car_count = document.querySelectorAll(`#slider-down-${this.name}`)[0].children[1].children[0].childElementCount;
         let car_number = getRandomIntInclusive(1, car_count);
         let str = this.alt;
-        str = str.slice(0, -1); 
+        str = str.slice(0, -1);
         player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
         if (this.alt == "bmw_x5_1") player2.image.src = `./images/Smooth_models/bmw_x5_3.png`;
-        if (this.alt == "celica_1") player2.image.src = `./images/Smooth_models/celica_2.png`;
-        if (this.alt == "golf_1") player2.image.src = `./images/Smooth_models/golf_2.png`;
-        if (this.alt == "mazda_1") player2.image.src = `./images/Smooth_models/mazda_2.png`;
-        if (this.alt == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
-        if (this.alt == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
+        else if (this.alt == "celica_1") player2.image.src = `./images/Smooth_models/celica_2.png`;
+        else if (this.alt == "golf_1") player2.image.src = `./images/Smooth_models/golf_2.png`;
+        else if (this.alt == "mazda_1") player2.image.src = `./images/Smooth_models/mazda_2.png`;
+        else if (this.alt == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
+        else if (this.alt == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
+        else if (this.alt == "passat_1") player2.image.src = `./images/Smooth_models/passat_2.png`;
     });
 });
 
@@ -239,17 +240,5 @@ function prius_function() {
 $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
 
-function addScript3d(scriptName) {
-    let str = $('.cars_3d')[0].attributes[1].nodeValue;
-    str = str.slice(5, -3);
-    if (scriptName != '' && scriptName != str) {
-        $('.cars_3d').each(function(){
-            $(this).remove()
-        })
-        let s = document.createElement("script");
-        s.type = "text/javascript";
-        s.src = "./js/" + scriptName + ".js";
-        s.classList.add("cars_3d");
-        $("body").append(s);
-    }
-}
+car_rotate();
+

@@ -44,7 +44,7 @@ function locked_cars(car_name = 'leon') {
     }
 
     speed = cars_params[car_name]['speed'];
-    moveD = speed_to_turn/speed;
+    moveD = speed_to_turn / speed;
     turn_var = cars_params[car_name]['turn_var'];
 }
 
@@ -57,7 +57,7 @@ function showSlider() {
 }
 
 function clearCarPreloadDOM() {
-    $(document).ready(function(){
+    $(document).ready(function () {
         if (document.getElementById('for_name') != null) {
             document.getElementById('for_name').remove();
         }
@@ -80,7 +80,7 @@ function upSlider() {
 
 $(document).ready(function () {
     $(".main_screen_cars_img").click(function () {
-        addScript3d(this.alt);
+        car_rotate(this.name);
         $("#lock_cars").removeClass("active_lock");
         locked_cars(this.name);
         upSlider();
@@ -203,17 +203,4 @@ function prius_function() {
 $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
 
-function addScript3d(scriptName) {
-    let str = $('.cars_3d')[0].attributes[1].nodeValue;
-    str = str.slice(5, -3);
-    if (scriptName != '' && scriptName != str) {
-        $('.cars_3d').each(function(){
-            $(this).remove()
-        })
-        let s = document.createElement("script");
-        s.type = "text/javascript";
-        s.src = "./js/" + scriptName + ".js";
-        s.classList.add("cars_3d");
-        $("body").append(s);
-    }
-}
+car_rotate();

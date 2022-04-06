@@ -1,55 +1,97 @@
 {
-  "2008": {
-    "price": 0,
-    "speed": 9.5,
-    "turn_var": 35
-  },
   "leon": {
     "price": 0,
     "speed": 9.5,
-    "turn_var": 35
+    "turn_var": 35,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["blue", "red", "white"],
+    "slides" : ["00", "01", "02"]
   },
   "new_leon": {
     "price": 2500,
     "speed": 10.45,
-    "turn_var": 35
+    "turn_var": 35,
+    "is_3d" : true,
+    "frames": 24,
+    "init_frame" : 3,
+    "colors" : ["red", "white"],
+    "slides" : ["280", "281"]
   },
   "vaz2113": {
     "price": 0,
-    "speed": 9.5,
-    "turn_var": 35
+    "speed": 9,
+    "turn_var": 38,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["white", "black"],
+    "slides" : ["200", "201"]
   },
   "golf": {
     "price": 0,
     "speed": 10.45,
-    "turn_var": 32
+    "turn_var": 32,
+    "is_3d" : true,
+    "frames": 24,
+    "init_frame" : 3,
+    "colors" : ["blue"],
+    "slides" : ["210"]
   },
   "superb": {
     "price": 0,
-    "speed": 9.5,
-    "turn_var": 35
+    "speed": 10,
+    "turn_var": 36,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["green"],
+    "slides" : ["220"]
   },
   "passat": {
     "price": 2000,
     "speed": 10.45,
-    "turn_var": 35
+    "turn_var": 35,
+    "is_3d" : true,
+    "frames": 50,
+    "init_frame" : 1,
+    "colors" : ["silver"],
+    "slides" : ["230"]
   },
   "camry": {
     "price": 3000,
     "speed": 10.45,
-    "turn_var": 37
+    "turn_var": 37,
+    "is_3d" : true,
+    "frames": 25
   },
   "celica": {
     "price": 0,
     "speed": 9.5,
-    "turn_var": 35
+    "turn_var": 35,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["red"],
+    "slides" : ["250"]
   },
   "mazda": {
     "price": 4000,
     "speed": 10.45,
-    "turn_var": 35
+    "turn_var": 35,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["blue"],
+    "slides" : ["260"]
   },
   "a1": {
+    "price": 0,
+    "speed": 9.5,
+    "turn_var": 35
+  },
+  "2008": {
     "price": 0,
     "speed": 9.5,
     "turn_var": 35
@@ -62,7 +104,12 @@
   "lc": {
     "price": 1500,
     "speed": 11.4,
-    "turn_var": 40
+    "turn_var": 40,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["violet", "black"],
+    "slides" : ["270", "271"]
   },
   "touareg": {
     "price": 1500,
@@ -137,11 +184,18 @@
   "bmw_x5": {
     "price": 5000,
     "speed": 15.675,
-    "turn_var": 27
+    "turn_var": 27,
+    "is_3d" : true,
+    "frames": 36
   },
   "cupra": {
     "price": 9000,
     "speed": 17.1,
-    "turn_var": 19
+    "turn_var": 19,
+    "is_3d" : true,
+    "frames": 73,
+    "init_frame" : 3,
+    "colors" : ["custom"],
+    "slides" : ["290"]
   }
 }
