@@ -785,7 +785,7 @@ function preloadcars() {
             $('#game_cars').append('<img src=' + cars[i] + '>');
         }
         for (let j = 1; j < 36; j++) {
-            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw/' + j + '.png>');
+            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw_x5/blue/' + j + '.png>');
         }
         for (let k = 1; k < 25; k++) {
             let carsSrc = ["leon/blue", "leon/red", "leon/white", "golf/blue", "vaz2113/black", "vaz2113/white", "superb/green", "camry/black", "celica/red", "mazda/blue", "lc/black", "lc/violet"];

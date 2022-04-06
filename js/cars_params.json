@@ -14,7 +14,7 @@
     "speed": 10.45,
     "turn_var": 35,
     "is_3d" : true,
-    "frames": 24,
+    "frames": 23,
     "init_frame" : 3,
     "colors" : ["red", "white"],
     "slides" : ["280", "281"]
@@ -64,7 +64,10 @@
     "speed": 10.45,
     "turn_var": 37,
     "is_3d" : true,
-    "frames": 25
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["black"],
+    "slides" : ["240"]
   },
   "celica": {
     "price": 0,
@@ -186,15 +189,18 @@
     "speed": 15.675,
     "turn_var": 27,
     "is_3d" : true,
-    "frames": 36
+    "frames": 35,
+    "init_frame" : 33,
+    "colors" : ["blue"],
+    "slides" : ["180"]
   },
   "cupra": {
     "price": 9000,
     "speed": 17.1,
     "turn_var": 19,
     "is_3d" : true,
-    "frames": 73,
-    "init_frame" : 3,
+    "frames": 72,
+    "init_frame" : 6,
     "colors" : ["custom"],
     "slides" : ["290"]
   }
