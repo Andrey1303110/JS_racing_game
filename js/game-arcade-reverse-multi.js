@@ -88,7 +88,7 @@ class Road {
 }
 
 class Car {
-    constructor(image, x, y, isPlayer, selfSpeed, turning) {
+    constructor(image, x, y, isPlayer, selfSpeed) {
         this.x = x;
         this.y = y;
         this.loaded = false;
@@ -119,10 +119,10 @@ class Car {
                 let src = this.image.src;
                 src = src.slice(-13);
                 if (src == "road_work.png") {
-                    if (this.y < canvas.height/40 && this.y > 0) { road.currentTime = 0; road.play(); }
+                    if (this.y < canvas.height / 40 && this.y > 0) { road.currentTime = 0; road.play(); }
                 }
             }
-            
+
         }
 
         if (this.y > canvas.height) {
@@ -161,8 +161,8 @@ class Car {
                 if (player.x <= 27) {
                     return player.x = 27;
                 }
-                if (player.x + player.image.width * scale >= canvas.width - player.image.width * scale/2 - 5) {
-                    return player.x = (canvas.width - player.image.width * scale/2 - 5) - player.image.width * scale;
+                if (player.x + player.image.width * scale >= canvas.width - player.image.width * scale / 2 - 5) {
+                    return player.x = (canvas.width - player.image.width * scale / 2 - 5) - player.image.width * scale;
                 }
             }
             if (player.image.width >= 59) {
@@ -178,8 +178,8 @@ class Car {
                 if (player2.x <= 27) {
                     return player2.x = 27;
                 }
-                if (player2.x + player2.image.width * scale >= canvas.width - player2.image.width * scale/2 - 5) {
-                    return player2.x = (canvas.width - player2.image.width * scale/2 - 5) - player2.image.width * scale;
+                if (player2.x + player2.image.width * scale >= canvas.width - player2.image.width * scale / 2 - 5) {
+                    return player2.x = (canvas.width - player2.image.width * scale / 2 - 5) - player2.image.width * scale;
                 }
             }
             if (player2.image.width >= 59) {
@@ -286,7 +286,7 @@ var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_model
 function setPreloadCars() {
     if (innerWidth > 550) {
         preloadcars();
-        $(".music").each(function(){
+        $(".music").each(function () {
             this.preload = "auto";
         })
     }
@@ -340,20 +340,20 @@ function start(sec) {
             upDifficulty();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-camry') {
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('main_theme' + 10).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-panamera') {
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('main_theme' + 11).play();
         }
         if (sessionStorage.getItem('last down slider') == 'slider-down-lc') {
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('main_theme' + 12).play();
         }
@@ -382,8 +382,8 @@ function start(sec) {
 }
 
 function stop() {
-    for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-        document.getElementsByClassName('music')[i].pause() 
+    for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+        document.getElementsByClassName('music')[i].pause()
     }
     for (let i = 1; i < document.getElementsByClassName('sfx').length; i++) {
         document.getElementsByClassName('sfx')[i].pause()
@@ -447,7 +447,7 @@ function update() {
     for (let i = 0; i < objects.length; i++) {
         for (let j = 0; j < objects.length; j++) {
             if (objects[i].x == objects[j].x && (objects[j].selfSpeed < objects[i].selfSpeed)) {
-                if (objects[j].y + objects[j].image.height * scale + objects[j].image.height * scale / 2 > objects[i].y && (objects[i].y > 0 && objects[j].y > 0) ) {
+                if (objects[j].y + objects[j].image.height * scale + objects[j].image.height * scale / 2 > objects[i].y && (objects[i].y > 0 && objects[j].y > 0)) {
                     objects[j].selfSpeed = objects[i].selfSpeed;
                 }
             }
@@ -458,8 +458,8 @@ function update() {
         let filter_x = objects.filter(objects => objects.x == allCarsX[q]);
         if (filter_x.length >= 2) {
             for (let i = 1; i < filter_x.length; i++) {
-                if (filter_x[i].y + filter_x[i].image.height * scale > filter_x[i-1].y) { 
-                    filter_x[i].y = filter_x[i].y - filter_x[i].image.height * scale;  
+                if (filter_x[i].y + filter_x[i].image.height * scale > filter_x[i - 1].y) {
+                    filter_x[i].y = filter_x[i].y - filter_x[i].image.height * scale;
                 }
             }
         }
@@ -497,8 +497,8 @@ function update() {
             stop();
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('siren_sound').pause();
             menu.style.top = "23%";
@@ -519,8 +519,8 @@ function update() {
             stop();
             document.getElementById("timer").style.opacity = "0";
             document.getElementById('sound').play();
-            for (let i=0; i < document.getElementsByClassName('music').length; i++) {
-                document.getElementsByClassName('music')[i].pause() 
+            for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
+                document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('siren_sound').pause();
             menu.style.top = "23%";
@@ -608,7 +608,7 @@ function turn_car(direction, object, speed) {
         }, turn_var);
         setTimeout(() => { clearInterval(turn); object.turning = false; }, turn_var * 10);
     }
-} 
+}
 
 function KeyDown(e) {
     if (timer != null) {
@@ -640,12 +640,12 @@ function KeyDown(e) {
             case 40: //Down
                 player.move("y", speed);
                 if (sessionStorage.getItem('current car') == 'passat_1') {
-                    if (player.image.src != './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png') { 
+                    if (player.image.src != './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png') {
                         player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + 's' + '.png';
-                        setTimeout (()=>{player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + '.png'},250) 
+                        setTimeout(() => { player.image.src = './images/Smooth_models/' + sessionStorage.getItem('current car') + '.png' }, 250)
                     }
-                    else { 
-                        return; 
+                    else {
+                        return;
                     }
                 }
                 break;
@@ -819,11 +819,11 @@ pervue_start.onclick = () => {
     intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
 }
 
-$('#mobile_controls_right').click(function(){
+$('#mobile_controls_right').click(function () {
     turn_car('right', player, speed);
 });
 
-$('#mobile_controls_left').click(function(){
+$('#mobile_controls_left').click(function () {
     turn_car('left', player, speed);
 });
 
@@ -848,7 +848,7 @@ function showScore() {
 }
 
 function preloadcars() {
-    $(document).ready(function(){
+    $(document).ready(function () {
         for (let i = 0; i < cars.length; i++) {
             $('#game_cars').append('<img src=' + cars[i] + '>');
             $('#game_cars').append('<img src=' + cars_reverse[i] + '>');
@@ -859,7 +859,7 @@ function preloadcars() {
         for (let k = 1; k < 25; k++) {
             let carsSrc = ["leon/blue", "leon/red", "leon/white", "golf/blue", "vaz2113/black", "vaz2113/white", "superb/green", "camry/black", "celica/red", "mazda/blue", "lc/black", "lc/violet"];
             for (let e = 0; e < carsSrc.length; e++) {
-               $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/'+ carsSrc[e] +'/' + k + '.png>'); 
+                $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/' + carsSrc[e] + '/' + k + '.png>');
             }
         }
         for (let g = 1; g < 24; g++) {
@@ -875,6 +875,6 @@ function preloadcars() {
 
 setPreloadCars();
 
-$(document).ready(function(){
+$(document).ready(function () {
     $("#name_player")[0].value = localStorage.getItem('name');
 })
