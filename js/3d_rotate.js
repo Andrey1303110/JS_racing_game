@@ -8,14 +8,6 @@ function car_rotate(car_name = 'leon') {
         last_frame = car["frames"];
         colors = car["colors"];
         slides = car["slides"];
-
-        setTimeout(()=>{
-            $(`#slick-slide${slides[l]}`)[0].src = `./images/Cars_main_screen/all_cars/${car_name}/${colors[l]}/${frame_num}.png`;
-
-            let rotate = setInterval(()=>{
-                $(`#slick-slide${slides[l]}`)[0].src = `./images/Cars_main_screen/all_cars/${car_name}/${colors[l]}/${frame_num}.png`;
-            }, 125)
-        }, 1500)
     
         var direction = "",
         oldx = 0,
