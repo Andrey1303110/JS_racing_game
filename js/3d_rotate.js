@@ -8,19 +8,36 @@ function car_rotate(car_name = 'leon') {
         last_frame = car["frames"];
         colors = car["colors"];
         slides = car["slides"];
+
+        setTimeout(()=>{
+            $(`#slick-slide${slides[l]}`)[0].src = `./images/Cars_main_screen/all_cars/${car_name}/${colors[l]}/${frame_num}.png`;
+
+            let rotate = setInterval(()=>{
+                $(`#slick-slide${slides[l]}`)[0].src = `./images/Cars_main_screen/all_cars/${car_name}/${colors[l]}/${frame_num}.png`;
+            }, 125)
+        }, 1500)
     
         var direction = "",
         oldx = 0,
         mousemovemethod = function (e) {
+
+            let new_pos = 9;
+
+            if (last_frame > 25) {
+                new_pos = 8;
+            }
+            else if (last_frame > 50) {
+                new_pos = 6;
+            }
     
-            if (e.pageX < oldx - 6) {
+            if (e.pageX < oldx - new_pos) {
                 direction = "left";
                 frame_num -= 1;
                 if (frame_num < 1) {
                     frame_num = last_frame;
                 }
             }
-            else if (e.pageX > oldx + 6) {
+            else if (e.pageX > oldx + new_pos) {
                 direction = "right";
                 frame_num += 1;
                 if (frame_num >= last_frame) {
