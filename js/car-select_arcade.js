@@ -4,7 +4,7 @@ var moveD, speed, turn_var;
 
 let eS = document.getElementById('engine_start');
 
-let slides = document.getElementsByClassName("your-class slider-down");
+let slides = document.getElementsByClassName("slider-down");
 let slider = document.getElementById('slider');
 
 let playerCarSelect = 0;
@@ -74,7 +74,7 @@ $(document).ready(function () {
 
 
 function upSlider() {
-    let sliderX = document.getElementsByClassName('your-class slider-down');
+    let sliderX = document.getElementsByClassName('slider-down');
     for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-110%'; }
 }
 

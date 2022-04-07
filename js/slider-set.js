@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.your-class').slick({
+    $('.slider-down').slick({
         arrows: true,
         dots: true,
         infinite: true,
