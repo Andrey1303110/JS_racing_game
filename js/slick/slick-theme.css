@@ -129,7 +129,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -70px;
+    bottom: -100px;
 
     justify-content: space-evenly;
     display: flex;
