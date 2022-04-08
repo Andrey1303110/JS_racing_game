@@ -782,8 +782,10 @@ button_top_score[1].onclick = () => {
 }
 
 function showScore() {
-    $("#message_score")[0].innerText = "you've earned " + $("#timer")[0].innerText + '$';
+    document.querySelector('#score_count').textContent = 0;
     $("#message_score").css("opacity", "1").css('z-index', '2');
+    let score = Number($("#timer")[0].innerText);
+    setTimeout(()=>{live_counter(score, 'score_count', 500)}, 750);
 }
 
 setPreloadCars();
@@ -823,3 +825,23 @@ function preloadcars() {
 $(document).ready(function () {
     $("#name_player")[0].value = localStorage.getItem('name');
 })
+
+function live_counter(last_number, target_id) {
+    let frame = 1000/60
+    let all_time = 1500;
+    let count = all_time/frame;
+    let one_iteration_value = Math.round(last_number/count);
+    let target = document.querySelector(`#${target_id}`);
+    let i = 0;
+    let counter = setInterval(()=>{
+        target.textContent = Number(target.textContent) + Number(one_iteration_value);
+        if (i >= count) {
+            clearInterval(counter);
+            target.textContent = last_number;
+        }
+    }, frame);
+    setTimeout(()=>{
+        clearInterval(counter);
+        target.textContent = last_number;
+    }, all_time);
+}

@@ -228,5 +228,6 @@ function set_car_characteristics(car_name = 'leon') {
 
     document.querySelector('#car_characteristics #speed').style.width = speed_value + '%';
     document.querySelector('#car_characteristics #handling').style.width = turn_var_value + '%';
-    document.querySelector('#car_characteristics #price').textContent = price + '$';
+    document.querySelector('#car_characteristics #price span').textContent = 0;
+    live_counter(price, 'price span', 500);
 }
