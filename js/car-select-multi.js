@@ -12,18 +12,6 @@ let selectCar = 'leon';
 
 let playerStartHeightPos = .7;
 
-let cars_params = function () { // доступ к JSON
-    var car = null;
-    $.ajax({
-        'async': false,
-        'url': "./js/cars_params.json",
-        'success': function (data) {
-            car = data;
-        }
-    });
-    return car;
-}();
-
 function locked_cars(car_name = 'leon') {
     lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
     price = cars_params[car_name]['price'];
@@ -239,8 +227,6 @@ function prius_function() {
 
 $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
-
-car_rotate();
 
 function set_car_characteristics(car_name = 'leon') {
     speed = cars_params[car_name]['speed'];

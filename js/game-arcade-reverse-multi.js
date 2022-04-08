@@ -132,8 +132,8 @@ class Car {
         if (this.y > canvas.height) {
             this.dead = true;
         }
-        if (this.x >= 368) {
-            return this.x = 368
+        if (this.x >= 353) {
+            return this.x = 353
         }
         if (this.x <= 12) {
             return this.x = 12
@@ -261,30 +261,6 @@ let roads =
         new Road("images/road/road7_1.webp", canvas.height)
     ]; //Background в виде дороги
 
-let cars = function () { // доступ к JSON
-    var car = null;
-    $.ajax({
-        'async': false,
-        'url': "./js/cars.json",
-        'success': function (data) {
-            car = data;
-        }
-    });
-    return car;
-}();
-
-let cars_reverse = function () { // доступ к JSON
-    var car = null;
-    $.ajax({
-        'async': false,
-        'url': "./js/cars-reverse.json",
-        'success': function (data) {
-            car = data;
-        }
-    });
-    return car;
-}();
-
 var randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];
 
 function setPreloadCars() {
@@ -374,7 +350,7 @@ function start(sec) {
             if (scoreTimer.length != 0) {
                 $("#timer")[0].innerText = $("#timer")[0].innerText * 1;
             }
-            sec = Math.round(sec + speed/10);
+            sec = Math.round(sec + speed / 10);
             $("#timer")[0].innerText = sec;
         }
     }
@@ -805,12 +781,12 @@ start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
     main_theme.play();
     last_slider = sessionStorage.getItem('last down slider');
-    car_name = last_slider.split('-')[last_slider.split('-').length-1];
+    car_name = last_slider.split('-')[last_slider.split('-').length - 1];
     set_car_characteristics(car_name);
     let up_slides = [];
     for (let i = 0; i < $('.slider-down').length; i++) { up_slides.push($('.main_screen_cars_img')[i].name) }
     init_slide = up_slides.indexOf(car_name);
-    $('.up_slider').slick('slickGoTo', init_slide-1);
+    $('.up_slider').slick('slickGoTo', init_slide - 1);
     locked_cars(car_name);
     car_rotate(car_name);
     setTimeout(() => { $('#pervue').remove(); $('#for_name').remove(); }, 2500);
@@ -859,7 +835,7 @@ function showScore() {
     document.querySelector('#score_count').textContent = 0;
     $("#message_score").css("opacity", "1").css('z-index', '2');
     let score = Number($("#timer")[0].innerText);
-    setTimeout(()=>{live_counter(score, 'score_count', 500)}, 750);
+    setTimeout(() => { live_counter(score, 'score_count', 500) }, 750);
 }
 
 function preloadcars() {
@@ -898,20 +874,20 @@ $(document).ready(function () {
 })
 
 function live_counter(last_number, target_id) {
-    let frame = 1000/60
+    let frame = 1000 / 60
     let all_time = 1500;
-    let count = all_time/frame;
-    let one_iteration_value = Math.round(last_number/count);
+    let count = all_time / frame;
+    let one_iteration_value = Math.round(last_number / count);
     let target = document.querySelector(`#${target_id}`);
     let i = 0;
-    let counter = setInterval(()=>{
+    let counter = setInterval(() => {
         target.textContent = Number(target.textContent) + Number(one_iteration_value);
         if (i >= count) {
             clearInterval(counter);
             target.textContent = last_number;
         }
     }, frame);
-    setTimeout(()=>{
+    setTimeout(() => {
         clearInterval(counter);
         target.textContent = last_number;
     }, all_time);
