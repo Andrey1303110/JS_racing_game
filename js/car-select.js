@@ -80,7 +80,7 @@ $(document).ready(function () {
 });
 
 function setPosY() {
-    if (game_type == 'multi' || game_type == 'reverse') {
+    if (game_type == 'multi') {
         return () => { player.y = canvas.height - (player.image.height * scale) - 50; player2.y = canvas.height - (player.image.height * scale) - 50; }
     }
     else return player.y = canvas.height - (player.image.height * scale) - 50;
@@ -105,7 +105,7 @@ $(document).ready(function () {
         sessionStorage.setItem('current car', this.alt);
         document.getElementById('car_characteristics').style.bottom = '-35%';
         player.image.src = `./images/Smooth_models/${this.alt}.png`;
-        if (game_type == 'multi' || game_type == 'reverse') {
+        if (game_type == 'multi') {
             let car_count = document.querySelectorAll(`#slider-down-${this.name}`)[0].children[1].children[0].childElementCount;
             let car_number = getRandomIntInclusive(1, car_count);
             let str = this.alt;
@@ -125,7 +125,7 @@ $(document).ready(function () {
 
 function returnStartPosMoto() {
     player.y = canvas.height * .82;
-    if (game_type == 'multi' || game_type == 'reverse') {
+    if (game_type == 'multi') {
         player.x = (canvas.width / 2) - (176 * scale / 2);
         player2.x = (canvas.width / 2) - (176 * scale / 2);
         player2.y = canvas.height * .82;
@@ -133,7 +133,7 @@ function returnStartPosMoto() {
     else player.x = (canvas.width / 2) - (33 * scale / 2);
 }
 function returnStartPos() {
-    if (game_type == 'multi' || game_type == 'reverse') {
+    if (game_type == 'multi') {
         player.x = 262;
         player2.x = 349;
     }
@@ -158,7 +158,7 @@ function sgu() {
                     }
                 }
             }
-            if (game_type == 'multi' || game_type == 'reverse') {
+            if (game_type == 'multi') {
                 if (((player2.x - objects[i].x) <= 17) && ((player2.x - objects[i].x) >= -17)) {
                     if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
                         if (objects[i].y > 0 && objects[i].y < player2.y) {
@@ -212,7 +212,7 @@ function prius_function() {
         }
 
         player.image.src = policeSrc;
-        if (game_type == 'multi' || game_type == 'reverse') {
+        if (game_type == 'multi') {
             player2.image.src = policeSrc;
         }
     }
