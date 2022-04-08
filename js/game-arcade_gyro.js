@@ -36,10 +36,10 @@ function setName() {
     localStorage.setItem('name', `${name_player}`);
     high_score_base.push(`${localStorage.getItem('score')}` * 1);
     if (name_player == "master") {
-        localStorage.setItem('score', "9999")
-        high_score_base.push(9999);
+        localStorage.setItem('score', "9999999")
+        high_score_base.push(9999999);
     }
-    if (localStorage.getItem('score') != undefined) {
+    else if (localStorage.getItem('score') != undefined) {
         $("#score")[0].innerText = localStorage.getItem('score');
         $("#name")[0].innerText = localStorage.getItem('name');
     }
@@ -770,7 +770,7 @@ button_top_score[1].onclick = () => {
 }
 
 function showScore() {
-    $("#message_score")[0].innerText = `your score is ` + $("#timer")[0].innerText;
+    $("#message_score")[0].innerText = "you've earned " + $("#timer")[0].innerText + '$';
     $("#message_score").css("opacity", "1").css('z-index', '2');
 }
 

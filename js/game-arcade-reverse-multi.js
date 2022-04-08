@@ -11,10 +11,11 @@ var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
 var scaleX;
 var translateX;
+var init_slide;
+var user_cash;
 
 var diff;
 var xScore;
-var scoreVnumber;
 
 let scale = 1; //масштаб машин
 
@@ -31,10 +32,10 @@ function setName() {
     localStorage.setItem('name', `${name_player}`);
     high_score_base.push(`${localStorage.getItem('score')}` * 1);
     if (name_player == "master") {
-        localStorage.setItem('score', "9999")
-        high_score_base.push(9999);
+        localStorage.setItem('score', "9999999");
+        high_score_base.push(9999999);
     }
-    if (localStorage.getItem('score') != undefined) {
+    else if (localStorage.getItem('score') != undefined) {
         $("#score")[0].innerText = localStorage.getItem('score');
         $("#name")[0].innerText = localStorage.getItem('name');
     }
@@ -44,7 +45,7 @@ function setName() {
     if (high_score_base.includes("null")) {
         high_score_base[high_score_base.indexOf("null")] = "0"
     }
-    locked_cars();
+    if (!localStorage.getItem('cash')) localStorage.setItem('cash', 0);
 }
 
 name_player.onkeypress = (e) => {
@@ -59,6 +60,9 @@ function push_high_score() {
     high_score_base.push(`${score}` * 1);
     high_score_base.sort(function (a, b) { return b - a });
     localStorage.setItem('score', `${high_score_base[0]}`);
+    last_cash = localStorage.getItem('cash');
+    new_cash = Number(last_cash) + Number(score);
+    localStorage.setItem('cash', new_cash);
     $("#score")[0].innerText = localStorage.getItem('score');
 }
 
@@ -307,7 +311,6 @@ function getRandomIntInclusive(min, max) {
 let S = getRandomIntInclusive(1, document.getElementsByClassName('music').length - 2);
 
 function upDifficulty() {
-    scoreVnumber = 0;
     let interv = 6500;
     let period = interv * 12;
     diff = setInterval(() => { lowwer += 2; upper -= 2; console.log(lowwer) }, interv);
@@ -328,7 +331,7 @@ function start(sec) {
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
         if ($(".slick-slider").length) detach_content = $(".slick-slider").detach();
-        timerScore = setInterval(tick, scoreV[0]);
+        timerScore = setInterval(tick, UPDATE_TIME);
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length - 1] * 1;
         }
@@ -370,13 +373,9 @@ function start(sec) {
         function tick() {
             if (scoreTimer.length != 0) {
                 $("#timer")[0].innerText = $("#timer")[0].innerText * 1;
-                sec++;
-                $("#timer")[0].innerText = sec;
             }
-            else {
-                sec++;
-                $("#timer")[0].innerText = sec;
-            }
+            sec = Math.round(sec + speed/10);
+            $("#timer")[0].innerText = sec;
         }
     }
 }
@@ -721,7 +720,7 @@ function newGameNewCar() {
         player.dead = false;
         player2.dead = false;
         detach_content.appendTo('body');
-        document.getElementById(`${last_slider}`).style.top = '50%';
+        document.getElementById(`${last_slider}`).style.top = '42%';
         document.getElementById('main_theme1').currentTime = 0;
         document.getElementById('main_theme1').play();
         $("#message_score").css("opacity", "0").css("z-index", "-1");
@@ -732,8 +731,8 @@ function newGameNewCar() {
     this.blur();
     document.getElementById('canvas').style.visibility = "hidden";
     document.getElementById('slider').style.top = "2%";
+    document.getElementById('car_characteristics').style.bottom = '0%';
     setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
-    locked_cars();
     push_high_score();
     return S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 }
@@ -805,18 +804,32 @@ function setVolume() {
 start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
     main_theme.play();
-    setTimeout(() => { $('#pervue').remove(); $('#for_name').remove() }, 2500)
+    last_slider = sessionStorage.getItem('last down slider');
+    car_name = last_slider.split('-')[last_slider.split('-').length-1];
+    set_car_characteristics(car_name);
+    let up_slides = [];
+    for (let i = 0; i < $('.slider-down').length; i++) { up_slides.push($('.main_screen_cars_img')[i].name) }
+    init_slide = up_slides.indexOf(car_name);
+    $('.up_slider').slick('slickGoTo', init_slide-1);
+    locked_cars(car_name);
+    car_rotate(car_name);
+    setTimeout(() => { $('#pervue').remove(); $('#for_name').remove(); }, 2500);
 }
 
 pervue_start.onclick = () => {
     if (localStorage.getItem('name') != name_player.value) {
         localStorage.setItem('score', '0');
     }
+    if (!sessionStorage.getItem('last down slider')) {
+        sessionStorage.setItem('last down slider', 'slider-down-leon');
+    }
     setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000);
     setTimeout(() => { intro_video.currentTime = 0.01, intro_video.play() }, 1500);
     intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
+    last_slider = sessionStorage.getItem('last down slider');
+    document.getElementById(`${last_slider}`).style.top = '42%';
 }
 
 $('#mobile_controls_right').click(function () {
@@ -843,7 +856,7 @@ button_top_score[1].onclick = () => {
 }
 
 function showScore() {
-    $("#message_score")[0].innerText = `your score is ` + $("#timer")[0].innerText;
+    $("#message_score")[0].innerText = "you've earned " + $("#timer")[0].innerText + '$';
     $("#message_score").css("opacity", "1").css('z-index', '2');
 }
 

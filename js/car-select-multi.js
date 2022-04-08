@@ -10,8 +10,6 @@ let slider = document.getElementById('slider');
 let playerCarSelect = 0;
 let selectCar = 'leon';
 
-let scoreV = [50, 40, 30, 24, 19, 15, 12, 10, 8, 6, 5, 4, 3, 2, 1, 0];
-
 let playerStartHeightPos = .7;
 
 let cars_params = function () { // доступ к JSON
@@ -83,9 +81,10 @@ $(document).ready(function () {
         car_rotate(this.name);
         $("#lock_cars").removeClass("active_lock");
         locked_cars(this.name);
+        set_car_characteristics(this.name);
         upSlider();
         returnStartPos();
-        document.getElementById(`slider-down-${this.name}`).style.top = '50%';
+        document.getElementById(`slider-down-${this.name}`).style.top = '42%';
         $(".main_screen_cars_img[name='cbr']").click(function () {
             setTimeout(() => { returnStartPosMoto() }, 1500)
         })
@@ -114,7 +113,7 @@ $(document).ready(function () {
         sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
         sessionStorage.setItem('current car', this.alt);
         player.image.src = `./images/Smooth_models/${this.alt}.png`;
-
+        document.getElementById('car_characteristics').style.bottom = '-35%';
         let car_count = document.querySelectorAll(`#slider-down-${this.name}`)[0].children[1].children[0].childElementCount;
         let car_number = getRandomIntInclusive(1, car_count);
         let str = this.alt;
@@ -127,6 +126,7 @@ $(document).ready(function () {
         else if (this.alt == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
         else if (this.alt == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
         else if (this.alt == "passat_1") player2.image.src = `./images/Smooth_models/passat_2.png`;
+        else if (this.alt == "cupra_1") player2.image.src = `./images/Smooth_models/cupra_2.png`;
     });
 });
 
@@ -242,3 +242,28 @@ $("#sgu")[0].onclick = sgu;
 
 car_rotate();
 
+function set_car_characteristics(car_name = 'leon') {
+    speed = cars_params[car_name]['speed'];
+    turn_var = cars_params[car_name]['turn_var'];
+    price = cars_params[car_name]['price'];
+
+    let speeds = [];
+    for (let prop in cars_params) {
+        speeds.push(cars_params[prop]['speed']);
+    }
+    let max_speed = Math.max(...speeds);
+
+    let handings = [];
+    for (let prop in cars_params) {
+        handings.push(cars_params[prop]['turn_var']);
+    }
+    let min_handling = Math.min(...handings);
+    let max_handling = Math.max(...handings);
+
+    speed_value = speed/max_speed * 100;
+    turn_var_value = min_handling/turn_var * 100;
+
+    document.querySelector('#car_characteristics #speed').style.width = speed_value + '%';
+    document.querySelector('#car_characteristics #handling').style.width = turn_var_value + '%';
+    document.querySelector('#car_characteristics #price').textContent = price + '$';
+}

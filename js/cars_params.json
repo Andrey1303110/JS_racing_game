@@ -10,9 +10,9 @@
     "slides" : ["00", "01", "02"]
   },
   "new_leon": {
-    "price": 2500,
+    "price": 12500,
     "speed": 10.45,
-    "turn_var": 35,
+    "turn_var": 33,
     "is_3d" : true,
     "frames": 23,
     "init_frame" : 3,
@@ -20,9 +20,9 @@
     "slides" : ["280", "281"]
   },
   "vaz2113": {
-    "price": 0,
+    "price": 3500,
     "speed": 9,
-    "turn_var": 38,
+    "turn_var": 39,
     "is_3d" : true,
     "frames": 25,
     "init_frame" : 3,
@@ -30,9 +30,9 @@
     "slides" : ["200", "201"]
   },
   "golf": {
-    "price": 0,
-    "speed": 10.45,
-    "turn_var": 32,
+    "price": 4500,
+    "speed": 11,
+    "turn_var": 37,
     "is_3d" : true,
     "frames": 24,
     "init_frame" : 3,
@@ -40,9 +40,9 @@
     "slides" : ["210"]
   },
   "superb": {
-    "price": 0,
-    "speed": 10,
-    "turn_var": 36,
+    "price": 17000,
+    "speed": 12,
+    "turn_var": 39,
     "is_3d" : true,
     "frames": 25,
     "init_frame" : 3,
@@ -50,9 +50,9 @@
     "slides" : ["220"]
   },
   "passat": {
-    "price": 2000,
-    "speed": 10.45,
-    "turn_var": 35,
+    "price": 6500,
+    "speed": 10.75,
+    "turn_var": 38,
     "is_3d" : true,
     "frames": 50,
     "init_frame" : 13,
@@ -60,9 +60,9 @@
     "slides" : ["230"]
   },
   "camry": {
-    "price": 3000,
-    "speed": 10.45,
-    "turn_var": 37,
+    "price": 12000,
+    "speed": 13.5,
+    "turn_var": 40,
     "is_3d" : true,
     "frames": 25,
     "init_frame" : 3,
@@ -70,9 +70,9 @@
     "slides" : ["240"]
   },
   "celica": {
-    "price": 0,
-    "speed": 9.5,
-    "turn_var": 35,
+    "price": 5000,
+    "speed": 10.5,
+    "turn_var": 38,
     "is_3d" : true,
     "frames": 25,
     "init_frame" : 3,
@@ -80,8 +80,8 @@
     "slides" : ["250"]
   },
   "mazda": {
-    "price": 4000,
-    "speed": 10.45,
+    "price": 16000,
+    "speed": 14,
     "turn_var": 35,
     "is_3d" : true,
     "frames": 25,
@@ -90,24 +90,24 @@
     "slides" : ["260"]
   },
   "a1": {
-    "price": 0,
+    "price": 11000,
     "speed": 9.5,
-    "turn_var": 35
+    "turn_var": 33
   },
   "2008": {
-    "price": 0,
-    "speed": 9.5,
-    "turn_var": 35
+    "price": 13000,
+    "speed": 9,
+    "turn_var": 36
   },
   "fj": {
-    "price": 1500,
-    "speed": 11.4,
+    "price": 25000,
+    "speed": 11.5,
     "turn_var": 40
   },
   "lc": {
-    "price": 1500,
-    "speed": 11.4,
-    "turn_var": 40,
+    "price": 45000,
+    "speed": 12,
+    "turn_var": 42,
     "is_3d" : true,
     "frames": 25,
     "init_frame" : 3,
@@ -115,79 +115,84 @@
     "slides" : ["270", "271"]
   },
   "touareg": {
-    "price": 1500,
-    "speed": 11.4,
+    "price": 35000,
+    "speed": 12.5,
     "turn_var": 40
   },
   "volvo": {
-    "price": 2000,
-    "speed": 13.775,
-    "turn_var": 40
+    "price": 38000,
+    "speed": 12,
+    "turn_var": 41
   },
   "tesla": {
-    "price": 3000,
+    "price": 58000,
     "speed": 13.775,
-    "turn_var": 25
+    "turn_var": 31
   },
   "polestar": {
-    "price": 3000,
-    "speed": 10.45,
-    "turn_var": 28
+    "price": 51000,
+    "speed": 13.2,
+    "turn_var": 34
   },
   "i8": {
-    "price": 3500,
-    "speed": 10.45,
-    "turn_var": 35
+    "price": 75000,
+    "speed": 14.5,
+    "turn_var": 27
   },
   "xl1": {
-    "price": 4500,
-    "speed": 10.45,
-    "turn_var": 35
+    "price": 125000,
+    "speed": 11,
+    "turn_var": 32
   },
   "scania": {
-    "price": 3500,
-    "speed": 6.3333,
-    "turn_var": 50
+    "price": 30000,
+    "speed": 6,
+    "turn_var": 55,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["yellow", "red"],
+    "slides" : ["190", "191"]
   },
   "gtr": {
-    "price": 4500,
-    "speed": 13.3,
-    "turn_var": 21
+    "price": 65000,
+    "speed": 15,
+    "turn_var": 29
   },
   "panamera": {
-    "price": 9000,
-    "speed": 12.825,
-    "turn_var": 25
+    "price": 35000,
+    "speed": 13.25,
+    "turn_var": 31
   },
   "enzo": {
-    "price": 4000,
+    "price": 155000,
     "speed": 17.1,
-    "turn_var": 21
+    "turn_var": 24
   },
   "buggati": {
-    "price": 4500,
+    "price": 500000,
     "speed": 20.9,
-    "turn_var": 22
+    "turn_var": 25
   },
   "cbr": {
-    "price": 2500,
+    "price": 45000,
     "speed": 19,
-    "turn_var": 18
+    "turn_var": 21
   },
   "f1": {
-    "price": 5000,
+    "price": 1000000,
     "speed": 19,
-    "turn_var": 15
+    "turn_var": 17
   },
   "prius": {
-    "price": 5500,
+    "price": 100000,
     "speed": 10.45,
     "turn_var": 35
   },
   "bmw_x5": {
-    "price": 5000,
+    "price": 85000,
     "speed": 15.675,
-    "turn_var": 27,
+    "turn_var": 28,
     "is_3d" : true,
     "frames": 35,
     "init_frame" : 33,
@@ -195,9 +200,9 @@
     "slides" : ["180"]
   },
   "cupra": {
-    "price": 9000,
+    "price": 115000,
     "speed": 17.1,
-    "turn_var": 19,
+    "turn_var": 23,
     "is_3d" : true,
     "frames": 72,
     "init_frame" : 6,
