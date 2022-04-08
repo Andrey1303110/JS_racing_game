@@ -136,19 +136,13 @@ function sgu() {
             if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
                 if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
                     if (objects[i].y > 0 && objects[i].y < player.y) {
-                        if (objects[i].x >= 340 && objects[i].x <= canvas.width) {
-                            let move = setInterval(() => {
-                                objects[i].x -= 8.3
-                            }, 35);
-                            setTimeout(() => { clearInterval(move); }, 350);
-                            objects[i].selfSpeed = 1.15
+                        if ( (objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98) ) {
+                            objects[i].selfSpeed = 1.15;
+                            turn_car('left', objects[i], speed)
                         }
-                        if (objects[i].x < 340 && objects[i].x >= 0) {
-                            let move = setInterval(() => {
-                                objects[i].x += 8.3
-                            }, 35);
-                            setTimeout(() => { clearInterval(move); }, 350);
-                            objects[i].selfSpeed = 1.15
+                        else if (objects[i].x < 340 && objects[i].x >= 0) {
+                            objects[i].selfSpeed = 1.15;
+                            turn_car('right', objects[i], speed)
                         }
                     }
                 }
@@ -186,6 +180,7 @@ function prius_function() {
     upSlider();
     document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider').style.top = '-110%';
+    document.getElementById('car_characteristics').style.bottom = '-35%';
     sessionStorage.setItem('last down slider', 'slider-down-prius');
     sessionStorage.setItem('current car', 'prius_police');
     setTimeout(start, 500);
