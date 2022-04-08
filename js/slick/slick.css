@@ -445,14 +445,10 @@
 }
 
 #slick-slide-control190::before {
-    color: silver;
-}
-
-#slick-slide-control191::before {
     color: rgb(255, 208, 0);
 }
 
-#slick-slide-control192::before {
+#slick-slide-control191::before {
     color: #9c1c1c;
 }
 
