@@ -92,7 +92,12 @@
   "a1": {
     "price": 11000,
     "speed": 9.5,
-    "turn_var": 33
+    "turn_var": 33,
+    "is_3d" : true,
+    "frames": 24,
+    "init_frame" : 3,
+    "colors" : ["blue"],
+    "slides" : ["170"]
   },
   "2008": {
     "price": 13000,
@@ -117,12 +122,22 @@
   "touareg": {
     "price": 35000,
     "speed": 12.5,
-    "turn_var": 40
+    "turn_var": 40,
+    "is_3d" : true,
+    "frames": 24,
+    "init_frame" : 3,
+    "colors" : ["white"],
+    "slides" : ["10"]
   },
   "volvo": {
     "price": 38000,
     "speed": 12,
-    "turn_var": 41
+    "turn_var": 41,
+    "is_3d" : true,
+    "frames": 24,
+    "init_frame" : 3,
+    "colors" : ["red", "green"],
+    "slides" : ["130", "131"]
   },
   "tesla": {
     "price": 58000,
@@ -137,7 +152,12 @@
   "i8": {
     "price": 75000,
     "speed": 14.5,
-    "turn_var": 27
+    "turn_var": 27,
+    "is_3d" : true,
+    "frames": 24,
+    "init_frame" : 3,
+    "colors" : ["violet", "yellow"],
+    "slides" : ["30", "31"]
   },
   "xl1": {
     "price": 125000,
@@ -157,32 +177,57 @@
   "gtr": {
     "price": 65000,
     "speed": 15,
-    "turn_var": 29
+    "turn_var": 29,
+    "is_3d" : true,
+    "frames": 12,
+    "init_frame" : 3,
+    "colors" : ["red", "silver"],
+    "slides" : ["110", "111"]
   },
   "panamera": {
     "price": 35000,
     "speed": 13.25,
-    "turn_var": 31
+    "turn_var": 31,
+    "is_3d" : true,
+    "frames": 12,
+    "init_frame" : 3,
+    "colors" : ["gold", "white"],
+    "slides" : ["150", "151"]
   },
   "enzo": {
     "price": 155000,
     "speed": 17.1,
-    "turn_var": 24
+    "turn_var": 24,
+    "is_3d" : true,
+    "frames": 23,
+    "init_frame" : 3,
+    "colors" : ["red"],
+    "slides" : ["80"]
   },
   "buggati": {
     "price": 500000,
     "speed": 20.9,
-    "turn_var": 25
+    "turn_var": 25,
+    "is_3d" : true,
+    "frames": 12,
+    "init_frame" : 2,
+    "colors" : ["blue", "green"],
+    "slides" : ["160", "161"]
   },
-  "cbr": {
+  "r1": {
     "price": 45000,
     "speed": 19,
-    "turn_var": 21
+    "turn_var": 21,
+    "is_3d" : true,
+    "frames": 25,
+    "init_frame" : 3,
+    "colors" : ["red", "green"],
+    "slides" : ["100", "101"]
   },
   "f1": {
     "price": 1000000,
     "speed": 19,
-    "turn_var": 17
+    "turn_var": 17.5
   },
   "prius": {
     "price": 100000,
@@ -201,8 +246,8 @@
   },
   "cupra": {
     "price": 115000,
-    "speed": 17.1,
-    "turn_var": 23,
+    "speed": 18.25,
+    "turn_var": 21.75,
     "is_3d" : true,
     "frames": 72,
     "init_frame" : 6,

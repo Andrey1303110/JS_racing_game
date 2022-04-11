@@ -4,39 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <title>Document</title>
+    <style>
+        div{
+            width: 538px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+        img {
+            position: relative;
+        }
+        #num {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
-    <div style="width: 538px; height: 300px; overflow: hidden; margin: 0 auto;">
-        <img src="css_sprites.png" style="position: relative;">
+    <div>
+        <img src="css_sprites.png">
+        <input type="range" id="num">
     </div>
+    
     <h1 id="target">0</h1>
     <script>
-        let width = 538;
-        var i = 0;
-        setInterval(()=>{i++;document.querySelector('img').style.left = (width * -i) + 'px';}, 85);
-        setInterval(()=>{i = 0}, 85*25);
+        let init_value = 3;
+        let frames = 25;
+        num.min = (frames - 1) * -1;
+        num.max = frames;
+        num.value = init_value;
+        width = 538;
+        var is_rotating = false;
+        var rotating;
+        
+        var last_i = init_value;
+        
+        document.querySelector('img').style.left = (width * -(frames - last_i)) + 'px';
 
-        function live_counter(last_number, target_id) {
-            let frame = 1000/60
-            let all_time = 1500;
-            let count = all_time/frame;
-            let one_iteration_value = Math.round(last_number/count);
-            let target = document.querySelector(`#${target_id}`);
-            let i = 0;
-            let counter = setInterval(()=>{
-                target.textContent = Number(target.textContent) + Number(one_iteration_value);
-                if (i >= count) {
-                    clearInterval(counter);
-                    target.textContent = last_number;
-                }
-            }, frame);
-            setTimeout(()=>{
-                clearInterval(counter);
-                target.textContent = last_number;
-            }, all_time);
-        }
-        live_counter(695456, 'target')
+        $('#num').bind('input', function(){
+            let i = this.value;
+            if (i <= 0) i = frames - (i*-1);
+            target.innerText = i;
+            document.querySelector('img').style.left = (width * -(frames - i)) + 'px';
+            last_i = i;
+            console.log(i);
+        })
+
+        $('#num').bind('mouseleave', function(){
+            if (!is_rotating && last_i != frames && last_i != 1) {
+                let i = last_i;
+                is_rotating = true;
+                rotating = setInterval(() => {
+                    i--;
+                    document.querySelector('img').style.left = (width * -i) + 'px';
+                    last_i = i;
+                }, 1000/30);
+                setTimeout(()=>{
+                    clearInterval(rotating);
+                }, 1000/30*(last_i));
+            }
+            return;
+        })
+        $('#num').bind('mouseenter', function(){
+            if (is_rotating) {
+                is_rotating = false;
+                clearInterval(rotating);
+            }
+        })
     </script>
 </body>
 </html>

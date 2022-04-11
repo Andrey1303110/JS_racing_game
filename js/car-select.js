@@ -73,7 +73,7 @@ $(document).ready(function () {
         upSlider();
         returnStartPos();
         document.getElementById(`slider-down-${this.name}`).style.top = '42%';
-        $(".main_screen_cars_img[name='cbr']").click(function () {
+        $(".main_screen_cars_img[name='r1']").click(function () {
             setTimeout(() => { returnStartPosMoto() }, 1500)
         })
     });
@@ -147,7 +147,7 @@ function sgu() {
             if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
                 if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
                     if (objects[i].y > 0 && objects[i].y < player.y) {
-                        if ( (objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98) ) {
+                        if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                             objects[i].selfSpeed = 1.15;
                             turn_car('left', objects[i], speed)
                         }
@@ -162,7 +162,7 @@ function sgu() {
                 if (((player2.x - objects[i].x) <= 17) && ((player2.x - objects[i].x) >= -17)) {
                     if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
                         if (objects[i].y > 0 && objects[i].y < player2.y) {
-                            if ( (objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98) ) {
+                            if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                                 objects[i].selfSpeed = 1.15;
                                 turn_car('left', objects[i], speed)
                             }
@@ -250,8 +250,8 @@ function set_car_characteristics(car_name = 'leon') {
     let min_handling = Math.min(...handings);
     let max_handling = Math.max(...handings);
 
-    speed_value = speed/max_speed * 100;
-    turn_var_value = min_handling/turn_var * 100;
+    speed_value = speed / max_speed * 100;
+    turn_var_value = min_handling / turn_var * 100;
 
     document.querySelector('#car_characteristics #speed').style.width = speed_value + '%';
     document.querySelector('#car_characteristics #handling').style.width = turn_var_value + '%';

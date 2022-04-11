@@ -47,7 +47,7 @@ function car_rotate(car_name = 'leon') {
             $(`.cars_img[name="${car_name}"]`).on('mousemove', mousemovemethod);
         }
     
-        if (window.innerWidth < 550) {
+        else if (window.innerWidth <= 550) {
             if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
         
                 let lastReadingTimestamp;

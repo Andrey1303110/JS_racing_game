@@ -5,7 +5,7 @@ $(document).ready(function () {
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        draggable: true,
+        draggable: false,
         initialSlide: 0,
         speed: 2150,
         fade: true,
