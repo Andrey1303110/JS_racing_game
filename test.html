@@ -61,7 +61,7 @@
         })
 
         $('#num').bind('mouseleave', function(){
-            if (!is_rotating && last_i != frames && last_i != 1) {
+            if (!is_rotating && (last_i != frames && last_i != 1 && last_i != init_value)) {
                 let i = last_i;
                 is_rotating = true;
                 rotating = setInterval(() => {

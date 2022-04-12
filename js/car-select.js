@@ -58,21 +58,14 @@ $(document).ready(function () {
     $(".up_slider").on("beforeChange", function () { car_select.play(); });
 });
 
-
-function upSlider() {
-    let sliderX = document.getElementsByClassName('slider-down');
-    for (let i = 0; i < sliderX.length; i++) { sliderX[i].style.top = '-110%'; }
-}
-
 $(document).ready(function () {
     $(".main_screen_cars_img").click(function () {
-        car_rotate(this.name);
         $("#lock_cars").removeClass("active_lock");
+        set_slider(this.name);
         locked_cars(this.name);
         set_car_characteristics(this.name);
-        upSlider();
+        //init_value = cars_params[this.name]["init_frame"];
         returnStartPos();
-        document.getElementById(`slider-down-${this.name}`).style.top = '42%';
         $(".main_screen_cars_img[name='r1']").click(function () {
             setTimeout(() => { returnStartPosMoto() }, 1500)
         })
@@ -184,9 +177,9 @@ function siren() {
 
 function prius_function() {
     eS.play();
-    upSlider();
     document.getElementById('timer').style.color = 'aqua';
     document.getElementById('slider').style.top = '-110%';
+    document.getElementById('slider-down').style.top = '-110%';
     document.getElementById('car_characteristics').style.bottom = '-35%';
     sessionStorage.setItem('last down slider', 'slider-down-prius');
     sessionStorage.setItem('current car', 'prius_police');
@@ -257,4 +250,62 @@ function set_car_characteristics(car_name = 'leon') {
     document.querySelector('#car_characteristics #handling').style.width = turn_var_value + '%';
     document.querySelector('#car_characteristics #price span').textContent = 0;
     live_counter(price, 'price span', 500);
+}
+
+function set_car_in_slider(car_name) {
+    let img = document.createElement('img');
+    img.classList.add("cars_img");
+    img.id = car_name + '_' + car_nums[0];
+    img.alt = car_name + '_' + car_nums[0];
+    img.name = car_name;
+    img.src = `./images/Cars_main_screen/all_cars/${car_name}/${cars_colors[0]}/sprite.png`;
+    return img;
+}
+
+function set_slider(car_name = 'leon') {
+    if (document.querySelector('.cars_img')) document.querySelector('.cars_img').remove();
+    if (colors.childElementCount) {
+        $('#colors div').remove();
+    }
+
+    last_i = cars_params[car_name]["init_frame"];
+
+    cars_colors = cars_params[car_name]['colors'];
+    car_nums = cars_params[car_name]['car_nums'];
+
+    img = set_car_in_slider(car_name);
+    console.log(img);
+    let slider = document.querySelector('.slider-down');
+    slider.appendChild(img);
+
+    current_car = sessionStorage.getItem('current car');
+
+    img.onload = function() {
+        view3D(car_name, current_car.split('_')[1]);
+    };
+
+    for (let i = 0; i < cars_colors.length; i++) {
+        let div = document.createElement('div');
+        div.dataset['color'] = cars_colors[i];
+        div.dataset['car_num'] = car_nums[i];
+        div.style.backgroundColor = cars_colors[i];
+        colors.appendChild(div);
+    }
+
+    $('#colors div').on('click', function(){
+        let path = $('.cars_img')[0].src.split('/');
+        path[path.length - 2] = this.dataset['color'];
+        $('.cars_img')[0].src = path.join('/');
+
+        let car_name = $('.cars_img')[0].name;
+        let frames = cars_params[car_name]["frames"];
+        let i = last_i;
+        console.log(i);
+        if (i <= 0) i = frames - (i*-1);
+        let position = car_image_width * - (frames - i) + 'px';
+        console.log($('.cars_img'));
+        console.log(position);
+        $('.cars_img').css('left', position);
+        console.log(position);
+    });
 }

@@ -8,18 +8,18 @@
     src: url("../font/IndieFlower-Regular.ttf") format("opentype");
 }
 
-body, html
-{
-	width: 100%;
-	height: 100%;
-	padding: 0px;
-	margin: 0px;
+body,
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
     overflow: hidden;
     background-color: #9C9C9C;
 }
 
-#wrapper
-{	width: 424px;
+#wrapper {
+    width: 424px;
     height: 100%;
     position: relative;
     left: 50%;
@@ -31,13 +31,12 @@ body, html
     z-index: 2;
 }
 
-#canvas
-{
+#canvas {
     width: 424px;
     object-fit: cover;
     height: auto;
     transition: height 1s ease-in-out,
-                visiblity 0s;
+        visiblity 0s;
 }
 
 .controls {
@@ -178,7 +177,7 @@ div.main {
     height: 100%;
     z-index: 1;
     background-color: #8C8C89;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(140,140,137,1) 35%, rgba(140,140,137,1) 65%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(140, 140, 137, 1) 35%, rgba(140, 140, 137, 1) 65%, rgba(0, 0, 0, 1) 100%);
     position: absolute;
     top: 0;
     opacity: 1;
@@ -198,39 +197,45 @@ video {
 
 #timer {
     opacity: 0;
-	text-align: left;
+    text-align: left;
     font-family: 'Architects Daughter';
     width: 100%;
     padding-left: 35px;
-	position: absolute;
-	color: orange;
-	font-size: 30px;
+    position: absolute;
+    color: orange;
+    font-size: 30px;
     font-weight: bold;
     transition: all 1s ease-in-out;
 }
 
 .car {
-	position: absolute;
+    position: absolute;
     left: 50px;
     width: 300px;
-	transition: .1s all ease-in-out;
+    transition: .1s all ease-in-out;
 }
 
 .car:active {
-	transform: scale(1.3);
+    transform: scale(1.3);
 }
 
-#audiojs_wrapper0, #audiojs_wrapper1, #audiojs_wrapper2, #audiojs_wrapper3, #audiojs_wrapper4, #audiojs_wrapper5, #audiojs_wrapper6 {
+#audiojs_wrapper0,
+#audiojs_wrapper1,
+#audiojs_wrapper2,
+#audiojs_wrapper3,
+#audiojs_wrapper4,
+#audiojs_wrapper5,
+#audiojs_wrapper6 {
     display: none;
 }
 
 #slider {
-    width: 395px; 
-    height: 230px; 
-    position: absolute; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    top: 2%; 
+    width: 395px;
+    height: 230px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2%;
     transition: all .5s ease-in-out;
 }
 
@@ -241,23 +246,23 @@ video {
 .slider-down.cars_2d {
     width: 395px;
     height: 230px;
-    position: absolute; 
+    position: absolute;
     left: 50%;
-    transform: translateX(-50%); 
-    transition: all .5s ease-in-out;
+    transform: translateX(-50%);
+    transition: width 0s, top .5s ease-in-out;
 }
 
 .slider-down.cars_3d {
-    width: 700px; 
-    height: 300px; 
-    position: absolute; 
+    width: 570px;
+    min-height: 400px;
+    position: absolute;
     left: 50%;
-    transform: translateX(-50%) translateY(-100px); 
-    transition: all .5s ease-in-out;
+    transform: translateX(-50%) translateY(-100px);
+    transition: width 0s, top .5s ease-in-out;
 }
 
 img {
-	cursor: pointer;
+    cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -278,8 +283,8 @@ img {
 }
 
 #menu input {
-    height: 25%; 
-    width: 60%; 
+    height: 25%;
+    width: 60%;
     margin: 10px auto;
     font-family: 'Architects Daughter', cursive;
     font-weight: bold;
@@ -290,12 +295,14 @@ img {
     border-width: 0;
 }
 
-#resume_button.hide_button, #resume_button.hide_button:hover, #resume_button.hide_button:active {
+#resume_button.hide_button,
+#resume_button.hide_button:hover,
+#resume_button.hide_button:active {
     display: none;
 }
 
 #menu input:hover {
-    width: 70%; 
+    width: 70%;
     box-shadow: 7px 8px 6px rgba(40, 40, 40, 70%);
     background-color: rgb(124, 221, 78);
     color: rgb(251, 251, 251);
@@ -303,7 +310,7 @@ img {
 }
 
 #menu input:focus {
-    width: 70%; 
+    width: 70%;
     box-shadow: 7px 8px 6px rgba(40, 40, 40, 70%);
     background-color: rgb(135, 240, 86);
 }
@@ -356,7 +363,7 @@ img {
 #icons_controls img:hover {
     opacity: 1;
 }
- 
+
 #key_code {
     color: white;
     font-family: 'Architects Daughter';
@@ -427,7 +434,8 @@ img {
     margin-block-end: 0em;
 }
 
-#names_hs, #score_hs {
+#names_hs,
+#score_hs {
     position: relative;
     top: 50px;
     width: 100px;
@@ -441,7 +449,7 @@ img {
     transform: translateX(-50%);
     top: -50%;
     width: 100%;
-    height: 300px;
+    min-height: 300px;
     background: url(../images/icons/lock.png) center no-repeat;
     background-size: 300px;
     z-index: -2;
@@ -531,11 +539,11 @@ img {
     z-index: -1;
     transition: 1s ease-in-out;
     letter-spacing: -.5px;
-    background: linear-gradient(90deg, rgba(0,255,0,0.2) 0%, rgba(20,220,20,.65) 7%, rgba(20,220,20,0.65) 93%, rgba(0,255,0,.2) 100%);
+    background: linear-gradient(90deg, rgba(0, 255, 0, 0.2) 0%, rgba(20, 220, 20, .65) 7%, rgba(20, 220, 20, 0.65) 93%, rgba(0, 255, 0, .2) 100%);
 }
 
 #game_cars {
-    visibility: collapse; 
+    visibility: collapse;
     z-index: -100;
 }
 
@@ -550,18 +558,23 @@ img {
         min-height: 550px;
         min-width: 520px;
     }
+
     #name_insert p:nth-child(1) {
         font-size: 150px;
     }
+
     #name_insert p:nth-child(2) {
         font-size: 75px;
     }
+
     #name_insert form input:nth-child(1) {
         font-size: 100px;
     }
+
     #name_insert form input:nth-child(2) {
         font-size: 100px;
     }
+
     #start_new_game {
         width: 85%;
         max-width: 650px;
@@ -569,28 +582,37 @@ img {
         font-size: 60px;
         background-size: 100px;
     }
+
     #slider {
-        width: 550px; 
+        width: 550px;
     }
-    .slider-down.cars_2d, .slider-down.cars_3d {
-        width: 550px; 
+
+    .slider-down.cars_2d,
+    .slider-down.cars_3d {
+        width: 550px;
     }
-    .slick-prev.slick-arrow, .slick-next.slick-arrow {
+
+    .slick-prev.slick-arrow,
+    .slick-next.slick-arrow {
         transform: translate(0, -20px);
         background-size: 45px;
     }
+
     ul.slick-dots {
         bottom: -150px;
     }
+
     ul.slick-dots li button:before {
         font-size: 25px;
         line-height: 25px;
     }
+
     #lock_cars {
         width: 880px;
         height: 400px;
         background-size: 400px;
     }
+
     #lock_cars p {
         width: 500px;
         font-size: 50px;
@@ -599,43 +621,51 @@ img {
 
 @media (max-width: 540px) {
     .slider-down.cars_2d .slider-down.cars_3d {
-        position: absolute; 
+        position: absolute;
         left: 50%;
-        transform: translateX(-50%); 
+        transform: translateX(-50%);
         transition: all .5s ease-in-out;
     }
+
     .slider-down.cars_2d {
-        width: 400px; 
-        height: 215px; 
+        width: 400px;
+        height: 215px;
     }
+
     .slider-down.cars_3d {
-        width: 510px; 
-        height: 250px; 
+        width: 510px;
+        height: 250px;
     }
 }
 
 @media (max-width: 400px) {
     #slider {
-        width: 355px; 
+        width: 355px;
     }
+
     #name_insert {
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
     }
+
     .slider-down.cars_2d {
-        width: 370px; 
+        width: 370px;
     }
+
     .slider-down.cars_3d {
         width: 425px;
     }
+
     #start_new_game {
         min-width: 340px;
         font-size: 30px;
         background-size: 50px;
     }
+
     #intro_video {
         min-width: 520px;
     }
+
     #button_special_signals {
         width: 380px;
     }
@@ -643,23 +673,27 @@ img {
 
 @media (max-width: 380px) {
     #slider {
-        width: 340px; 
+        width: 340px;
     }
-    
+
     .slider-down.cars_2d {
-        width: 360px; 
+        width: 360px;
     }
+
     .slider-down.cars_3d {
         width: 415px;
     }
+
     #start_new_game {
         min-width: 300px;
         font-size: 28px;
         background-size: 45px;
     }
+
     #intro_video {
         min-width: 500px;
     }
+
     #button_special_signals {
         width: 360px;
     }
@@ -667,24 +701,28 @@ img {
 
 @media (max-width: 350px) {
     #slider {
-        width: 340px; 
+        width: 340px;
     }
-    
+
     .slider-down.cars_2d {
-        width: 340px; 
+        width: 340px;
     }
+
     .slider-down.cars_3d {
         width: 400px;
     }
+
     #start_new_game {
         min-width: 300px;
         font-size: 28px;
         background-size: 40px;
-        
+
     }
+
     #intro_video {
         min-width: 465px;
     }
+
     #button_special_signals {
         width: 335px;
     }
@@ -692,26 +730,31 @@ img {
 
 @media (max-width: 330px) {
     #slider {
-        width: 315px; 
+        width: 315px;
     }
+
     #name_insert {
         min-width: 300px;
     }
-    
+
     .slider-down.cars_2d {
-        width: 315px; 
+        width: 315px;
     }
+
     .slider-down.cars_3d {
         width: 360px;
     }
+
     #start_new_game {
         min-width: 250px;
         font-size: 28px;
         background-size: 40px;
     }
+
     #intro_video {
         min-width: 440px;
     }
+
     #button_special_signals {
         width: 315px;
     }
@@ -755,25 +798,70 @@ img {
 }
 
 #car_characteristics .progress {
-	background-color: #d8d8d8;
-	border-radius: 15px;
-	position: relative;
-	margin: 15px 0;
-	height: 15px;
-	width: 300px;
+    background-color: #d8d8d8;
+    border-radius: 15px;
+    position: relative;
+    margin: 15px 0;
+    height: 15px;
+    width: 300px;
 }
 
 #car_characteristics .progress-done {
-	background: linear-gradient(to left, yellowgreen, #FF9472);
-	box-shadow: 0 3px 3px -5px #FF9472, 0 2px 5px #F2709C;
-	border-radius: 20px;
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	width: 0;
+    background: linear-gradient(to left, yellowgreen, #FF9472);
+    box-shadow: 0 3px 3px -5px #FF9472, 0 2px 5px #F2709C;
+    border-radius: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 0;
     min-width: 17%;
-	opacity: 1;
-	transition: .85s ease-in-out 1s;
+    opacity: 1;
+    transition: .85s ease-in-out 1s;
+}
+
+#num {
+    width: 570px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    opacity: 0;
+    z-index: 2;
+}
+
+.cars_img {
+    position: relative;
+}
+
+.slider-down.cars_3d {
+    overflow: hidden;
+    position: relative;
+    top: 42%;
+}
+
+#colors {
+    position: relative;
+    top: 42%;
+    min-height: 25px;
+    width: 570px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#colors div {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin: 0 60px;
+    background: red;
 }

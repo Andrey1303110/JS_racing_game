@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    /*
     $('.slider-down').slick({
         arrows: true,
         dots: true,
@@ -19,6 +20,7 @@ $(document).ready(function () {
             },  
         ]
     });
+    */
 });
 $(document).ready(function () {
     $('.up_slider').slick({

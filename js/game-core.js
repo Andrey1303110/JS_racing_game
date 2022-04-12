@@ -34,6 +34,9 @@ var road_num;
 var roads;
 var randomRoadList;
 
+var last_i;
+var car_image_width;
+
 setVolume();
 
 function setName() {
@@ -921,14 +924,14 @@ start_new_game.onclick = () => {
     $('#pervue').css('opacity', '0').css('z-index', '-1')
     main_theme.play();
     last_slider = sessionStorage.getItem('last down slider');
+    current_car = sessionStorage.getItem('current car');
     car_name = last_slider.split('-')[last_slider.split('-').length - 1];
-    set_car_characteristics(car_name);
     let up_slides = [];
     for (let i = 0; i < $('.slider-down').length; i++) { up_slides.push($('.main_screen_cars_img')[i].name) }
     init_slide = up_slides.indexOf(car_name);
     $('.up_slider').slick('slickGoTo', init_slide - 1);
     locked_cars(car_name);
-    car_rotate(car_name);
+    view3D(car_name, current_car.split('_')[1]);
     setTimeout(() => { $('#pervue').remove(); $('#for_name').remove(); }, 2500);
 }
 
@@ -939,13 +942,18 @@ pervue_start.onclick = () => {
     if (!sessionStorage.getItem('last down slider')) {
         sessionStorage.setItem('last down slider', 'slider-down-leon');
     }
+    if (!sessionStorage.getItem('current car')) {
+        sessionStorage.setItem('current car', 'leon_8');
+    }
     setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000);
     setTimeout(() => { intro_video.currentTime = 0.01, intro_video.play() }, 1500);
     intro_video.ontimeupdate = () => { if (intro_video.currentTime > 4) { $('#start_new_game').css('right', '10%').focus() }; };
     last_slider = sessionStorage.getItem('last down slider');
-    document.getElementById(`${last_slider}`).style.top = '42%';
+    car_name = last_slider.split('-')[last_slider.split('-').length - 1];
+    set_slider(car_name);
+    set_car_characteristics(car_name);
 }
 
 $('#mobile_controls_right').click(function () {
@@ -984,32 +992,22 @@ function preloadcars() {
             $('#game_cars').append('<img src=' + cars[i] + '>');
             $('#game_cars').append('<img src=' + cars_reverse[i] + '>');
         }
-        for (let j = 1; j < 36; j++) {
-            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/bmw_x5/blue/' + j + '.png>');
-        }
-        for (let k = 1; k < 25; k++) {
-            let carsSrc = ["leon/blue", "leon/red", "leon/white", "golf/blue", "vaz2113/black", "vaz2113/white", "superb/green", "camry/black", "celica/red", "mazda/blue", "lc/black", "lc/violet"];
-            for (let e = 0; e < carsSrc.length; e++) {
-                $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/' + carsSrc[e] + '/' + k + '.png>');
+        for (var car in cars_params) {
+            if (cars_params[car]["is_3d"]) {
+                for (let i = 0; i < cars_params[car]["colors"].length; i++) {
+                    let image = new Image();
+                    image.src = `images/Cars_main_screen/all_cars/${car}/${cars_params[car]["colors"][i]}/sprite.png`;
+                    $('#game_cars').append(`<img src="${image.src}">`);
+                }
             }
         }
-        for (let g = 1; g < 24; g++) {
-            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/red/' + g + '.png>');
-            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/new_leon/white/' + g + '.png>');
-        }
-        for (let l = 1; l < 50; l++) {
-            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/passat/silver/' + l + '.png>');
-        }
-        for (let u = 1; u < 73; u++) {
-            $('#game_cars').append('<img src=./images/Cars_main_screen/all_cars/cupra/custom/' + u + '.png>');
-        }
-        $('#game_cars').append('<img src=./images/road/road7_1.webp>');
+        $('#game_cars').append('<img src=images/road/road7_1.webp>');
         if (game_type == 'arcade') {
-            $('#game_cars').append('<img src=./images/Smooth_models/tram_1.png>');
-            $('#game_cars').append('<img src=./images/Smooth_models/tram_2.png>');
-            $('#game_cars').append('<img src=./images/road/road7_1_railways.webp>');
-            $('#game_cars').append('<img src=./images/road/road7_2_railways.webp>');
-            $('#game_cars').append('<img src=./images/road/road7_3_railways.webp>');
+            $('#game_cars').append('<img src=images/Smooth_models/tram_1.png>');
+            $('#game_cars').append('<img src=images/Smooth_models/tram_2.png>');
+            $('#game_cars').append('<img src=images/road/road7_1_railways.webp>');
+            $('#game_cars').append('<img src=images/road/road7_2_railways.webp>');
+            $('#game_cars').append('<img src=images/road/road7_3_railways.webp>');
         }
     })
 }
@@ -1038,4 +1036,56 @@ function live_counter(last_number, target_id) {
         clearInterval(counter);
         target.textContent = last_number;
     }, all_time);
+}
+
+function view3D(car_name = 'leon', car_num = 8) {
+    let is_rotating = false;
+    let rotating;
+    let init_value = cars_params[car_name]["init_frame"];
+    let frames = cars_params[car_name]["frames"];
+    car_image_width = $('.cars_img')[0].naturalWidth / frames;
+    num.min = (frames - 1) * -1;
+    num.max = frames;
+    num.value = init_value;
+
+    if (!last_i) last_i = init_value;
+
+    $('.slider-down').css('width', car_image_width);
+    $('.cars_img').css('width', 'auto');
+    $('.cars_img').css('left', (car_image_width * - (frames - last_i)) + 'px');
+    console.log($('.cars_img'));
+
+    $('#num').on('input', function(){
+        let i = this.value;
+        if (i <= 0) i = frames - (i*-1);
+        $('.cars_img').css('left', (car_image_width * - (frames - i)) + 'px');
+        last_i = i;
+    });
+
+    /*
+    $('#num').on('mouseleave', function(){
+        if (!is_rotating && last_i != frames && last_i != 1) {
+            let i = last_i;
+            is_rotating = true;
+            rotating = setInterval(() => {
+                i--;
+                for (let k = 0; k < car_nums.length; k++) {
+                    $('.cars_img').css('left', (width * - (frames - last_i)) + 'px');
+                }
+                last_i = i;
+            }, 1000/30);
+            setTimeout(()=>{
+                clearInterval(rotating);
+            }, 1000/30*(last_i));
+        }
+        return;
+    });
+    */
+
+    $('#num').on('mouseenter', function(){
+        if (is_rotating) {
+            is_rotating = false;
+            clearInterval(rotating);
+        }
+    });
 }
