@@ -239,7 +239,12 @@
   "f1": {
     "price": 1000000,
     "speed": 19,
-    "turn_var": 17.5
+    "turn_var": 17.5,
+    "is_3d" : true,
+    "frames": 35,
+    "init_frame" : 4,
+    "colors" : ["red"],
+    "car_nums" : ["1"]
   },
   "prius": {
     "price": 100000,
