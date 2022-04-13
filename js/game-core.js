@@ -797,6 +797,35 @@ function RandomInteger(min, max) {
     return Math.round(rand);
 }
 
+function game_start(car_name, car_num) {
+    setScreen();
+    isPolice = false;
+    eS.play();
+    document.querySelector('.slider-down').style.top = '-110%';
+    document.querySelector('#slider').style.top = '-110%';
+    document.querySelector('#timer').style.color = 'orange';
+    setTimeout(start, 500);
+    sessionStorage.setItem('last down slider', `slider-down-${car_name}`);
+    sessionStorage.setItem('current car', car_num);
+    document.querySelector('#car_characteristics').style.bottom = '-35%';
+    player.image.src = `./images/Smooth_models/${car_num}.png`;
+    if (game_type == 'multi') {
+        let car_count = cars_params[car_name]["colors"].length;
+        let car_number = getRandomIntInclusive(1, car_count);
+        let str = car_num;
+        str = str.slice(0, -1);
+        player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
+        if (car_num == "bmw_x5_1") player2.image.src = `./images/Smooth_models/bmw_x5_3.png`;
+        else if (car_num == "celica_1") player2.image.src = `./images/Smooth_models/celica_2.png`;
+        else if (car_num == "golf_1") player2.image.src = `./images/Smooth_models/golf_2.png`;
+        else if (car_num == "mazda_1") player2.image.src = `./images/Smooth_models/mazda_2.png`;
+        else if (car_num == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
+        else if (car_num == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
+        else if (car_num == "passat_1") player2.image.src = `./images/Smooth_models/passat_2.png`;
+        else if (car_num == "cupra_1") player2.image.src = `./images/Smooth_models/cupra_2.png`;
+    }
+}
+
 function restartGame() {
     document.getElementById('timer').style.opacity = "0";
     $("#message_score").css("opacity", "0").css("z-index", "-1");
@@ -823,7 +852,6 @@ function restartGame() {
 restart_button.onclick = restartGame;
 
 function newGameNewCar() {
-    let last_slider = sessionStorage.getItem('last down slider');
     $("#wrapper").css('display', 'none');
     if (timer == null || (player.dead == true || (player2 && player2.dead))) {
         objects = [];
@@ -838,19 +866,19 @@ function newGameNewCar() {
             player2.dead = false;
         }
         detach_content.appendTo('body');
-        document.getElementById(`${last_slider}`).style.top = '42%';
-        document.getElementById('main_theme1').currentTime = 0;
-        document.getElementById('main_theme1').play();
+        document.querySelector('.slider-down').style.top = '42%';
+        document.querySelector('#main_theme1').currentTime = 0;
+        document.querySelector('#main_theme1').play();
         $("#message_score").css("opacity", "0").css("z-index", "-1");
         scoreTimer.length = 0;
     }
-    document.getElementById('timer').style.opacity = "0";
+    document.querySelector('#timer').style.opacity = "0";
     menu.style.top = "-70%";
     this.blur();
-    document.getElementById('canvas').style.visibility = "hidden";
-    document.getElementById('slider').style.top = "2%";
-    document.getElementById('car_characteristics').style.bottom = '0%';
-    setTimeout(() => { document.getElementById('resume_button').classList.remove('hide_button'); }, 2000);
+    document.querySelector('#canvas').style.visibility = "hidden";
+    document.querySelector('#slider').style.top = "2%";
+    document.querySelector('#car_characteristics').style.bottom = '0%';
+    setTimeout(() => { document.querySelector('#resume_button').classList.remove('hide_button'); }, 2000);
     push_high_score();
     return S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 }
@@ -1053,7 +1081,6 @@ function view3D(car_name = 'leon', car_num = 8) {
     $('.slider-down').css('width', car_image_width);
     $('.cars_img').css('width', 'auto');
     $('.cars_img').css('left', (car_image_width * - (frames - last_i)) + 'px');
-    console.log($('.cars_img'));
 
     $('#num').on('input', function(){
         let i = this.value;

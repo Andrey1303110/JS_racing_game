@@ -7,9 +7,18 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["blue", "red", "white"],
-    "slides" : ["00", "01", "02"],
     "car_nums" : ["8", "7", "1"],
     "width": 700
+  },
+  "doblo": {
+    "price": 4500,
+    "speed": 11,
+    "turn_var": 37,
+    "is_3d" : true,
+    "frames": 36,
+    "init_frame" : 3,
+    "colors" : ["silver"],
+    "car_nums" : ["1"]
   },
   "new_leon": {
     "price": 12500,
@@ -19,7 +28,6 @@
     "frames": 23,
     "init_frame" : 3,
     "colors" : ["red", "white"],
-    "slides" : ["280", "281"],
     "car_nums" : ["2", "1"],
     "width": 700
   },
@@ -31,7 +39,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["white", "black"],
-    "slides" : ["200", "201"],
     "car_nums" : ["2", "1"]
   },
   "golf": {
@@ -42,7 +49,6 @@
     "frames": 24,
     "init_frame" : 3,
     "colors" : ["blue"],
-    "slides" : ["210"],
     "car_nums" : ["1"]
   },
   "superb": {
@@ -53,7 +59,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["green"],
-    "slides" : ["220"],
     "car_nums" : ["1"]
   },
   "passat": {
@@ -64,7 +69,6 @@
     "frames": 50,
     "init_frame" : 5,
     "colors" : ["silver"],
-    "slides" : ["230"],
     "car_nums" : ["1"]
   },
   "camry": {
@@ -75,7 +79,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["black"],
-    "slides" : ["240"],
     "car_nums" : ["1"]
   },
   "celica": {
@@ -86,7 +89,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["red"],
-    "slides" : ["250"],
     "car_nums" : ["1"]
   },
   "mazda": {
@@ -97,7 +99,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["blue"],
-    "slides" : ["260"],
     "car_nums" : ["1"]
   },
   "a1": {
@@ -108,7 +109,6 @@
     "frames": 24,
     "init_frame" : 3,
     "colors" : ["blue"],
-    "slides" : ["170"],
     "car_nums" : ["1"]
   },
   "2008": {
@@ -129,7 +129,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["violet", "black"],
-    "slides" : ["270", "271"],
     "car_nums" : ["1", "2"]
   },
   "touareg": {
@@ -140,7 +139,6 @@
     "frames": 24,
     "init_frame" : 3,
     "colors" : ["white"],
-    "slides" : ["10"],
     "car_nums" : ["4"]
   },
   "volvo": {
@@ -151,7 +149,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["red", "green"],
-    "slides" : ["130", "131"],
     "car_nums" : ["2", "3"]
   },
   "tesla": {
@@ -172,7 +169,6 @@
     "frames": 23,
     "init_frame" : 3,
     "colors" : ["violet", "yellow"],
-    "slides" : ["30", "31"],
     "car_nums" : ["4", "6"]
   },
   "xl1": {
@@ -188,7 +184,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["yellow", "red"],
-    "slides" : ["190", "191"],
     "car_nums" : ["1", "3"]
   },
   "gtr": {
@@ -199,7 +194,6 @@
     "frames": 12,
     "init_frame" : 3,
     "colors" : ["red", "silver"],
-    "slides" : ["110", "111"],
     "car_nums" : ["3", "1"]
   },
   "panamera": {
@@ -210,7 +204,6 @@
     "frames": 12,
     "init_frame" : 3,
     "colors" : ["gold", "white"],
-    "slides" : ["150", "151"],
     "car_nums" : ["1", "2"]
   },
   "enzo": {
@@ -221,7 +214,6 @@
     "frames": 23,
     "init_frame" : 3,
     "colors" : ["red"],
-    "slides" : ["80"],
     "car_nums" : ["1"]
   },
   "buggati": {
@@ -232,7 +224,6 @@
     "frames": 12,
     "init_frame" : 2,
     "colors" : ["blue", "green"],
-    "slides" : ["160", "161"],
     "car_nums" : ["1", "3"]
   },
   "r1": {
@@ -243,7 +234,6 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["red", "green"],
-    "slides" : ["100", "101"],
     "car_nums" : ["1", "3"]
   },
   "f1": {
@@ -264,7 +254,6 @@
     "frames": 35,
     "init_frame" : 33,
     "colors" : ["blue"],
-    "slides" : ["180"],
     "car_nums" : ["1"]
   },
   "cupra": {
@@ -275,7 +264,6 @@
     "frames": 72,
     "init_frame" : 6,
     "colors" : ["custom"],
-    "slides" : ["290"],
     "car_nums" : ["1"]
   }
 }

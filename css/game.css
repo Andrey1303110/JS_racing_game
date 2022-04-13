@@ -827,12 +827,13 @@ img {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    height: 400px;
+    height: 125px;
     margin: 0;
     padding: 0;
     border: none;
     opacity: 0;
     z-index: 2;
+    cursor: grab;
 }
 
 .cars_img {
@@ -841,21 +842,23 @@ img {
 
 .slider-down.cars_3d {
     overflow: hidden;
-    position: relative;
+    position: absolute;
     top: 42%;
 }
 
 #colors {
-    position: relative;
-    top: 42%;
-    min-height: 25px;
+    position: absolute;
+    bottom: 0;
+    min-height: 45px;
     width: 570px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
+    z-index: 2;
 }
 
 #colors div {

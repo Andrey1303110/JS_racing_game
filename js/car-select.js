@@ -64,7 +64,6 @@ $(document).ready(function () {
         set_slider(this.name);
         locked_cars(this.name);
         set_car_characteristics(this.name);
-        //init_value = cars_params[this.name]["init_frame"];
         returnStartPos();
         $(".main_screen_cars_img[name='r1']").click(function () {
             setTimeout(() => { returnStartPosMoto() }, 1500)
@@ -87,32 +86,7 @@ $(document).ready(function () {
         return isPolice = true;
     })
     $(".cars_img").click(function () {
-        setScreen();
-        isPolice = false;
-        eS.play();
-        $(`#slider-down-${this.name}`)[0].style.top = '-110%';
-        document.getElementById('slider').style.top = '-110%';
-        document.getElementById('timer').style.color = 'orange';
-        setTimeout(start, 500);
-        sessionStorage.setItem('last down slider', document.getElementById(`slider-down-${this.name}`).id);
-        sessionStorage.setItem('current car', this.alt);
-        document.getElementById('car_characteristics').style.bottom = '-35%';
-        player.image.src = `./images/Smooth_models/${this.alt}.png`;
-        if (game_type == 'multi') {
-            let car_count = document.querySelectorAll(`#slider-down-${this.name}`)[0].children[1].children[0].childElementCount;
-            let car_number = getRandomIntInclusive(1, car_count);
-            let str = this.alt;
-            str = str.slice(0, -1);
-            player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
-            if (this.alt == "bmw_x5_1") player2.image.src = `./images/Smooth_models/bmw_x5_3.png`;
-            else if (this.alt == "celica_1") player2.image.src = `./images/Smooth_models/celica_2.png`;
-            else if (this.alt == "golf_1") player2.image.src = `./images/Smooth_models/golf_2.png`;
-            else if (this.alt == "mazda_1") player2.image.src = `./images/Smooth_models/mazda_2.png`;
-            else if (this.alt == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
-            else if (this.alt == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
-            else if (this.alt == "passat_1") player2.image.src = `./images/Smooth_models/passat_2.png`;
-            else if (this.alt == "cupra_1") player2.image.src = `./images/Smooth_models/cupra_2.png`;
-        }
+        game_start(car_name, car_num);
     });
 });
 
@@ -293,11 +267,13 @@ function set_slider(car_name = 'leon') {
     }
 
     $('#colors div').on('click', function () {
-        let path = $('.cars_img')[0].src.split('/');
+        let path = document.querySelector('.cars_img').src.split('/');
         path[path.length - 2] = this.dataset['color'];
-        $('.cars_img')[0].src = path.join('/');
+        document.querySelector('.cars_img').src = path.join('/');
 
         let car_name = $('.cars_img')[0].name;
+        document.querySelector('.cars_img').alt = `${car_name}_${this.dataset.car_num}`;
+        document.querySelector('.cars_img').id = `${car_name}_${this.dataset.car_num}`;
         let frames = cars_params[car_name]["frames"];
         let i = last_i;
         console.log(i);
@@ -307,5 +283,9 @@ function set_slider(car_name = 'leon') {
         console.log(position);
         $('.cars_img').css('left', position);
         console.log(position);
+    });
+
+    $(".cars_img").click(function () {
+        game_start(this.name, this.alt);
     });
 }
