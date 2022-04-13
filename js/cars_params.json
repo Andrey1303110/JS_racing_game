@@ -11,9 +11,9 @@
     "width": 700
   },
   "doblo": {
-    "price": 4500,
-    "speed": 11,
-    "turn_var": 37,
+    "price": 0,
+    "speed": 9,
+    "turn_var": 38,
     "is_3d" : true,
     "frames": 36,
     "init_frame" : 3,

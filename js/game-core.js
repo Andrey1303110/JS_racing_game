@@ -823,6 +823,7 @@ function game_start(car_name, car_num) {
         else if (car_num == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
         else if (car_num == "passat_1") player2.image.src = `./images/Smooth_models/passat_2.png`;
         else if (car_num == "cupra_1") player2.image.src = `./images/Smooth_models/cupra_2.png`;
+        else if (car_num == "doblo_1") player2.image.src = `./images/Smooth_models/doblo_2.png`;
     }
 }
 
