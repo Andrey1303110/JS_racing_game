@@ -810,20 +810,14 @@ function game_start(car_name, car_num) {
     document.querySelector('#car_characteristics').style.bottom = '-35%';
     player.image.src = `./images/Smooth_models/${car_num}.png`;
     if (game_type == 'multi') {
-        let car_count = cars_params[car_name]["colors"].length;
-        let car_number = getRandomIntInclusive(1, car_count);
+        let car_count = cars_params[car_name]["car_nums"].length;
+        if (car_count == 2) car_number = 2;
+        else car_number = getRandomIntInclusive(1, car_count);
         let str = car_num;
         str = str.slice(0, -1);
+        console.log(str);
+        console.log(car_number);
         player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
-        if (car_num == "bmw_x5_1") player2.image.src = `./images/Smooth_models/bmw_x5_3.png`;
-        else if (car_num == "celica_1") player2.image.src = `./images/Smooth_models/celica_2.png`;
-        else if (car_num == "golf_1") player2.image.src = `./images/Smooth_models/golf_2.png`;
-        else if (car_num == "mazda_1") player2.image.src = `./images/Smooth_models/mazda_2.png`;
-        else if (car_num == "superb_1") player2.image.src = `./images/Smooth_models/superb_2.png`;
-        else if (car_num == "camry_1") player2.image.src = `./images/Smooth_models/camry_2.png`;
-        else if (car_num == "passat_1") player2.image.src = `./images/Smooth_models/passat_2.png`;
-        else if (car_num == "cupra_1") player2.image.src = `./images/Smooth_models/cupra_2.png`;
-        else if (car_num == "doblo_1") player2.image.src = `./images/Smooth_models/doblo_2.png`;
     }
 }
 

@@ -18,7 +18,7 @@
     "frames": 36,
     "init_frame" : 3,
     "colors" : ["silver"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "new_leon": {
     "price": 12500,
@@ -49,7 +49,7 @@
     "frames": 24,
     "init_frame" : 3,
     "colors" : ["blue"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "superb": {
     "price": 17000,
@@ -59,7 +59,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["green"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "passat": {
     "price": 6500,
@@ -69,7 +69,7 @@
     "frames": 50,
     "init_frame" : 5,
     "colors" : ["silver"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "camry": {
     "price": 12000,
@@ -79,7 +79,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["black"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "celica": {
     "price": 5000,
@@ -89,7 +89,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["red"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "mazda": {
     "price": 16000,
@@ -99,7 +99,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["blue"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "a1": {
     "price": 11000,
@@ -109,7 +109,7 @@
     "frames": 24,
     "init_frame" : 3,
     "colors" : ["blue"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2", "3", "4", "5"]
   },
   "2008": {
     "price": 13000,
@@ -139,7 +139,7 @@
     "frames": 24,
     "init_frame" : 3,
     "colors" : ["white"],
-    "car_nums" : ["4"]
+    "car_nums" : ["1", "2", "3", "4", "5"]
   },
   "volvo": {
     "price": 38000,
@@ -214,7 +214,7 @@
     "frames": 23,
     "init_frame" : 3,
     "colors" : ["red"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "buggati": {
     "price": 500000,
@@ -244,7 +244,7 @@
     "frames": 35,
     "init_frame" : 4,
     "colors" : ["red"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "prius": {
     "price": 100000,
@@ -259,7 +259,7 @@
     "frames": 35,
     "init_frame" : 33,
     "colors" : ["blue"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   },
   "cupra": {
     "price": 115000,
@@ -269,6 +269,6 @@
     "frames": 72,
     "init_frame" : 6,
     "colors" : ["custom"],
-    "car_nums" : ["1"]
+    "car_nums" : ["1", "2"]
   }
 }
