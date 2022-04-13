@@ -69,7 +69,7 @@
     "frames": 50,
     "init_frame" : 5,
     "colors" : ["silver"],
-    "car_nums" : ["1", "2"]
+    "car_nums" : ["1", "2", "3"]
   },
   "camry": {
     "price": 12000,
@@ -149,7 +149,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["red", "green"],
-    "car_nums" : ["2", "3"]
+    "car_nums" : ["2", "3", "1", "4"]
   },
   "tesla": {
     "price": 58000,
@@ -169,7 +169,7 @@
     "frames": 23,
     "init_frame" : 3,
     "colors" : ["violet", "yellow"],
-    "car_nums" : ["4", "6"]
+    "car_nums" : ["4", "6", "1", "2", "3", "5", "7"]
   },
   "xl1": {
     "price": 125000,
@@ -184,7 +184,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["yellow", "red"],
-    "car_nums" : ["1", "3"]
+    "car_nums" : ["1", "3", "2"]
   },
   "gtr": {
     "price": 65000,
@@ -194,7 +194,7 @@
     "frames": 12,
     "init_frame" : 3,
     "colors" : ["red", "silver"],
-    "car_nums" : ["3", "1"]
+    "car_nums" : ["3", "1", "2", "4"]
   },
   "panamera": {
     "price": 35000,
@@ -204,7 +204,7 @@
     "frames": 12,
     "init_frame" : 3,
     "colors" : ["gold", "white"],
-    "car_nums" : ["1", "2"]
+    "car_nums" : ["1", "2", "3", "4", "5"]
   },
   "enzo": {
     "price": 155000,
@@ -214,7 +214,7 @@
     "frames": 23,
     "init_frame" : 3,
     "colors" : ["red"],
-    "car_nums" : ["1", "2"]
+    "car_nums" : ["1", "2", "3", "4"]
   },
   "buggati": {
     "price": 500000,
@@ -224,7 +224,7 @@
     "frames": 12,
     "init_frame" : 2,
     "colors" : ["blue", "green"],
-    "car_nums" : ["1", "3"]
+    "car_nums" : ["1", "3", "2", "4"]
   },
   "r1": {
     "price": 45000,
@@ -234,7 +234,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["red", "green"],
-    "car_nums" : ["1", "3"]
+    "car_nums" : ["1", "3", "2"]
   },
   "f1": {
     "price": 1000000,
@@ -244,7 +244,7 @@
     "frames": 35,
     "init_frame" : 4,
     "colors" : ["red"],
-    "car_nums" : ["1", "2"]
+    "car_nums" : ["1", "2", "3"]
   },
   "prius": {
     "price": 100000,
@@ -259,7 +259,7 @@
     "frames": 35,
     "init_frame" : 33,
     "colors" : ["blue"],
-    "car_nums" : ["1", "2"]
+    "car_nums" : ["1", "2", "3"]
   },
   "cupra": {
     "price": 115000,
