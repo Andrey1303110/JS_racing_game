@@ -22,6 +22,30 @@ $(document).ready(function () {
     });
     */
 });
+
+$(document).ready(function () {
+    var cars_logos = [];
+    for (let key in cars_params) {
+        cars_logos.push({
+            key: key,
+            value: cars_params[key]['price']
+        });
+    }
+
+    cars_logos = cars_logos.sort((a, b) => (a.value > b.value) ? 1 : -1);
+    console.log(cars_logos);
+
+    for (let i = 0; i < cars_logos.length; i++) {
+        let name = cars_logos[i]['key'];
+        let img = document.createElement('img');
+        img.classList.add("main_screen_cars_img");
+        img.name = name;
+        img.src = `./images/Cars_main_screen/logo/${name}_logo.png`;
+        slider.appendChild(img);
+        if (i === 0) img.autofocus = true;
+    }
+});
+
 $(document).ready(function () {
     $('.up_slider').slick({
         arrows: true,

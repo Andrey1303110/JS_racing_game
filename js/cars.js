@@ -1,5 +1,5 @@
 function set_from_json(file_name){
-    var cars = null;
+    let cars = null;
     $.ajax({
         'async': false,
         'url': `./js/${file_name}.json`,

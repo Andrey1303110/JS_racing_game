@@ -280,7 +280,7 @@ function set_slider(car_name = 'leon') {
 
     current_car = sessionStorage.getItem('current car');
 
-    img.onload = function() {
+    img.onload = function () {
         view3D(car_name, current_car.split('_')[1]);
     };
 
@@ -292,7 +292,7 @@ function set_slider(car_name = 'leon') {
         colors.appendChild(div);
     }
 
-    $('#colors div').on('click', function(){
+    $('#colors div').on('click', function () {
         let path = $('.cars_img')[0].src.split('/');
         path[path.length - 2] = this.dataset['color'];
         $('.cars_img')[0].src = path.join('/');
@@ -301,7 +301,7 @@ function set_slider(car_name = 'leon') {
         let frames = cars_params[car_name]["frames"];
         let i = last_i;
         console.log(i);
-        if (i <= 0) i = frames - (i*-1);
+        if (i <= 0) i = frames - (i * -1);
         let position = car_image_width * - (frames - i) + 'px';
         console.log($('.cars_img'));
         console.log(position);
