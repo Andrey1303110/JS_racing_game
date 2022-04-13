@@ -7,7 +7,7 @@
     "frames": 25,
     "init_frame" : 3,
     "colors" : ["blue", "red", "white"],
-    "car_nums" : ["8", "7", "1"],
+    "car_nums" : ["8", "7", "1", "2", "3", "4", "5", "6"],
     "width": 700
   },
   "doblo": {
