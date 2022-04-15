@@ -949,10 +949,6 @@ start_new_game.onclick = () => {
     last_slider = sessionStorage.getItem('last down slider');
     current_car = sessionStorage.getItem('current car');
     car_name = last_slider.split('-')[last_slider.split('-').length - 1];
-    let up_slides = [];
-    for (let i = 0; i < $('.slider-down').length; i++) { up_slides.push($('.main_screen_cars_img')[i].name) }
-    init_slide = up_slides.indexOf(car_name);
-    $('.up_slider').slick('slickGoTo', init_slide - 1);
     locked_cars(car_name);
     view3D(car_name, current_car.split('_')[1]);
     setTimeout(() => { $('#pervue').remove(); $('#for_name').remove(); }, 2500);
