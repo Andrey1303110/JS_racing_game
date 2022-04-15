@@ -805,6 +805,7 @@ function game_start(car_name, car_num) {
     eS.play();
     document.querySelector('.slider-down').style.top = '-110%';
     document.querySelector('#slider').style.top = '-110%';
+    document.querySelector('#status_bar').style.top = '-110%';
     document.querySelector('#timer').style.color = 'orange';
     setTimeout(start, 500);
     sessionStorage.setItem('last down slider', `slider-down-${car_name}`);
@@ -863,6 +864,7 @@ function newGameNewCar() {
             player2.dead = false;
         }
         detach_content.appendTo('body');
+        document.querySelector('#status_bar').style.top = '0%';
         document.querySelector('.slider-down').style.top = '42%';
         document.querySelector('#main_theme1').currentTime = 0;
         document.querySelector('#main_theme1').play();

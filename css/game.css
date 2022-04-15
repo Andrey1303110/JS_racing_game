@@ -877,6 +877,7 @@ img {
     min-height: 45px;
     align-items: center;
     background: #ddc345;
+    transition: all .5s ease-in-out;
 }
 
 #status_bar .wrapper {
