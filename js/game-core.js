@@ -43,6 +43,8 @@ function setName() {
     var name_player = $("#name_player")[0].value;
     localStorage.setItem('name', `${name_player}`);
     high_score_base.push(`${localStorage.getItem('score')}` * 1);
+    nickname.innerText = name_player;
+    balance.innerText = localStorage.getItem('cash') + '$';
     if (name_player == "master") {
         localStorage.setItem('score', "9999999");
         high_score_base.push(9999999);
@@ -955,6 +957,7 @@ start_new_game.onclick = () => {
 }
 
 pervue_start.onclick = () => {
+    document.documentElement.requestFullscreen();
     if (localStorage.getItem('name') != name_player.value) {
         localStorage.setItem('score', '0');
     }
