@@ -19,14 +19,14 @@ function locked_cars(car_name = 'leon') {
     if (localStorage.getItem('score') < price) {
         $("#lock_cars").addClass("active_lock");
         document.querySelector("#lock_cars p").innerText = `You may take score ${price} or more!`;
-        $(`#slider-down-${car_name}`).css("opacity", ".5");
-        $(`#slider-down-${car_name} .slick-list.draggable`).css("pointer-events", "none");
-        $("#lock_cars").css("z-index", "2");
+        $(`.slider-down`).css("opacity", ".5");
+        $(`.slider-down`).css("pointer-events", "none");
+        $("#lock_cars").css("z-index", "3");
     }
     else if (localStorage.getItem('score') >= price) {
         $("#lock_cars").css("z-index", "-1");
-        $(`#slider-down-${car_name}`).css("opacity", "1");
-        $(`#slider-down-${car_name} .slick-list.draggable`).css("pointer-events", "auto");
+        $(`.slider-down`).css("opacity", "1");
+        $(`.slider-down`).css("pointer-events", "auto");
     }
 
     speed = cars_params[car_name]['speed'];
