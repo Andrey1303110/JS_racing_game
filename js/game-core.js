@@ -77,6 +77,7 @@ function push_high_score() {
     last_cash = localStorage.getItem('cash');
     new_cash = Number(last_cash) + Number(score);
     localStorage.setItem('cash', new_cash);
+    balance.innerText = localStorage.getItem('cash') + '$';
     $("#score")[0].innerText = localStorage.getItem('score');
 }
 
@@ -156,7 +157,10 @@ class Car {
         }
         if (game_type == 'arcade') {
             if (this.x == 181 && !this.isPlayer) {
-                if (this.y < canvas.height / 20 && this.y > 0) { tram.currentTime = 0; tram.play(); }
+                if ( (this.y < canvas.height) && ((this.y + this.image.height) > 0) && (player.x > 165 && player.x < 195)) { 
+                    tram.currentTime = 0;
+                    tram.play(); 
+                }
             }
         }
     }
@@ -164,9 +168,9 @@ class Car {
     collide(car) {
         var hit = false;
 
-        if (this.y < car.y + (car.image.height * .7) * scale && this.y + (this.image.height * .7) * scale > car.y) //Стокновнение по высоте
+        if (this.y < car.y + (car.image.height * .8) * scale && this.y + (this.image.height * .8) * scale > car.y) //Стокновнение по высоте
         {
-            if (this.x + (this.image.width * .7) * scale > car.x && this.x < car.x + (car.image.width * .7) * scale) //Столкновение по ширине
+            if (this.x + (this.image.width * .8) * scale > car.x && this.x < car.x + (car.image.width * .8) * scale) //Столкновение по ширине
             {
                 hit = true;
             }
@@ -875,7 +879,7 @@ function newGameNewCar() {
     menu.style.top = "-70%";
     this.blur();
     document.querySelector('#canvas').style.visibility = "hidden";
-    document.querySelector('#slider').style.top = "2%";
+    document.querySelector('#slider').style.top = status_bar.clientHeight + 'px';
     document.querySelector('#car_characteristics').style.bottom = '0%';
     setTimeout(() => { document.querySelector('#resume_button').classList.remove('hide_button'); }, 2000);
     push_high_score();

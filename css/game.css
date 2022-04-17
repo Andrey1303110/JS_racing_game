@@ -865,7 +865,8 @@ img {
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    background: red;
+    background: white;
+    cursor: pointer;
 }
 
 #status_bar {
@@ -883,8 +884,15 @@ img {
 #status_bar .wrapper {
     width: 100%;
     max-width: 570px;
+    padding: 0 25px;
     display: flex;
     justify-content: space-between;
+}
+
+#status_bar .wrapper .block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #status_bar p {
@@ -894,4 +902,10 @@ img {
     text-transform: uppercase;
     font-family: "Architects Daughter";
     font-weight: bold;
+    line-height: 45px;
+}
+
+#status_bar .logos {
+    width: 45px;
+    margin-right: 20px;
 }
