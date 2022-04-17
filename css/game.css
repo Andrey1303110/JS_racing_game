@@ -231,7 +231,6 @@ video {
 
 #slider {
     width: 395px;
-    height: 230px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -243,17 +242,9 @@ video {
     top: -110%;
 }
 
-.slider-down.cars_2d {
-    width: 395px;
-    height: 230px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0s, top .5s ease-in-out;
-}
-
 .slider-down.cars_3d {
-    width: 570px;
+    max-width: 570px;
+    width: 100%;
     min-height: 400px;
     position: absolute;
     left: 50%;
@@ -553,213 +544,6 @@ img {
     height: 1px;
 }
 
-@media (min-width: 1680px) {
-    #name_insert {
-        min-height: 550px;
-        min-width: 520px;
-    }
-
-    #name_insert p:nth-child(1) {
-        font-size: 150px;
-    }
-
-    #name_insert p:nth-child(2) {
-        font-size: 75px;
-    }
-
-    #name_insert form input:nth-child(1) {
-        font-size: 100px;
-    }
-
-    #name_insert form input:nth-child(2) {
-        font-size: 100px;
-    }
-
-    #start_new_game {
-        width: 85%;
-        max-width: 650px;
-        height: 100px;
-        font-size: 60px;
-        background-size: 100px;
-    }
-
-    #slider {
-        width: 550px;
-    }
-
-    .slider-down.cars_2d,
-    .slider-down.cars_3d {
-        width: 550px;
-    }
-
-    .slick-prev.slick-arrow,
-    .slick-next.slick-arrow {
-        transform: translate(0, -20px);
-        background-size: 45px;
-    }
-
-    ul.slick-dots {
-        bottom: -150px;
-    }
-
-    ul.slick-dots li button:before {
-        font-size: 25px;
-        line-height: 25px;
-    }
-
-    #lock_cars {
-        width: 880px;
-        height: 400px;
-        background-size: 400px;
-    }
-
-    #lock_cars p {
-        width: 500px;
-        font-size: 50px;
-    }
-}
-
-@media (max-width: 540px) {
-    .slider-down.cars_2d .slider-down.cars_3d {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: all .5s ease-in-out;
-    }
-
-    .slider-down.cars_2d {
-        width: 400px;
-        height: 215px;
-    }
-
-    .slider-down.cars_3d {
-        width: 510px;
-        height: 250px;
-    }
-}
-
-@media (max-width: 400px) {
-    #slider {
-        width: 355px;
-    }
-
-    #name_insert {
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-    }
-
-    .slider-down.cars_2d {
-        width: 370px;
-    }
-
-    .slider-down.cars_3d {
-        width: 425px;
-    }
-
-    #start_new_game {
-        min-width: 340px;
-        font-size: 30px;
-        background-size: 50px;
-    }
-
-    #intro_video {
-        min-width: 520px;
-    }
-
-    #button_special_signals {
-        width: 380px;
-    }
-}
-
-@media (max-width: 380px) {
-    #slider {
-        width: 340px;
-    }
-
-    .slider-down.cars_2d {
-        width: 360px;
-    }
-
-    .slider-down.cars_3d {
-        width: 415px;
-    }
-
-    #start_new_game {
-        min-width: 300px;
-        font-size: 28px;
-        background-size: 45px;
-    }
-
-    #intro_video {
-        min-width: 500px;
-    }
-
-    #button_special_signals {
-        width: 360px;
-    }
-}
-
-@media (max-width: 350px) {
-    #slider {
-        width: 340px;
-    }
-
-    .slider-down.cars_2d {
-        width: 340px;
-    }
-
-    .slider-down.cars_3d {
-        width: 400px;
-    }
-
-    #start_new_game {
-        min-width: 300px;
-        font-size: 28px;
-        background-size: 40px;
-
-    }
-
-    #intro_video {
-        min-width: 465px;
-    }
-
-    #button_special_signals {
-        width: 335px;
-    }
-}
-
-@media (max-width: 330px) {
-    #slider {
-        width: 315px;
-    }
-
-    #name_insert {
-        min-width: 300px;
-    }
-
-    .slider-down.cars_2d {
-        width: 315px;
-    }
-
-    .slider-down.cars_3d {
-        width: 360px;
-    }
-
-    #start_new_game {
-        min-width: 250px;
-        font-size: 28px;
-        background-size: 40px;
-    }
-
-    #intro_video {
-        min-width: 440px;
-    }
-
-    #button_special_signals {
-        width: 315px;
-    }
-}
-
 #car_characteristics {
     display: flex;
     position: absolute;
@@ -822,7 +606,8 @@ img {
 }
 
 #num {
-    width: 570px;
+    max-width: 570px;
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -850,7 +635,8 @@ img {
     position: absolute;
     bottom: 0;
     min-height: 45px;
-    width: 570px;
+    max-width: 570px;
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -906,6 +692,212 @@ img {
 }
 
 #status_bar .logos {
-    width: 45px;
+    width: 38px;
     margin-right: 20px;
+}
+
+@media (min-width: 1680px) {
+    #name_insert {
+        min-height: 550px;
+        min-width: 520px;
+    }
+
+    #name_insert p:nth-child(1) {
+        font-size: 150px;
+    }
+
+    #name_insert p:nth-child(2) {
+        font-size: 75px;
+    }
+
+    #name_insert form input:nth-child(1) {
+        font-size: 100px;
+    }
+
+    #name_insert form input:nth-child(2) {
+        font-size: 100px;
+    }
+
+    #start_new_game {
+        width: 85%;
+        max-width: 650px;
+        height: 100px;
+        font-size: 60px;
+        background-size: 100px;
+    }
+
+    #slider {
+        width: 550px;
+    }
+
+    .slider-down.cars_3d {
+        width: 550px;
+    }
+
+    .slick-prev.slick-arrow,
+    .slick-next.slick-arrow {
+        transform: translate(0, -20px);
+        background-size: 45px;
+    }
+
+    ul.slick-dots {
+        bottom: -150px;
+    }
+
+    ul.slick-dots li button:before {
+        font-size: 25px;
+        line-height: 25px;
+    }
+
+    #lock_cars {
+        width: 880px;
+        height: 400px;
+        background-size: 400px;
+    }
+
+    #lock_cars p {
+        width: 500px;
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    #car_characteristics {
+        flex-direction: column;
+    }
+    #status_bar .wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .slider-down.cars_3d {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all .5s ease-in-out;
+    }
+
+    .slider-down.cars_3d {
+        max-width: 570px;
+        width: 100%;
+        height: 250px;
+    }
+    #status_bar .wrapper {
+        padding: 0 5px;
+    }
+    #status_bar p {
+        font-size: 1em;
+    }
+
+    #status_bar .logos {
+        width: 35px;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    #slider {
+        width: 355px;
+    }
+
+    #name_insert {
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .slider-down.cars_3d {
+        width: 425px;
+    }
+
+    #start_new_game {
+        min-width: 340px;
+        font-size: 30px;
+        background-size: 50px;
+    }
+
+    #intro_video {
+        min-width: 520px;
+    }
+
+    #button_special_signals {
+        width: 380px;
+    }
+}
+
+@media (max-width: 380px) {
+    #slider {
+        width: 340px;
+    }
+
+    .slider-down.cars_3d {
+        width: 415px;
+    }
+
+    #start_new_game {
+        min-width: 300px;
+        font-size: 28px;
+        background-size: 45px;
+    }
+
+    #intro_video {
+        min-width: 500px;
+    }
+
+    #button_special_signals {
+        width: 360px;
+    }
+}
+
+@media (max-width: 350px) {
+    #slider {
+        width: 240px;
+    }
+
+    .slider-down.cars_3d {
+        width: 400px;
+    }
+
+    #start_new_game {
+        min-width: 300px;
+        font-size: 28px;
+        background-size: 40px;
+
+    }
+
+    #intro_video {
+        min-width: 465px;
+    }
+
+    #button_special_signals {
+        width: 335px;
+    }
+}
+
+@media (max-width: 330px) {
+    #slider {
+        width: 240px;
+    }
+
+    #name_insert {
+        min-width: 300px;
+    }
+
+    .slider-down.cars_3d {
+        width: 360px;
+    }
+
+    #start_new_game {
+        min-width: 250px;
+        font-size: 28px;
+        background-size: 40px;
+    }
+
+    #intro_video {
+        min-width: 440px;
+    }
+
+    #button_special_signals {
+        width: 315px;
+    }
 }
