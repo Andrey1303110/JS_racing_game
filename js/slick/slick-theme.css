@@ -245,12 +245,12 @@
 
 @media (max-width: 350px) {
     #slider .slick-next.slick-arrow {
-        right: 20%;
+        right: 0%;
         top: 185px;
         background-size: 40px;
     }
     #slider .slick-prev.slick-arrow {
-        left: 20%;
+        left: 0%;
         top: 185px;
         background-size: 40px;
     }
@@ -261,12 +261,12 @@
 
 @media (max-width: 330px) {
     #slider .slick-next.slick-arrow {
-        right: 20%;
+        right: 0%;
         top: 185px;
         background-size: 40px;
     }
     #slider .slick-prev.slick-arrow {
-        left: 20%;
+        left: 0%;
         top: 185px;
         background-size: 40px;
     }
