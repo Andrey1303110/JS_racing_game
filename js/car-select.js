@@ -248,7 +248,6 @@ function set_slider(car_name = 'leon') {
     car_nums = cars_params[car_name]['car_nums'];
 
     img = set_car_in_slider(car_name);
-    console.log(img);
     let slider = document.querySelector('.slider-down');
     slider.appendChild(img);
 

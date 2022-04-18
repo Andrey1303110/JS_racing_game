@@ -771,6 +771,14 @@ img {
 }
 
 @media (max-width: 600px) {
+    #slider {
+        width: 100vw;
+    }
+    #slider .slick-slide {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 10vw;
+    }
     .slider-down.cars_3d {
         position: absolute;
         left: 50%;
@@ -781,7 +789,7 @@ img {
     .slider-down.cars_3d {
         max-width: 570px;
         width: 100%;
-        height: 250px;
+        min-height: 225px;
     }
     #status_bar .wrapper {
         padding: 0 5px;
@@ -794,13 +802,44 @@ img {
         width: 35px;
         margin-right: 12px;
     }
+
+    #colors {
+        min-height: 0;
+    }
+
+    #car_characteristics .block {
+        margin: 0 15px;
+        min-height: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 5vw;
+        box-sizing: border-box;
+    }
+
+    #car_characteristics .block p {
+        font-size: 16px;
+        line-height: 16px;
+        display: block;
+        min-width: 80px;
+        margin-right: 25px;
+        text-align: left;
+    }
+
+    #car_characteristics .progress {
+        background-color: #d8d8d8;
+        border-radius: 15px;
+        position: relative;
+        margin: 15px 0;
+        height: 15px;
+        width: 300px;
+    }
 }
 
 @media (max-width: 400px) {
-    #slider {
-        width: 355px;
-    }
-
     #name_insert {
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
@@ -826,10 +865,6 @@ img {
 }
 
 @media (max-width: 380px) {
-    #slider {
-        width: 340px;
-    }
-
     .slider-down.cars_3d {
         width: 415px;
     }
@@ -850,10 +885,6 @@ img {
 }
 
 @media (max-width: 350px) {
-    #slider {
-        width: 240px;
-    }
-
     .slider-down.cars_3d {
         width: 400px;
     }
@@ -875,10 +906,6 @@ img {
 }
 
 @media (max-width: 330px) {
-    #slider {
-        width: 240px;
-    }
-
     #name_insert {
         min-width: 300px;
     }

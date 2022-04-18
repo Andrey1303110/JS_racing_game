@@ -1071,21 +1071,29 @@ function view3D(car_name = 'leon', car_num = 8) {
     let rotating;
     let init_value = cars_params[car_name]["init_frame"];
     let frames = cars_params[car_name]["frames"];
+    console.log(frames);
     car_image_width = $('.cars_img')[0].naturalWidth / frames;
+    car_image_height = $('.cars_img')[0].naturalHeight;
+    console.log(car_image_width);
     num.min = (frames - 1) * -1;
     num.max = frames;
     num.value = init_value;
 
     if (!last_i) last_i = init_value;
 
-    $('.slider-down').css('width', car_image_width);
+    window.innerWidth <= 570 ? scale_cof = window.innerWidth / 570 : scale_cof = 1;
+
+    $('.slider-down').css('width', car_image_width * scale_cof);
+
+    console.log(car_image_width * scale_cof);
+    $('.cars_img').css('height', car_image_height * scale_cof);
     $('.cars_img').css('width', 'auto');
-    $('.cars_img').css('left', (car_image_width * - (frames - last_i)) + 'px');
+    $('.cars_img').css('left', ( (car_image_width * scale_cof) * -(frames - last_i)) + 'px');
 
     $('#num').on('input', function(){
         let i = this.value;
         if (i <= 0) i = frames - (i*-1);
-        $('.cars_img').css('left', (car_image_width * - (frames - i)) + 'px');
+        $('.cars_img').css('left', ( (car_image_width * scale_cof) * -(frames - i)) + 'px');
         last_i = i;
     });
 
