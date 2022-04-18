@@ -1115,7 +1115,7 @@ function view3D(car_name = 'leon', car_num = 8) {
         }
         return;
     });
-    */
+    
 
     $('#num').on('mouseenter', function(){
         if (is_rotating) {
@@ -1123,4 +1123,5 @@ function view3D(car_name = 'leon', car_num = 8) {
             clearInterval(rotating);
         }
     });
+    */
 }
