@@ -23,16 +23,7 @@ $(document).ready(function () {
     */
 });
 
-var cars_logos = [];
-var init_slide = 1;
-
 $(document).ready(function () {
-    for (let key in cars_params) {
-        cars_logos.push({
-            key: key,
-            value: cars_params[key]['price']
-        });
-    }
 
     cars_logos = cars_logos.sort((a, b) => (a.value > b.value) ? 1 : -1);
     console.log(cars_logos);
@@ -60,7 +51,7 @@ $(document).ready(function () {
         cssEase: 'linear',
     });
 
-    last_slider = sessionStorage.getItem('last down slider');
+    (!sessionStorage.getItem('last down slider')) ? last_slider = sessionStorage.getItem('last down slider', `slider-down-${cars_logos[0]['key']}`) : last_slider = sessionStorage.getItem('last down slider');
     car_name = last_slider.split('-')[last_slider.split('-').length - 1];
     for (let i = 0; i < cars_logos.length; i++) {
         if (cars_logos[i].key == car_name) init_slide = i; 

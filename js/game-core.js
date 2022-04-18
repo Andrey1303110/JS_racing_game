@@ -160,9 +160,9 @@ class Car {
         }
         if (game_type == 'arcade') {
             if (this.x == 181 && !this.isPlayer) {
-                if ( (this.y < canvas.height) && ((this.y + this.image.height) > 0) && (player.x > 165 && player.x < 195)) { 
+                if ((this.y < canvas.height) && ((this.y + this.image.height) > 0) && (player.x > 165 && player.x < 195)) {
                     tram.currentTime = 0;
-                    tram.play(); 
+                    tram.play();
                 }
             }
         }
@@ -287,20 +287,20 @@ if (game_type == 'arcade') {
     let road_num = getRandomIntInclusive(1, 3);
 
     roads =
-    [
-        new Road(`images/road/road7_${road_num}_railways.webp`, 0),
-        new Road(`images/road/road7_${road_num}_railways.webp`, canvas.height)
-    ]; //Background в виде дороги
+        [
+            new Road(`images/road/road7_${road_num}_railways.webp`, 0),
+            new Road(`images/road/road7_${road_num}_railways.webp`, canvas.height)
+        ]; //Background в виде дороги
 
     randomRoadList = ["images/Smooth_models/tram_1.png", "images/Smooth_models/tram_2.png"];
 }
 
 else {
     roads =
-    [
-        new Road("images/road/road7_1.webp", 0),
-        new Road("images/road/road7_1.webp", canvas.height)
-    ]; //Background в виде дороги
+        [
+            new Road("images/road/road7_1.webp", 0),
+            new Road("images/road/road7_1.webp", canvas.height)
+        ]; //Background в виде дороги
 
     randomRoadList = ["images/Smooth_models/road_work.png", "images/Smooth_models/road_barrier_2.png", "images/Smooth_models/road_barrier_3.png", "images/Smooth_models/road_barrier_4.png"];
 }
@@ -568,7 +568,7 @@ function update() {
     if (game_type == 'multi') {
         for (var i = 0; i < objects.length; i++) {
             hit = player2.collide(objects[i]);
-    
+
             if (hit) {
                 stop();
                 document.getElementById("timer").style.opacity = "0";
@@ -672,27 +672,27 @@ function KeyDown(e) {
                 case 37: //Left
                     turn_car('left', player, speed);
                     break;
-    
+
                 case 65: //Left
                     turn_car('left', player2, speed);
                     break;
-    
+
                 case 39: //Right
                     turn_car('right', player, speed);
                     break;
-    
+
                 case 68: //Right
                     turn_car('right', player2, speed);
                     break;
-    
+
                 case 38: //Up
                     player.move("y", -speed);
                     break;
-    
+
                 case 87: //Up
                     player2.move("y", -speed);
                     break;
-    
+
                 case 40: //Down
                     player.move("y", speed);
                     if (sessionStorage.getItem('current car') == 'passat_1') {
@@ -705,11 +705,11 @@ function KeyDown(e) {
                         }
                     }
                     break;
-    
+
                 case 83: //Down
                     player2.move("y", speed);
                     break;
-    
+
                 case 81: //Left-Up
                     document.getElementById('sound_wheel_left_up').play();
                     let timerId81 = setInterval(() => {
@@ -717,7 +717,7 @@ function KeyDown(e) {
                     }, 25);
                     setTimeout(() => { clearInterval(timerId81); }, 250);
                     break;
-    
+
                 case 69: //Right-Up
                     document.getElementById('sound_wheel_right_up').play();
                     let timerId69 = setInterval(() => {
@@ -725,7 +725,7 @@ function KeyDown(e) {
                     }, 25);
                     setTimeout(() => { clearInterval(timerId69); }, 250);
                     break;
-    
+
                 case 32: //Space
                     pause_function();
             }
@@ -735,27 +735,27 @@ function KeyDown(e) {
                 case 37: //Left
                     turn_car('left', player, speed);
                     break;
-    
+
                 case 65: //left
                     turn_car('left', player, speed);
                     break;
-    
+
                 case 39: //Right
                     turn_car('right', player, speed);
                     break;
-    
+
                 case 68: //Right
                     turn_car('right', player, speed);
                     break;
-    
+
                 case 38: //Up
                     player.move("y", -speed);
                     break;
-    
+
                 case 87: //Up
                     player.move("y", -speed);
                     break;
-    
+
                 case 40: //Down
                     player.move("y", speed);
                     if (sessionStorage.getItem('current car') == 'passat_1') {
@@ -768,11 +768,11 @@ function KeyDown(e) {
                         }
                     }
                     break;
-    
+
                 case 83: //Down
                     player.move("y", speed);
                     break;
-    
+
                 case 81: //Left-Up
                     document.getElementById('sound_wheel_left_up').play();
                     let timerId81 = setInterval(() => {
@@ -780,7 +780,7 @@ function KeyDown(e) {
                     }, 25);
                     setTimeout(() => { clearInterval(timerId81); }, 250);
                     break;
-    
+
                 case 69: //Right-Up
                     document.getElementById('sound_wheel_right_up').play();
                     let timerId69 = setInterval(() => {
@@ -788,7 +788,7 @@ function KeyDown(e) {
                     }, 25);
                     setTimeout(() => { clearInterval(timerId69); }, 250);
                     break;
-    
+
                 case 32: //Space
                     pause_function();
             }
@@ -1068,7 +1068,9 @@ function live_counter(last_number, target_id) {
     }, all_time);
 }
 
-function view3D(car_name = 'leon', car_num = 8) {
+console.log(cars_logos[0]['key']);
+
+function view3D(car_name = cars_logos[0]['key'], car_num = 8) {
     let is_rotating = false;
     let rotating;
     let init_value = cars_params[car_name]["init_frame"];
@@ -1090,12 +1092,12 @@ function view3D(car_name = 'leon', car_num = 8) {
     console.log(car_image_width * scale_cof);
     $('.cars_img').css('height', car_image_height * scale_cof);
     $('.cars_img').css('width', 'auto');
-    $('.cars_img').css('left', ( (car_image_width * scale_cof) * -(frames - last_i)) + 'px');
+    $('.cars_img').css('left', ((car_image_width * scale_cof) * -(frames - last_i)) + 'px');
 
-    $('#num').on('input', function(){
+    $('#num').on('input', function () {
         let i = this.value;
-        if (i <= 0) i = frames - (i*-1);
-        $('.cars_img').css('left', ( (car_image_width * scale_cof) * -(frames - i)) + 'px');
+        if (i <= 0) i = frames - (i * -1);
+        $('.cars_img').css('left', ((car_image_width * scale_cof) * -(frames - i)) + 'px');
         last_i = i;
     });
 

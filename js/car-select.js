@@ -7,12 +7,9 @@ let eS = document.getElementById('engine_start');
 let slides = document.getElementsByClassName("slider-down");
 let slider = document.getElementById('slider');
 
-let playerCarSelect = 0;
-let selectCar = 'leon';
+console.log(cars_logos[0]['key']);
 
-let playerStartHeightPos = .7;
-
-function locked_cars(car_name = 'leon') {
+function locked_cars(car_name = cars_logos[0]['key']) {
     lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
     price = cars_params[car_name]['price'];
 
@@ -199,7 +196,9 @@ function prius_function() {
 $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
 
-function set_car_characteristics(car_name = 'leon') {
+console.log(cars_logos[0]['key']);
+
+function set_car_characteristics(car_name = cars_logos[0]['key']) {
     speed = cars_params[car_name]['speed'];
     turn_var = cars_params[car_name]['turn_var'];
     price = cars_params[car_name]['price'];
@@ -236,7 +235,9 @@ function set_car_in_slider(car_name) {
     return img;
 }
 
-function set_slider(car_name = 'leon') {
+console.log(cars_logos[0]['key']);
+
+function set_slider(car_name = cars_logos[0]['key']) {
     if (document.querySelector('.cars_img')) document.querySelector('.cars_img').remove();
     if (colors.childElementCount) {
         $('#colors div').remove();
