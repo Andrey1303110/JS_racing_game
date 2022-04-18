@@ -3,148 +3,239 @@
     "price": 0,
     "speed": 9.5,
     "turn_var": 35,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["blue", "red", "white"],
-    "car_nums" : ["8", "7", "1", "2", "3", "4", "5", "6"],
+    "init_frame": 3,
+    "colors": [
+      "blue",
+      "red",
+      "white"
+    ],
+    "car_nums": [
+      "8",
+      "7",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
     "width": 700
   },
   "doblo": {
     "price": 0,
     "speed": 9,
     "turn_var": 38,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 36,
-    "init_frame" : 3,
-    "colors" : ["silver"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 3,
+    "colors": [
+      "silver"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   },
   "new_leon": {
     "price": 12500,
     "speed": 10.45,
     "turn_var": 33,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 23,
-    "init_frame" : 3,
-    "colors" : ["red", "white"],
-    "car_nums" : ["2", "1"],
+    "init_frame": 3,
+    "colors": [
+      "red",
+      "white"
+    ],
+    "car_nums": [
+      "2",
+      "1"
+    ],
     "width": 700
   },
   "vaz2113": {
     "price": 3500,
     "speed": 9,
     "turn_var": 39,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["white", "black"],
-    "car_nums" : ["2", "1"]
+    "init_frame": 3,
+    "colors": [
+      "white",
+      "black"
+    ],
+    "car_nums": [
+      "2",
+      "1"
+    ]
   },
   "golf": {
     "price": 4500,
     "speed": 11,
     "turn_var": 37,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 24,
-    "init_frame" : 3,
-    "colors" : ["blue"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 3,
+    "colors": [
+      "blue"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   },
   "superb": {
     "price": 17000,
     "speed": 12,
     "turn_var": 39,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["green"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 3,
+    "colors": [
+      "green"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   },
   "passat": {
     "price": 6500,
     "speed": 10.75,
     "turn_var": 38,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 50,
-    "init_frame" : 5,
-    "colors" : ["silver"],
-    "car_nums" : ["1", "2", "3"]
+    "init_frame": 5,
+    "colors": [
+      "silver"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3"
+    ]
   },
   "camry": {
     "price": 12000,
     "speed": 13.5,
     "turn_var": 40,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["black"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 3,
+    "colors": [
+      "black"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   },
   "celica": {
     "price": 5000,
     "speed": 10.5,
     "turn_var": 38,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["red"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 3,
+    "colors": [
+      "red"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   },
   "mazda": {
     "price": 16000,
     "speed": 14,
     "turn_var": 35,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["blue"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 3,
+    "colors": [
+      "blue"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   },
   "a1": {
     "price": 11000,
     "speed": 9.5,
     "turn_var": 33,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 24,
-    "init_frame" : 3,
-    "colors" : ["blue"],
-    "car_nums" : ["1", "2", "3", "4", "5"]
+    "init_frame": 3,
+    "colors": [
+      "blue"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
   },
   "fj": {
     "price": 25000,
     "speed": 11.5,
     "turn_var": 40
   },
-  "lc": {
+  "land_cruiser": {
     "price": 45000,
     "speed": 12,
     "turn_var": 42,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["violet", "black"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 3,
+    "colors": [
+      "black",
+      "violet"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   },
   "touareg": {
     "price": 35000,
     "speed": 12.5,
     "turn_var": 40,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 24,
-    "init_frame" : 3,
-    "colors" : ["white"],
-    "car_nums" : ["1", "2", "3", "4", "5"]
+    "init_frame": 3,
+    "colors": [
+      "white"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
   },
   "volvo": {
     "price": 38000,
     "speed": 12,
     "turn_var": 41,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["red", "green"],
-    "car_nums" : ["2", "3", "1", "4"]
+    "init_frame": 3,
+    "colors": [
+      "red",
+      "green"
+    ],
+    "car_nums": [
+      "2",
+      "3",
+      "1",
+      "4"
+    ]
   },
   "tesla": {
     "price": 58000,
@@ -155,21 +246,38 @@
     "price": 51000,
     "speed": 13.2,
     "turn_var": 34,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 71,
-    "init_frame" : 7,
-    "colors" : ["white"],
-    "car_nums" : ["1", "2", "3"]
+    "init_frame": 7,
+    "colors": [
+      "white"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3"
+    ]
   },
   "i8": {
     "price": 75000,
     "speed": 14.5,
     "turn_var": 27,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 23,
-    "init_frame" : 3,
-    "colors" : ["violet", "yellow"],
-    "car_nums" : ["4", "6", "1", "2", "3", "5", "7"]
+    "init_frame": 3,
+    "colors": [
+      "violet",
+      "yellow"
+    ],
+    "car_nums": [
+      "4",
+      "6",
+      "1",
+      "2",
+      "3",
+      "5",
+      "7"
+    ]
   },
   "xl1": {
     "price": 125000,
@@ -180,71 +288,123 @@
     "price": 30000,
     "speed": 6,
     "turn_var": 55,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["yellow", "red"],
-    "car_nums" : ["1", "3", "2"]
+    "init_frame": 3,
+    "colors": [
+      "yellow",
+      "red"
+    ],
+    "car_nums": [
+      "1",
+      "3",
+      "2"
+    ]
   },
   "gtr": {
     "price": 65000,
     "speed": 15,
     "turn_var": 29,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 12,
-    "init_frame" : 3,
-    "colors" : ["red", "silver"],
-    "car_nums" : ["3", "1", "2", "4"]
+    "init_frame": 3,
+    "colors": [
+      "red",
+      "silver"
+    ],
+    "car_nums": [
+      "3",
+      "1",
+      "2",
+      "4"
+    ]
   },
   "panamera": {
     "price": 35000,
     "speed": 13.25,
     "turn_var": 31,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 12,
-    "init_frame" : 3,
-    "colors" : ["gold", "white"],
-    "car_nums" : ["1", "2", "3", "4", "5"]
+    "init_frame": 3,
+    "colors": [
+      "gold",
+      "white"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
   },
   "enzo": {
     "price": 155000,
     "speed": 17.1,
     "turn_var": 24,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 23,
-    "init_frame" : 3,
-    "colors" : ["red"],
-    "car_nums" : ["1", "2", "3", "4"]
+    "init_frame": 3,
+    "colors": [
+      "red"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
   },
   "buggati": {
     "price": 500000,
     "speed": 20.9,
     "turn_var": 25,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 12,
-    "init_frame" : 2,
-    "colors" : ["blue", "green"],
-    "car_nums" : ["1", "3", "2", "4"]
+    "init_frame": 2,
+    "colors": [
+      "blue",
+      "green"
+    ],
+    "car_nums": [
+      "1",
+      "3",
+      "2",
+      "4"
+    ]
   },
   "r1": {
     "price": 45000,
     "speed": 19,
     "turn_var": 21,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 25,
-    "init_frame" : 3,
-    "colors" : ["red", "green"],
-    "car_nums" : ["1", "3", "2"]
+    "init_frame": 3,
+    "colors": [
+      "red",
+      "green"
+    ],
+    "car_nums": [
+      "1",
+      "3",
+      "2"
+    ]
   },
   "f1": {
     "price": 1000000,
     "speed": 19,
     "turn_var": 17.5,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 35,
-    "init_frame" : 4,
-    "colors" : ["red"],
-    "car_nums" : ["1", "2", "3"]
+    "init_frame": 4,
+    "colors": [
+      "red"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3"
+    ]
   },
   "prius": {
     "price": 100000,
@@ -255,20 +415,31 @@
     "price": 85000,
     "speed": 15.675,
     "turn_var": 28,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 35,
-    "init_frame" : 33,
-    "colors" : ["blue"],
-    "car_nums" : ["1", "2", "3"]
+    "init_frame": 33,
+    "colors": [
+      "blue"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3"
+    ]
   },
   "cupra": {
     "price": 115000,
     "speed": 18.25,
     "turn_var": 21.75,
-    "is_3d" : true,
+    "is_3d": true,
     "frames": 72,
-    "init_frame" : 6,
-    "colors" : ["custom"],
-    "car_nums" : ["1", "2"]
+    "init_frame": 6,
+    "colors": [
+      "custom"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ]
   }
 }

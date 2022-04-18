@@ -380,13 +380,13 @@ function start(sec) {
             }
             document.getElementById('main_theme' + 10).play();
         }
-        if (sessionStorage.getItem('last down slider') == 'slider-down-panamera') {
+        else if (sessionStorage.getItem('last down slider') == 'slider-down-panamera') {
             for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
                 document.getElementsByClassName('music')[i].pause()
             }
             document.getElementById('main_theme' + 11).play();
         }
-        if (sessionStorage.getItem('last down slider') == 'slider-down-lc') {
+        else if (sessionStorage.getItem('last down slider') == 'slider-down-land_cruiser') {
             for (let i = 0; i < document.getElementsByClassName('music').length; i++) {
                 document.getElementsByClassName('music')[i].pause()
             }
@@ -395,7 +395,7 @@ function start(sec) {
         if (sessionStorage.getItem('current car') == 'prius_police' && window.innerWidth < 1024) {
             $("#button_special_signals").css("display", "flex");
         }
-        if (sessionStorage.getItem('current car') != 'prius_police') {
+        else if (sessionStorage.getItem('current car') != 'prius_police') {
             $("#button_special_signals").css("display", "none");
         }
         if (window.innerWidth > 1024) {
