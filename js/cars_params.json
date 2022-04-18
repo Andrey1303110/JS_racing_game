@@ -111,11 +111,6 @@
     "colors" : ["blue"],
     "car_nums" : ["1", "2", "3", "4", "5"]
   },
-  "2008": {
-    "price": 13000,
-    "speed": 9,
-    "turn_var": 36
-  },
   "fj": {
     "price": 25000,
     "speed": 11.5,
@@ -159,7 +154,12 @@
   "polestar": {
     "price": 51000,
     "speed": 13.2,
-    "turn_var": 34
+    "turn_var": 34,
+    "is_3d" : true,
+    "frames": 71,
+    "init_frame" : 7,
+    "colors" : ["white"],
+    "car_nums" : ["1", "2", "3"]
   },
   "i8": {
     "price": 75000,

@@ -837,6 +837,11 @@ img {
         height: 15px;
         width: 300px;
     }
+
+    #car_characteristics #price {
+        text-align: center;
+        width: 100%;
+    }
 }
 
 @media (max-width: 400px) {
