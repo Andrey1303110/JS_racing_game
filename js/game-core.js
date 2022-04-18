@@ -44,7 +44,8 @@ function setName() {
     localStorage.setItem('name', `${name_player}`);
     high_score_base.push(`${localStorage.getItem('score')}` * 1);
     nickname.innerText = name_player;
-    balance.innerText = localStorage.getItem('cash') + '$';
+    user_cash = localStorage.getItem('cash');
+    balance.innerText = user_cash + '$';
     if (name_player == "master") {
         localStorage.setItem('score', "9999999");
         high_score_base.push(9999999);
@@ -74,10 +75,12 @@ function push_high_score() {
     high_score_base.push(`${score}` * 1);
     high_score_base.sort(function (a, b) { return b - a });
     localStorage.setItem('score', `${high_score_base[0]}`);
-    last_cash = localStorage.getItem('cash');
-    new_cash = Number(last_cash) + Number(score);
-    localStorage.setItem('cash', new_cash);
-    balance.innerText = localStorage.getItem('cash') + '$';
+    console.log(score);
+    console.log(user_cash);
+    user_cash = Number(user_cash) + Number(score);
+    console.log(user_cash);
+    localStorage.setItem('cash', user_cash);
+    balance.innerText = user_cash + '$';
     $("#score")[0].innerText = localStorage.getItem('score');
 }
 
@@ -882,7 +885,6 @@ function newGameNewCar() {
     document.querySelector('#slider').style.top = status_bar.clientHeight + 'px';
     document.querySelector('#car_characteristics').style.bottom = '0%';
     setTimeout(() => { document.querySelector('#resume_button').classList.remove('hide_button'); }, 2000);
-    push_high_score();
     return S = getRandomIntInclusive(1, document.getElementsByClassName('music').length);
 }
 
