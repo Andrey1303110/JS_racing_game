@@ -759,6 +759,33 @@ img {
         width: 500px;
         font-size: 50px;
     }
+
+    #status_bar .wrapper {
+        max-width: 800px;
+        min-height: 65px;
+    }
+    #status_bar p {
+        font-size: 1.7em;
+    }
+
+    #status_bar .logos {
+        width: 48px;
+        margin-right: 25px;
+    }
+
+    #car_characteristics .block {
+        min-height: 100px;
+    }
+
+    #car_characteristics .block p {
+        font-size: 28px;
+        line-height: 28px;
+    }
+
+    #car_characteristics .progress {
+        height: 20px;
+        width: 400px;
+    
 }
 
 @media (max-width: 992px) {
