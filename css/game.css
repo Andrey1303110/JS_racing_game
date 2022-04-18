@@ -764,6 +764,7 @@ img {
         max-width: 800px;
         min-height: 65px;
     }
+
     #status_bar p {
         font-size: 1.7em;
     }
@@ -785,6 +786,7 @@ img {
     #car_characteristics .progress {
         height: 20px;
         width: 400px;
+    }
     
 }
 
@@ -925,7 +927,6 @@ img {
         min-width: 300px;
         font-size: 28px;
         background-size: 40px;
-
     }
 
     #intro_video {
