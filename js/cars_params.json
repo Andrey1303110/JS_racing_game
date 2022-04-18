@@ -240,7 +240,18 @@
   "tesla": {
     "price": 58000,
     "speed": 13.775,
-    "turn_var": 31
+    "turn_var": 31,
+    "is_3d": true,
+    "frames": 72,
+    "init_frame": 7,
+    "colors": [
+      "black",
+      "blue"
+    ],
+    "car_nums": [
+      "6",
+      "8"
+    ]
   },
   "polestar": {
     "price": 51000,
