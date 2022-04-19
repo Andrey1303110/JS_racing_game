@@ -21,7 +21,7 @@
       "5",
       "6"
     ],
-    "width": 700
+    "is_police": false
   },
   "doblo": {
     "price": 0,
@@ -36,7 +36,8 @@
     "car_nums": [
       "1",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "new_leon": {
     "price": 12500,
@@ -53,7 +54,7 @@
       "2",
       "1"
     ],
-    "width": 700
+    "is_police": false
   },
   "vaz2113": {
     "price": 3500,
@@ -69,7 +70,42 @@
     "car_nums": [
       "2",
       "1"
-    ]
+    ],
+    "is_police": false
+  },
+  "uaz": {
+    "price": 5500,
+    "speed": 8,
+    "turn_var": 44,
+    "is_3d": true,
+    "frames": 50,
+    "init_frame": 3,
+    "colors": [
+      "green",
+      "yellow"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ],
+    "is_police": true,
+    "police_car_num": 2
+  },
+  "slavuta": {
+    "price": 1500,
+    "speed": 8.5,
+    "turn_var": 41,
+    "is_3d": true,
+    "frames": 50,
+    "init_frame": 3,
+    "colors": [
+      "blue"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ],
+    "is_police": false
   },
   "golf": {
     "price": 4500,
@@ -84,7 +120,8 @@
     "car_nums": [
       "1",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "superb": {
     "price": 17000,
@@ -99,7 +136,8 @@
     "car_nums": [
       "1",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "passat": {
     "price": 6500,
@@ -115,7 +153,8 @@
       "1",
       "2",
       "3"
-    ]
+    ],
+    "is_police": false
   },
   "camry": {
     "price": 12000,
@@ -130,7 +169,8 @@
     "car_nums": [
       "1",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "celica": {
     "price": 5000,
@@ -145,7 +185,8 @@
     "car_nums": [
       "1",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "mazda": {
     "price": 16000,
@@ -160,7 +201,8 @@
     "car_nums": [
       "1",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "a1": {
     "price": 11000,
@@ -178,7 +220,8 @@
       "3",
       "4",
       "5"
-    ]
+    ],
+    "is_police": false
   },
   "fj": {
     "price": 25000,
@@ -199,7 +242,8 @@
     "car_nums": [
       "1",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "touareg": {
     "price": 35000,
@@ -217,7 +261,8 @@
       "3",
       "4",
       "5"
-    ]
+    ],
+    "is_police": false
   },
   "volvo": {
     "price": 38000,
@@ -235,7 +280,8 @@
       "3",
       "1",
       "4"
-    ]
+    ],
+    "is_police": false
   },
   "tesla": {
     "price": 58000,
@@ -251,7 +297,8 @@
     "car_nums": [
       "6",
       "8"
-    ]
+    ],
+    "is_police": false
   },
   "polestar": {
     "price": 51000,
@@ -267,7 +314,8 @@
       "1",
       "2",
       "3"
-    ]
+    ],
+    "is_police": false
   },
   "i8": {
     "price": 75000,
@@ -288,12 +336,26 @@
       "3",
       "5",
       "7"
-    ]
+    ],
+    "is_police": false
   },
   "xl1": {
     "price": 125000,
     "speed": 11,
-    "turn_var": 32
+    "turn_var": 32,
+    "is_3d": true,
+    "frames": 50,
+    "init_frame": 3,
+    "colors": [
+      "silver"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "is_police": false
   },
   "scania": {
     "price": 30000,
@@ -310,7 +372,8 @@
       "1",
       "3",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "gtr": {
     "price": 65000,
@@ -328,7 +391,8 @@
       "1",
       "2",
       "4"
-    ]
+    ],
+    "is_police": false
   },
   "panamera": {
     "price": 35000,
@@ -347,7 +411,8 @@
       "3",
       "4",
       "5"
-    ]
+    ],
+    "is_police": false
   },
   "enzo": {
     "price": 155000,
@@ -364,7 +429,8 @@
       "2",
       "3",
       "4"
-    ]
+    ],
+    "is_police": false
   },
   "buggati": {
     "price": 500000,
@@ -382,7 +448,8 @@
       "3",
       "2",
       "4"
-    ]
+    ],
+    "is_police": false
   },
   "r1": {
     "price": 45000,
@@ -399,7 +466,8 @@
       "1",
       "3",
       "2"
-    ]
+    ],
+    "is_police": false
   },
   "f1": {
     "price": 1000000,
@@ -415,12 +483,32 @@
       "1",
       "2",
       "3"
-    ]
+    ],
+    "is_police": false
   },
   "prius": {
     "price": 100000,
     "speed": 10.45,
-    "turn_var": 35
+    "turn_var": 35,
+    "is_3d": true,
+    "frames": 1,
+    "init_frame": 1,
+    "colors": [
+      "green",
+      "yellow"
+    ],
+    "car_nums": [
+      "1",
+      "8",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "2"
+    ],
+    "is_police": true,
+    "police_car_num": 8
   },
   "bmw_x5": {
     "price": 85000,
@@ -436,7 +524,8 @@
       "1",
       "2",
       "3"
-    ]
+    ],
+    "is_police": false
   },
   "cupra": {
     "price": 115000,

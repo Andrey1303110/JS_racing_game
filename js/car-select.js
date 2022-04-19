@@ -7,8 +7,6 @@ let eS = document.getElementById('engine_start');
 let slides = document.getElementsByClassName("slider-down");
 let slider = document.getElementById('slider');
 
-console.log(cars_logos[0]['key']);
-
 function locked_cars(car_name = cars_logos[0]['key']) {
     lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
     price = cars_params[car_name]['price'];
@@ -75,18 +73,6 @@ function setPosY() {
     else return player.y = canvas.height - (player.image.height * scale) - 50;
 }
 
-var isPolice = false;
-
-$(document).ready(function () {
-    $("#slick-slide77").click(function () {
-        prius_function();
-        return isPolice = true;
-    })
-    $(".cars_img").click(function () {
-        game_start(car_name, car_num);
-    });
-});
-
 function returnStartPosMoto() {
     player.y = canvas.height * .82;
     if (game_type == 'multi') {
@@ -105,12 +91,26 @@ function returnStartPos() {
 }
 
 function sgu() {
-    if (sessionStorage.getItem('current car') == 'prius_police') {
+    if (player.isPolice) {
         document.getElementById('sgu_sound').play();
         for (let i = 0; i < objects.length; i++) {
-            if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17)) {
-                if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
-                    if (objects[i].y > 0 && objects[i].y < player.y) {
+            if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17) && (objects[i].x != 181)) {
+                if (objects[i].y > 0 && objects[i].y < player.y) {
+                    if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
+                        objects[i].selfSpeed = 1.15;
+                        console.log('turning');
+                        turn_car('left', objects[i], speed)
+                    }
+                    else if (objects[i].x < 340 && objects[i].x >= 0) {
+                        objects[i].selfSpeed = 1.15;
+                        console.log('turning');
+                        turn_car('right', objects[i], speed)
+                    }
+                }
+            }
+            if (game_type == 'multi') {
+                if (((player2.x - objects[i].x) <= 17) && ((player2.x - objects[i].x) >= -17 && (objects[i].x != 181))) {
+                    if (objects[i].y > 0 && objects[i].y < player2.y) {
                         if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                             objects[i].selfSpeed = 1.15;
                             turn_car('left', objects[i], speed)
@@ -122,81 +122,60 @@ function sgu() {
                     }
                 }
             }
-            if (game_type == 'multi') {
-                if (((player2.x - objects[i].x) <= 17) && ((player2.x - objects[i].x) >= -17)) {
-                    if (objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_work.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_2.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_3.png\">" && objects[i].image.outerHTML != "<img src=\"images/Smooth_models/road_barrier_4.png\">") {
-                        if (objects[i].y > 0 && objects[i].y < player2.y) {
-                            if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
-                                objects[i].selfSpeed = 1.15;
-                                turn_car('left', objects[i], speed)
-                            }
-                            else if (objects[i].x < 340 && objects[i].x >= 0) {
-                                objects[i].selfSpeed = 1.15;
-                                turn_car('right', objects[i], speed)
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }
 
 function siren() {
-    document.getElementById('siren_sound').play();
+    if (player.isPolice) document.getElementById('siren_sound').play();
 }
 
-function prius_function() {
+function police_function(car_name) {
     eS.play();
     document.getElementById('timer').style.color = 'aqua';
-    document.getElementById('slider').style.top = '-110%';
-    document.getElementById('slider-down').style.top = '-110%';
-    document.getElementById('car_characteristics').style.bottom = '-35%';
-    sessionStorage.setItem('last down slider', 'slider-down-prius');
-    sessionStorage.setItem('current car', 'prius_police');
-    setTimeout(start, 500);
+
     let indexP = 0;
-    let policeSrc = `./images/gif/1.png`;
+    let images;
+    let src = `images/Smooth_models/${car_name}_police/1.png`;
+    player.image.src = src;
 
-    setInterval(changeImageRed, 100);
     function changeImageRed() {
-        if (!isPolice) {
-            return "";
+        if (!player.isPolice) {
+            clearInterval(flasher);
         }
-
-        let images = ['1', '6', '1', '12'];
-        indexP = (indexP + 1) % (images.length);
-        return policeSrc = `./images/gif/${images[indexP]}.png`;
-    }
-
-    setInterval(srcPolice, 40);
-    function srcPolice() {
-        if (!isPolice) {
-            return;
-        }
-
-        player.image.src = policeSrc;
-        if (game_type == 'multi') {
-            player2.image.src = policeSrc;
-        }
-    }
-
-    document.addEventListener('keydown', function (event) {
-        if (event.shiftKey) {
-            if (sessionStorage.getItem('current car') == 'prius_police') {
-                siren();
+        else if (player.isPolice) {
+            if (car_name == 'prius') {
+                images = ['1', '6', '1', '12'];
             }
+            else if (car_name == 'uaz') {
+                images = ['1', '2', '3', '4', '5', '6', '7'];
+            }
+    
+            indexP = (indexP + 1) % (images.length);
+            src = `images/Smooth_models/${car_name}_police/${images[indexP]}.png`;
         }
-        if (event.ctrlKey) {
-            sgu();
+        player.image.src = src;
+        if (game_type == 'multi') {
+            player2.image.src = src;
         }
-    });
+    }
+
+    flasher = setInterval(changeImageRed, 60);
+
+
 }
+
+document.addEventListener('keydown', function (event) {
+    if (event.shiftKey) {
+        siren();
+    }
+    if (event.ctrlKey) {
+        sgu();
+    }
+});
 
 $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
-
-console.log(cars_logos[0]['key']);
 
 function set_car_characteristics(car_name = cars_logos[0]['key']) {
     speed = cars_params[car_name]['speed'];
@@ -235,8 +214,6 @@ function set_car_in_slider(car_name) {
     return img;
 }
 
-console.log(cars_logos[0]['key']);
-
 function set_slider(car_name = cars_logos[0]['key']) {
     if (document.querySelector('.cars_img')) document.querySelector('.cars_img').remove();
     if (colors.childElementCount) {
@@ -247,6 +224,8 @@ function set_slider(car_name = cars_logos[0]['key']) {
 
     cars_colors = cars_params[car_name]['colors'];
     car_nums = cars_params[car_name]['car_nums'];
+    is_police = cars_params[car_name]['is_police'];
+    police_car_num = cars_params[car_name]['police_car_num'];
 
     img = set_car_in_slider(car_name);
     let slider = document.querySelector('.slider-down');
@@ -262,6 +241,12 @@ function set_slider(car_name = cars_logos[0]['key']) {
         let div = document.createElement('div');
         div.dataset['color'] = cars_colors[i];
         div.dataset['car_num'] = car_nums[i];
+        if (is_police && (car_nums[i] == police_car_num)) {
+            div.dataset['is_police'] = is_police;
+        }
+        else {
+            div.dataset['is_police'] = false;
+        }
         div.style.backgroundColor = cars_colors[i];
         colors.appendChild(div);
     }
@@ -274,18 +259,16 @@ function set_slider(car_name = cars_logos[0]['key']) {
         let car_name = $('.cars_img')[0].name;
         document.querySelector('.cars_img').alt = `${car_name}_${this.dataset.car_num}`;
         document.querySelector('.cars_img').id = `${car_name}_${this.dataset.car_num}`;
+        document.querySelector('.cars_img').dataset['is_police'] = this.dataset.is_police
         let frames = cars_params[car_name]["frames"];
         let i = last_i;
-        console.log(i);
         if (i <= 0) i = frames - (i * -1);
         let position = car_image_width * - (frames - i) + 'px';
-        console.log($('.cars_img'));
-        console.log(position);
         $('.cars_img').css('left', position);
-        console.log(position);
     });
 
     $(".cars_img").click(function () {
-        game_start(this.name, this.alt);
+        this.dataset.is_police == 'true' ? is_police = true : is_police = false;
+        game_start(this.name, this.alt, is_police);
     });
 }

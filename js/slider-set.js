@@ -24,10 +24,6 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
-    cars_logos = cars_logos.sort((a, b) => (a.value > b.value) ? 1 : -1);
-    console.log(cars_logos);
-
     for (let i = 0; i < cars_logos.length; i++) {
         let name = cars_logos[i]['key'];
         let img = document.createElement('img');

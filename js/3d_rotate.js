@@ -1,7 +1,5 @@
 var frame_num = 1;
 
-console.log(cars_logos[0]['key']);
-
 function car_rotate(car_name = cars_logos[0]['key']) {
     car = cars_params[car_name];
 

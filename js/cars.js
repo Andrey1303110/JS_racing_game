@@ -23,6 +23,7 @@ for (let key in cars_params) {
         value: cars_params[key]['price']
     });
 }
+cars_logos = cars_logos.sort((a, b) => (a.value > b.value) ? 1 : -1);
 
 let playerStartHeightPos = .7;
 let playerCarSelect = 0;

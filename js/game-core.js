@@ -13,6 +13,8 @@ var scaleX;
 var translateX;
 var init_slide;
 var user_cash;
+var player;
+var player2;
 
 var diff;
 var xScore;
@@ -23,8 +25,8 @@ var lowwer = 114;
 var upper = 186;
 
 if (game_type == 'multi') {
-    lowwer = 108;
-    upper = 192;
+    lowwer = 100;
+    upper = 200;
 }
 
 var scoreTimer = [];
@@ -75,10 +77,7 @@ function push_high_score() {
     high_score_base.push(`${score}` * 1);
     high_score_base.sort(function (a, b) { return b - a });
     localStorage.setItem('score', `${high_score_base[0]}`);
-    console.log(score);
-    console.log(user_cash);
     user_cash = Number(user_cash) + Number(score);
-    console.log(user_cash);
     localStorage.setItem('cash', user_cash);
     balance.innerText = user_cash + '$';
     $("#score")[0].innerText = localStorage.getItem('score');
@@ -116,6 +115,7 @@ class Car {
         this.loaded = false;
         this.dead = false;
         this.isPlayer = isPlayer;
+        this.isPolice = false;
         this.selfSpeed = selfSpeed;
         this.turning = false;
 
@@ -320,12 +320,14 @@ function setPreloadCars() {
 }
 
 if (game_type == 'arcade') {
-    var player = new Car(cars[playerCarSelect], canvas.width / 2 - 59 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
+    player = new Car(cars[playerCarSelect], canvas.width / 2 - 59 * scale / 2, canvas.height * playerStartHeightPos, true); //Машина игрока
 
 }
 else {
-    var player = new Car(cars[playerCarSelect], 262, canvas.height * playerStartHeightPos, true); //Машина игрока
-    if (game_type == 'multi') var player2 = new Car(cars[playerCarSelect], 349, canvas.height * playerStartHeightPos, true);
+    player = new Car(cars[playerCarSelect], 262, canvas.height * playerStartHeightPos, true); //Машина игрока
+    if (game_type == 'multi') {
+        player2 = new Car(cars[playerCarSelect], 349, canvas.height * playerStartHeightPos, true);
+    }
 }
 
 function getRandomIntInclusive(min, max) {
@@ -392,10 +394,10 @@ function start(sec) {
             }
             document.getElementById('main_theme' + 12).play();
         }
-        if (sessionStorage.getItem('current car') == 'prius_police' && window.innerWidth < 1024) {
+        if (player.isPolice && window.innerWidth < 1024) {
             $("#button_special_signals").css("display", "flex");
         }
-        else if (sessionStorage.getItem('current car') != 'prius_police') {
+        else if (player.isPolice) {
             $("#button_special_signals").css("display", "none");
         }
         if (window.innerWidth > 1024) {
@@ -653,15 +655,22 @@ function drawCar(car) {
 
 function turn_car(direction, object, speed) {
     let coefficient;
+    console.log(coefficient);
+    console.log(turn_var);
     direction == 'left' ? coefficient = -1 : coefficient = 1;
     if (object == player || object == player2) document.getElementById(`sound_wheel_${direction}`).play();
 
     if (!object.turning) {
+        let x = 0; 
         let turn = setInterval(() => {
             object.move("x", speed * .15 * coefficient);
+            x ++;
             object.turning = true;
+            if (x >= 10) {
+                clearInterval(turn);
+                object.turning = false;
+            }
         }, turn_var);
-        setTimeout(() => { clearInterval(turn); object.turning = false; }, turn_var * 10);
     }
 }
 
@@ -806,9 +815,13 @@ function RandomInteger(min, max) {
     return Math.round(rand);
 }
 
-function game_start(car_name, car_num) {
+function game_start(car_name, car_num, is_police) {
+    console.log(is_police);
+    player.isPolice = is_police;
+    if (is_police) {
+        police_function(car_name);
+    }
     setScreen();
-    isPolice = false;
     eS.play();
     document.querySelector('.slider-down').style.top = '-110%';
     document.querySelector('#slider').style.top = '-110%';
@@ -825,8 +838,6 @@ function game_start(car_name, car_num) {
         else car_number = getRandomIntInclusive(1, car_count);
         let str = car_num;
         str = str.slice(0, -1);
-        console.log(str);
-        console.log(car_number);
         player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
     }
 }
@@ -857,6 +868,7 @@ function restartGame() {
 restart_button.onclick = restartGame;
 
 function newGameNewCar() {
+    if (player.isPolice && flasher) clearInterval(flasher);
     $("#wrapper").css('display', 'none');
     if (timer == null || (player.dead == true || (player2 && player2.dead))) {
         objects = [];
@@ -970,10 +982,10 @@ pervue_start.onclick = () => {
         localStorage.setItem('score', '0');
     }
     if (!sessionStorage.getItem('last down slider')) {
-        sessionStorage.setItem('last down slider', 'slider-down-leon');
+        sessionStorage.setItem('last down slider', `slider-down-${cars_logos[0]['key']}`);
     }
     if (!sessionStorage.getItem('current car')) {
-        sessionStorage.setItem('current car', 'leon_8');
+        sessionStorage.setItem('current car', `${cars_logos[0]['key']}_1`);
     }
     setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
@@ -1068,17 +1080,13 @@ function live_counter(last_number, target_id) {
     }, all_time);
 }
 
-console.log(cars_logos[0]['key']);
-
 function view3D(car_name = cars_logos[0]['key'], car_num = 8) {
     let is_rotating = false;
     let rotating;
     let init_value = cars_params[car_name]["init_frame"];
     let frames = cars_params[car_name]["frames"];
-    console.log(frames);
     car_image_width = $('.cars_img')[0].naturalWidth / frames;
     car_image_height = $('.cars_img')[0].naturalHeight;
-    console.log(car_image_width);
     num.min = (frames - 1) * -1;
     num.max = frames;
     num.value = init_value;
@@ -1089,7 +1097,6 @@ function view3D(car_name = cars_logos[0]['key'], car_num = 8) {
 
     $('.slider-down').css('width', car_image_width * scale_cof);
 
-    console.log(car_image_width * scale_cof);
     $('.cars_img').css('height', car_image_height * scale_cof);
     $('.cars_img').css('width', 'auto');
     $('.cars_img').css('left', ((car_image_width * scale_cof) * -(frames - last_i)) + 'px');
