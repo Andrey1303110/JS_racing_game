@@ -46,11 +46,4 @@ $(document).ready(function () {
         speed: 900,
         cssEase: 'linear',
     });
-
-    (!sessionStorage.getItem('last down slider')) ? last_slider = sessionStorage.getItem('last down slider', `slider-down-${cars_logos[0]['key']}`) : last_slider = sessionStorage.getItem('last down slider');
-    car_name = last_slider.split('-')[last_slider.split('-').length - 1];
-    for (let i = 0; i < cars_logos.length; i++) {
-        if (cars_logos[i].key == car_name) init_slide = i; 
-    }
-    $('.up_slider').slick('slickGoTo', init_slide);
 });

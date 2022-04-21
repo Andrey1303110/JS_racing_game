@@ -987,6 +987,12 @@ pervue_start.onclick = () => {
     if (!sessionStorage.getItem('current car')) {
         sessionStorage.setItem('current car', `${cars_logos[0]['key']}_1`);
     }
+    (!sessionStorage.getItem('last down slider')) ? last_slider = sessionStorage.getItem('last down slider', `slider-down-${cars_logos[0]['key']}`) : last_slider = sessionStorage.getItem('last down slider');
+    car_name = last_slider.split('-')[last_slider.split('-').length - 1];
+    for (let i = 0; i < cars_logos.length; i++) {
+        if (cars_logos[i].key == car_name) init_slide = i; 
+    }
+    $('.up_slider').slick('slickGoTo', init_slide);
     setName();
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000);
