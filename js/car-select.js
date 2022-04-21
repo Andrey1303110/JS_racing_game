@@ -216,30 +216,28 @@ $("#siren")[0].onclick = siren;
 $("#sgu")[0].onclick = sgu;
 
 function set_car_characteristics(car_name = cars_logos[0]['key']) {
-    speed = cars_params[car_name]['speed'];
-    turn_var = cars_params[car_name]['turn_var'];
-    price = cars_params[car_name]['price'];
+    car_speed = cars_params[car_name]['speed'];
+    car_turn_var = cars_params[car_name]['turn_var'];
+    car_price = cars_params[car_name]['price'];
 
     let speeds = [];
-    for (let prop in cars_params) {
-        speeds.push(cars_params[prop]['speed']);
-    }
-    let max_speed = Math.max(...speeds);
-
     let handings = [];
     for (let prop in cars_params) {
+        speeds.push(cars_params[prop]['speed']);
         handings.push(cars_params[prop]['turn_var']);
     }
+    let max_speed = Math.max(...speeds);
+    let min_speed = Math.min(...speeds);
     let min_handling = Math.min(...handings);
     let max_handling = Math.max(...handings);
 
-    speed_value = speed / max_speed * 100;
-    turn_var_value = min_handling / turn_var * 100;
+    speed_value = (car_speed - min_speed) / (max_speed - min_speed) * 100;
+    turn_var_value = (max_handling - car_turn_var) / (max_handling - min_handling) * 100;
 
     document.querySelector('#car_characteristics #speed').style.width = speed_value + '%';
     document.querySelector('#car_characteristics #handling').style.width = turn_var_value + '%';
     document.querySelector('#car_characteristics #price span').textContent = 0;
-    live_counter(price, 'price span', '+');
+    live_counter(car_price, 'price span', '+');
 }
 
 function set_car_in_slider(car_name) {
