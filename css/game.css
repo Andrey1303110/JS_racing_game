@@ -445,8 +445,19 @@ img {
     background-size: 300px;
     z-index: -2;
     opacity: .7;
-    transition: all .5s ease-in-out;
+    transition: position .5s ease-in-out;
     cursor: pointer;
+}
+
+#car_buy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#car_buy img {
+    width: 128px;
 }
 
 #lock_cars:active {
@@ -679,6 +690,15 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 33%;
+}
+
+#status_bar .wrapper .block:nth-child(1) {
+    justify-content: flex-start;
+}
+
+#status_bar .wrapper .block:nth-child(3) {
+    justify-content: flex-end;
 }
 
 #status_bar p {

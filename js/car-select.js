@@ -8,20 +8,55 @@ let slides = document.getElementsByClassName("slider-down");
 let slider = document.getElementById('slider');
 
 function locked_cars(car_name = cars_logos[0]['key']) {
-    lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
+    if (document.querySelector("#car_buy img")) document.querySelector("#car_buy img").remove();
+    purchased_cars = localStorage.getItem('purchased_cars').split(',');
+    console.log(purchased_cars);
+    
     price = cars_params[car_name]['price'];
 
-    if (localStorage.getItem('score') < price) {
-        $("#lock_cars").addClass("active_lock");
-        document.querySelector("#lock_cars p").innerText = `You may take score ${price} or more!`;
-        $(`.slider-down`).css("opacity", ".5");
-        $(`.slider-down`).css("pointer-events", "none");
-        $("#lock_cars").css("z-index", "3");
+    function set_lock() {
+        document.querySelector("#lock_cars").classList.add("active_lock");
+        document.querySelector(`.slider-down`).style.opacity = ".25";
+        document.querySelector(`.slider-down`).style.pointerEvents = "none";
+        document.querySelector("#lock_cars").style.zIndex = "3";
     }
-    else if (localStorage.getItem('score') >= price) {
-        $("#lock_cars").css("z-index", "-1");
-        $(`.slider-down`).css("opacity", "1");
-        $(`.slider-down`).css("pointer-events", "auto");
+
+    function unlock() {
+        document.querySelector("#lock_cars").style.zIndex = "-1";
+        document.querySelector(`.slider-down`).style.opacity = "1";
+        document.querySelector(`.slider-down`).style.pointerEvents = "auto";
+    }
+    
+    if (purchased_cars.includes(car_name)) {
+        unlock();
+    }
+    else {
+        set_lock();
+        if (localStorage.getItem('cash') < price) {
+            lock_cars.onclick = () => { main_theme.volume = .35; acces_denied.play(); setTimeout(() => main_theme.volume = 1, 2000) };
+            document.querySelector("#lock_cars p").innerText = `You may take cash ${price}$ or more!`;
+            document.querySelector("#lock_cars").style.background = "";
+        }
+        else if (localStorage.getItem('cash') >= price) {
+            lock_cars.onclick = () => { main_theme.volume = .35; buying.play(); setTimeout(() => main_theme.volume = 1, 1200) };
+            document.querySelector("#lock_cars p").innerText = `You can buy this car for price - ${price}$`;
+            document.querySelector("#lock_cars").style.background = "url()";
+            let img = document.createElement('img');
+            img.dataset['price'] = price;
+            img.src = "../images/icons/car_key.png";
+            document.querySelector("#car_buy").append(img);
+            img.addEventListener('click', function(){
+                user_cash = Number(localStorage.getItem('cash'));
+                user_cash = user_cash - Number(this.dataset['price']);
+                live_counter(user_cash, 'balance', '-');
+                localStorage.setItem('cash', user_cash);
+                //balance.innerText = user_cash + '$';
+                set_cars_nums(car_name);
+                unlock();
+            }, false);
+            //document.querySelector("#lock_cars").style.background = "url(../images/icons/car_key.png) bottom no-repeat";
+            //document.querySelector("#lock_cars").style.backgroundSize = "215px";
+        }
     }
 
     speed = cars_params[car_name]['speed'];
@@ -63,6 +98,9 @@ $(document).ready(function () {
         $(".main_screen_cars_img[name='r1']").click(function () {
             setTimeout(() => { returnStartPosMoto() }, 1500)
         })
+    });
+    $("#lock_cars").click(function (){
+
     });
 });
 
@@ -201,7 +239,7 @@ function set_car_characteristics(car_name = cars_logos[0]['key']) {
     document.querySelector('#car_characteristics #speed').style.width = speed_value + '%';
     document.querySelector('#car_characteristics #handling').style.width = turn_var_value + '%';
     document.querySelector('#car_characteristics #price span').textContent = 0;
-    live_counter(price, 'price span', 500);
+    live_counter(price, 'price span', '+');
 }
 
 function set_car_in_slider(car_name) {

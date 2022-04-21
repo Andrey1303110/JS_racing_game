@@ -46,8 +46,8 @@ function setName() {
     localStorage.setItem('name', `${name_player}`);
     high_score_base.push(`${localStorage.getItem('score')}` * 1);
     nickname.innerText = name_player;
-    user_cash = localStorage.getItem('cash');
-    balance.innerText = user_cash + '$';
+    user_cash = Number(localStorage.getItem('cash'));
+    balance.innerText = user_cash;
     if (name_player == "master") {
         localStorage.setItem('score', "9999999");
         high_score_base.push(9999999);
@@ -79,8 +79,15 @@ function push_high_score() {
     localStorage.setItem('score', `${high_score_base[0]}`);
     user_cash = Number(user_cash) + Number(score);
     localStorage.setItem('cash', user_cash);
-    balance.innerText = user_cash + '$';
+    balance.innerText = user_cash;
     $("#score")[0].innerText = localStorage.getItem('score');
+}
+
+function set_cars_nums(car_name) {
+    purchased_cars = localStorage.getItem('purchased_cars').split(',');
+    if (car_name) purchased_cars.push(car_name);
+    localStorage.setItem('purchased_cars', purchased_cars);
+    cars_nums.innerText = `${purchased_cars.length}/${cars_logos.length}`;
 }
 
 class Road {
@@ -979,6 +986,7 @@ start_new_game.onclick = () => {
 pervue_start.onclick = () => {
     document.documentElement.requestFullscreen();
     if (localStorage.getItem('name') != name_player.value) {
+        localStorage.setItem('purchased_cars', ['leon', 'doblo']);
         localStorage.setItem('score', '0');
     }
     if (!sessionStorage.getItem('last down slider')) {
@@ -994,6 +1002,7 @@ pervue_start.onclick = () => {
     }
     $('.up_slider').slick('slickGoTo', init_slide);
     setName();
+    set_cars_nums(false);
     $('#name_insert').css('opacity', '0').css('z-index', '-1');
     setTimeout(() => { $('#intro_video').css('opacity', '1') }, 1000);
     setTimeout(() => { intro_video.currentTime = 0.01, intro_video.play() }, 1500);
@@ -1031,7 +1040,7 @@ function showScore() {
     document.querySelector('#score_count').textContent = 0;
     $("#message_score").css("opacity", "1").css('z-index', '2');
     let score = Number($("#timer")[0].innerText);
-    setTimeout(() => { live_counter(score, 'score_count', 500) }, 750);
+    setTimeout(() => { live_counter(score, 'score_count', '+') }, 750);
 }
 
 function preloadcars() {
@@ -1066,20 +1075,29 @@ $(document).ready(function () {
     $("#name_player")[0].value = localStorage.getItem('name');
 })
 
-function live_counter(last_number, target_id) {
+function live_counter(last_number, target_id, direction) {
     let frame = 1000 / 60
     let all_time = 1500;
     let count = all_time / frame;
-    let one_iteration_value = Math.round(last_number / count);
     let target = document.querySelector(`#${target_id}`);
+    let one_iteration_value = Math.round(last_number / count);
+    if (direction == '-') one_iteration_value = Math.round((Number(target.textContent) - Number(last_number)) / count)
     let i = 0;
+
     let counter = setInterval(() => {
-        target.textContent = Number(target.textContent) + Number(one_iteration_value);
+        if (direction == '+') {
+            target.textContent = Number(target.textContent) + Number(one_iteration_value);
+        }
+        else if (direction == '-') {
+            target.textContent = Number(target.textContent) - Number(one_iteration_value);
+        }
         if (i >= count) {
             clearInterval(counter);
             target.textContent = last_number;
         }
+
     }, frame);
+
     setTimeout(() => {
         clearInterval(counter);
         target.textContent = last_number;
