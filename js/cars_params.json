@@ -353,7 +353,7 @@
     "turn_var": 27,
     "is_3d": true,
     "frames": 23,
-    "init_frame": 3,
+    "init_frame": 2,
     "colors": [
       "violet",
       "yellow"
@@ -375,7 +375,7 @@
     "turn_var": 32,
     "is_3d": true,
     "frames": 50,
-    "init_frame": 3,
+    "init_frame": 4,
     "colors": [
       "silver"
     ],
@@ -411,7 +411,7 @@
     "turn_var": 29,
     "is_3d": true,
     "frames": 12,
-    "init_frame": 3,
+    "init_frame": 1,
     "colors": [
       "red",
       "silver"
@@ -430,7 +430,7 @@
     "turn_var": 31,
     "is_3d": true,
     "frames": 12,
-    "init_frame": 3,
+    "init_frame": 2,
     "colors": [
       "gold",
       "white"
@@ -450,7 +450,7 @@
     "turn_var": 24,
     "is_3d": true,
     "frames": 23,
-    "init_frame": 3,
+    "init_frame": 21,
     "colors": [
       "red"
     ],
@@ -468,7 +468,7 @@
     "turn_var": 25,
     "is_3d": true,
     "frames": 12,
-    "init_frame": 2,
+    "init_frame": 11,
     "colors": [
       "blue",
       "green"
