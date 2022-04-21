@@ -124,7 +124,7 @@
     "is_police": false
   },
   "superb": {
-    "price": 17000,
+    "price": 14000,
     "speed": 12,
     "turn_var": 39,
     "is_3d": true,
@@ -132,6 +132,22 @@
     "init_frame": 3,
     "colors": [
       "green"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ],
+    "is_police": false
+  },
+  "superb3": {
+    "price": 18500,
+    "speed": 13.2,
+    "turn_var": 37.75,
+    "is_3d": true,
+    "frames": 50,
+    "init_frame": 3,
+    "colors": [
+      "silver"
     ],
     "car_nums": [
       "1",
@@ -226,7 +242,21 @@
   "fj": {
     "price": 25000,
     "speed": 11.5,
-    "turn_var": 40
+    "turn_var": 40,
+    "is_3d": true,
+    "frames": 49,
+    "init_frame": 3,
+    "colors": [
+      "silver"
+    ],
+    "car_nums": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "is_police": false
   },
   "land_cruiser": {
     "price": 45000,
