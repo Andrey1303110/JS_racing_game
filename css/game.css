@@ -559,7 +559,6 @@ img {
     display: flex;
     position: absolute;
     width: 100%;
-    max-width: 830px;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0vw;
@@ -589,7 +588,7 @@ img {
 #car_characteristics #price {
     color: white;
     margin: 10px 0;
-    min-width: 115px;
+    min-width: 150px;
 }
 
 #car_characteristics .progress {
@@ -611,7 +610,7 @@ img {
     justify-content: center;
     height: 100%;
     width: 0;
-    min-width: 17%;
+    min-width: 12.5%;
     opacity: 1;
     transition: .85s ease-in-out 1s;
 }
