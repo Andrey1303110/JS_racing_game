@@ -10,7 +10,6 @@ let slider = document.getElementById('slider');
 function locked_cars(car_name = cars_logos[0]['key']) {
     if (document.querySelector("#car_buy img")) document.querySelector("#car_buy img").remove();
     purchased_cars = localStorage.getItem('purchased_cars').split(',');
-    console.log(purchased_cars);
     
     price = cars_params[car_name]['price'];
 
@@ -50,12 +49,9 @@ function locked_cars(car_name = cars_logos[0]['key']) {
                 user_cash = user_cash - Number(this.dataset['price']);
                 live_counter(user_cash, 'balance', '-');
                 localStorage.setItem('cash', user_cash);
-                //balance.innerText = user_cash + '$';
                 set_cars_nums(car_name);
                 unlock();
             }, false);
-            //document.querySelector("#lock_cars").style.background = "url(../images/icons/car_key.png) bottom no-repeat";
-            //document.querySelector("#lock_cars").style.backgroundSize = "215px";
         }
     }
 
@@ -136,12 +132,10 @@ function sgu() {
                 if (objects[i].y > 0 && objects[i].y < player.y) {
                     if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                         objects[i].selfSpeed = 1.15;
-                        console.log('turning');
                         turn_car('left', objects[i], speed)
                     }
                     else if (objects[i].x < 340 && objects[i].x >= 0) {
                         objects[i].selfSpeed = 1.15;
-                        console.log('turning');
                         turn_car('right', objects[i], speed)
                     }
                 }

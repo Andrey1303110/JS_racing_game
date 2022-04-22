@@ -46,10 +46,8 @@ function setName() {
     localStorage.setItem('name', `${name_player}`);
     high_score_base.push(`${localStorage.getItem('score')}` * 1);
     nickname.innerText = name_player;
-    user_cash = Number(localStorage.getItem('cash'));
-    balance.innerText = user_cash;
     if (name_player == "master") {
-        localStorage.setItem('score', "9999999");
+        localStorage.setItem('cash', "9999999");
         high_score_base.push(9999999);
     }
     else if (localStorage.getItem('score') != undefined) {
@@ -63,6 +61,8 @@ function setName() {
         high_score_base[high_score_base.indexOf("null")] = "0"
     }
     if (!localStorage.getItem('cash')) localStorage.setItem('cash', 0);
+    user_cash = Number(localStorage.getItem('cash'));
+    balance.innerText = user_cash;
 }
 
 name_player.onkeypress = (e) => {
@@ -662,8 +662,6 @@ function drawCar(car) {
 
 function turn_car(direction, object, speed) {
     let coefficient;
-    console.log(coefficient);
-    console.log(turn_var);
     direction == 'left' ? coefficient = -1 : coefficient = 1;
     if (object == player || object == player2) document.getElementById(`sound_wheel_${direction}`).play();
 
@@ -823,7 +821,6 @@ function RandomInteger(min, max) {
 }
 
 function game_start(car_name, car_num, is_police) {
-    console.log(is_police);
     player.isPolice = is_police;
     if (is_police) {
         police_function(car_name);
