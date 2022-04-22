@@ -1197,7 +1197,7 @@ function locked_cars(car_name = cars_logos[0]['key']) {
             document.querySelector("#lock_cars").style.background = "url()";
             let img = document.createElement('img');
             img.dataset['price'] = price;
-            img.src = "../images/icons/car_key.png";
+            img.src = "images/icons/car_key.png";
             document.querySelector("#car_buy").append(img);
             img.addEventListener('click', function(){
                 user_cash = Number(localStorage.getItem('cash'));
