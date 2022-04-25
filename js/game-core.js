@@ -1,11 +1,11 @@
-let intro_video = $('#intro_video')[0];
-let audios = document.querySelectorAll("audio");
-let menu = document.getElementById('menu');
-let sound_on = document.getElementById('sound_on');
-let sound_off = document.getElementById('sound_off');
-let main_theme = document.getElementById('main_theme1');
+const intro_video = $('#intro_video')[0];
+const audios = document.querySelectorAll("audio");
+const menu = document.getElementById('menu');
+const sound_on = document.getElementById('sound_on');
+const sound_off = document.getElementById('sound_off');
+const main_theme = document.getElementById('main_theme1');
 
-let UPDATE_TIME = 1000 / 75;
+const UPDATE_TIME = 1000 / 75;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
@@ -19,7 +19,7 @@ var player2;
 var diff;
 var xScore;
 
-let scale = 1; //масштаб машин
+const scale = 1; //масштаб машин
 
 var lowwer;
 var upper;
@@ -114,7 +114,7 @@ class Road {
 }
 
 class Car {
-    constructor(image, x, y, isPlayer, selfSpeed) {
+    constructor(image, x, y, isPlayer, selfSpeed, isNotCar) {
         this.x = x;
         this.y = y;
         this.loaded = false;
@@ -123,6 +123,7 @@ class Car {
         this.isPolice = false;
         this.selfSpeed = selfSpeed;
         this.turning = false;
+        this.isNotCar = isNotCar;
 
         this.image = new Image();
 
@@ -136,18 +137,20 @@ class Car {
     update() {
         if (!this.isPlayer) {
             if (game_type == 'multi' || game_type == 'reverse') {
-                if (this.x < 180) {
-                    this.y += speed * 1.15 * this.selfSpeed;
-                }
-                if (this.x > 180) {
-                    this.y += speed * .75 * this.selfSpeed;
-                }
-                if (this.x == 180) {
+                if (this.isNotCar) {
                     this.y += speed;
                     let src = this.image.src;
                     src = src.slice(-13);
                     if (src == "road_work.png") {
                         if (this.y < canvas.height / 40 && this.y > 0) { road.currentTime = 0; road.play(); }
+                    }
+                }
+                else {
+                    if (this.x < 180) {
+                        this.y += speed * 1.15 * this.selfSpeed;
+                    }
+                    else if (this.x > 180) {
+                        this.y += speed * .75 * this.selfSpeed;
                     }
                 }
             }
@@ -164,7 +167,7 @@ class Car {
             return this.x = 12
         }
         if (game_type == 'arcade') {
-            if (this.x == 181 && !this.isPlayer) {
+            if (this.isNotCar) {
                 if ((this.y < canvas.height) && ((this.y + this.image.height) > 0) && (player.x > 165 && player.x < 195)) {
                     tram.currentTime = 0;
                     tram.play();
@@ -450,8 +453,7 @@ function update() {
 
     let carsX = [12, 96, 264, 348];
     if (game_type == 'arcade') {
-        var tramX = 181;
-        var allCarsX = [12, 96, tramX, 264, 348];
+        var allCarsX = [12, 96, 180, 264, 348];
     }
     else { var allCarsX = [12, 96, 180, 264, 348]; }
 
@@ -471,7 +473,7 @@ function update() {
                 var selfSpeed = randomInteger(8.5, 10.5) / 10;
             }
             else { var selfSpeed = randomInteger(7, 11) / 10; }
-            objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false, selfSpeed));
+            objects.push(new Car(randomCarsSrc, randomCarsX, canvas.height * -1, false, selfSpeed, false));
             if (lowwer > 140) {
                 return lowwer = 138
             }
@@ -482,14 +484,14 @@ function update() {
         if (game_type == 'reverse' || game_type == 'multi') {
             if (xCars == 149) {
                 let randomRoadBarrier = randomRoadList[Math.floor(Math.random() * randomRoadList.length)];
-                objects.push(new Car(randomRoadBarrier, 180, canvas.height * -1, false));
+                objects.push(new Car(randomRoadBarrier, 180, canvas.height * -1, false, 0, true));
             }
         }
         else {
-            if ((xCars == 150) && (objects.filter(objects => objects.x == tramX).length == 0)) {
+            if ((xCars == 150) && (objects.filter(objects => objects.x == 180).length == 0)) {
                 let selfSpeed = randomInteger(11, 13) / 10;
                 let randomRoadBarrier = randomRoadList[Math.floor(Math.random() * randomRoadList.length)];
-                objects.push(new Car(randomRoadBarrier, tramX, canvas.height * -1, false, selfSpeed));
+                objects.push(new Car(randomRoadBarrier, 180, canvas.height * -1, false, selfSpeed, true));
             }
         }
     }
@@ -1159,9 +1161,6 @@ var moveD, speed, turn_var;
 
 let eS = document.getElementById('engine_start');
 
-let slides = document.getElementsByClassName("slider-down");
-let slider = document.getElementById('slider');
-
 function locked_cars(car_name = cars_logos[0]['key']) {
     if (document.querySelector("#car_buy img")) document.querySelector("#car_buy img").remove();
     purchased_cars = localStorage.getItem('purchased_cars').split(',');
@@ -1245,13 +1244,8 @@ $(document).ready(function () {
         set_slider(this.name);
         locked_cars(this.name);
         set_car_characteristics(this.name);
-        returnStartPos();
-        $(".main_screen_cars_img[name='r1']").click(function () {
-            setTimeout(() => { returnStartPosMoto() }, 1500)
-        })
     });
     $("#lock_cars").click(function (){
-
     });
 });
 
@@ -1283,7 +1277,7 @@ function sgu() {
     if (player.isPolice) {
         document.getElementById('sgu_sound').play();
         for (let i = 0; i < objects.length; i++) {
-            if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17) && (objects[i].x != 181)) {
+            if (((player.x - objects[i].x) <= 17) && ((player.x - objects[i].x) >= -17) && (!objects[i].isNotCar)) {
                 if (objects[i].y > 0 && objects[i].y < player.y) {
                     if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                         objects[i].selfSpeed = 1.15;
@@ -1296,7 +1290,7 @@ function sgu() {
                 }
             }
             if (game_type == 'multi') {
-                if (((player2.x - objects[i].x) <= 17) && ((player2.x - objects[i].x) >= -17 && (objects[i].x != 181))) {
+                if (((player2.x - objects[i].x) <= 17) && ((player2.x - objects[i].x) >= -17 && (!objects[i].isNotCar))) {
                     if (objects[i].y > 0 && objects[i].y < player2.y) {
                         if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                             objects[i].selfSpeed = 1.15;
