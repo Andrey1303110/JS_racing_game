@@ -34,6 +34,8 @@ var randomRoadList;
 var last_i;
 var car_image_width;
 
+var isStarted = false;
+
 setVolume();
 
 function setName() {
@@ -428,6 +430,7 @@ function stop() {
     clearInterval(timer); //Остановка игры
     timer = null;
     clearInterval(timerScore);
+    isStarted = false;
     $('#mobile_controls').css('display', 'none');
     $("#button_special_signals").css("display", "none");
     clearInterval(diff);
@@ -817,30 +820,33 @@ function RandomInteger(min, max) {
 }
 
 function game_start(car_name, car_num, is_police) {
-    set_road();
-    set_player(playerCarSelect);
-    player.isPolice = is_police;
-    if (is_police) {
-        police_function(car_name);
-    }
-    setScreen();
-    eS.play();
-    document.querySelector('.slider-down').style.top = '-110%';
-    document.querySelector('#slider').style.top = '-110%';
-    document.querySelector('#status_bar').style.top = '-110%';
-    document.querySelector('#timer').style.color = 'orange';
-    setTimeout(start, 500);
-    sessionStorage.setItem('last down slider', `slider-down-${car_name}`);
-    sessionStorage.setItem('current car', car_num);
-    document.querySelector('#car_characteristics').style.bottom = '-35%';
-    player.image.src = `./images/Smooth_models/${car_num}.png`;
-    if (game_type == 'multi') {
-        let car_count = cars_params[car_name]["car_nums"].length;
-        if (car_count == 2) car_number = 2;
-        else car_number = getRandomIntInclusive(1, car_count);
-        let str = car_num;
-        str = str.slice(0, -1);
-        player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
+    if (!isStarted) {
+        isStarted = true;
+        set_road();
+        set_player(playerCarSelect);
+        player.isPolice = is_police;
+        if (is_police) {
+            police_function(car_name);
+        }
+        setScreen();
+        eS.play();
+        document.querySelector('.slider-down').style.top = '-110%';
+        document.querySelector('#slider').style.top = '-110%';
+        document.querySelector('#status_bar').style.top = '-110%';
+        document.querySelector('#timer').style.color = 'orange';
+        setTimeout(start, 500);
+        sessionStorage.setItem('last down slider', `slider-down-${car_name}`);
+        sessionStorage.setItem('current car', car_num);
+        document.querySelector('#car_characteristics').style.bottom = '-35%';
+        player.image.src = `./images/Smooth_models/${car_num}.png`;
+        if (game_type == 'multi') {
+            let car_count = cars_params[car_name]["car_nums"].length;
+            if (car_count == 2) car_number = 2;
+            else car_number = getRandomIntInclusive(1, car_count);
+            let str = car_num;
+            str = str.slice(0, -1);
+            player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
+        }
     }
 }
 
@@ -1450,18 +1456,17 @@ function set_slider(car_name = cars_logos[0]['key']) {
         is_police = this.dataset.is_police;
         is_police == 'true' ? is_police = true : is_police = false;
         $("#game_types").addClass('active');
-        $("#game_types div").on("click", function(){
+        $("#game_types #close").on("click", function(){
+            $("#game_types").removeClass('active');
+        })
+        $(".game_types-select").on("click", function(){
             game_type = this.dataset['game_type'];
             if (game_type) {
                 game_start(car_name, alt, is_police);
                 $("#game_types").removeClass('active');
-                $("#game_types div").off("click");
+                $(".game_types-select").off("click");
             }
         })
     });
-
-    $("#game_types #close").on("click", function(){
-        $("#game_types").removeClass('active');
-    })
 }
 
