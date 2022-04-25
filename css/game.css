@@ -728,14 +728,33 @@ img {
     align-items: center;
     background: rgba(0, 0, 0, 0.75);
     border-radius: 15px;
-    padding: 25px 0;
+    padding: 25px;
     z-index: 5;
     transition: .5s ease-in-out;
+    box-sizing: border-box;
 }
 
 #game_types.active {
     top: 50%;
     transform: translateY(-50%) translateX(-50%);
+}
+
+#game_types #close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-image: url(../images/icons/close.webp);
+    background-size: contain;
+    margin: 15px;
+    filter: opacity(.5) brightness(.5);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+#game_types #close:hover {
+    filter: opacity(1) brightness(1);
 }
 
 #game_types div {
@@ -885,6 +904,12 @@ img {
     #car_characteristics .progress {
         height: 20px;
         width: 400px;
+    }
+}
+
+@media (max-width: 1280px) and (orientation: portrait) {
+    #game_types div:last-child {
+        display: none;
     }
 }
 

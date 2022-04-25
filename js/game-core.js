@@ -1458,10 +1458,16 @@ function set_slider(car_name = cars_logos[0]['key']) {
         $("#game_types").addClass('active');
         $("#game_types div").on("click", function(){
             game_type = this.dataset['game_type'];
-            game_start(car_name, alt, is_police);
-            $("#game_types").removeClass('active');
-            $("#game_types div").off("click");
+            if (game_type) {
+                game_start(car_name, alt, is_police);
+                $("#game_types").removeClass('active');
+                $("#game_types div").off("click");
+            }
         })
     });
+
+    $("#game_types #close").on("click", function(){
+        $("#game_types").removeClass('active');
+    })
 }
 
