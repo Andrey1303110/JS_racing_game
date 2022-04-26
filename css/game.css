@@ -458,6 +458,13 @@ img {
 
 #car_buy img {
     width: 128px;
+    opacity: .75;
+    transition: .3s ease-in-out;
+}
+
+#car_buy img:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 #lock_cars:active {
