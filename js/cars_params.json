@@ -465,7 +465,7 @@
   },
   "scania": {
     "price": 30000,
-    "speed": 6,
+    "speed": 7.25,
     "turn_var": 55,
     "is_3d": true,
     "frames": 25,
