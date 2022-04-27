@@ -49,16 +49,13 @@ function play_music(number, isRandom) {
     if (!isRandom) number = number;
     else number = getRandomIntInclusive(0, musics.length - 4);
     for (let i = 0; i < musics.length; i++) {
-        if ( musics[i].currentTime > 0) {
-            musics[i].pause();
-            musics[i].currentTime = 0;
-        }
+        musics[i].pause();
+        musics[i].currentTime = 0;
     }
     musics[number].play();
     singer = musics[number].dataset.singer;
-    console.log(singer);
     song_name = musics[number].dataset.name;
-    console.log(song_name);
+    console.log(singer + ' ' + song_name);
 }
 
 function setName() {
@@ -863,7 +860,12 @@ function game_start(car_name, car_num, is_police) {
         if (game_type == 'multi') {
             let car_count = cars_params[car_name]["car_nums"].length;
             if (car_count == 2) car_number = 2;
-            else car_number = getRandomIntInclusive(1, car_count);
+            else {
+                car_number = getRandomIntInclusive(1, car_count);
+                if (car_number == car_num.split("_")[1]) {
+                    car_number = getRandomIntInclusive(1, car_count);
+                }
+            }
             let str = car_num;
             str = str.slice(0, -1);
             player2.image.src = `./images/Smooth_models/${str}${car_number}.png`;
