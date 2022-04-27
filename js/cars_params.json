@@ -463,6 +463,25 @@
     ],
     "is_police": false
   },
+  "bogdan": {
+    "price": 25000,
+    "speed": 8,
+    "turn_var": 50,
+    "is_3d": true,
+    "frames": 50,
+    "init_frame": 3,
+    "colors": [
+      "yellow"
+    ],
+    "codeColors": [
+      "#9D911F"
+    ],
+    "car_nums": [
+      "1",
+      "2"
+    ],
+    "is_police": false
+  },
   "scania": {
     "price": 30000,
     "speed": 7.25,
