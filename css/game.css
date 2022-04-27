@@ -270,7 +270,7 @@ img {
     display: flex;
     flex-direction: column;
     transition: all .65s ease-in-out;
-    border-radius: 5%;
+    border-radius: 12px;
 }
 
 #menu input {
@@ -284,6 +284,7 @@ img {
     transition: all .25s ease-in-out;
     cursor: pointer;
     border-width: 0;
+    border-radius: 5px;
 }
 
 #resume_button.hide_button,
