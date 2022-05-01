@@ -1484,8 +1484,9 @@ function set_slider(car_name = cars_logos[0]['key']) {
             document.querySelector('.cars_img').dataset['is_police'] = this.dataset.is_police
             let frames = cars_params[car_name]["frames"];
             let i = last_i;
+            window.innerWidth <= 570 ? scale_cof = window.innerWidth / 570 : scale_cof = 1;
             if (i <= 0) i = frames - (i * -1);
-            let position = car_image_width * - (frames - i) + 'px';
+            let position = scale_cof * car_image_width * - (frames - i) + 'px';
             $('.cars_img').css('left', position);
         }
     });
