@@ -421,7 +421,12 @@ function start(sec) {
             if (scoreTimer.length != 0) {
                 $("#timer")[0].innerText = Number($("#timer")[0].innerText);
             }
-            sec = Math.round(sec + speed / 10);
+            if (game_type == 'reverse') {
+                sec = Math.round(sec + speed / 5);
+            }
+            else {
+                sec = Math.round(sec + speed / 10);
+            }
             $("#timer")[0].innerText = sec;
         }
     }
