@@ -1,7 +1,7 @@
 {
   "slavuta": {
     "price": 0,
-    "speed": 8.5,
+    "speed": 7,
     "turn_var": 41,
     "is_3d": true,
     "frames": 50,
@@ -20,7 +20,7 @@
   },
   "laguna": {
     "price": 3500,
-    "speed": 9.7,
+    "speed": 7.7,
     "turn_var": 43,
     "is_3d": true,
     "frames": 50,
@@ -39,7 +39,7 @@
   },
   "vaz2113": {
     "price": 3500,
-    "speed": 9,
+    "speed": 7.4,
     "turn_var": 39,
     "is_3d": true,
     "frames": 25,
@@ -60,7 +60,7 @@
   },
   "doblo": {
     "price": 4000,
-    "speed": 9,
+    "speed": 7,
     "turn_var": 38,
     "is_3d": true,
     "frames": 36,
@@ -79,7 +79,7 @@
   },
   "celica": {
     "price": 5000,
-    "speed": 10.5,
+    "speed": 8.4,
     "turn_var": 38,
     "is_3d": true,
     "frames": 25,
@@ -98,7 +98,7 @@
   },
   "uaz": {
     "price": 5500,
-    "speed": 8,
+    "speed": 6.6,
     "turn_var": 44,
     "is_3d": true,
     "frames": 50,
@@ -121,7 +121,7 @@
   },
   "passat": {
     "price": 6000,
-    "speed": 10.75,
+    "speed": 8.8,
     "turn_var": 38,
     "is_3d": true,
     "frames": 50,
@@ -141,7 +141,7 @@
   },
   "golf": {
     "price": 6500,
-    "speed": 11.5,
+    "speed": 9.2,
     "turn_var": 38,
     "is_3d": true,
     "frames": 24,
@@ -160,7 +160,7 @@
   },
   "leon": {
     "price": 7500,
-    "speed": 10.25,
+    "speed": 8.25,
     "turn_var": 35,
     "is_3d": true,
     "frames": 25,
@@ -189,7 +189,7 @@
   },
   "camry": {
     "price": 12000,
-    "speed": 13.5,
+    "speed": 10.8,
     "turn_var": 40,
     "is_3d": true,
     "frames": 25,
@@ -208,7 +208,7 @@
   },
   "a1": {
     "price": 13000,
-    "speed": 10,
+    "speed": 8,
     "turn_var": 33,
     "is_3d": true,
     "frames": 24,
@@ -230,7 +230,7 @@
   },
   "superb": {
     "price": 14000,
-    "speed": 12,
+    "speed": 9.5,
     "turn_var": 39,
     "is_3d": true,
     "frames": 25,
@@ -249,7 +249,7 @@
   },
   "mazda": {
     "price": 16000,
-    "speed": 14,
+    "speed": 11.15,
     "turn_var": 35,
     "is_3d": true,
     "frames": 25,
@@ -268,7 +268,7 @@
   },
   "new_leon": {
     "price": 17500,
-    "speed": 11.45,
+    "speed": 9.2,
     "turn_var": 33,
     "is_3d": true,
     "frames": 23,
@@ -289,7 +289,7 @@
   },
   "superb3": {
     "price": 18500,
-    "speed": 13.2,
+    "speed": 10.8,
     "turn_var": 37.75,
     "is_3d": true,
     "frames": 50,
@@ -308,7 +308,7 @@
   },
   "fj": {
     "price": 25000,
-    "speed": 11.5,
+    "speed": 9.4,
     "turn_var": 40,
     "is_3d": true,
     "frames": 49,
@@ -331,7 +331,7 @@
   },
   "bogdan": {
     "price": 27500,
-    "speed": 8,
+    "speed": 6.5,
     "turn_var": 50,
     "is_3d": true,
     "frames": 50,
@@ -350,7 +350,7 @@
   },
   "scania": {
     "price": 32500,
-    "speed": 7.25,
+    "speed": 6.75,
     "turn_var": 55,
     "is_3d": true,
     "frames": 25,
@@ -372,7 +372,7 @@
   },
   "touareg": {
     "price": 35000,
-    "speed": 12.5,
+    "speed": 10,
     "turn_var": 40,
     "is_3d": true,
     "frames": 24,
@@ -394,7 +394,7 @@
   },
   "volvo": {
     "price": 38000,
-    "speed": 12,
+    "speed": 9.75,
     "turn_var": 41,
     "is_3d": true,
     "frames": 25,
@@ -417,7 +417,7 @@
   },
   "prius": {
     "price": 42500,
-    "speed": 10.95,
+    "speed": 8.9,
     "turn_var": 35,
     "is_3d": true,
     "frames": 1,
@@ -445,7 +445,7 @@
   },
   "land_cruiser": {
     "price": 45000,
-    "speed": 12,
+    "speed": 10.15,
     "turn_var": 42,
     "is_3d": true,
     "frames": 25,
@@ -466,7 +466,7 @@
   },
   "polestar": {
     "price": 51000,
-    "speed": 13.2,
+    "speed": 10.6,
     "turn_var": 34,
     "is_3d": true,
     "frames": 71,
@@ -485,8 +485,8 @@
     "is_police": false
   },
   "panamera": {
-    "price": 55000,
-    "speed": 13.25,
+    "price": 64500,
+    "speed": 10.8,
     "turn_var": 31,
     "is_3d": true,
     "frames": 12,
@@ -509,8 +509,8 @@
     "is_police": false
   },
   "tesla": {
-    "price": 58000,
-    "speed": 13.775,
+    "price": 71000,
+    "speed": 11.1,
     "turn_var": 31,
     "is_3d": true,
     "frames": 72,
@@ -530,8 +530,8 @@
     "is_police": false
   },
   "gtr": {
-    "price": 65000,
-    "speed": 15,
+    "price": 83500,
+    "speed": 12,
     "turn_var": 29,
     "is_3d": true,
     "frames": 12,
@@ -553,9 +553,9 @@
     "is_police": false
   },
   "xl1": {
-    "price": 85000,
-    "speed": 11,
-    "turn_var": 32,
+    "price": 92000,
+    "speed": 10.75,
+    "turn_var": 28,
     "is_3d": true,
     "frames": 50,
     "init_frame": 4,
@@ -574,8 +574,8 @@
     "is_police": false
   },
   "i8": {
-    "price": 90000,
-    "speed": 14.5,
+    "price": 107000,
+    "speed": 11.15,
     "turn_var": 27,
     "is_3d": true,
     "frames": 23,
@@ -600,8 +600,8 @@
     "is_police": false
   },
   "r1": {
-    "price": 105000,
-    "speed": 17,
+    "price": 112500,
+    "speed": 11.9,
     "turn_var": 29,
     "is_3d": true,
     "frames": 25,
@@ -623,8 +623,8 @@
   },
   "bmw_x5": {
     "price": 125000,
-    "speed": 15.675,
-    "turn_var": 28,
+    "speed": 11.65,
+    "turn_var": 27.5,
     "is_3d": true,
     "frames": 35,
     "init_frame": 33,
@@ -643,7 +643,7 @@
   },
   "enzo": {
     "price": 255000,
-    "speed": 17.55,
+    "speed": 12.25,
     "turn_var": 24,
     "is_3d": true,
     "frames": 23,
@@ -664,7 +664,7 @@
   },
   "urus": {
     "price": 500000,
-    "speed": 19.25,
+    "speed": 13.25,
     "turn_var": 28,
     "is_3d": true,
     "frames": 12,
@@ -685,7 +685,7 @@
   },
   "f1": {
     "price": 1150000,
-    "speed": 18,
+    "speed": 12.5,
     "turn_var": 19.75,
     "is_3d": true,
     "frames": 35,
@@ -705,7 +705,7 @@
   },
   "buggati": {
     "price": 1350000,
-    "speed": 20.5,
+    "speed": 13.73,
     "turn_var": 26,
     "is_3d": true,
     "frames": 12,
@@ -728,7 +728,7 @@
   },
   "polo": {
     "price": 1550000,
-    "speed": 16.25,
+    "speed": 11.4,
     "turn_var": 23.85,
     "is_3d": true,
     "frames": 50,
@@ -746,7 +746,7 @@
   },
   "fiesta": {
     "price": 1850000,
-    "speed": 17.85,
+    "speed": 11.85,
     "turn_var": 22.15,
     "is_3d": true,
     "frames": 50,
@@ -764,7 +764,7 @@
   },
   "cupra": {
     "price": 2150000,
-    "speed": 19.85,
+    "speed": 13.25,
     "turn_var": 19.15,
     "is_3d": true,
     "frames": 72,
