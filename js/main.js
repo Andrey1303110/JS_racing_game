@@ -6,7 +6,7 @@ const sound_on = document.getElementById('sound_on');
 const sound_off = document.getElementById('sound_off');
 const main_theme = document.getElementById('main_theme');
 
-const UPDATE_TIME = 1000 / 90;
+const UPDATE_TIME = 1000 / 95;
 var timer = null;
 var canvas = document.getElementById("canvas"); //получем Canvas из DOM
 var ctx = canvas.getContext("2d"); //получаем внутренность Canvas для работы с ним
@@ -381,7 +381,7 @@ function start(sec) {
         $('#pause').css('opacity', '1').css("z-index", "2");
         $("#message_score").css("opacity", "0").css("z-index", "-1");
         if ($(".slick-slider").length) detach_content = $(".slick-slider").detach();
-        timerScore = setInterval(tick, UPDATE_TIME*2);
+        timerScore = setInterval(tick, UPDATE_TIME * 3);
         if (scoreTimer.length != 0) {
             sec = scoreTimer[scoreTimer.length - 1] * 1;
         }
@@ -421,11 +421,12 @@ function start(sec) {
             if (scoreTimer.length != 0) {
                 $("#timer")[0].innerText = Number($("#timer")[0].innerText);
             }
+
             if (game_type == 'reverse') {
-                sec = Math.round(sec + speed / 5);
+                sec = Math.round(sec + Math.pow(speed, 2) / 10);
             }
             else {
-                sec = Math.round(sec + speed / 10);
+                sec = Math.round(sec + Math.pow(speed, 2) / 20);
             }
             $("#timer")[0].innerText = sec;
         }
@@ -673,23 +674,23 @@ function drawCar(car) {
     }
 }
 
-function turn_car(direction, object, speed) {
+function turn_car(direction, object) {
     let coefficient;
     direction == 'left' ? coefficient = -1 : coefficient = 1;
     if (object == player || object == player2) document.getElementById(`sound_wheel_${direction}`).play();
 
     if (!object.turning) {
         let x = 0; 
-        let one_move = (canvas.width - 4) / 5;
+        let one_move = (canvas.width - 4) / 10;
         let turn = setInterval(() => {
             object.move("x", one_move/100 * coefficient * 1.5);
             x++;
             object.turning = true;
-            if (x >= 10) {
+            if (x >= 20) {
                 clearInterval(turn);
                 object.turning = false;
             }
-        }, turn_var);
+        }, turn_var/2);
     }
 }
 
@@ -698,19 +699,19 @@ function KeyDown(e) {
         if (game_type == 'multi') {
             switch (e.keyCode) {
                 case 37: //Left
-                    turn_car('left', player, speed);
+                    turn_car('left', player);
                     break;
 
                 case 65: //Left
-                    turn_car('left', player2, speed);
+                    turn_car('left', player2);
                     break;
 
                 case 39: //Right
-                    turn_car('right', player, speed);
+                    turn_car('right', player);
                     break;
 
                 case 68: //Right
-                    turn_car('right', player2, speed);
+                    turn_car('right', player2);
                     break;
 
                 case 38: //Up
@@ -761,19 +762,19 @@ function KeyDown(e) {
         else {
             switch (e.keyCode) {
                 case 37: //Left
-                    turn_car('left', player, speed);
+                    turn_car('left', player);
                     break;
 
                 case 65: //left
-                    turn_car('left', player, speed);
+                    turn_car('left', player);
                     break;
 
                 case 39: //Right
-                    turn_car('right', player, speed);
+                    turn_car('right', player);
                     break;
 
                 case 68: //Right
-                    turn_car('right', player, speed);
+                    turn_car('right', player);
                     break;
 
                 case 38: //Up
@@ -1042,11 +1043,11 @@ pervue_start.onclick = () => {
 }
 
 $('#mobile_controls_right').click(function () {
-    turn_car('right', player, speed);
+    turn_car('right', player);
 });
 
 $('#mobile_controls_left').click(function () {
-    turn_car('left', player, speed);
+    turn_car('left', player);
 });
 
 button_question.onclick = () => {
@@ -1321,11 +1322,11 @@ function sgu() {
                 if (objects[i].y > 0 && objects[i].y < player.y) {
                     if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                         objects[i].selfSpeed = 1.15;
-                        turn_car('left', objects[i], speed)
+                        turn_car('left', objects[i])
                     }
                     else if (objects[i].x < 340 && objects[i].x >= 0) {
                         objects[i].selfSpeed = 1.15;
-                        turn_car('right', objects[i], speed)
+                        turn_car('right', objects[i])
                     }
                 }
             }
@@ -1334,11 +1335,11 @@ function sgu() {
                     if (objects[i].y > 0 && objects[i].y < player2.y) {
                         if ((objects[i].x >= 340 && objects[i].x <= canvas.width) || (objects[i].x > 94 && objects[i].x < 98)) {
                             objects[i].selfSpeed = 1.15;
-                            turn_car('left', objects[i], speed)
+                            turn_car('left', objects[i])
                         }
                         else if (objects[i].x < 340 && objects[i].x >= 0) {
                             objects[i].selfSpeed = 1.15;
-                            turn_car('right', objects[i], speed)
+                            turn_car('right', objects[i])
                         }
                     }
                 }
