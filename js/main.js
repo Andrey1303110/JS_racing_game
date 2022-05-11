@@ -190,7 +190,6 @@ class Car {
         if (game_type == 'arcade') {
             if (this.isNotCar) {
                 if ((this.y < canvas.height) && ((this.y + this.image.height) > 0) && (player.x > 165 && player.x < 195)) {
-                    tram.currentTime = 0;
                     tram.play();
                 }
             }
