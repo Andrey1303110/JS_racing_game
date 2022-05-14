@@ -422,10 +422,15 @@ function start(sec) {
             }
 
             if (game_type == 'reverse') {
-                sec = Math.round(sec + Math.pow(speed, 2) / 10);
+                if (player.x < 100) {
+                    sec = Math.round(sec + Math.pow(speed, 2) / 24);
+                }
+                else {
+                    sec = Math.round(sec + Math.pow(speed, 2) / 32);
+                }
             }
             else {
-                sec = Math.round(sec + Math.pow(speed, 2) / 20);
+                sec = Math.round(sec + Math.pow(speed, 2) / 40);
             }
             $("#timer")[0].innerText = sec;
         }
