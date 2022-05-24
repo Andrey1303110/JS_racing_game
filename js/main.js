@@ -1250,6 +1250,9 @@ function locked_cars(car_name = cars_logos[0]['key']) {
                 set_cars_nums(car_name);
                 unlock();
             }, false);
+            document.querySelector("#car_buy").addEventListener('click', function(){
+                img.click();
+            })
         }
     }
 
