@@ -106,6 +106,7 @@ function set_cars_nums(car_name) {
     if (purchased_cars.indexOf("") >= 0) {
         purchased_cars.splice(purchased_cars.indexOf(""), 1);
     }
+    purchased_cars = [...new Set(purchased_cars)];
     localStorage.setItem('purchased_cars', purchased_cars);
     cars_nums.innerText = `${purchased_cars.length}/${cars_logos.length}`;
 }
@@ -1244,15 +1245,14 @@ function locked_cars(car_name = cars_logos[0]['key']) {
             document.querySelector("#car_buy").append(img);
             img.addEventListener('click', function(){
                 user_cash = Number(localStorage.getItem('cash'));
+                console.log('1248 ' + user_cash);
                 user_cash = user_cash - Number(this.dataset['price']);
+                console.log('1250 ' + user_cash);
                 live_counter(user_cash, 'balance', '-');
                 localStorage.setItem('cash', user_cash);
                 set_cars_nums(car_name);
                 unlock();
             }, false);
-            document.querySelector("#car_buy").addEventListener('click', function(){
-                img.click();
-            })
         }
     }
 
