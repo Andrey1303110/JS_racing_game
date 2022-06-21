@@ -458,7 +458,9 @@ img {
 }
 
 #car_buy img {
-    width: 128px;
+    height: 128px;
+    width: 100%;
+    object-fit: contain;
     opacity: .75;
     transition: .3s ease-in-out;
 }
